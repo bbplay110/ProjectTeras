@@ -5,8 +5,6 @@ using UnityEngine;
 public class Door : MonoBehaviour {
     public int EnemysInSencer=1;
     public GameObject senser;
-
-     
     public bool LaserDoor;
     private Animator Controller;
     public GameObject Tip;
