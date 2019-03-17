@@ -20,6 +20,8 @@ public class hurt : MonoBehaviour
     private bool CanHurt = true;
     public float TotalExtraShild = 0;
     public float ExtraShildRecover=1;
+    public float ExtraShildRecoverTime = 3;
+    private float CurrentShildRecoverTime;
     private float currentExtraShild;
     public Image ExtraShiledBar;
     public Image HpBar;
@@ -92,8 +94,9 @@ public class hurt : MonoBehaviour
         {
             hurt = 0;
         }
-        if (CanHurt && currentExtraShild >= 0)
+        if (CanHurt && CurrentExtraShild >= 0)
         {
+            CurrentExtraShild -= hurt;
 
         }
         else if (CanHurt&&currentExtraShild<=0)
