@@ -1,0 +1,170 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f66ab67005225c04e98f70452ca48165, type: 3}
+  m_Name: KeyBindings
+  m_EditorClassIdentifier: 
+  inputs:
+  - Name: jump
+    UniqueName: keyboardJump
+    Type: 0
+    Positive:
+      Primary: 32
+      Secondary: 0
+    Negative:
+      Primary: 0
+      Secondary: 0
+    targetController: 0
+    Axis: 0
+    Invert: 0
+    Sensitivity: 1
+    val: 0
+  - Name: Start
+    UniqueName: keyboardStart
+    Type: 0
+    Positive:
+      Primary: 27
+      Secondary: 0
+    Negative:
+      Primary: 0
+      Secondary: 0
+    targetController: 0
+    Axis: 0
+    Invert: 0
+    Sensitivity: 1
+    val: 0
+  - Name: Submit
+    UniqueName: keyboardSubmit
+    Type: 0
+    Positive:
+      Primary: 101
+      Secondary: 0
+    Negative:
+      Primary: 0
+      Secondary: 0
+    targetController: 0
+    Axis: 0
+    Invert: 0
+    Sensitivity: 1
+    val: 0
+  - Name: Fire1
+    UniqueName: keyboardFire1
+    Type: 0
+    Positive:
+      Primary: 323
+      Secondary: 0
+    Negative:
+      Primary: 0
+      Secondary: 0
+    targetController: 0
+    Axis: 0
+    Invert: 0
+    Sensitivity: 1
+    val: 0
+  - Name: Mouse X
+    UniqueName: 
+    Type: 1
+    Positive:
+      Primary: 0
+      Secondary: 0
+    Negative:
+      Primary: 0
+      Secondary: 0
+    targetController: 0
+    Axis: 0
+    Invert: 0
+    Sensitivity: 1
+    val: 0
+  - Name: Mouse Y
+    UniqueName: 
+    Type: 1
+    Positive:
+      Primary: 0
+      Secondary: 0
+    Negative:
+      Primary: 0
+      Secondary: 0
+    targetController: 0
+    Axis: 1
+    Invert: 1
+    Sensitivity: 1
+    val: 0
+  - Name: Mouse ScrollWheel
+    UniqueName: 
+    Type: 1
+    Positive:
+      Primary: 0
+      Secondary: 0
+    Negative:
+      Primary: 0
+      Secondary: 0
+    targetController: 0
+    Axis: 2
+    Invert: 0
+    Sensitivity: 1
+    val: 0
+  - Name: Horizontal
+    UniqueName: 
+    Type: 0
+    Positive:
+      Primary: 100
+      Secondary: 0
+    Negative:
+      Primary: 97
+      Secondary: 0
+    targetController: 0
+    Axis: 0
+    Invert: 0
+    Sensitivity: 2
+    val: 0
+  - Name: Vertical
+    UniqueName: 
+    Type: 0
+    Positive:
+      Primary: 119
+      Secondary: 0
+    Negative:
+      Primary: 115
+      Secondary: 0
+    targetController: 0
+    Axis: 0
+    Invert: 0
+    Sensitivity: 2
+    val: 0
+  - Name: Run
+    UniqueName: keyboardRun
+    Type: 0
+    Positive:
+      Primary: 304
+      Secondary: 0
+    Negative:
+      Primary: 0
+      Secondary: 0
+    targetController: 0
+    Axis: 0
+    Invert: 0
+    Sensitivity: 1
+    val: 0
+  - Name: Aim
+    UniqueName: 
+    Type: 0
+    Positive:
+      Primary: 324
+      Secondary: 0
+    Negative:
+      Primary: 0
+      Secondary: 0
+    targetController: 0
+    Axis: 0
+    Invert: 0
+    Sensitivity: 1
+    val: 0
+  rebindRemoveKey: 27
+  forceResetInEditor: 1

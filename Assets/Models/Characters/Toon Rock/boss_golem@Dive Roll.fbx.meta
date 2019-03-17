@@ -1,0 +1,468 @@
+fileFormatVersion: 2
+guid: 84adf208dc9e1964a9e2f6fad479e0d3
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Bip01
+    100002: Bip01 Footsteps
+    100004: Bip01 Head
+    100006: Bip01 HeadNub
+    100008: Bip01 L Calf
+    100010: Bip01 L Clavicle
+    100012: Bip01 L Finger0
+    100014: Bip01 L Finger0Nub
+    100016: Bip01 L Finger1
+    100018: Bip01 L Finger1Nub
+    100020: Bip01 L Finger2
+    100022: Bip01 L Finger2Nub
+    100024: Bip01 L Foot
+    100026: Bip01 L Forearm
+    100028: Bip01 L Hand
+    100030: Bip01 L Thigh
+    100032: Bip01 L Toe0
+    100034: Bip01 L Toe0Nub
+    100036: Bip01 L UpperArm
+    100038: Bip01 Neck
+    100040: Bip01 Pelvis
+    100042: Bip01 R Calf
+    100044: Bip01 R Clavicle
+    100046: Bip01 R Finger0
+    100048: Bip01 R Finger0Nub
+    100050: Bip01 R Finger1
+    100052: Bip01 R Finger1Nub
+    100054: Bip01 R Finger2
+    100056: Bip01 R Finger2Nub
+    100058: Bip01 R Foot
+    100060: Bip01 R Forearm
+    100062: Bip01 R Hand
+    100064: Bip01 R Thigh
+    100066: Bip01 R Toe0
+    100068: Bip01 R Toe0Nub
+    100070: Bip01 R UpperArm
+    100072: Bip01 Spine
+    100074: Bip01 Spine1
+    100076: //RootNode
+    100078: Dummy01
+    100080: Dummy02
+    100082: Dummy03
+    100084: Dummy04
+    100086: Dummy05
+    100088: Dummy06
+    100090: Dummy07
+    100092: Dummy08
+    100094: Dummy09
+    100096: Dummy10
+    100098: Dummy11
+    100100: Dummy12
+    100102: Dummy13
+    100104: Dummy14
+    100106: Dummy17
+    100108: Dummy18
+    100110: Dummy19
+    100112: Dummy20
+    100114: Dummy24
+    100116: Dummy25
+    100118: Dummy26
+    100120: Dummy27
+    100122: Dummy28
+    100124: Dummy31
+    100126: Dummy32
+    100128: Dummy35
+    100130: Dummy36
+    100132: Dummy37
+    100134: Dummy38
+    100136: Dummy39
+    100138: Dummy40
+    100140: Dummy41
+    100142: Dummy42
+    100144: Dummy43
+    100146: Dummy44
+    100148: Dummy45
+    100150: Dummy46
+    100152: Dummy47
+    100154: Dummy48
+    100156: Dummy_toe_L01
+    100158: Dummy_toe_L02
+    100160: Dummy_toe_L03
+    100162: Dummy_toe_R01
+    100164: Dummy_toe_R02
+    100166: Dummy_toe_R03
+    100168: mixamo:arm_l
+    100170: mixamo:arm_r
+    100172: mixamo:face
+    100174: mixamo:finger_l01
+    100176: mixamo:finger_l02
+    100178: mixamo:finger_r01
+    100180: mixamo:finger_r02
+    100182: mixamo:foot_l
+    100184: mixamo:foot_r
+    100186: mixamo:hand_l
+    100188: mixamo:hand_r
+    100190: mixamo:knee_l
+    100192: mixamo:knee_r
+    100194: mixamo:leg_l
+    100196: mixamo:reg_r
+    100198: mixamo:shoulder_l
+    100200: mixamo:shoulder_r
+    100202: mixamo:smallstone_l01
+    100204: mixamo:smallstone_l02
+    100206: mixamo:smallstone_l03
+    100208: mixamo:smallstone_l04
+    100210: mixamo:smallstone_r01
+    100212: mixamo:smallstone_r02
+    100214: mixamo:smallstone_r03
+    100216: mixamo:smallstone_r04
+    100218: mixamo:smallstone_r05
+    100220: mixamo:spine_01
+    100222: mixamo:spine_03
+    100224: mixamo:thumb_l
+    100226: mixamo:thumb_r
+    100228: mixamo:toe_l04
+    100230: mixamo:toe_l05
+    100232: mixamo:toe_l06
+    100234: mixamo:toe_r01
+    100236: mixamo:toe_r02
+    100238: mixamo:toe_r03
+    400000: Bip01
+    400002: Bip01 Footsteps
+    400004: Bip01 Head
+    400006: Bip01 HeadNub
+    400008: Bip01 L Calf
+    400010: Bip01 L Clavicle
+    400012: Bip01 L Finger0
+    400014: Bip01 L Finger0Nub
+    400016: Bip01 L Finger1
+    400018: Bip01 L Finger1Nub
+    400020: Bip01 L Finger2
+    400022: Bip01 L Finger2Nub
+    400024: Bip01 L Foot
+    400026: Bip01 L Forearm
+    400028: Bip01 L Hand
+    400030: Bip01 L Thigh
+    400032: Bip01 L Toe0
+    400034: Bip01 L Toe0Nub
+    400036: Bip01 L UpperArm
+    400038: Bip01 Neck
+    400040: Bip01 Pelvis
+    400042: Bip01 R Calf
+    400044: Bip01 R Clavicle
+    400046: Bip01 R Finger0
+    400048: Bip01 R Finger0Nub
+    400050: Bip01 R Finger1
+    400052: Bip01 R Finger1Nub
+    400054: Bip01 R Finger2
+    400056: Bip01 R Finger2Nub
+    400058: Bip01 R Foot
+    400060: Bip01 R Forearm
+    400062: Bip01 R Hand
+    400064: Bip01 R Thigh
+    400066: Bip01 R Toe0
+    400068: Bip01 R Toe0Nub
+    400070: Bip01 R UpperArm
+    400072: Bip01 Spine
+    400074: Bip01 Spine1
+    400076: //RootNode
+    400078: Dummy01
+    400080: Dummy02
+    400082: Dummy03
+    400084: Dummy04
+    400086: Dummy05
+    400088: Dummy06
+    400090: Dummy07
+    400092: Dummy08
+    400094: Dummy09
+    400096: Dummy10
+    400098: Dummy11
+    400100: Dummy12
+    400102: Dummy13
+    400104: Dummy14
+    400106: Dummy17
+    400108: Dummy18
+    400110: Dummy19
+    400112: Dummy20
+    400114: Dummy24
+    400116: Dummy25
+    400118: Dummy26
+    400120: Dummy27
+    400122: Dummy28
+    400124: Dummy31
+    400126: Dummy32
+    400128: Dummy35
+    400130: Dummy36
+    400132: Dummy37
+    400134: Dummy38
+    400136: Dummy39
+    400138: Dummy40
+    400140: Dummy41
+    400142: Dummy42
+    400144: Dummy43
+    400146: Dummy44
+    400148: Dummy45
+    400150: Dummy46
+    400152: Dummy47
+    400154: Dummy48
+    400156: Dummy_toe_L01
+    400158: Dummy_toe_L02
+    400160: Dummy_toe_L03
+    400162: Dummy_toe_R01
+    400164: Dummy_toe_R02
+    400166: Dummy_toe_R03
+    400168: mixamo:arm_l
+    400170: mixamo:arm_r
+    400172: mixamo:face
+    400174: mixamo:finger_l01
+    400176: mixamo:finger_l02
+    400178: mixamo:finger_r01
+    400180: mixamo:finger_r02
+    400182: mixamo:foot_l
+    400184: mixamo:foot_r
+    400186: mixamo:hand_l
+    400188: mixamo:hand_r
+    400190: mixamo:knee_l
+    400192: mixamo:knee_r
+    400194: mixamo:leg_l
+    400196: mixamo:reg_r
+    400198: mixamo:shoulder_l
+    400200: mixamo:shoulder_r
+    400202: mixamo:smallstone_l01
+    400204: mixamo:smallstone_l02
+    400206: mixamo:smallstone_l03
+    400208: mixamo:smallstone_l04
+    400210: mixamo:smallstone_r01
+    400212: mixamo:smallstone_r02
+    400214: mixamo:smallstone_r03
+    400216: mixamo:smallstone_r04
+    400218: mixamo:smallstone_r05
+    400220: mixamo:spine_01
+    400222: mixamo:spine_03
+    400224: mixamo:thumb_l
+    400226: mixamo:thumb_r
+    400228: mixamo:toe_l04
+    400230: mixamo:toe_l05
+    400232: mixamo:toe_l06
+    400234: mixamo:toe_r01
+    400236: mixamo:toe_r02
+    400238: mixamo:toe_r03
+    2300000: mixamo:arm_l
+    2300002: mixamo:arm_r
+    2300004: mixamo:face
+    2300006: mixamo:finger_l01
+    2300008: mixamo:finger_l02
+    2300010: mixamo:finger_r01
+    2300012: mixamo:finger_r02
+    2300014: mixamo:foot_l
+    2300016: mixamo:foot_r
+    2300018: mixamo:hand_l
+    2300020: mixamo:hand_r
+    2300022: mixamo:knee_l
+    2300024: mixamo:knee_r
+    2300026: mixamo:leg_l
+    2300028: mixamo:reg_r
+    2300030: mixamo:shoulder_l
+    2300032: mixamo:shoulder_r
+    2300034: mixamo:smallstone_l01
+    2300036: mixamo:smallstone_l02
+    2300038: mixamo:smallstone_l03
+    2300040: mixamo:smallstone_l04
+    2300042: mixamo:smallstone_r01
+    2300044: mixamo:smallstone_r02
+    2300046: mixamo:smallstone_r03
+    2300048: mixamo:smallstone_r04
+    2300050: mixamo:smallstone_r05
+    2300052: mixamo:spine_01
+    2300054: mixamo:spine_03
+    2300056: mixamo:thumb_l
+    2300058: mixamo:thumb_r
+    2300060: mixamo:toe_l04
+    2300062: mixamo:toe_l05
+    2300064: mixamo:toe_l06
+    2300066: mixamo:toe_r01
+    2300068: mixamo:toe_r02
+    2300070: mixamo:toe_r03
+    3300000: mixamo:arm_l
+    3300002: mixamo:arm_r
+    3300004: mixamo:face
+    3300006: mixamo:finger_l01
+    3300008: mixamo:finger_l02
+    3300010: mixamo:finger_r01
+    3300012: mixamo:finger_r02
+    3300014: mixamo:foot_l
+    3300016: mixamo:foot_r
+    3300018: mixamo:hand_l
+    3300020: mixamo:hand_r
+    3300022: mixamo:knee_l
+    3300024: mixamo:knee_r
+    3300026: mixamo:leg_l
+    3300028: mixamo:reg_r
+    3300030: mixamo:shoulder_l
+    3300032: mixamo:shoulder_r
+    3300034: mixamo:smallstone_l01
+    3300036: mixamo:smallstone_l02
+    3300038: mixamo:smallstone_l03
+    3300040: mixamo:smallstone_l04
+    3300042: mixamo:smallstone_r01
+    3300044: mixamo:smallstone_r02
+    3300046: mixamo:smallstone_r03
+    3300048: mixamo:smallstone_r04
+    3300050: mixamo:smallstone_r05
+    3300052: mixamo:spine_01
+    3300054: mixamo:spine_03
+    3300056: mixamo:thumb_l
+    3300058: mixamo:thumb_r
+    3300060: mixamo:toe_l04
+    3300062: mixamo:toe_l05
+    3300064: mixamo:toe_l06
+    3300066: mixamo:toe_r01
+    3300068: mixamo:toe_r02
+    3300070: mixamo:toe_r03
+    4300000: mixamo:face
+    4300002: mixamo:thumb_l
+    4300004: mixamo:hand_l
+    4300006: mixamo:smallstone_l04
+    4300008: mixamo:smallstone_l03
+    4300010: mixamo:finger_l01
+    4300012: mixamo:finger_l02
+    4300014: mixamo:arm_l
+    4300016: mixamo:shoulder_l
+    4300018: mixamo:smallstone_l01
+    4300020: mixamo:smallstone_l02
+    4300022: mixamo:thumb_r
+    4300024: mixamo:hand_r
+    4300026: mixamo:smallstone_r04
+    4300028: mixamo:smallstone_r03
+    4300030: mixamo:finger_r01
+    4300032: mixamo:finger_r02
+    4300034: mixamo:arm_r
+    4300036: mixamo:shoulder_r
+    4300038: mixamo:smallstone_r02
+    4300040: mixamo:smallstone_r05
+    4300042: mixamo:smallstone_r01
+    4300044: mixamo:spine_01
+    4300046: mixamo:foot_l
+    4300048: mixamo:toe_l06
+    4300050: mixamo:toe_l05
+    4300052: mixamo:toe_l04
+    4300054: mixamo:leg_l
+    4300056: mixamo:knee_l
+    4300058: mixamo:foot_r
+    4300060: mixamo:toe_r03
+    4300062: mixamo:toe_r02
+    4300064: mixamo:toe_r01
+    4300066: mixamo:knee_r
+    4300068: mixamo:reg_r
+    4300070: mixamo:spine_03
+    7400000: Dive Roll
+    9500000: //RootNode
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: Bip01
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Dive Roll
+      takeName: mixamo.com
+      firstFrame: 0
+      lastFrame: 19
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 1
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 0fd053b0bb4e3f64f9348aa052d23541,
+    type: 3}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

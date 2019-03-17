@@ -1,0 +1,806 @@
+fileFormatVersion: 2
+guid: 7857e877f94cc7f429464ed19b0ba8c3
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Group10
+    100002: Group11
+    100004: Group12
+    100006: Group13
+    100008: Group14
+    100010: Group15
+    100012: Group16
+    100014: Group17
+    100016: Group18
+    100018: Group19
+    100020: Group20
+    100022: Group21
+    100024: Group22
+    100026: Group23
+    100028: Group24
+    100030: Group25
+    100032: Group26
+    100034: Group27
+    100036: Group28
+    100038: Group29
+    100040: Group30
+    100042: Group31
+    100044: Group32
+    100046: Group33
+    100048: Group34
+    100050: Group35
+    100052: Group36
+    100054: Group37
+    100056: Group38
+    100058: Group39
+    100060: Group4
+    100062: Group40
+    100064: Group41
+    100066: Group42
+    100068: Group43
+    100070: Group44
+    100072: Group45
+    100074: Group46
+    100076: Group47
+    100078: Group48
+    100080: Group49
+    100082: Group5
+    100084: Group50
+    100086: Group51
+    100088: Group52
+    100090: Group53
+    100092: Group54
+    100094: Group55
+    100096: Group56
+    100098: Group57
+    100100: Group58
+    100102: Group59
+    100104: Group6
+    100106: Group60
+    100108: Group61
+    100110: Group62
+    100112: Group63
+    100114: Group64
+    100116: Group65
+    100118: Group66
+    100120: Group7
+    100122: Group8
+    100124: Group9
+    100126: //RootNode
+    100128: ZBrush_defualt_group
+    100130: ZSphere_0
+    400000: Group10
+    400002: Group11
+    400004: Group12
+    400006: Group13
+    400008: Group14
+    400010: Group15
+    400012: Group16
+    400014: Group17
+    400016: Group18
+    400018: Group19
+    400020: Group20
+    400022: Group21
+    400024: Group22
+    400026: Group23
+    400028: Group24
+    400030: Group25
+    400032: Group26
+    400034: Group27
+    400036: Group28
+    400038: Group29
+    400040: Group30
+    400042: Group31
+    400044: Group32
+    400046: Group33
+    400048: Group34
+    400050: Group35
+    400052: Group36
+    400054: Group37
+    400056: Group38
+    400058: Group39
+    400060: Group4
+    400062: Group40
+    400064: Group41
+    400066: Group42
+    400068: Group43
+    400070: Group44
+    400072: Group45
+    400074: Group46
+    400076: Group47
+    400078: Group48
+    400080: Group49
+    400082: Group5
+    400084: Group50
+    400086: Group51
+    400088: Group52
+    400090: Group53
+    400092: Group54
+    400094: Group55
+    400096: Group56
+    400098: Group57
+    400100: Group58
+    400102: Group59
+    400104: Group6
+    400106: Group60
+    400108: Group61
+    400110: Group62
+    400112: Group63
+    400114: Group64
+    400116: Group65
+    400118: Group66
+    400120: Group7
+    400122: Group8
+    400124: Group9
+    400126: //RootNode
+    400128: ZBrush_defualt_group
+    400130: ZSphere_0
+    2100000: Group10Mat
+    2100002: Group11Mat
+    2100004: Group12Mat
+    2100006: Group13Mat
+    2100008: Group14Mat
+    2100010: Group15Mat
+    2100012: Group16Mat
+    2100014: Group17Mat
+    2100016: Group18Mat
+    2100018: Group19Mat
+    2100020: Group20Mat
+    2100022: Group21Mat
+    2100024: Group22Mat
+    2100026: Group23Mat
+    2100028: Group24Mat
+    2100030: Group25Mat
+    2100032: Group26Mat
+    2100034: Group27Mat
+    2100036: Group28Mat
+    2100038: Group29Mat
+    2100040: Group30Mat
+    2100042: Group31Mat
+    2100044: Group32Mat
+    2100046: Group33Mat
+    2100048: Group34Mat
+    2100050: Group35Mat
+    2100052: Group36Mat
+    2100054: Group37Mat
+    2100056: Group38Mat
+    2100058: Group39Mat
+    2100060: Group4Mat
+    2100062: Group40Mat
+    2100064: Group41Mat
+    2100066: Group42Mat
+    2100068: Group43Mat
+    2100070: Group44Mat
+    2100072: Group45Mat
+    2100074: Group46Mat
+    2100076: Group47Mat
+    2100078: Group48Mat
+    2100080: Group49Mat
+    2100082: Group5Mat
+    2100084: Group50Mat
+    2100086: Group51Mat
+    2100088: Group52Mat
+    2100090: Group53Mat
+    2100092: Group54Mat
+    2100094: Group55Mat
+    2100096: Group56Mat
+    2100098: Group57Mat
+    2100100: Group58Mat
+    2100102: Group59Mat
+    2100104: Group6Mat
+    2100106: Group60Mat
+    2100108: Group61Mat
+    2100110: Group62Mat
+    2100112: Group63Mat
+    2100114: Group64Mat
+    2100116: Group65Mat
+    2100118: Group66Mat
+    2100120: Group7Mat
+    2100122: Group8Mat
+    2100124: Group9Mat
+    2100126: ZBrush_defualt_groupMat
+    2100128: ZSphere_0Mat
+    2300000: Group10
+    2300002: Group11
+    2300004: Group12
+    2300006: Group13
+    2300008: Group14
+    2300010: Group15
+    2300012: Group16
+    2300014: Group17
+    2300016: Group18
+    2300018: Group19
+    2300020: Group20
+    2300022: Group21
+    2300024: Group22
+    2300026: Group23
+    2300028: Group24
+    2300030: Group25
+    2300032: Group26
+    2300034: Group27
+    2300036: Group28
+    2300038: Group29
+    2300040: Group30
+    2300042: Group31
+    2300044: Group32
+    2300046: Group33
+    2300048: Group34
+    2300050: Group35
+    2300052: Group36
+    2300054: Group37
+    2300056: Group38
+    2300058: Group39
+    2300060: Group4
+    2300062: Group40
+    2300064: Group41
+    2300066: Group42
+    2300068: Group43
+    2300070: Group44
+    2300072: Group45
+    2300074: Group46
+    2300076: Group47
+    2300078: Group48
+    2300080: Group49
+    2300082: Group5
+    2300084: Group50
+    2300086: Group51
+    2300088: Group52
+    2300090: Group53
+    2300092: Group54
+    2300094: Group55
+    2300096: Group56
+    2300098: Group57
+    2300100: Group58
+    2300102: Group59
+    2300104: Group6
+    2300106: Group60
+    2300108: Group61
+    2300110: Group62
+    2300112: Group63
+    2300114: Group64
+    2300116: Group65
+    2300118: Group66
+    2300120: Group7
+    2300122: Group8
+    2300124: Group9
+    2300126: ZBrush_defualt_group
+    2300128: ZSphere_0
+    3300000: Group10
+    3300002: Group11
+    3300004: Group12
+    3300006: Group13
+    3300008: Group14
+    3300010: Group15
+    3300012: Group16
+    3300014: Group17
+    3300016: Group18
+    3300018: Group19
+    3300020: Group20
+    3300022: Group21
+    3300024: Group22
+    3300026: Group23
+    3300028: Group24
+    3300030: Group25
+    3300032: Group26
+    3300034: Group27
+    3300036: Group28
+    3300038: Group29
+    3300040: Group30
+    3300042: Group31
+    3300044: Group32
+    3300046: Group33
+    3300048: Group34
+    3300050: Group35
+    3300052: Group36
+    3300054: Group37
+    3300056: Group38
+    3300058: Group39
+    3300060: Group4
+    3300062: Group40
+    3300064: Group41
+    3300066: Group42
+    3300068: Group43
+    3300070: Group44
+    3300072: Group45
+    3300074: Group46
+    3300076: Group47
+    3300078: Group48
+    3300080: Group49
+    3300082: Group5
+    3300084: Group50
+    3300086: Group51
+    3300088: Group52
+    3300090: Group53
+    3300092: Group54
+    3300094: Group55
+    3300096: Group56
+    3300098: Group57
+    3300100: Group58
+    3300102: Group59
+    3300104: Group6
+    3300106: Group60
+    3300108: Group61
+    3300110: Group62
+    3300112: Group63
+    3300114: Group64
+    3300116: Group65
+    3300118: Group66
+    3300120: Group7
+    3300122: Group8
+    3300124: Group9
+    3300126: ZBrush_defualt_group
+    3300128: ZSphere_0
+    4300000: Group10
+    4300002: Group11
+    4300004: Group12
+    4300006: Group13
+    4300008: Group14
+    4300010: Group15
+    4300012: Group16
+    4300014: Group17
+    4300016: Group18
+    4300018: Group19
+    4300020: Group20
+    4300022: Group21
+    4300024: Group22
+    4300026: Group23
+    4300028: Group24
+    4300030: Group25
+    4300032: Group26
+    4300034: Group27
+    4300036: Group28
+    4300038: Group29
+    4300040: Group30
+    4300042: Group31
+    4300044: Group32
+    4300046: Group33
+    4300048: Group34
+    4300050: Group35
+    4300052: Group36
+    4300054: Group37
+    4300056: Group38
+    4300058: Group39
+    4300060: Group4
+    4300062: Group40
+    4300064: Group41
+    4300066: Group42
+    4300068: Group43
+    4300070: Group44
+    4300072: Group45
+    4300074: Group46
+    4300076: Group47
+    4300078: Group48
+    4300080: Group49
+    4300082: Group5
+    4300084: Group50
+    4300086: Group51
+    4300088: Group52
+    4300090: Group53
+    4300092: Group54
+    4300094: Group55
+    4300096: Group56
+    4300098: Group57
+    4300100: Group58
+    4300102: Group59
+    4300104: Group6
+    4300106: Group60
+    4300108: Group61
+    4300110: Group62
+    4300112: Group63
+    4300114: Group64
+    4300116: Group65
+    4300118: Group66
+    4300120: Group7
+    4300122: Group8
+    4300124: Group9
+    4300126: ZBrush_defualt_group
+    4300128: ZSphere_0
+    2186277476908879412: ImportLogs
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group10Mat
+    second: {fileID: 2100000, guid: 15458d8fb11d44015bd27a5f0ce5c996, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group11Mat
+    second: {fileID: 2100000, guid: a6574c7aa061b496e9bb0cc24181bd5f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group12Mat
+    second: {fileID: 2100000, guid: c3326679cb7a9f947b028647add05f62, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group13Mat
+    second: {fileID: 2100000, guid: aab3c15ef7a6eab4882a5ff7243dc324, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group14Mat
+    second: {fileID: 2100000, guid: 70631931e2969ab4199998b85c7ada45, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group15Mat
+    second: {fileID: 2100000, guid: 7c4ed5f4a6e485e4f9c42bdaeb10580d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group16Mat
+    second: {fileID: 2100000, guid: 2279a187e7c156241ba3908ca0ae4c0c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group17Mat
+    second: {fileID: 2100000, guid: e754a02a754dbde4d80622ac1d3232fd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group18Mat
+    second: {fileID: 2100000, guid: 2717bdfd4cbbb1542ab68b6e3c41fcbf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group19Mat
+    second: {fileID: 2100000, guid: 3c13e13428602c847a3b57e72ab70b71, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group20Mat
+    second: {fileID: 2100000, guid: 76940bbff582aca419d942be623f3a4a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group21Mat
+    second: {fileID: 2100000, guid: d1e52326471f57f4eb9aab2d0826bbc8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group22Mat
+    second: {fileID: 2100000, guid: 37b982d960b05a84aa84a0c6410671b0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group23Mat
+    second: {fileID: 2100000, guid: cc9afab774b4b0445abaf2a8bcb29b95, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group24Mat
+    second: {fileID: 2100000, guid: 0dee879b702815844905369d5a7e8e3a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group25Mat
+    second: {fileID: 2100000, guid: 1990e23436fcdd04692db646b08b8a52, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group26Mat
+    second: {fileID: 2100000, guid: 6312dd466cfd4ea4784d21e9af54ffdb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group27Mat
+    second: {fileID: 2100000, guid: 0437003a1b7b1164c96c917b93453099, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group28Mat
+    second: {fileID: 2100000, guid: 51075a1d335d19f45a328f123127c761, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group29Mat
+    second: {fileID: 2100000, guid: a517018b3b540b24d8c824aa8bebf694, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group30Mat
+    second: {fileID: 2100000, guid: d5582c081b5c3b34187698894a1da81c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group31Mat
+    second: {fileID: 2100000, guid: 9369b53dce9d1674e81a3fa2a23f260d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group32Mat
+    second: {fileID: 2100000, guid: 1b682f72cfe3add4dbcfa69b694af9fa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group33Mat
+    second: {fileID: 2100000, guid: ffd94cf88a9ff6648a9951ae2091df79, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group34Mat
+    second: {fileID: 2100000, guid: 63f26bca679905049a9f6e6fbe73d320, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group35Mat
+    second: {fileID: 2100000, guid: 981a39586b88705418a98f4618411376, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group36Mat
+    second: {fileID: 2100000, guid: 17b7ebbdd068f0e4caf22c9ba3c257ab, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group37Mat
+    second: {fileID: 2100000, guid: 8fe6f35d35d83844f8593c9108868d20, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group38Mat
+    second: {fileID: 2100000, guid: 2851a9157bc2a3947a0236c539d58552, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group39Mat
+    second: {fileID: 2100000, guid: ee1c7143cd18c0e4cbbfe658b6e36b6e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group40Mat
+    second: {fileID: 2100000, guid: c40ee9e1032167c4bb35233977d1a481, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group41Mat
+    second: {fileID: 2100000, guid: 74c7030209361704693130b5a9766b16, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group42Mat
+    second: {fileID: 2100000, guid: 384f4ed285411844fbbc73ae1ec3aa19, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group43Mat
+    second: {fileID: 2100000, guid: 41cee26c03c7488448cabfdfc03fb29f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group44Mat
+    second: {fileID: 2100000, guid: 00e8a5d6081856a4d839117ef654671a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group45Mat
+    second: {fileID: 2100000, guid: 3a2774b69700e5345a50c264133ee8d8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group46Mat
+    second: {fileID: 2100000, guid: c581f7fd7e6551c40b892d2f89fceb88, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group47Mat
+    second: {fileID: 2100000, guid: c8f8ca007adad4a4d893e4fddc6b650b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group48Mat
+    second: {fileID: 2100000, guid: 787299fa1f831bc45bcbc015d78fd090, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group49Mat
+    second: {fileID: 2100000, guid: e4b34e737f5056a49bb5b1ad32dab008, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group4Mat
+    second: {fileID: 2100000, guid: 41e50a60e57350d479c249731c92dc7a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group50Mat
+    second: {fileID: 2100000, guid: 9ae6da6fa987fcb4e8a2bc6401431cb5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group51Mat
+    second: {fileID: 2100000, guid: 3a38611fde02d4e419a244037d216a46, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group52Mat
+    second: {fileID: 2100000, guid: ead9702ada77a404ba58100af6cfa06f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group53Mat
+    second: {fileID: 2100000, guid: 31dbfea99ad3ae34cbba8d6790de650d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group54Mat
+    second: {fileID: 2100000, guid: 2235328a7eeb6264a88acb69e694cd7a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group55Mat
+    second: {fileID: 2100000, guid: ba29e1cdd5509c24aa643a305ced781f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group56Mat
+    second: {fileID: 2100000, guid: 6dc4360000d5a5141b442fb670dd7165, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group57Mat
+    second: {fileID: 2100000, guid: e15eec0f3f62ec245ae4999568581c8e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group58Mat
+    second: {fileID: 2100000, guid: d8638b5a8735fcf4799f5b600aa6c880, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group59Mat
+    second: {fileID: 2100000, guid: a57bb7a341251954db582593f6d94279, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group5Mat
+    second: {fileID: 2100000, guid: fd4cfe737096347478e4565b0a3c775e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group60Mat
+    second: {fileID: 2100000, guid: aeb7c68a1fb87cf48962d83d83654df2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group61Mat
+    second: {fileID: 2100000, guid: 8b0165f7c9afe0b498af2ff122082457, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group62Mat
+    second: {fileID: 2100000, guid: dcdeac394189b434695d9a3fd545c592, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group63Mat
+    second: {fileID: 2100000, guid: 36af06051ec6e084cbeda2aa5b0c22ce, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group64Mat
+    second: {fileID: 2100000, guid: 99e43b2c0ecdd3e448b51c35d66f3cf4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group65Mat
+    second: {fileID: 2100000, guid: b057a91e100efef4b939af8114913f9b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group66Mat
+    second: {fileID: 2100000, guid: 6e830209778160247be83c93ab583d84, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group6Mat
+    second: {fileID: 2100000, guid: 5e2698043da84314c8a27ed37b6829bd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group7Mat
+    second: {fileID: 2100000, guid: 7f0680e108955f64a90fa710996bf9b8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group8Mat
+    second: {fileID: 2100000, guid: 8e9a28102d88e8c409c9b2af2f65d123, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group9Mat
+    second: {fileID: 2100000, guid: b588a386af93cea45a9812000d50ee1c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ZBrush_defualt_groupMat
+    second: {fileID: 2100000, guid: e5345cb0f73924e44aa323ca65b42696, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ZSphere_0Mat
+    second: {fileID: 2100000, guid: 78a32d41d2d88d84e83c0680d9d41396, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
