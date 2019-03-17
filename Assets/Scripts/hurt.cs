@@ -18,6 +18,10 @@ public class hurt : MonoBehaviour
     float HP;
     private bool Wined=false;
     private bool CanHurt = true;
+    public float TotalExtraShild = 0;
+    public float ExtraShildRecover=1;
+    private float currentExtraShild;
+    public Image ExtraShiledBar;
     public Image HpBar;
     public GameObject Win, Lose, mcamera=null;
     public bool needCleared;
@@ -39,6 +43,19 @@ public class hurt : MonoBehaviour
         }
     }
 
+    public float CurrentExtraShild
+    {
+        get
+        {
+            return currentExtraShild;
+        }
+
+        set
+        {
+            currentExtraShild = value;
+        }
+    }
+
     // Use this for initialization
     private void Awake()
     {
@@ -57,6 +74,7 @@ public class hurt : MonoBehaviour
             UI = GameObject.Find("Main-UI").transform;
         }
         HP1 = TotalHP;
+        CurrentExtraShild = TotalExtraShild;
     }
 
     // Update is called once per frame
@@ -74,15 +92,19 @@ public class hurt : MonoBehaviour
         {
             hurt = 0;
         }
+        if (CanHurt && currentExtraShild >= 0)
+        {
 
-        if (CanHurt)
+        }
+        else if (CanHurt&&currentExtraShild<=0)
         {
             HP1 -= hurt;
             Invoke("SetHurton", 0.3f);
             if (gameObject.tag == "Player"&&hurtArrow!=null&&HurtPosition!=null)
             {
                 if (HealthValue != null)
-                    HealthValue.text = (HP1 / TotalHP)*100+"%" ;
+                    
+                    HealthValue.text = Mathf.RoundToInt((HP1 / TotalHP)*100)+"%" ;
                  GameObject tmpHurtArrow= Instantiate(hurtArrow,UI);
                 float worldDeg = Vector2.SignedAngle(new Vector2(gameObject.GetComponent<Player>().cameraDir.forward.x, gameObject.GetComponent<Player>().cameraDir.forward.z),new Vector2( HurtPosition.position.x- gameObject.transform.position.x, HurtPosition.position.z - gameObject.transform.position.z));
                 //tmpHurtArrow.GetComponent<RectTransform>().position = new Vector3(0,0,0);
@@ -90,12 +112,17 @@ public class hurt : MonoBehaviour
                 Destroy(tmpHurtArrow, 0.5f);
             }
         }
+
         if (!trap) { 
             CanHurt = false;
             
         }
         if(HpBar!=null)
             HpBar.fillAmount = HP1 / TotalHP;
+        if (TotalExtraShild >= 0 && ExtraShiledBar != null)
+        {
+            ExtraShiledBar.fillAmount = currentExtraShild / TotalExtraShild;
+        }
         if (HP1<=0)
         {
 

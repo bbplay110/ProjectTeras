@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Door : MonoBehaviour {
     public int EnemysInSencer=1;
-    public GameObject senser;
+    //public GameObject senser;
     public bool LaserDoor;
     private Animator Controller;
     public GameObject Tip;
@@ -13,8 +13,8 @@ public class Door : MonoBehaviour {
     public bool BossDoor;
 	// Use this for initialization
 	void Start () {
-        if(senser!=null)
-            senser.GetComponent<MeshRenderer>().enabled = false;
+        /*if(senser!=null)
+            senser.GetComponent<MeshRenderer>().enabled = false;*/
 
         if (LaserDoor)
         {
@@ -25,11 +25,6 @@ public class Door : MonoBehaviour {
         Tip.SetActive(false);
         Controller = GetComponent<Animator>();
 	}
-    
-    /*private void OnTriggerEnter(Collider other)
-    {
-        
-    }*/
     private void OnTriggerStay(Collider other)
     {
         if (other.tag=="Player")
@@ -47,7 +42,11 @@ public class Door : MonoBehaviour {
         }
         
     }
-    
+    void open()
+    {
+        
+        Controller.SetTrigger("open");
+    }
     void check()
     {
         if (EnemysInSencer ==0)
