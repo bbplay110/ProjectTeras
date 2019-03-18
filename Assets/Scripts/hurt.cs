@@ -97,6 +97,10 @@ public class hurt : MonoBehaviour
         if (CanHurt && CurrentExtraShild >= 0)
         {
             CurrentExtraShild -= hurt;
+            if (TotalExtraShild >= 0 && ExtraShiledBar != null)
+            {
+                ExtraShiledBar.fillAmount = currentExtraShild / TotalExtraShild;
+            }
 
         }
         else if (CanHurt&&currentExtraShild<=0)
@@ -122,10 +126,6 @@ public class hurt : MonoBehaviour
         }
         if(HpBar!=null)
             HpBar.fillAmount = HP1 / TotalHP;
-        if (TotalExtraShild >= 0 && ExtraShiledBar != null)
-        {
-            ExtraShiledBar.fillAmount = currentExtraShild / TotalExtraShild;
-        }
         if (HP1<=0)
         {
 
