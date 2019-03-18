@@ -167,6 +167,7 @@ public class hurt : MonoBehaviour
             }
             else if (gameObject.tag == "Boss")
             {
+                //whateverSaeaegeageadzgszhsxdyj
                 if (GetComponent<Animator>() != null)
                 {
                     GetComponent<Animator>().SetTrigger("death");
