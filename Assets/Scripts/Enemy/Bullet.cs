@@ -16,7 +16,7 @@ public class Bullet : MonoBehaviour {
 	}
     private void Move()
     {
-        GetComponent<Rigidbody>().AddForce(-Vector3.forward*speed*Time.deltaTime);
+        GetComponent<Rigidbody>().AddForce(-Vector3.forward*10*speed*Time.deltaTime);
         //transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
     private void OnCollisionEnter(Collision hit)
@@ -34,6 +34,10 @@ public class Bullet : MonoBehaviour {
         {
             Destroy(gameObject);
 
+        }
+        else
+        {
+            //Destroy(gameObject);
         }
     }
 }
