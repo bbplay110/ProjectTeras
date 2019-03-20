@@ -16,7 +16,7 @@ public class shootingEnemy : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-        PlayerBody = GameObject.Find("Motoko_Kusanag_root").transform;
+        PlayerBody = GameObject.Find("Player_Body").transform;
         Player = GameObject.Find("Player");
         attackDist = GetComponent<NavMeshAgent> ().stoppingDistance;
 		viewDist = attackDist * 10;

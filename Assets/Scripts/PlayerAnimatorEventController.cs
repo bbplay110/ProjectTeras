@@ -6,12 +6,13 @@ public class PlayerAnimatorEventController : MonoBehaviour {
     private Animator animator;
     public GameObject parents;
     public Transform leftFoot, rightFoot;
+    public AudioClip[] sfx;
     // Use this for initialization
     void Start() {
         animator = GetComponent<Animator>();
         parents = transform.parent.gameObject;
     }
-    
+
     public void setJetOn() {
         if (parents.GetComponent<Player>().jet == 0)
         {
@@ -25,15 +26,15 @@ public class PlayerAnimatorEventController : MonoBehaviour {
     }
     public void fakeRootMotion(float Distance)
     {
-        
+
         float InputX = hInput.GetAxis("Horizontal");
         float InputY = hInput.GetAxis("Vertical");
-        float rotate = Mathf.Atan2(InputY,-InputX)*Mathf.Rad2Deg;
+        float rotate = Mathf.Atan2(InputY, -InputX) * Mathf.Rad2Deg;
         if (InputX != 0 && InputY != 0)
             iTween.RotateTo(gameObject, new Vector3(0, rotate - 90 + Camera.main.transform.eulerAngles.y, 0), 0.5f);
-        if(parents.GetComponent<CharacterController>().isGrounded)
+        if (parents.GetComponent<CharacterController>().isGrounded)
             iTween.MoveTo(parents, (transform.forward * Distance) + transform.position + new Vector3(0, 2.05f, 0), 0.5f);
-        
+
     }
     public void attackTriggerOn()
     {
@@ -43,7 +44,7 @@ public class PlayerAnimatorEventController : MonoBehaviour {
     {
         parents.GetComponent<Attacker>().instantiateFX(FX);
     }
-    public void shoot (){
+    public void shoot() {
         parents.GetComponent<shooter>().shoot();
     }
     public void setJetOff()
@@ -63,7 +64,16 @@ public class PlayerAnimatorEventController : MonoBehaviour {
     {
         parents.GetComponent<Player>().SetTurn(false);
         parents.GetComponent<Player>().setWalk(false);
-        
+
+    }
+    public void PlaySfx(int sfxIndex)
+    {
+        AudioSource sfxOuput = GetComponent<AudioSource>();
+        if (sfxIndex <= 2 && parents.GetComponent<CharacterController>().isGrounded)
+        {
+            sfxOuput.PlayOneShot(sfx[sfxIndex]);
+        }
+
     }
     // Update is called once per frame
     void Update () {

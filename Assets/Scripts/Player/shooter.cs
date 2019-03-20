@@ -62,8 +62,7 @@ public class shooter : MonoBehaviour  {
     void Start () {
         thingtoAim = GameObject.Find("ThingToAim");
 
-        thingtoAim.SetActive(false);
-	}
+  	}
     void DisableEffects()
     {
         gunLine.enabled = false;

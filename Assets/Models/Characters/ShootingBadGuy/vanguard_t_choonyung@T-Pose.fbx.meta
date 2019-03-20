@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 67dd6f02753655e4aa4e82e28acc3b8c
 ModelImporter:
-  serializedVersion: 22
+  serializedVersion: 23
   fileIDToRecycleName:
     100000: mixamorig:Head
     100002: mixamorig:HeadTop_End
@@ -147,7 +147,32 @@ ModelImporter:
     9500000: //RootNode
     13700000: vanguard_Mesh
     13700002: vanguard_visor
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: VanguardBodyMat
+    second: {fileID: 2100000, guid: e762c44202f8a72468f0e9051e48b5b2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Vanguard_VisorMat
+    second: {fileID: 2100000, guid: fa34e01832c14234d8c75aff4de5f1a1, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: vanguard_diffuse
+    second: {fileID: 2800000, guid: 9c96e446d65cd4d40a61a25d47c9c8fa, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: vanguard_normal
+    second: {fileID: 2800000, guid: 197d58a5a56535b42b5bce95ef9df348, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: vanguard_specular
+    second: {fileID: 2800000, guid: 0ac3928a2358ccc40a702e40798448ce, type: 3}
   materials:
     importMaterials: 1
     materialName: 0
@@ -198,6 +223,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0

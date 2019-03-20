@@ -1995,8 +1995,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1120840663081316}
-  m_LocalRotation: {x: -0.06339224, y: 0.029736724, z: -0.030528951, w: 0.9970783}
-  m_LocalPosition: {x: 0.0030393873, y: 1.0319799, z: 0.009477339}
+  m_LocalRotation: {x: -0.063392244, y: 0.029736664, z: -0.03052896, w: 0.9970783}
+  m_LocalPosition: {x: 0.00303894, y: 1.0319799, z: 0.009477093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4490742798587724}
@@ -2168,6 +2168,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DeathTime: 3
   TotalHP: 20
+  TotalExtraShild: 0
+  ExtraShildRecover: 1
+  ExtraShildRecoverTime: 3
+  ExtraShiledBar: {fileID: 0}
   HpBar: {fileID: 114858552724705396}
   Win: {fileID: 0}
   Lose: {fileID: 0}
@@ -2368,7 +2372,7 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: d75d696d84725264392b4cfa4948193b, type: 2}
+  - {fileID: 2100000, guid: e762c44202f8a72468f0e9051e48b5b2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2480,7 +2484,7 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 67dd6f02753655e4aa4e82e28acc3b8c, type: 3}
+  - {fileID: 2100000, guid: fa34e01832c14234d8c75aff4de5f1a1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -18,19 +18,21 @@ public class Bullet : MonoBehaviour {
     {
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
-    void OnTriggerEnter(Collider hit){
-		if (hit.tag=="Player"){
-			Destroy (gameObject);
-            GameObject playerBody=hit.GetComponent<Player>().Body;
-			playerBody.GetComponent<Animator> ().SetTrigger ("damage");
-			hit.GetComponent<hurt> ().damage (60f,false,gameObject.transform);
+    private void OnCollisionEnter(Collision hit)
+    {
+        if (hit.collider.tag == "Player")
+        {
+            Destroy(gameObject);
+            GameObject playerBody = hit.collider.GetComponent<Player>().Body;
+            playerBody.GetComponent<Animator>().SetTrigger("damage");
+            hit.collider.GetComponent<hurt>().damage(60f, false, gameObject.transform);
             //iTween.ShakePosition(Camera.main.gameObject, new Vector3(0, 0,0), 1.0f);
             Destroy(gameObject);
         }
-        else if(hit.gameObject.layer==LayerMask.GetMask("SceneObject")) {
+        else if (hit.gameObject.layer == LayerMask.GetMask("SceneObject"))
+        {
             Destroy(gameObject);
 
         }
-        
-	}
+    }
 }
