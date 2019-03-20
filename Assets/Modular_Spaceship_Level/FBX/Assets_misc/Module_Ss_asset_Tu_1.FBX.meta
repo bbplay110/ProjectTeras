@@ -1,9 +1,7 @@
 fileFormatVersion: 2
-guid: 59bfcca28e096514186a5a60069b9f3f
-timeCreated: 1527056676
-licenseType: Store
+guid: 7e2b9732a8401ac4db8a3630e306f7c5
 ModelImporter:
-  serializedVersion: 19
+  serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     100002: Module_Ss_asset_Tu_A
@@ -88,10 +86,47 @@ ModelImporter:
     6400016: Module_Ss_asset_Tu_X3
     6400018: Module_Ss_asset_Tu_Y
     9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_tub_A3
+    second: {fileID: 2100000, guid: 006eed45f9573e746bf3b324b4f7e4e3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_tub_a1
+    second: {fileID: 2100000, guid: c19dd0a1d6a758f429b62a367d0cecb4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_tub_a2
+    second: {fileID: 2100000, guid: 8e12c3564231aea478632e807e48b5ef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _mat_ass_tu2
+    second: {fileID: 2100000, guid: 152dc1eef75809040a3af5d3f0a15742, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _mat_ass_tu_au
+    second: {fileID: 2100000, guid: 0c42bd440f10b5f49ac7a4d28b1f3d6c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _mat_cl_A6
+    second: {fileID: 2100000, guid: b07faaa4cca5d0b468553de600581afd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _mat_col_A1
+    second: {fileID: 2100000, guid: 7c242cd786ecb2e4094f581e2b0de078, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -104,12 +139,15 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations: []
     isReadable: 1
   meshes:
@@ -117,22 +155,30 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 1
+    importVisibility: 0
     importBlendShapes: 0
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 0.0254
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
+    normalCalculationMode: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
