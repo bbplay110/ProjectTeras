@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 5b691281a0d90074493ec5dede9e4638
 ModelImporter:
-  serializedVersion: 22
+  serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
@@ -9,7 +9,12 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: polySurface169
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Scifi_Missile
+    second: {fileID: 2100000, guid: 5f6a4b7dd906a654da8df6c068e80049, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -60,6 +65,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
