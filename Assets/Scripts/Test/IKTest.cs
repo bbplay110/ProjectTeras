@@ -55,6 +55,6 @@ public class IKTest : MonoBehaviour {
         var c = BottonToTarget.magnitude;
 
         var B = Mathf.Acos((c * c + a * a - b * b) / (2 * c * a)) * Mathf.Rad2Deg;
-        var C= Mathf.Acos((a*a+b*b-c*c) / (2 * a * b)) * Mathf.Rad2Deg;
+        var C= Mathf.Acos((a*a+b*b-c*c) / (2 * a * b)) * Mathf.Rad2Deg; 
     }
 }
