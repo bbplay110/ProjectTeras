@@ -1655,7 +1655,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Firing Rifle
-  m_Speed: 1
+  m_Speed: 3
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101451107851559498}
@@ -1668,7 +1668,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: f7e65ccac7785144d80f85646d39eec3, type: 2}
+  m_Motion: {fileID: 7400000, guid: d33be609ec2616a478b5ce448e47c727, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1774,7 +1774,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: b57a4461a87947745bfa5544a567bde0, type: 3}
+  m_Motion: {fileID: 7400000, guid: 834baf23984cee7419b7a4b0e88b4671, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
