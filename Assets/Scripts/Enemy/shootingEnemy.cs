@@ -25,7 +25,7 @@ public class shootingEnemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        BulletPosition.transform.LookAt(Player.transform.position);
+        BulletPosition.transform.LookAt(PlayerBody.position);
         FindPlayer();
         
         ChackingSeePlayer();
@@ -66,7 +66,7 @@ public class shootingEnemy : MonoBehaviour {
     private void ChackingSeePlayer() {
         RaycastHit hit;
         eyeContect.origin = BulletPosition.transform.position;
-        eyeContect.direction = Player.transform.position-BulletPosition.transform.position;
+        eyeContect.direction = PlayerBody.position-BulletPosition.transform.position;
         //Debug.DrawLine(eyeContect.origin, eyeContect.GetPoint(viewDist),Color.red,viewDist,true);
         if(Physics.Raycast(eyeContect,out hit,viewDist)){
             if (hit.transform.gameObject.tag == "Player")
@@ -86,7 +86,8 @@ public class shootingEnemy : MonoBehaviour {
         GetComponent<NavMeshAgent>().isStopped = true;
     }
 	public void Shooting(){
-        Instantiate(Bullet,BulletPosition.transform.position,BulletPosition.transform.rotation);
+        GameObject tmpBullet=Instantiate(Bullet,BulletPosition.transform.position,BulletPosition.transform.rotation);
+        Physics.IgnoreCollision(tmpBullet.GetComponent<Collider>(),gameObject.GetComponent<Collider>());
 	}
     void Rotation(float iTarget)
     {

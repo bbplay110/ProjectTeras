@@ -153,7 +153,7 @@ public class hurt : MonoBehaviour
                 Destroy(gameObject, DeathTime);
                 if(GetComponent<Animator>() != null) { 
                 GetComponent<Animator>().SetTrigger("death");
-                GetComponent<CapsuleCollider>().enabled = false;
+                GetComponent<Collider>().enabled = false;
                 }
                 if(needCleared)
 
@@ -171,11 +171,11 @@ public class hurt : MonoBehaviour
                 if (GetComponent<Animator>() != null)
                 {
                     GetComponent<Animator>().SetTrigger("death");
-                    if(GetComponent<CapsuleCollider>()!=null)
-                    GetComponent<CapsuleCollider>().enabled = false;
+                    if(GetComponent<Collider>()!=null)
+                    GetComponent<Collider>().enabled = false;
                 }
-                if(GetComponent<CapsuleCollider>()!=null)
-                    GetComponent<CapsuleCollider>().enabled = false;
+                if(GetComponent<Collider>()!=null)
+                    GetComponent<Collider>().enabled = false;
                 if(Win!=null)
                     Win.SetActive(true);
                 Invoke("CloseBar", 1);
@@ -198,6 +198,7 @@ public class hurt : MonoBehaviour
     {
         Time.timeScale = 1;
         Win.SetActive(false);
+        GetComponent<SceneLoad>().LoadScene(GetComponent<SceneLoad>().scenes);
     }
 
     private void Restart()

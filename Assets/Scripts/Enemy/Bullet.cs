@@ -16,17 +16,17 @@ public class Bullet : MonoBehaviour {
 	}
     private void Move()
     {
-        GetComponent<Rigidbody>().AddForce(-Vector3.forward*10*speed*Time.deltaTime);
+        GetComponent<Rigidbody>().AddForce(transform.forward*40*speed*Time.deltaTime);
         //transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
-    private void OnCollisionEnter(Collision hit)
+    private void OnTriggerEnter(Collider hit)
     {
-        if (hit.collider.tag == "Player")
+        if (hit.tag == "Player")
         {
             Destroy(gameObject);
-            GameObject playerBody = hit.collider.GetComponent<Player>().Body;
+            GameObject playerBody = hit.GetComponent<Player>().Body;
             playerBody.GetComponent<Animator>().SetTrigger("damage");
-            hit.collider.GetComponent<hurt>().damage(60f, false, gameObject.transform);
+            hit.GetComponent<hurt>().damage(60f, false, gameObject.transform);
             //iTween.ShakePosition(Camera.main.gameObject, new Vector3(0, 0,0), 1.0f);
             Destroy(gameObject);
         }

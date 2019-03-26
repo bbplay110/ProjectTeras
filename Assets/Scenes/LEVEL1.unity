@@ -11989,6 +11989,18 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &778254250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 778254247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1b7762a8ea956428cc807ecf1ff235, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scenes: LEVEL2
 --- !u!4 &789296447 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4728466994409920, guid: 884d2471229851740b539fb09b44d8ee,
