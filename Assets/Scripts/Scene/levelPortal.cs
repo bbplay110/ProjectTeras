@@ -42,7 +42,7 @@ public class levelPortal : MonoBehaviour {
             tips.SetActive(true);
             if (hInput.GetButtonDown("Submit"))
             {
-                GetComponent<SceneLoad>().LoadScene(GetComponent<SceneLoad>().scenes);
+                GetComponent<SceneLoad>().nextScenes();
             }
         }
         else
