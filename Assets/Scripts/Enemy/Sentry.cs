@@ -72,10 +72,4 @@ public class Sentry : MonoBehaviour {
         Timer = ShootRate;
         Instantiate(Bullet,BulletPosition.transform.position,BulletPosition.transform.rotation);
 	}
-    void Rotation(float iTarget)
-    {
-        float roota = 0.0f;
-        float rootb = 0.05f;
-        transform.eulerAngles = new Vector3(0, Mathf.SmoothDampAngle(transform.eulerAngles.y, iTarget + 90,ref roota,rootb));
-    }
 }
