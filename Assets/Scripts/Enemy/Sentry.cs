@@ -5,18 +5,18 @@ using UnityEngine.AI;
 
 public class Sentry : MonoBehaviour {
     public GameObject SentryBody;
-	private GameObject Player;
+	protected GameObject Player;
 	public float viewDist;
 
-    private float Dis;
+    protected float Dis;
     public float ShootRate;
-    private float Timer;
+    protected float Timer;
     public GameObject Bullet;
 	public GameObject BulletPosition;
     public Transform PlayerBody;
-    private Ray eyeContect;
-    private bool See=false;
-    private bool Dead=false;
+    protected Ray eyeContect;
+    protected bool See=false;
+    protected bool Dead=false;
 	// Use this for initialization
 	void Start () {
         PlayerBody = GameObject.Find("Player_Body").transform;
@@ -25,18 +25,18 @@ public class Sentry : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        BulletPosition.transform.LookAt(Player.transform.position);
+       
         FindPlayer();
-        
         ChackingSeePlayer();
 	}
-    private void FindPlayer()
+    protected virtual void FindPlayer()
     {
+        BulletPosition.transform.LookAt(Player.transform.position);
         Dis = Vector3.Distance(Player.transform.position, transform.position);
         if (Dis < viewDist && !Dead&&See)
         {
             SentryBody.transform.LookAt(Player.transform.position);
-            Timer -= 0.5f;
+            Timer -= 1 * Time.deltaTime;
             if (Timer <= 0)
             {
                 Shooting();
@@ -47,7 +47,7 @@ public class Sentry : MonoBehaviour {
             Timer = ShootRate;
         }
     }
-    private void ChackingSeePlayer() {
+    protected virtual void ChackingSeePlayer() {
         RaycastHit hit;
         eyeContect.origin = BulletPosition.transform.position;
         eyeContect.direction = Player.transform.position-BulletPosition.transform.position;
@@ -68,7 +68,7 @@ public class Sentry : MonoBehaviour {
     {
         Dead = true;
     }
-	public void Shooting(){
+	public virtual void Shooting(){
         Timer = ShootRate;
         Instantiate(Bullet,BulletPosition.transform.position,BulletPosition.transform.rotation);
 	}
