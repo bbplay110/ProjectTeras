@@ -16,7 +16,7 @@ public class Boss : MonoBehaviour {
     // Use this for initialization
     private void Awake()
     {
-        PlayerCamera = GameObject.FindObjectOfType<Camera3rdControl>().target;
+        PlayerCamera = FindObjectOfType<Camera3rdControl>().target;
     }
     void Start () {
         BossAnimator = GetComponent<Animator>();
@@ -53,9 +53,10 @@ public class Boss : MonoBehaviour {
     void CameraControll()
     {
         if (CanControllCamera)
+        {
             PlayerCamera.position = ((Player.position + new Vector3(0, 2, 0)) + (transform.position + new Vector3(0, 50, 0))) / 2;
             FindObjectOfType<Camera3rdControl>().distence = Vector3.Distance(Player.position + new Vector3(0, 2, 0), transform.position + new Vector3(0, 50, 0)) + 8;
-
+        }
     }
     private void OnEnable()
     {
@@ -66,7 +67,23 @@ public class Boss : MonoBehaviour {
         
 
         CanControllCamera = true;
+
+        shooter.onAim += OnPlayerAim;
+        shooter.unAim += OnPlayerNotAim;
     }
+
+    void OnPlayerAim()
+    {
+        CanControllCamera = false;
+        PlayerCamera.localPosition = tmpCameraPoint;
+        FindObjectOfType<Camera3rdControl>().distence = 8;
+    }
+    void OnPlayerNotAim()
+    {
+        CanControllCamera = true;
+        PlayerCamera.position = ((Player.position + new Vector3(0, 2, 0)) + (transform.position + new Vector3(0, 50, 0))) / 2;
+    }
+
     private void OnDisable()
     {
         if (tmpCameraPoint != null)
@@ -74,5 +91,7 @@ public class Boss : MonoBehaviour {
         FindObjectOfType<Camera3rdControl>().maxDistence = 8;
         FindObjectOfType<Camera3rdControl>().distence = tmpCameraDistance;
 
+        shooter.onAim -= OnPlayerAim;
+        shooter.unAim -= OnPlayerNotAim;
     }
 }

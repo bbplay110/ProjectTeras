@@ -20,6 +20,11 @@ public class shooter : MonoBehaviour  {
     float timer;
     public Transform righthand;
     public GameObject thingtoAim;
+    public delegate void OnAim();
+    public static event OnAim onAim;
+
+    public delegate void UnAim();
+    public static event UnAim unAim;
     // Use this for initialization
     // Use this for initialization
     private void Awake()
@@ -80,8 +85,6 @@ public class shooter : MonoBehaviour  {
 
         if (hInput.GetButtonDown("Aim"))
         {
-
-            
             tmpDistance = mcamera.GetComponent<Camera3rdControl>().distence;
             GetComponent<Attacker>().enabled = false;
             GetComponent<Player>().Player1.SetLayerWeight(handLayerIndex, 1);
@@ -89,6 +92,8 @@ public class shooter : MonoBehaviour  {
             GetComponent<Player>().SetAim(true);
             isAimed = true;
             mcamera.GetComponent<Camera3rdControl>().distence = 3;
+            onAim();
+
         }
         else if (hInput.GetButton("Aim"))
         {
@@ -106,7 +111,9 @@ public class shooter : MonoBehaviour  {
             thingtoAim.SetActive(false);
             mcamera.GetComponent<Camera3rdControl>().distence = tmpDistance;
             isAimed = false;
+            
             GetComponent<Player>().SetAim(false);
+            unAim();
         }
 
     }
