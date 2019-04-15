@@ -92,7 +92,8 @@ public class shooter : MonoBehaviour  {
             GetComponent<Player>().SetAim(true);
             isAimed = true;
             mcamera.GetComponent<Camera3rdControl>().distence = 3;
-            onAim();
+            if(onAim!=null)
+                onAim();
 
         }
         else if (hInput.GetButton("Aim"))
@@ -113,7 +114,8 @@ public class shooter : MonoBehaviour  {
             isAimed = false;
             
             GetComponent<Player>().SetAim(false);
-            unAim();
+            if(unAim!=null)
+                unAim();
         }
 
     }

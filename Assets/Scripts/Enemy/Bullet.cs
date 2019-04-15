@@ -44,4 +44,25 @@ public class Bullet : MonoBehaviour {
             //Destroy(gameObject);
         }
     }
+    private void OnCollisionEnter(Collision hit)
+    {
+        if (hit.gameObject.tag == "Player")
+        {
+            Destroy(gameObject);
+            GameObject playerBody = hit.gameObject.GetComponent<Player>().Body;
+            playerBody.GetComponent<Animator>().SetTrigger("damage");
+            hit.gameObject.GetComponent<hurt>().damage(60f, false, gameObject.transform);
+            //iTween.ShakePosition(Camera.main.gameObject, new Vector3(0, 0,0), 1.0f);
+            Destroy(gameObject);
+        }
+        else if (hit.gameObject.layer == LayerMask.GetMask("SceneObject"))
+        {
+            Destroy(gameObject);
+
+        }
+        else
+        {
+            //Destroy(gameObject);
+        }
+    }
 }
