@@ -37,8 +37,8 @@ public class shooter : MonoBehaviour  {
         timer = 0;
         gunLine.enabled = true;
         gunLine.SetPosition(0,Gun.transform.position);
-        shootRay.origin = Gun.transform.position;
-        shootRay.direction = Gun.transform.forward;
+        //shootRay.origin = Gun.transform.position;
+        //shootRay.direction = Gun.transform.forward;
         if (Physics.Raycast(shootRay,out shootHit,range))
         {
             gunLine.SetPosition(1, shootHit.point);
@@ -98,10 +98,24 @@ public class shooter : MonoBehaviour  {
         }
         else if (hInput.GetButton("Aim"))
         {
+            Ray AimRay;
+
             shootRay.origin = Gun.transform.position;
-            shootRay.direction = Gun.transform.forward;
-            Physics.Raycast(shootRay, out AimHit, Mathf.Infinity);
-            thingtoAim.transform.position = Camera.main.WorldToScreenPoint(AimHit.point);
+            AimRay = Camera.main.ScreenPointToRay(new Vector3(Camera.main.pixelWidth / 2,Camera.main.pixelHeight / 2,0));
+            if(Physics.Raycast(shootRay, out AimHit, Mathf.Infinity))
+            {
+                shootRay.direction = AimHit.point - Gun.transform.position;
+                thingtoAim.transform.position = Camera.main.WorldToScreenPoint(AimHit.point);
+                Debug.DrawLine(AimRay.origin,AimHit.point,Color.blue);
+                Debug.Log("AimThing!");
+            }
+            else
+            {
+                Debug.Log("AimNoThing!");
+                shootRay.direction = Gun.transform.forward;
+            }
+            //Physics.Raycast(shootRay, out AimHit, Mathf.Infinity);
+            //thingtoAim.transform.position = Camera.main.WorldToScreenPoint(AimHit.point);
 
             //Debug.Log(AimHit.point);
         }
