@@ -103,7 +103,7 @@ public class shooter : MonoBehaviour  {
             Physics.Raycast(shootRay, out AimHit, Mathf.Infinity);
             thingtoAim.transform.position = Camera.main.WorldToScreenPoint(AimHit.point);
 
-            Debug.Log(AimHit.point);
+            //Debug.Log(AimHit.point);
         }
         else if (hInput.GetButtonUp("Aim"))
         {

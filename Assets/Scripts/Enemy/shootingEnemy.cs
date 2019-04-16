@@ -22,7 +22,7 @@ public class shootingEnemy : MonoBehaviour {
         PlayerBody = GameObject.Find("Player_Body").transform;
         Player = GameObject.Find("Player");
         attackDist = GetComponent<NavMeshAgent> ().stoppingDistance;
-		viewDist = attackDist * 10;
+		viewDist = attackDist * 2;
 		Ani = GetComponent<Animator>();
 	}
 	

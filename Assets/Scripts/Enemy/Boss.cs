@@ -94,4 +94,25 @@ public class Boss : MonoBehaviour {
         shooter.onAim -= OnPlayerAim;
         shooter.unAim -= OnPlayerNotAim;
     }
+    public void StartShake()
+    {
+        iTween.ShakePosition(gameObject,iTween.Hash("name","shake", "amount",new Vector3(5,5,5), "time",1f, "looptype",iTween.LoopType.pingPong,"easetype",iTween.EaseType.linear));
+        GetComponent<Collider>().enabled = false;
+        
+        iTween.MoveTo(gameObject,iTween.Hash("position",gameObject.transform.position-new Vector3(0,65,0),"time",4,"delay",1));
+
+
+        if (tmpCameraPoint != null)
+            PlayerCamera.localPosition = tmpCameraPoint;
+        FindObjectOfType<Camera3rdControl>().maxDistence = 8;
+        FindObjectOfType<Camera3rdControl>().distence = tmpCameraDistance;
+
+        shooter.unAim -= OnPlayerNotAim;
+    }
+    public void StopShake()
+    {
+        iTween.StopByName("shake");
+        GetComponent<Animator>().enabled = false;
+        
+    }
 }
