@@ -17,10 +17,7 @@ public class Bullet : MonoBehaviour {
 
     void Move()
     {
-        if (GetComponent<Rigidbody>() != null)
-            GetComponent<Rigidbody>().AddForce(transform.forward * 40 * speed * Time.deltaTime);
-        else
-            transform.Translate(transform.forward*speed*Time.deltaTime);
+        transform.Translate(transform.forward*speed*Time.deltaTime);
         //transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
     private void OnTriggerEnter(Collider hit)

@@ -18,7 +18,7 @@ public class shooter : MonoBehaviour  {
     public float timeBetweenBullet=0.15f;
     private float effectDisplay = 0.2f;
     float timer;
-    public Transform righthand;
+    //public Transform righthand;
     public GameObject thingtoAim;
     public delegate void OnAim();
     public static event OnAim onAim;
@@ -65,6 +65,7 @@ public class shooter : MonoBehaviour  {
     
 
     void Start () {
+        Debug.Log("MainCameraIs" + Camera.main.gameObject.name);    
         thingtoAim = GameObject.Find("ThingToAim");
 
   	}
@@ -98,20 +99,23 @@ public class shooter : MonoBehaviour  {
         }
         else if (hInput.GetButton("Aim"))
         {
-            Ray AimRay;
 
             shootRay.origin = Gun.transform.position;
-            AimRay = Camera.main.ScreenPointToRay(new Vector3(Camera.main.pixelWidth / 2,Camera.main.pixelHeight / 2,0));
-            if(Physics.Raycast(shootRay, out AimHit, Mathf.Infinity))
+            Ray AimRay = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+
+            //Gun.transform.position = righthand.position;
+            if (Physics.Raycast(AimRay, out AimHit, Mathf.Infinity))
             {
+
+                
                 shootRay.direction = AimHit.point - Gun.transform.position;
                 thingtoAim.transform.position = Camera.main.WorldToScreenPoint(AimHit.point);
                 Debug.DrawLine(AimRay.origin,AimHit.point,Color.blue);
-                Debug.Log("AimThing!");
+                //Debug.Log("AimThing!");
             }
             else
             {
-                Debug.Log("AimNoThing!");
+                //Debug.Log("AimNoThing!");
                 shootRay.direction = Gun.transform.forward;
             }
             //Physics.Raycast(shootRay, out AimHit, Mathf.Infinity);
@@ -119,6 +123,7 @@ public class shooter : MonoBehaviour  {
 
             //Debug.Log(AimHit.point);
         }
+
         else if (hInput.GetButtonUp("Aim"))
         {
             GetComponent<Attacker>().enabled = true;
@@ -138,7 +143,6 @@ public class shooter : MonoBehaviour  {
         aim();
         timer += Time.deltaTime;
         Gun.transform.rotation = mcamera.transform.rotation;
-        Gun.transform.position = righthand.position;
         if (hInput.GetButtonDown("Fire1")&&isAimed)
         {
             gameObject.GetComponent<Player>().Player1.SetBool("Fire", true);

@@ -8687,7 +8687,7 @@ Prefab:
     - target: {fileID: 114689194611877446, guid: f20de06ff502e014e83196e782cb1374,
         type: 2}
       propertyPath: TotalHP
-      value: 9999999
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 143359826462804368, guid: f20de06ff502e014e83196e782cb1374,
         type: 2}
@@ -35090,6 +35090,11 @@ Prefab:
         type: 2}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224667804973874318, guid: 87e295429dbfb064ba0ac6804b2a9026,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87e295429dbfb064ba0ac6804b2a9026, type: 2}
