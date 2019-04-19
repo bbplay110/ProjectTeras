@@ -2261,6 +2261,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DeathTime: 3
   TotalHP: 100
+  TotalExtraShild: 0
+  ExtraShildRecover: 1
+  ExtraShildRecoverTime: 3
+  ExtraShiledBar: {fileID: 0}
   HpBar: {fileID: 114474299601771124}
   Win: {fileID: 0}
   Lose: {fileID: 0}
