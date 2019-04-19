@@ -16,17 +16,20 @@ public class UnivercialEventTrigger : MonoBehaviour {
     {
         foreach (var item in targetTag)
         {
-            if (other.tag == "item")
+            if (other.tag == item)
             {
                 enter.Invoke();
+                Debug.Log("TriggerEnter!");
             }
+
         }
+        
     }
     private void OnCollisionStay(Collision collision)
     {
         foreach (var item in targetTag)
         {
-            if (collision.collider.tag == "item")
+            if (collision.collider.tag == item)
             {
                 stay.Invoke();
             }
@@ -37,7 +40,7 @@ public class UnivercialEventTrigger : MonoBehaviour {
     {
         foreach (var item in targetTag)
         {
-            if (other.tag == "item")
+            if (other.tag == item)
             {
                 exit.Invoke();
             }

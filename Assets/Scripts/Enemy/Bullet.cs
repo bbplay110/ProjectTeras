@@ -17,8 +17,7 @@ public class Bullet : MonoBehaviour {
 
     void Move()
     {
-        transform.Translate(transform.forward*speed*Time.deltaTime);
-        //transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        transform.Translate(gameObject.transform.forward * speed * Time.deltaTime);
     }
     private void OnTriggerEnter(Collider hit)
     {
@@ -36,10 +35,7 @@ public class Bullet : MonoBehaviour {
             Destroy(gameObject);
 
         }
-        else
-        {
-            //Destroy(gameObject);
-        }
+        
     }
     private void OnCollisionEnter(Collision hit)
     {
