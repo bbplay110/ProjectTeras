@@ -9,8 +9,8 @@ public class Door : MonoBehaviour {
     private Animator Controller;
     public GameObject Tip;
     public GameObject Boss;
-    private bool CanOpen=true;
     public bool BossDoor;
+    private bool isOpen = false;
 	// Use this for initialization
 	void Start () {
         /*if(senser!=null)
@@ -25,26 +25,36 @@ public class Door : MonoBehaviour {
         Tip.SetActive(false);
         Controller = GetComponent<Animator>();
 	}
-    private void OnTriggerStay(Collider other)
+    public void InSwitch()
     {
-        if (other.tag=="Player")
+        Tip.SetActive(true);
+        if (hInput.GetButtonDown("Submit"))
         {
-            Tip.SetActive(true);
-            if (hInput.GetButtonDown("Submit")&&CanOpen)
-            {
-                Controller.SetTrigger("open");
-                if (BossDoor&&Boss!=null)
-                {
-                    Boss.SetActive(true);
-                }
-            }
-            
+            ChengeState();
         }
-        
     }
-    void open()
+    public void ExitSwitch()
     {
-        
+        Tip.SetActive(false);
+    }
+    public void open()
+    {
+        if (isOpen == false)
+        {
+            Controller.SetTrigger("open");
+            isOpen = true;
+        }
+    }
+    public void close()
+    {
+        if (isOpen == true)
+        {
+            Controller.SetTrigger("open");
+        }
+    }
+    void ChengeState()
+    {
+        isOpen = !isOpen;
         Controller.SetTrigger("open");
     }
     void check()
@@ -57,20 +67,6 @@ public class Door : MonoBehaviour {
             //GetComponent<MeshRenderer>().enabled = true;
             CancelInvoke("check");
         }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "Player") {
-            Tip.SetActive(false);
-        }
-    }
-    public void CanOpenDoor()
-    {
-        CanOpen = true;
-    }
-    public void CanNotOpenDoor()
-    {
-        CanOpen = false;
     }
     // Update is called once per frame
     void Update () {

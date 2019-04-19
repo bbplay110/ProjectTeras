@@ -25,11 +25,11 @@ public class UnivercialEventTrigger : MonoBehaviour {
         }
         
     }
-    private void OnCollisionStay(Collision collision)
+    private void OnTriggerStay(Collider collision)
     {
         foreach (var item in targetTag)
         {
-            if (collision.collider.tag == item)
+            if (collision.tag == item)
             {
                 stay.Invoke();
             }
