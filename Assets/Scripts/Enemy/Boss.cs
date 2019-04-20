@@ -9,8 +9,16 @@ public class Boss : MonoBehaviour {
     private Animator BossAnimator;
     private Transform Player;
     public GameObject oraoraLeftHand,oraoraRightHand;
-	// Use this for initialization
-	void Start () {
+    private Transform PlayerCamera;
+    private bool CanControllCamera;
+    private Vector3 tmpCameraPoint;
+    private float tmpCameraDistance;
+    // Use this for initialization
+    private void Awake()
+    {
+        PlayerCamera = FindObjectOfType<Camera3rdControl>().target;
+    }
+    void Start () {
         BossAnimator = GetComponent<Animator>();
         Player = GameObject.Find("Player").transform;
 	}
@@ -39,11 +47,72 @@ public class Boss : MonoBehaviour {
                      Player.position.z);
             this.transform.LookAt(targetPostition);
         }
-        
 
+        CameraControll();
+    }
+    void CameraControll()
+    {
+        if (CanControllCamera)
+        {
+            PlayerCamera.position = ((Player.position + new Vector3(0, 2, 0)) + (transform.position + new Vector3(0, 50, 0))) / 2;
+            FindObjectOfType<Camera3rdControl>().distence = Vector3.Distance(Player.position + new Vector3(0, 2, 0), transform.position + new Vector3(0, 50, 0)) + 8;
+        }
     }
     private void OnEnable()
     {
         HpSet.SetActive(true);
+        tmpCameraPoint = PlayerCamera.localPosition;
+        tmpCameraDistance = FindObjectOfType<Camera3rdControl>().distence;
+        FindObjectOfType<Camera3rdControl>().maxDistence = 300;
+        
+
+        CanControllCamera = true;
+
+        shooter.onAim += OnPlayerAim;
+        shooter.unAim += OnPlayerNotAim;
+    }
+
+    void OnPlayerAim()
+    {
+        CanControllCamera = false;
+        PlayerCamera.localPosition = tmpCameraPoint;
+        FindObjectOfType<Camera3rdControl>().distence = 8;
+    }
+    void OnPlayerNotAim()
+    {
+        CanControllCamera = true;
+        PlayerCamera.position = ((Player.position + new Vector3(0, 2, 0)) + (transform.position + new Vector3(0, 50, 0))) / 2;
+    }
+
+    private void OnDisable()
+    {
+        if (tmpCameraPoint != null)
+            PlayerCamera.localPosition = tmpCameraPoint;
+        FindObjectOfType<Camera3rdControl>().maxDistence = 8;
+        FindObjectOfType<Camera3rdControl>().distence = tmpCameraDistance;
+
+        shooter.onAim -= OnPlayerAim;
+        shooter.unAim -= OnPlayerNotAim;
+    }
+    public void StartShake()
+    {
+        iTween.ShakePosition(gameObject,iTween.Hash("name","shake", "amount",new Vector3(5,5,5), "time",1f, "looptype",iTween.LoopType.pingPong,"easetype",iTween.EaseType.linear));
+        GetComponent<Collider>().enabled = false;
+        
+        iTween.MoveTo(gameObject,iTween.Hash("position",gameObject.transform.position-new Vector3(0,65,0),"time",4,"delay",1));
+
+
+        if (tmpCameraPoint != null)
+            PlayerCamera.localPosition = tmpCameraPoint;
+        FindObjectOfType<Camera3rdControl>().maxDistence = 8;
+        FindObjectOfType<Camera3rdControl>().distence = tmpCameraDistance;
+
+        shooter.unAim -= OnPlayerNotAim;
+    }
+    public void StopShake()
+    {
+        iTween.StopByName("shake");
+        GetComponent<Animator>().enabled = false;
+        
     }
 }

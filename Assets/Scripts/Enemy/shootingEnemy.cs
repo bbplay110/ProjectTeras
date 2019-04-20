@@ -15,11 +15,14 @@ public class shootingEnemy : MonoBehaviour {
     private bool Dead=false;
     // Use this for initialization
     void Start () {
-
+        if (GetComponent<LineRenderer>() != null)
+        {
+            GetComponent<LineRenderer>().useWorldSpace = true;
+        }
         PlayerBody = GameObject.Find("Player_Body").transform;
         Player = GameObject.Find("Player");
         attackDist = GetComponent<NavMeshAgent> ().stoppingDistance;
-		viewDist = attackDist * 10;
+		viewDist = attackDist * 2;
 		Ani = GetComponent<Animator>();
 	}
 	
@@ -33,11 +36,6 @@ public class shootingEnemy : MonoBehaviour {
     private void FindPlayer()
     {
         GetComponent<LineRenderer>().SetPosition(0,BulletPosition.transform.position);
-        if (!See)
-        {
-            GetComponent<LineRenderer>().enabled = false;
-
-        }
         GetComponent<LineRenderer>().SetPosition(1,Player.transform.position);
         Dis = Vector3.Distance(Player.transform.position, transform.position);
         if (Dis <= attackDist)
@@ -46,19 +44,19 @@ public class shootingEnemy : MonoBehaviour {
             Ani.SetBool("shooting", true);
             Ani.SetBool("walkforward", false);
             GetComponent<NavMeshAgent>().isStopped = true;
-            
+            iTween.LookUpdate(gameObject,iTween.Hash("looktarget",PlayerBody.position, "axis","y", "time",0.4f));
         }
-        else if (Dis < viewDist && !Dead&&See)
+        else if (Dis < viewDist && !Dead)
         {
-            GetComponent<NavMeshAgent>().destination = Player.transform.position;
+            GetComponent<NavMeshAgent>().destination = PlayerBody.position;
             GetComponent<NavMeshAgent>().isStopped = false;
-            
             Ani.SetBool("walkforward", true);
         }
-        else
+        else if(Dis>viewDist)
         {
             if(!GetComponent<NavMeshAgent>().isStopped)
                 GetComponent<NavMeshAgent>().isStopped = true;
+
             Ani.SetBool("walkforward", false);
             Ani.SetBool("shooting", false);
         }
@@ -71,6 +69,7 @@ public class shootingEnemy : MonoBehaviour {
         if(Physics.Raycast(eyeContect,out hit,viewDist)){
             if (hit.transform.gameObject.tag == "Player")
             {
+                
                 See = true;
             }
             else
@@ -78,6 +77,10 @@ public class shootingEnemy : MonoBehaviour {
                 See = false;
             }
                 
+        }
+        else
+        {
+            See = false;
         }
     }
     public void isDeath()

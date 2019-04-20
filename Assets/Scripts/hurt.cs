@@ -198,9 +198,13 @@ public class hurt : MonoBehaviour
     {
         Time.timeScale = 1;
         Win.SetActive(false);
-        GetComponent<SceneLoad>().LoadScene(GetComponent<SceneLoad>().scenes);
+        Invoke("loadNextLevel", 8);
     }
+    void loadNextLevel()
+    {
+        GetComponent<SceneLoad>().LoadScene(GetComponent<SceneLoad>().scenes);
 
+    }
     private void Restart()
     {
         SceneManager.LoadScene(RestartScene);
