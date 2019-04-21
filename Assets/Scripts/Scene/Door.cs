@@ -18,7 +18,7 @@ public class Door : MonoBehaviour {
 
         if (LaserDoor)
         {
-            GetComponent<BoxCollider>().enabled = false;
+            //GetComponent<BoxCollider>().enabled = false;
             //gameObject.transform.position -= new Vector3(0, 0, 15);
             InvokeRepeating("check", 1, 1);
         }
@@ -50,6 +50,7 @@ public class Door : MonoBehaviour {
         if (isOpen == true)
         {
             Controller.SetTrigger("open");
+            isOpen = false;
         }
     }
     void ChengeState()
