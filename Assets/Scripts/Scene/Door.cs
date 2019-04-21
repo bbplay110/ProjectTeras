@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Door : MonoBehaviour {
-    public int EnemysInSencer=1;
+    //public int EnemysInSencer=1;
     //public GameObject senser;
-    public bool LaserDoor;
+    //public bool LaserDoor;
+    public bool openInStart;
     private Animator Controller;
     public GameObject Tip;
     public GameObject Boss;
@@ -16,15 +17,20 @@ public class Door : MonoBehaviour {
         /*if(senser!=null)
             senser.GetComponent<MeshRenderer>().enabled = false;*/
 
-        if (LaserDoor)
+        /*if (LaserDoor)
         {
-            //GetComponent<BoxCollider>().enabled = false;
-            //gameObject.transform.position -= new Vector3(0, 0, 15);
+            GetComponent<BoxCollider>().enabled = false;
+            gameObject.transform.position -= new Vector3(0, 0, 15);
             InvokeRepeating("check", 1, 1);
-        }
+        }*/
         Tip.SetActive(false);
         Controller = GetComponent<Animator>();
-	}
+
+        if (openInStart)
+        {
+            open();
+        }
+    }
     public void InSwitch()
     {
         Tip.SetActive(true);
@@ -58,7 +64,7 @@ public class Door : MonoBehaviour {
         isOpen = !isOpen;
         Controller.SetTrigger("open");
     }
-    void check()
+    /*void check()
     {
         if (EnemysInSencer ==0)
         {
@@ -68,7 +74,7 @@ public class Door : MonoBehaviour {
             //GetComponent<MeshRenderer>().enabled = true;
             CancelInvoke("check");
         }
-    }
+    }*/
     // Update is called once per frame
     void Update () {
 		
