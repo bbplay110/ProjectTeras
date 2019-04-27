@@ -196,7 +196,7 @@ using UnityEngine.UI;
         Aim = aiim;
     }
     public void Animator() {
-
+        Player1.SetFloat("WalkArc",(controller.velocity.magnitude)/SpeedFast);
         if ((hInput.GetAxis("Horizontal") != 0 || hInput.GetAxis("Vertical") != 0)&&Canwalk)
         {
             Player1.SetBool("walkforward", true);
