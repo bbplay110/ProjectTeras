@@ -28,10 +28,11 @@ public class shootingEnemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        ChackingSeePlayer();
         BulletPosition.transform.LookAt(PlayerBody.position);
         FindPlayer();
         
-        ChackingSeePlayer();
 	}
     private void FindPlayer()
     {
