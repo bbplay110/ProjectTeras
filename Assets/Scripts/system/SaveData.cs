@@ -7,4 +7,5 @@ public class SaveData {
     public string currentLevel;
     public Vector3 position;
     public string saveDate;
+    public float playerHealth;
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,12 +9,11 @@ using System.IO;
 
 public class SLMenu : MonoBehaviour {
     public string currentLevel;
+    
+    private GameObject player;
     public GameObject QuickSaveSlot;
     public GameObject SaveSlot;
     public GameObject Content;
-    public SaveLoadUtility slu;
-
-    public List<string> saveList = new List<string>();
     [SerializeField]
     private enum saveOrLoad {
         save,
@@ -21,59 +21,79 @@ public class SLMenu : MonoBehaviour {
     };
     [SerializeField]
     private string SaveToLoad;
-    private saveOrLoad SLstatus; 
-    public List<SaveData> saveGames;
+    private saveOrLoad SLstatus;
+
+    [SerializeField]
+    public List<SaveData> saveGames=new List<SaveData>();
 	// Use this for initialization
 
 	void Start () {
+        Debug.Log(Application.persistentDataPath);
+
+        currentLevel = SceneManager.GetActiveScene().name;
+        player = GameObject.Find("Player");
+        getSaves();
         switch (SLstatus)
         {
             case saveOrLoad.save:
-
-                QuickSaveSlot.GetComponent<Button>().onClick.RemoveAllListeners();
-                QuickSaveSlot.GetComponent<Button>().onClick.AddListener(replaceSave);
-                QuickSaveSlot.transform.Find("Number").GetComponentInChildren<Text>().text = slu.quickSaveName;
-                QuickSaveSlot.transform.Find("Date").GetComponent<Text>().text=
-                QuickSaveSlot.name = slu.quickSaveName;
+                //快速存檔
+                if (saveGames != null && saveGames[0].saveName == "QuickSave") { 
+                    QuickSaveSlot.GetComponent<Button>().onClick.RemoveAllListeners();
+                    QuickSaveSlot.GetComponent<Button>().onClick.AddListener(replaceSave);
+                    QuickSaveSlot.transform.Find("Number").GetComponentInChildren<Text>().text = saveGames[0].saveName;
+                    QuickSaveSlot.transform.Find("Date").GetComponent<Text>().text = saveGames[0].saveDate;
+                    QuickSaveSlot.name = saveGames[0].saveName;
+                }
                 break;
             case saveOrLoad.load:
-
+                if (saveGames != null&&saveGames[0].saveName=="QuickSave") { 
                 QuickSaveSlot.GetComponent<Button>().onClick.RemoveAllListeners();
                 QuickSaveSlot.GetComponent<Button>().onClick.AddListener(realLoad);
-                QuickSaveSlot.transform.Find("Number").GetComponentInChildren<Text>().text = slu.quickSaveName;
-                QuickSaveSlot.name = slu.quickSaveName;
+                QuickSaveSlot.transform.Find("Number").GetComponentInChildren<Text>().text = saveGames[0].saveName;
+                QuickSaveSlot.name = saveGames[0].saveName;
+                }
                 break;
         }
 
         Debug.Log("SaveiN:" + Application.persistentDataPath);
-        currentLevel = SceneManager.GetActiveScene().name;
-        if (slu == null && (transform.parent.GetComponent<SaveLoadUtility>()!=null))
-        {
-            
-            slu = transform.parent.GetComponent<SaveLoadUtility>();
-        }
-        getSaves();
 
-        saveGames = SaveLoad.GetSaveGames(slu.saveGamePath, slu.usePersistentDataPath);
-        slu.SaveGame(slu.quickSaveName);
     }
 	void getSaves()
     {
+        if(saveGames != null)
+            saveGames.Clear();  
+        if(new DirectoryInfo(Path.Combine(Application.persistentDataPath, "/saves")) == null)
+        {
+            Directory.CreateDirectory(Path.Combine(Application.persistentDataPath, "/saves"));
+        }
         //拿到存檔所在的資料夾
-        DirectoryInfo dir = new DirectoryInfo(Application.streamingAssetsPath);
+        DirectoryInfo dir = new DirectoryInfo(Application.persistentDataPath+"/saves");
         int count = dir.GetFiles().Length;
         FileInfo[] files = dir.GetFiles();
-        for (int i = 0; i < count; i++)
-        {
-            //讀取json檔案並轉存成文字格式
-            StreamReader file = new StreamReader(System.IO.Path.Combine(Application.streamingAssetsPath,files[i].Name));
-            string loadJson = file.ReadToEnd();
-            file.Close();
-            //新增一個物件類型為playerState的變數 loadData
-            SaveData loadData = new SaveData();
-            //使用JsonUtillty的FromJson方法將存文字轉成Json
-            loadData = JsonUtility.FromJson<SaveData>(loadJson);
-            saveGames.Add(loadData);
+        if (count > 0) {
+            Debug.Log("getFile!");
+            for (int i = 0; i < count; i++)
+            {
+
+                //讀取json檔案並轉存成文字格式
+                StreamReader file = new StreamReader(Application.persistentDataPath+"/saves/"+files[i].Name);
+                string loadJson = file.ReadToEnd();
+                file.Close();
+                //新增一個物件類型為playerState的變數 loadData
+                SaveData loadData = new SaveData();
+                //使用JsonUtillty的FromJson方法將存文字轉成Json
+                loadData = JsonUtility.FromJson<SaveData>(loadJson);
+                //如果是快速存檔
+                if (loadData.saveName == "QuickSave")
+                {
+                    saveGames.Insert(0, loadData);
+
+                }
+                else
+                {
+                    saveGames.Add(loadData);
+                }
+            }
         }
     }
 	// Update is called once per frame
@@ -87,13 +107,12 @@ public class SLMenu : MonoBehaviour {
     {
         GameObject tmpSaveSlot = Instantiate(SaveSlot, Content.transform);
         tmpSaveSlot.GetComponent<Button>().onClick.RemoveAllListeners();
-        tmpSaveSlot.GetComponent<Button>().onClick.AddListener(realSave);
+        tmpSaveSlot.GetComponent<Button>().onClick.AddListener(replaceSave);
         tmpSaveSlot.transform.Find("Number").GetComponentInChildren<Text>().text = "save"+(Content.transform.childCount-1).ToString();
 
         //tmpSaveSlot.transform.Find("Date").GetComponent<Text>().text =saveGames[Content.transform.childCount - 1].saveDate;
         tmpSaveSlot.name = "save" + (Content.transform.childCount - 1).ToString();
-        //saveList.Add(currentLevel);
-        save();
+        saveAction(Content.transform.childCount - 1);
         if (Content.transform.childCount > 3)
         {
             RectTransform ContentRect;
@@ -105,77 +124,90 @@ public class SLMenu : MonoBehaviour {
         }
         //saveGames = SaveLoad.GetSaveGames(slu.saveGamePath, slu.usePersistentDataPath);
     }
-    void save()
+    void saveAction(int index)
     {
         SaveData tmpSaveData = new SaveData();
+        tmpSaveData.saveName = "save" + index;
         tmpSaveData.currentLevel = currentLevel;
-        tmpSaveData.position = GameObject.Find("Player").transform.position;
-
+        tmpSaveData.position = player.transform.position;
+        tmpSaveData.saveDate = DateTime.Now.ToString();
+        tmpSaveData.playerHealth = player.GetComponent<hurt>().HP1 / player.GetComponent<hurt>().TotalHP;
         string saveString = JsonUtility.ToJson(tmpSaveData);
-        StreamWriter file = new StreamWriter(System.IO.Path.Combine(Application.streamingAssetsPath, "myPlayer"));
+        StreamWriter file = new StreamWriter(Application.persistentDataPath+"/saves/save"+index);
         file.Write(saveString);
         file.Close();
 
     }
     private void OnEnable()
     {
-       // saveGames = SaveLoad.GetSaveGames(slu.saveGamePath, slu.usePersistentDataPath);
-        switch (SLstatus)
-        {
-            case saveOrLoad.save:
-                for (int i = 1; i < saveGames.Count; i++)
-                {
+        getSaves();
+        // saveGames = SaveLoad.GetSaveGames(slu.saveGamePath, slu.usePersistentDataPath);
+        if (saveGames != null) {
+            switch (SLstatus)
+            {
+                case saveOrLoad.save:
+                    if (saveGames != null && saveGames[0].saveName == "QuickSave") {
                     QuickSaveSlot.GetComponent<Button>().onClick.RemoveAllListeners();
                     QuickSaveSlot.GetComponent<Button>().onClick.AddListener(replaceSave);
-                    QuickSaveSlot.transform.Find("Number").GetComponentInChildren<Text>().text = slu.quickSaveName;
-                    QuickSaveSlot.name = slu.quickSaveName;
-                    GameObject tmpSaveSlot = Instantiate(SaveSlot, Content.transform);
-                    tmpSaveSlot.GetComponent<Button>().onClick.RemoveAllListeners();
-                    tmpSaveSlot.GetComponent<Button>().onClick.AddListener(replaceSave);
-                    tmpSaveSlot.transform.Find("Number").GetComponentInChildren<Text>().text =saveGames[i].savegameName;
-                    tmpSaveSlot.transform.Find("Date").GetComponent<Text>().text = saveGames[i].saveDate;
-                    tmpSaveSlot.name = "save" + (Content.transform.childCount - 1).ToString();
-                    if (Content.transform.childCount > 3)
-                    {
-                        RectTransform ContentRect;
-                        RectTransform SlotRect;
-                        ContentRect = Content.GetComponent<RectTransform>();
-                        SlotRect = tmpSaveSlot.GetComponent<RectTransform>();
-                        ContentRect.sizeDelta = new Vector2(ContentRect.sizeDelta.x, ContentRect.sizeDelta.y + SlotRect.sizeDelta.y);
-                        Debug.Log("long++");
-                        //ContentRect.rect.Set(ContentRect.rect.x, ContentRect.rect.y, ContentRect.rect.width, ContentRect.rect.height + SlotRect.rect.height);
+                    QuickSaveSlot.transform.Find("Number").GetComponentInChildren<Text>().text = saveGames[0].saveName;
+                    QuickSaveSlot.name = saveGames[0].saveName;
                     }
-                }
-                break;
-            case saveOrLoad.load:
-                for (int i = 1; i < saveGames.Count; i++)
-                {
-                    QuickSaveSlot.GetComponent<Button>().onClick.RemoveAllListeners();
-                    QuickSaveSlot.GetComponent<Button>().onClick.AddListener(realLoad);
-                    QuickSaveSlot.transform.Find("Number").GetComponentInChildren<Text>().text = slu.quickSaveName;
-                    QuickSaveSlot.name = slu.quickSaveName;
-                    GameObject tmpSaveSlot = Instantiate(SaveSlot, Content.transform);
-                    tmpSaveSlot.GetComponent<Button>().onClick.RemoveAllListeners();
-                    tmpSaveSlot.GetComponent<Button>().onClick.AddListener(realLoad);
-                    tmpSaveSlot.transform.Find("Number").GetComponentInChildren<Text>().text = saveGames[i].savegameName;
-                    tmpSaveSlot.transform.Find("Date").GetComponent<Text>().text = saveGames[i].saveDate;
-                    tmpSaveSlot.name = "save" + (Content.transform.childCount).ToString();
-                    if (Content.transform.childCount > 3)
+                    for (int i = 1; i < saveGames.Count; i++)
                     {
-                        RectTransform ContentRect;
-                        RectTransform SlotRect;
-                        SlotRect = tmpSaveSlot.GetComponent<RectTransform>();
-                        ContentRect = Content.GetComponent<RectTransform>();
-                        ContentRect.sizeDelta = new Vector2(ContentRect.sizeDelta.x, ContentRect.sizeDelta.y + SlotRect.sizeDelta.y);
 
-                        Debug.Log("long++");
-                        //ContentRect.rect.Set(ContentRect.rect.x, ContentRect.rect.y, ContentRect.rect.width, ContentRect.rect.height + SlotRect.rect.height);
+
+                        GameObject tmpSaveSlot = Instantiate(SaveSlot, Content.transform);
+                        tmpSaveSlot.GetComponent<Button>().onClick.RemoveAllListeners();
+                        tmpSaveSlot.GetComponent<Button>().onClick.AddListener(replaceSave);
+                        tmpSaveSlot.transform.Find("Number").GetComponentInChildren<Text>().text =saveGames[i].saveName;
+                        tmpSaveSlot.transform.Find("Date").GetComponent<Text>().text = saveGames[i].saveDate;
+                        tmpSaveSlot.name = "save" + (Content.transform.childCount - 1).ToString();
+                        if (Content.transform.childCount > 3)
+                        {
+                            RectTransform ContentRect;
+                            RectTransform SlotRect;
+                            ContentRect = Content.GetComponent<RectTransform>();
+                            SlotRect = tmpSaveSlot.GetComponent<RectTransform>();
+                            ContentRect.sizeDelta = new Vector2(ContentRect.sizeDelta.x, ContentRect.sizeDelta.y + SlotRect.sizeDelta.y);
+                            Debug.Log("long++");
+                            //ContentRect.rect.Set(ContentRect.rect.x, ContentRect.rect.y, ContentRect.rect.width, ContentRect.rect.height + SlotRect.rect.height);
+                        }
                     }
-                }
-                break;
+                    break;
+                case saveOrLoad.load:
+                    if (saveGames != null && saveGames[0].saveName == "QuickSave")
+                    {
+                        QuickSaveSlot.GetComponent<Button>().onClick.RemoveAllListeners();
+                        QuickSaveSlot.GetComponent<Button>().onClick.AddListener(realLoad);
+                        QuickSaveSlot.transform.Find("Number").GetComponentInChildren<Text>().text = saveGames[0].saveName;
+                        QuickSaveSlot.name = saveGames[0].saveName;
+                    }
+                        for (int i = 1; i < saveGames.Count; i++)
+                    {
+
+                        GameObject tmpSaveSlot = Instantiate(SaveSlot, Content.transform);
+                        tmpSaveSlot.GetComponent<Button>().onClick.RemoveAllListeners();
+                        tmpSaveSlot.GetComponent<Button>().onClick.AddListener(realLoad);
+                        tmpSaveSlot.transform.Find("Number").GetComponentInChildren<Text>().text = saveGames[i].saveName;
+                        tmpSaveSlot.transform.Find("Date").GetComponent<Text>().text = saveGames[i].saveDate;
+                        tmpSaveSlot.name = "save" + (Content.transform.childCount).ToString();
+                        //如果存檔總數大於三就把存檔視窗加長
+                        if (Content.transform.childCount > 3)
+                        {
+                            RectTransform ContentRect;
+                            RectTransform SlotRect;
+                            SlotRect = tmpSaveSlot.GetComponent<RectTransform>();
+                            ContentRect = Content.GetComponent<RectTransform>();
+                            ContentRect.sizeDelta = new Vector2(ContentRect.sizeDelta.x, ContentRect.sizeDelta.y + SlotRect.sizeDelta.y);
+
+                            Debug.Log("long++");
+                            //ContentRect.rect.Set(ContentRect.rect.x, ContentRect.rect.y, ContentRect.rect.width, ContentRect.rect.height + SlotRect.rect.height);
+                        }
+                    }
+                    break;
+            }
+
         }
-       
-        
 
     }
     void replaceSave()
@@ -183,36 +215,37 @@ public class SLMenu : MonoBehaviour {
     }
     void realLoad()
     {
+
+        Debug.Log("selectedSave");
         GameObject text = EventSystem.current.currentSelectedGameObject;
         string selectedSave = text.transform.Find("Number").GetComponentInChildren<Text>().text;
         SaveToLoad = selectedSave;
-        Debug.Log(selectedSave);
         foreach (var item in saveGames)
         {
-            if (item.savegameName == selectedSave)
+            if (item.saveName == selectedSave)
             {
-                DontDestroyOnLoad(slu.gameObject);
                 DontDestroyOnLoad(gameObject);
-                SceneManager.LoadScene(item.scene);
+                SceneManager.LoadScene(item.currentLevel);
                 SceneManager.sceneLoaded += LoadAction;
             }
         }
     }
     void LoadAction(Scene scene, LoadSceneMode mode)
     {
+        GameObject tmpPlayer;
+        tmpPlayer = GameObject.Find("Player");
         //讀取json檔案並轉存成文字格式
-        StreamReader file = new StreamReader(System.IO.Path.Combine(Application.streamingAssetsPath, SaveToLoad));
+        StreamReader file = new StreamReader(System.IO.Path.Combine(Application.persistentDataPath,"/saves/"+SaveToLoad));
         string loadJson = file.ReadToEnd();
         file.Close();
-        
         //新增一個物件類型為playerState的變數 loadData
         SaveData loadData = new SaveData();
         //使用JsonUtillty的FromJson方法將存文字轉成Json
         loadData = JsonUtility.FromJson<SaveData>(loadJson);
         //驗證用，將sammaru的位置變更為json內紀錄的位置
-        GameObject.Find("sammaru").transform.position = loadData.position;
+        tmpPlayer.transform.position = loadData.position;
+        tmpPlayer.GetComponent<hurt>().HP1 = tmpPlayer.GetComponent<hurt>().TotalHP * loadData.playerHealth;
 
-        Destroy(slu.gameObject);
         Destroy(gameObject);
     }
     private void OnGUI()
@@ -221,48 +254,50 @@ public class SLMenu : MonoBehaviour {
     }
     private void OnDisable()
     {
-
-        SceneManager.sceneLoaded -= LoadAction;
-        switch (SLstatus)
-        {
-            case saveOrLoad.save:
-                for (int i = 0; i < saveGames.Count-1; i++)
-                {
-                    Destroy(Content.transform.GetChild(i + 1).gameObject);
-                    if (Content.transform.childCount > 3)
+        if (saveGames != null) { 
+            SceneManager.sceneLoaded -= LoadAction;
+            switch (SLstatus)
+            {
+                case saveOrLoad.save:
+                    for (int i = 0; i < saveGames.Count-1; i++)
                     {
-                        GameObject tmpSaveSlot = SaveSlot;
-                        RectTransform ContentRect;
-                        RectTransform SlotRect;
-                        SlotRect = tmpSaveSlot.GetComponent<RectTransform>();
-                        ContentRect = Content.GetComponent<RectTransform>();
-                        ContentRect.sizeDelta = new Vector2(ContentRect.sizeDelta.x, ContentRect.sizeDelta.y - (SlotRect.sizeDelta.y/2));
+                        Destroy(Content.transform.GetChild(i + 1).gameObject);
+                        //如果存檔總數大於三就把存檔視窗加長
+                        if (Content.transform.childCount > 3)
+                        {
+                            GameObject tmpSaveSlot = SaveSlot;
+                            RectTransform ContentRect;
+                            RectTransform SlotRect;
+                            SlotRect = tmpSaveSlot.GetComponent<RectTransform>();
+                            ContentRect = Content.GetComponent<RectTransform>();
+                            ContentRect.sizeDelta = new Vector2(ContentRect.sizeDelta.x, ContentRect.sizeDelta.y - (SlotRect.sizeDelta.y/2));
 
-                        Debug.Log("long--");
-                        //ContentRect.rect.Set(ContentRect.rect.x, ContentRect.rect.y, ContentRect.rect.width, ContentRect.rect.height + SlotRect.rect.height);
+                            Debug.Log("long--");
+                            //ContentRect.rect.Set(ContentRect.rect.x, ContentRect.rect.y, ContentRect.rect.width, ContentRect.rect.height + SlotRect.rect.height);
+                        }
                     }
-                }
-                break;
-            case saveOrLoad.load:
-                for (int i = 0; i < saveGames.Count-1; i++)
-                {
-                    Destroy(Content.transform.GetChild(i).gameObject);
-                    if (Content.transform.childCount > 3)
+                    break;
+                case saveOrLoad.load:
+                    for (int i = 0; i < saveGames.Count-1; i++)
                     {
+                        Destroy(Content.transform.GetChild(i).gameObject);
+                        if (Content.transform.childCount > 3)
+                        {
                        
-                        GameObject tmpSaveSlot = SaveSlot;
-                        RectTransform ContentRect;
-                        RectTransform SlotRect;
-                        SlotRect = tmpSaveSlot.GetComponent<RectTransform>();
-                        ContentRect = Content.GetComponent<RectTransform>();
-                        ContentRect.sizeDelta = new Vector2(ContentRect.sizeDelta.x, ContentRect.sizeDelta.y - (SlotRect.sizeDelta.y/2));
+                            GameObject tmpSaveSlot = SaveSlot;
+                            RectTransform ContentRect;
+                            RectTransform SlotRect;
+                            SlotRect = tmpSaveSlot.GetComponent<RectTransform>();
+                            ContentRect = Content.GetComponent<RectTransform>();
+                            ContentRect.sizeDelta = new Vector2(ContentRect.sizeDelta.x, ContentRect.sizeDelta.y - (SlotRect.sizeDelta.y/2));
 
-                        Debug.Log("long--");
-                        //ContentRect.rect.Set(ContentRect.rect.x, ContentRect.rect.y, ContentRect.rect.width, ContentRect.rect.height + SlotRect.rect.height);
+                            Debug.Log("long--");
+                            //ContentRect.rect.Set(ContentRect.rect.x, ContentRect.rect.y, ContentRect.rect.width, ContentRect.rect.height + SlotRect.rect.height);
+                        }
                     }
-                }
-                break;
+                    break;
+            }
         }
-        
+
     }
 }
