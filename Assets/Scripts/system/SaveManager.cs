@@ -5,4 +5,5 @@ using UnityEngine;
 public static class SaveManager  {
     public static string QuickSaveScene;
     public static List<string> SceneHaveSaved = new List<string>();
+    public static List<SaveData> saves;
 }

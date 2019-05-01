@@ -188,7 +188,7 @@ public class hurt : MonoBehaviour
                 Time.timeScale = 0.5f;
                 
                 Wined = true;
-                //BossDeath(5);
+                BossDeath(5);
                 Destroy(gameObject, DeathTime);
                 onDied();
             }
@@ -203,7 +203,7 @@ public class hurt : MonoBehaviour
     {
         Time.timeScale = 1;
         Win.SetActive(false);
-        Invoke("loadNextLevel", 8);
+        Invoke("loadNextLevel",3);
     }
     void loadNextLevel()
     {

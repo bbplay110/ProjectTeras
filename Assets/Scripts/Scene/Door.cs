@@ -49,6 +49,10 @@ public class Door : MonoBehaviour {
         {
             Controller.SetTrigger("open");
             isOpen = true;
+            if (BossDoor&&Boss!=null)
+            {
+                Boss.SetActive(true);
+            }
         }
     }
     public void close()
@@ -61,8 +65,14 @@ public class Door : MonoBehaviour {
     }
     void ChengeState()
     {
-        isOpen = !isOpen;
-        Controller.SetTrigger("open");
+        if (!isOpen)
+        {
+            open();
+        }
+        else
+        {
+            close();
+        }
     }
     /*void check()
     {
