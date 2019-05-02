@@ -35917,6 +35917,21 @@ Prefab:
       propertyPath: m_AnchoredPosition.y
       value: -0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114679602980794616, guid: 87e295429dbfb064ba0ac6804b2a9026,
+        type: 2}
+      propertyPath: m_ScrollSensitivity
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114575924093948886, guid: 87e295429dbfb064ba0ac6804b2a9026,
+        type: 2}
+      propertyPath: m_ScrollSensitivity
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114321190100636524, guid: 87e295429dbfb064ba0ac6804b2a9026,
+        type: 2}
+      propertyPath: SLstatus
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114685382981382650, guid: 87e295429dbfb064ba0ac6804b2a9026, type: 2}
     - {fileID: 114522716006577544, guid: 87e295429dbfb064ba0ac6804b2a9026, type: 2}
