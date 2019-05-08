@@ -4,9 +4,9 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class SceneLoad : MonoBehaviour {
-	public string scenes;
-	// Use this for initialization
-	void Start () {
+    public string scenes;
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -18,7 +18,6 @@ public class SceneLoad : MonoBehaviour {
         if (scenes != null)
         {
             SceneManager.LoadScene(scenes);
-
         }
         else
         {

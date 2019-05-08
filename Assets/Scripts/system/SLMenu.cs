@@ -9,12 +9,13 @@ using System.IO;
 
 public class SLMenu : MonoBehaviour {
     public string currentLevel;
-    
+    [SerializeField]
     private GameObject player;
     public GameObject QuickSaveSlot;
     public GameObject SaveSlot;
     public GameObject Content;
-    
+    [SerializeField]
+    private List<GameObject> eventTrigger = new List<GameObject>();
     private enum saveOrLoad {
         save,
         load
@@ -24,13 +25,24 @@ public class SLMenu : MonoBehaviour {
     [SerializeField]
     private saveOrLoad SLstatus;
     public List<SaveData> saveGames=new List<SaveData>();
-	// Use this for initialization
-
-	void Start () {
-        //Debug.Log(Application.persistentDataPath);
-
+    // Use this for initialization
+    private void Awake()
+    { 
+        GameObject eventTriggerList = GameObject.FindGameObjectWithTag("FungusEventTrigger");
+        Debug.Log(eventTriggerList);
+        for (int i = 0; i <eventTriggerList.transform.childCount; i++)
+        {
+            eventTrigger.Add(eventTriggerList.transform.GetChild(i).gameObject);
+        }
         currentLevel = SceneManager.GetActiveScene().name;
-        player = GameObject.Find("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+    void Start () {
+        foreach (var item in eventTrigger)
+        {
+            Debug.Log(item.name);
+        }
+        //Debug.Log(Application.persistentDataPath);
         getSaves();
         switch (SLstatus)
         {
@@ -56,6 +68,27 @@ public class SLMenu : MonoBehaviour {
 
         //Debug.Log("SaveiN:" + Application.persistentDataPath);
 
+    }
+    void setSLMenuContent(bool state)
+    {
+                if (state)
+                {
+                    RectTransform ContentRect;
+                    RectTransform SlotRect;
+                    ContentRect = Content.GetComponent<RectTransform>();
+                    SlotRect = SaveSlot.GetComponent<RectTransform>();
+                    ContentRect.sizeDelta = new Vector2(ContentRect.sizeDelta.x, ContentRect.sizeDelta.y + SlotRect.sizeDelta.y);
+                }
+                else
+                {
+                    GameObject tmpSaveSlot = SaveSlot;
+                    RectTransform ContentRect;
+                    RectTransform SlotRect;
+                    SlotRect = tmpSaveSlot.GetComponent<RectTransform>();
+                    ContentRect = Content.GetComponent<RectTransform>();
+                    ContentRect.sizeDelta = new Vector2(ContentRect.sizeDelta.x, ContentRect.sizeDelta.y - (SlotRect.sizeDelta.y / 2));
+                }
+        
     }
 	void getSaves()
     {
@@ -143,6 +176,10 @@ public class SLMenu : MonoBehaviour {
         tmpSaveData.position = player.transform.position;
         tmpSaveData.saveDate = DateTime.Now.ToString();
         tmpSaveData.playerHealth = player.GetComponent<hurt>().HP1 / player.GetComponent<hurt>().TotalHP;
+        foreach (var item in eventTrigger)
+        {
+            tmpSaveData.eventTrigger.Add(item.activeSelf);
+        }
         string saveString = JsonUtility.ToJson(tmpSaveData);
         StreamWriter file = new StreamWriter(Application.persistentDataPath+"/saves/"+name);
         file.Write(saveString);
@@ -181,13 +218,7 @@ public class SLMenu : MonoBehaviour {
                         tmpSaveSlot.name = "save" + (Content.transform.childCount - 1).ToString();
                         if (Content.transform.childCount > 3)
                         {
-                            RectTransform ContentRect;
-                            RectTransform SlotRect;
-                            ContentRect = Content.GetComponent<RectTransform>();
-                            SlotRect = tmpSaveSlot.GetComponent<RectTransform>();
-                            ContentRect.sizeDelta = new Vector2(ContentRect.sizeDelta.x, ContentRect.sizeDelta.y + SlotRect.sizeDelta.y);
-                            //Debug.Log("long++");
-                            //ContentRect.rect.Set(ContentRect.rect.x, ContentRect.rect.y, ContentRect.rect.width, ContentRect.rect.height + SlotRect.rect.height);
+                            setSLMenuContent(true);
                         }
                     }
                     break;
@@ -207,7 +238,6 @@ public class SLMenu : MonoBehaviour {
                         tmpSaveSlot.GetComponent<Button>().onClick.RemoveAllListeners();
                         tmpSaveSlot.GetComponent<Button>().onClick.AddListener(delegate() { realLoad(); });
                         Debug.Log(tmpSaveSlot.GetComponent<Button>().onClick);
-
                         tmpSaveSlot.transform.Find("Number").GetComponentInChildren<Text>().text = saveGames[i].saveName;
                         tmpSaveSlot.transform.Find("Date").GetComponent<Text>().text = saveGames[i].saveDate;
                         tmpSaveSlot.name = "save" + (Content.transform.childCount).ToString();
@@ -216,11 +246,7 @@ public class SLMenu : MonoBehaviour {
                         //如果存檔總數大於三就把存檔視窗加長
                         if (Content.transform.childCount > 3)
                         {
-                            RectTransform ContentRect;
-                            RectTransform SlotRect;
-                            SlotRect = tmpSaveSlot.GetComponent<RectTransform>();
-                            ContentRect = Content.GetComponent<RectTransform>();
-                            ContentRect.sizeDelta = new Vector2(ContentRect.sizeDelta.x, ContentRect.sizeDelta.y + SlotRect.sizeDelta.y);
+                            setSLMenuContent(true);
 
                             //Debug.Log("long++");
                             //ContentRect.rect.Set(ContentRect.rect.x, ContentRect.rect.y, ContentRect.rect.width, ContentRect.rect.height + SlotRect.rect.height);
@@ -235,6 +261,27 @@ public class SLMenu : MonoBehaviour {
     void replaceSave()
     {
     }
+    public void dialogLoad()
+    {
+        string selectedSave = "tmpSave";
+        SaveToLoad = selectedSave;
+        Debug.Log(selectedSave);
+        foreach (var item in saveGames)
+        {
+            if (item.saveName == selectedSave)
+            {
+                transform.parent = null;
+                DontDestroyOnLoad(gameObject);
+                SceneManager.LoadScene(item.currentLevel);
+                SceneManager.sceneLoaded += LoadAction;
+            }
+        }
+    }
+    public void dialogSave() 
+    {
+        saveAction("tmpSave");
+    }
+
     public void realLoad()
     {
         Debug.Log("work!");
@@ -268,7 +315,11 @@ public class SLMenu : MonoBehaviour {
         //驗證用，將sammaru的位置變更為json內紀錄的位置
         tmpPlayer.transform.position = loadData.position;
         tmpPlayer.GetComponent<hurt>().HP1 = tmpPlayer.GetComponent<hurt>().TotalHP * loadData.playerHealth;
-
+        //調整eventTrigger
+        for (int i = 0; i < loadData.eventTrigger.Count; i++)
+        {
+            eventTrigger[i].SetActive(loadData.eventTrigger[i]);
+        }
         Destroy(gameObject);
     }
     private void OnGUI()
@@ -288,15 +339,7 @@ public class SLMenu : MonoBehaviour {
                         //如果存檔總數大於三就把存檔視窗加長
                         if (Content.transform.childCount > 3)
                         {
-                            GameObject tmpSaveSlot = SaveSlot;
-                            RectTransform ContentRect;
-                            RectTransform SlotRect;
-                            SlotRect = tmpSaveSlot.GetComponent<RectTransform>();
-                            ContentRect = Content.GetComponent<RectTransform>();
-                            ContentRect.sizeDelta = new Vector2(ContentRect.sizeDelta.x, ContentRect.sizeDelta.y - (SlotRect.sizeDelta.y/2));
-
-                            //Debug.Log("long--");
-                            //ContentRect.rect.Set(ContentRect.rect.x, ContentRect.rect.y, ContentRect.rect.width, ContentRect.rect.height + SlotRect.rect.height);
+                            setSLMenuContent(false);
                         }
                     }
                     break;
@@ -306,13 +349,8 @@ public class SLMenu : MonoBehaviour {
                         Destroy(Content.transform.GetChild(i).gameObject);
                         if (Content.transform.childCount > 3)
                         {
-                       
-                            GameObject tmpSaveSlot = SaveSlot;
-                            RectTransform ContentRect;
-                            RectTransform SlotRect;
-                            SlotRect = tmpSaveSlot.GetComponent<RectTransform>();
-                            ContentRect = Content.GetComponent<RectTransform>();
-                            ContentRect.sizeDelta = new Vector2(ContentRect.sizeDelta.x, ContentRect.sizeDelta.y - (SlotRect.sizeDelta.y/2));
+
+                            setSLMenuContent(false);
 
                             //Debug.Log("long--");
                             //ContentRect.rect.Set(ContentRect.rect.x, ContentRect.rect.y, ContentRect.rect.width, ContentRect.rect.height + SlotRect.rect.height);

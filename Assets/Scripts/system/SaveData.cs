@@ -8,4 +8,5 @@ public class SaveData {
     public Vector3 position;
     public string saveDate;
     public float playerHealth;
+    public List<bool> eventTrigger = new List<bool>();
 }
