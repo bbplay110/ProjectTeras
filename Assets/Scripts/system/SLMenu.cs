@@ -15,7 +15,7 @@ public class SLMenu : MonoBehaviour {
     public GameObject SaveSlot;
     public GameObject Content;
     [SerializeField]
-    private List<GameObject> eventTrigger = new List<GameObject>();
+   // private List<GameObject> eventTrigger = new List<GameObject>();
     private enum saveOrLoad {
         save,
         load
@@ -28,20 +28,17 @@ public class SLMenu : MonoBehaviour {
     // Use this for initialization
     private void Awake()
     { 
-        GameObject eventTriggerList = GameObject.FindGameObjectWithTag("FungusEventTrigger");
+        /*GameObject eventTriggerList = GameObject.FindGameObjectWithTag("FungusEventTrigger");
         Debug.Log(eventTriggerList);
         for (int i = 0; i <eventTriggerList.transform.childCount; i++)
         {
             eventTrigger.Add(eventTriggerList.transform.GetChild(i).gameObject);
-        }
+        }*/
         currentLevel = SceneManager.GetActiveScene().name;
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.Find("Player");
     }
     void Start () {
-        foreach (var item in eventTrigger)
-        {
-            Debug.Log(item.name);
-        }
+
         //Debug.Log(Application.persistentDataPath);
         getSaves();
         switch (SLstatus)
@@ -176,6 +173,9 @@ public class SLMenu : MonoBehaviour {
         tmpSaveData.position = player.transform.position;
         tmpSaveData.saveDate = DateTime.Now.ToString();
         tmpSaveData.playerHealth = player.GetComponent<hurt>().HP1 / player.GetComponent<hurt>().TotalHP;
+        Manager manager = GameObject.FindObjectOfType<Manager>();
+        List<GameObject> eventTrigger = new List<GameObject>();
+        eventTrigger = manager.triggerList;
         foreach (var item in eventTrigger)
         {
             tmpSaveData.eventTrigger.Add(item.activeSelf);
@@ -279,6 +279,7 @@ public class SLMenu : MonoBehaviour {
     }
     public void dialogSave() 
     {
+        player = GameObject.Find("Player");
         saveAction("tmpSave");
     }
 
@@ -316,6 +317,9 @@ public class SLMenu : MonoBehaviour {
         tmpPlayer.transform.position = loadData.position;
         tmpPlayer.GetComponent<hurt>().HP1 = tmpPlayer.GetComponent<hurt>().TotalHP * loadData.playerHealth;
         //調整eventTrigger
+        Manager manager = GameObject.FindObjectOfType<Manager>();
+        List<GameObject> eventTrigger = new List<GameObject>();
+        eventTrigger = manager.triggerList;
         for (int i = 0; i < loadData.eventTrigger.Count; i++)
         {
             eventTrigger[i].SetActive(loadData.eventTrigger[i]);

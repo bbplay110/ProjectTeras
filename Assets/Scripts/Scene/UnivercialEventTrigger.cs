@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class UnivercialEventTrigger : MonoBehaviour {
     public string[] targetTag;
     public UnityEvent stay;
     public UnityEvent exit;
     public UnityEvent enter;
+
     // Use this for initialization
-    void Start () {
-		
-	}
+
+
     private void OnTriggerEnter(Collider other)
     {
         foreach (var item in targetTag)
