@@ -31,7 +31,7 @@ public class shooter : MonoBehaviour  {
     {
         mcamera = GameObject.Find("MainCamera");
 
-        gunLine =Gun.GetComponent<LineRenderer>();
+        gunLine =GetComponent<LineRenderer>();
     }
     public void shoot() {
         timer = 0;

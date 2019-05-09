@@ -30,7 +30,7 @@ public class shootingEnemy : MonoBehaviour {
 	void Update () {
 
         ChackingSeePlayer();
-        BulletPosition.transform.LookAt(PlayerBody.position);
+        BulletPosition.transform.LookAt(PlayerBody.position+new Vector3(0,2,0));
         FindPlayer();
         
 	}

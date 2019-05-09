@@ -97,6 +97,14 @@ using UnityEngine.UI;
 
         }
     }
+    public void rootMove(Vector3 moveVector)
+    {
+            Vector2 input = new Vector2(hInput.GetAxis("Horizontal"), hInput.GetAxis("Vertical"));
+            iTween.LookTo(Body,iTween.Hash("axis","y", "looktarget",Body.transform.position+(cameraDir.rotation*Vector3.forward), "time",0.1));
+            moveDirection = cameraDir.TransformVector(moveVector * 2);
+            controller.Move(moveDirection * Time.deltaTime);
+        //moveDirection = transform.TransformDirection(moveDirection);
+    }
     public void move(Vector2 input ) {
         if (controller.isGrounded&&Canwalk)
         {
@@ -127,8 +135,9 @@ using UnityEngine.UI;
         }
         if (Canwalk == false)
         {
-            moveDirection *= 0;
-            moveDirection.y *= 0;
+            moveDirection.x *= 0;
+            moveDirection.z *= 0;
+
         }
         //Debug.Log("Vspeed="+vSpeed);
         vSpeed = Mathf.Clamp(vSpeed,-30,30);
