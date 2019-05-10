@@ -2,15 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Track2DBullet : MonoBehaviour {
-
+public class Missile2D : Bullet {
+    public float TraceTime=3;
 	// Use this for initialization
 	void Start () {
 		
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+    private void OnTriggerEnter(Collider other)
+    {
+        
+    }
+    // Update is called once per frame
+    void Update () {
+        TraceTime -= 1 * Time.deltaTime;
+        if (TraceTime >= 0)
+        {
+
+
+            iTween.LookUpdate(gameObject, iTween.Hash());
+        }
 	}
 }
