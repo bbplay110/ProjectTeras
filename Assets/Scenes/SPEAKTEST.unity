@@ -1440,6 +1440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevel: 
+  player: {fileID: 0}
   QuickSaveSlot: {fileID: 0}
   SaveSlot: {fileID: 0}
   Content: {fileID: 0}
@@ -1978,7 +1979,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 67
+    x: 68.0989
     y: 70
     width: 120
     height: 40
