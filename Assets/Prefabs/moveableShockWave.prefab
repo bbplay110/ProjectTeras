@@ -37,7 +37,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4275584387131440}
   - component: {fileID: 65992675220532816}
-  - component: {fileID: 114363849352999952}
   m_Layer: 0
   m_Name: moveableShockWave
   m_TagString: Untagged
@@ -52,7 +51,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1719368291950968}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 3.9440117, y: 1.5, z: -215.11932}
+  m_LocalPosition: {x: 279.72803, y: 106.41, z: -305.99893}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4898279093872428}
@@ -66,7 +65,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1086376529951508}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.05, y: 0, z: 0}
+  m_LocalPosition: {x: 18.13, y: -5.94, z: 0.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4275584387131440}
@@ -79,26 +78,11 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1719368291950968}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 10.079681, y: 10.107906, z: 5.869445}
   m_Center: {x: -5.781357, y: 0.3552971, z: 2.4347231}
---- !u!114 &114363849352999952
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1719368291950968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4be6e2e36206641498468dae470330dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DestoryTime: 10
-  speed: 12
-  power: 60
-  TraceTime: 3
 --- !u!198 &198672786791438636
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -1310,10 +1294,10 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.75081, g: 0.18039215, b: 0.7529412, a: 0.80784315}
+        key0: {r: 0.75081, g: 0.18039215, b: 0.7529412, a: 0.2901961}
         key1: {r: 1, g: 1, b: 1, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 1}
-        key3: {r: 0, g: 0, b: 0, a: 0.5294118}
+        key3: {r: 0, g: 0, b: 0, a: 0.09411765}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
@@ -1326,10 +1310,10 @@ ParticleSystem:
         ctime5: 0
         ctime6: 0
         ctime7: 0
-        atime0: 8867
+        atime0: 8674
         atime1: 22359
         atime2: 35273
-        atime3: 51850
+        atime3: 46453
         atime4: 0
         atime5: 0
         atime6: 0
@@ -1544,7 +1528,7 @@ ParticleSystem:
     y:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2.04
+      scalar: 0
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -1703,7 +1687,7 @@ ParticleSystem:
     orbitalY:
       serializedVersion: 2
       minMaxState: 0
-      scalar: -5.82
+      scalar: 0
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -2071,7 +2055,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    inWorldSpace: 1
+    inWorldSpace: 0
   InheritVelocityModule:
     enabled: 0
     m_Mode: 0

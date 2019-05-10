@@ -994,6 +994,9 @@ GameObject:
   - component: {fileID: 114528879019887496}
   - component: {fileID: 114264072981566870}
   - component: {fileID: 114585673391993626}
+  - component: {fileID: 114685382981382650}
+  - component: {fileID: 114522716006577544}
+  - component: {fileID: 114492641708092286}
   m_Layer: 5
   m_Name: Main-UI
   m_TagString: Untagged
@@ -1306,7 +1309,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1825644613595402
 GameObject:
   m_ObjectHideFlags: 1
@@ -2655,12 +2658,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevel: 
-  player: {fileID: 0}
   QuickSaveSlot: {fileID: 1158779739739350}
   SaveSlot: {fileID: 1369317698352538}
   Content: {fileID: 1847610756716260}
-  SaveToLoad: 
+  slu: {fileID: 114685382981382650}
+  saveList: []
   SLstatus: 1
+  saveGames: []
 --- !u!114 &114324459159094086
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3392,6 +3396,22 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Scrollbar+ScrollEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114492641708092286
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1550083092813090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de399cdfa0967b6439621d08629692d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slu: {fileID: 0}
+  showMenu: 1
+  showSave: 0
+  showLoad: 0
+  saveGames: []
 --- !u!114 &114505122321392060
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3577,6 +3597,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114522716006577544
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1550083092813090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e46273fc06c47d94599f05044d604991, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114523030209773576
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3885,7 +3916,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 3
+  m_ScrollSensitivity: 1
   m_Viewport: {fileID: 224024130267350224}
   m_HorizontalScrollbar: {fileID: 114332482933388502}
   m_VerticalScrollbar: {fileID: 114873236732046806}
@@ -4206,7 +4237,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 3
+  m_ScrollSensitivity: 1
   m_Viewport: {fileID: 224127810955702148}
   m_HorizontalScrollbar: {fileID: 114454375123503366}
   m_VerticalScrollbar: {fileID: 114487474026495984}
@@ -4246,6 +4277,47 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114685382981382650
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1550083092813090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3517c759096a2343b3c190e16b3db62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  usePersistentDataPath: 1
+  saveGamePath: C:/Teras
+  quickSaveName: QuickSave
+  debugController:
+    gameSaved: 1
+    gameLoaded: 1
+    loadPrefab: 0
+    oiIsSetToDontSave: 0
+    currentRefRec: 0
+    isPersistent: 0
+    destroyingGameObject: 0
+    packGameObject: 0
+    packComponent: 0
+    checkCompSaveMode: 0
+    notSavingComp: 0
+    getValuesType: 0
+    getValuesField: 0
+    checkPropertySelector: 0
+    fieldsLength: 0
+    writeFieldType: 0
+    writeSurrogateFound: 0
+    writeFieldInfo: 0
+    instantiate: 0
+    unpackComponent: 0
+    readFieldInfo: 0
+    addFieldToDict: 0
+    setValuesType: 0
+    setValuesField: 0
+    readFieldType: 0
+    readFromDict: 0
 --- !u!114 &114690784157043154
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4310,12 +4382,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevel: 
-  player: {fileID: 0}
   QuickSaveSlot: {fileID: 1369317698352538}
   SaveSlot: {fileID: 1369317698352538}
   Content: {fileID: 1146450799196738}
-  SaveToLoad: 
+  slu: {fileID: 114685382981382650}
+  saveList: []
   SLstatus: 0
+  saveGames: []
 --- !u!114 &114698961930968966
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5597,7 +5670,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5634,9 +5707,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -17.06, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &224137577260339092
 RectTransform:
@@ -5690,9 +5763,9 @@ RectTransform:
   m_Father: {fileID: 224071090769415040}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 324.32, y: -49.600006}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 634.4, y: 99.20001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224166568376679432
@@ -5923,9 +5996,9 @@ RectTransform:
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -17.06, y: 20}
+  m_SizeDelta: {x: 0, y: 20}
   m_Pivot: {x: 0, y: 0}
 --- !u!224 &224361269278619802
 RectTransform:
@@ -6588,8 +6661,8 @@ RectTransform:
   m_Father: {fileID: 224889479967788660}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.21950561}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
