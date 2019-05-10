@@ -3,51 +3,78 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Door : MonoBehaviour {
-    public int EnemysInSencer=1;
+    //public int EnemysInSencer=1;
     //public GameObject senser;
-    public bool LaserDoor;
+    //public bool LaserDoor;
+    public bool openInStart;
     private Animator Controller;
     public GameObject Tip;
     public GameObject Boss;
-    private bool CanOpen=true;
     public bool BossDoor;
+    private bool isOpen = false;
 	// Use this for initialization
 	void Start () {
         /*if(senser!=null)
             senser.GetComponent<MeshRenderer>().enabled = false;*/
 
-        if (LaserDoor)
+        /*if (LaserDoor)
         {
             GetComponent<BoxCollider>().enabled = false;
-            //gameObject.transform.position -= new Vector3(0, 0, 15);
+            gameObject.transform.position -= new Vector3(0, 0, 15);
             InvokeRepeating("check", 1, 1);
-        }
+        }*/
         Tip.SetActive(false);
         Controller = GetComponent<Animator>();
-	}
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.tag=="Player")
+
+        if (openInStart)
         {
-            Tip.SetActive(true);
-            if (hInput.GetButtonDown("Submit")&&CanOpen)
-            {
-                Controller.SetTrigger("open");
-                if (BossDoor&&Boss!=null)
-                {
-                    Boss.SetActive(true);
-                }
-            }
-            
+            open();
         }
-        
     }
-    void open()
+    public void InSwitch()
     {
-        
-        Controller.SetTrigger("open");
+        Tip.SetActive(true);
+        if (hInput.GetButtonDown("Submit"))
+        {
+            ChengeState();
+        }
     }
-    void check()
+    public void ExitSwitch()
+    {
+        Tip.SetActive(false);
+    }
+    public void open()
+    {
+        if (isOpen == false)
+        {
+            Controller.SetTrigger("open");
+            isOpen = true;
+            if (BossDoor&&Boss!=null)
+            {
+                Boss.SetActive(true);
+            }
+        }
+    }
+    public void close()
+    {
+        if (isOpen == true)
+        {
+            Controller.SetTrigger("open");
+            isOpen = false;
+        }
+    }
+    void ChengeState()
+    {
+        if (!isOpen)
+        {
+            open();
+        }
+        else
+        {
+            close();
+        }
+    }
+    /*void check()
     {
         if (EnemysInSencer ==0)
         {
@@ -57,21 +84,7 @@ public class Door : MonoBehaviour {
             //GetComponent<MeshRenderer>().enabled = true;
             CancelInvoke("check");
         }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "Player") {
-            Tip.SetActive(false);
-        }
-    }
-    public void CanOpenDoor()
-    {
-        CanOpen = true;
-    }
-    public void CanNotOpenDoor()
-    {
-        CanOpen = false;
-    }
+    }*/
     // Update is called once per frame
     void Update () {
 		

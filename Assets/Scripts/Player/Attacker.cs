@@ -44,7 +44,7 @@ public class Attacker : MonoBehaviour
         mStateInfo = Player2.GetCurrentAnimatorStateInfo(stateLayer);
         if (mStateInfo.IsTag("hurt"))
         {
-            ComboEnd();
+            //ComboEnd();
         }
         if (canTrigger && hInput.GetButtonDown("Fire1"))
         {

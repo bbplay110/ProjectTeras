@@ -5,7 +5,7 @@ using UnityEngine.UI;
     [RequireComponent(typeof(CharacterController))]
     public class Player : MonoBehaviour {
 
-    public float jet = 100;
+    public float energy = 100;
     private bool canJet = true;
     private Transform mainCameraTran;
     public Transform cameraDir;
@@ -20,6 +20,7 @@ using UnityEngine.UI;
     private bool Canwalk = true;
     private bool CanTurn = true;
     private bool Aim = false;
+    private float dodgeCounter = 0;
     public GameObject Body;
     private Vector3 moveDirection = Vector3.zero;
     public Animator Player1;
@@ -48,6 +49,7 @@ using UnityEngine.UI;
         //jeta();
         Animator();
         SetRotation();
+        dodge();
        /* if (Aim == false&& (Input.GetAxis("Horizontal")!=0|| Input.GetAxis("Vertical")!=0))
         {
             SetRotation(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
@@ -66,7 +68,22 @@ using UnityEngine.UI;
     {
         Canwalk = walk;
     }
-    
+    void dodge()
+    {
+        if (hInput.GetButton("Run"))
+        {
+            dodgeCounter += 1 * Time.deltaTime;
+            Debug.Log("dodgeCounter=" + dodgeCounter);
+        }
+        if (hInput.GetButtonUp("Run"))
+        {
+            if (dodgeCounter <= 0.5f)
+            {
+                controller.Move(new Vector3(moveDirection.x,0,moveDirection.z)*10*Time.deltaTime);
+            }
+            dodgeCounter = 0;
+        }
+    }
     public void SetRotation()
     {
         Vector2 input = new Vector2(hInput.GetAxis("Horizontal"), hInput.GetAxis("Vertical"));
@@ -79,6 +96,14 @@ using UnityEngine.UI;
             Rotation(mainCameraTran.eulerAngles.y-90);
 
         }
+    }
+    public void rootMove(Vector3 moveVector)
+    {
+            Vector2 input = new Vector2(hInput.GetAxis("Horizontal"), hInput.GetAxis("Vertical"));
+            iTween.LookTo(Body,iTween.Hash("axis","y", "looktarget",Body.transform.position+(cameraDir.rotation*Vector3.forward), "time",0.1));
+            moveDirection = cameraDir.TransformVector(moveVector * 2);
+            controller.Move(moveDirection * Time.deltaTime);
+        //moveDirection = transform.TransformDirection(moveDirection);
     }
     public void move(Vector2 input ) {
         if (controller.isGrounded&&Canwalk)
@@ -110,8 +135,9 @@ using UnityEngine.UI;
         }
         if (Canwalk == false)
         {
-            moveDirection *= 0;
-            moveDirection.y *= 0;
+            moveDirection.x *= 0;
+            moveDirection.z *= 0;
+
         }
         //Debug.Log("Vspeed="+vSpeed);
         vSpeed = Mathf.Clamp(vSpeed,-30,30);
@@ -119,13 +145,13 @@ using UnityEngine.UI;
 
     }
     public void jeta() {
-        jet = Mathf.Clamp(jet,0, 100);
-        mpBar.fillAmount = jet / 100;
+        energy = Mathf.Clamp(energy, 0, 100);
+        mpBar.fillAmount = energy / 100;
         //Debug.Log("canget="+canJet);
 
         if (controller.isGrounded) {
             canJet = true;
-            jet += 15 * Time.deltaTime;
+            energy += 15 * Time.deltaTime;
         }
             if (controller.isGrounded == false&&Canwalk)
         {
@@ -141,8 +167,8 @@ using UnityEngine.UI;
             {
                 gravity = 0;
                 vSpeed +=0.5f;
-                jet -= 2;
-                if (jet <= 0)
+                energy -= 2;
+                if (energy <= 0)
                 {
                     canJet = false;
                     gravity = 20;
@@ -160,7 +186,7 @@ using UnityEngine.UI;
         {
             gravity = 20;
         }
-        if (jet <= 0)
+        if (energy <= 0)
         {
             gravity = 20;
             canJet = false;
@@ -179,7 +205,7 @@ using UnityEngine.UI;
         Aim = aiim;
     }
     public void Animator() {
-
+        Player1.SetFloat("WalkArc",(controller.velocity.magnitude)/SpeedFast);
         if ((hInput.GetAxis("Horizontal") != 0 || hInput.GetAxis("Vertical") != 0)&&Canwalk)
         {
             Player1.SetBool("walkforward", true);

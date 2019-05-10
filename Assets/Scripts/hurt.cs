@@ -26,12 +26,17 @@ public class hurt : MonoBehaviour
     public Image ExtraShiledBar;
     public Image HpBar;
     public GameObject Win, Lose, mcamera=null;
-    public bool needCleared;
+    //public bool needCleared;
     public Transform UI;
-    public GameObject door;
+    //public GameObject door;
     public Text HealthValue;
     public GameObject DeadBody;
     public GameObject hurtArrow;
+
+
+    public delegate void OnDiedEvent();
+    public static OnDiedEvent onDied;
+
     public float HP1
     {
         get
@@ -155,15 +160,15 @@ public class hurt : MonoBehaviour
                 GetComponent<Animator>().SetTrigger("death");
                 GetComponent<Collider>().enabled = false;
                 }
-                if(needCleared)
-
-                    door.GetComponent<Door>().EnemysInSencer -= 1;
-
+                //if(needCleared)
+                    //door.GetComponent<Door>().EnemysInSencer -= 1;
+                onDied();
             }
             else if (gameObject.tag == "MiddleBoss")
             {
-                if(door!=null)
-                    door.GetComponent<Door>().EnemysInSencer -= 2;
+                //if(door!=null)
+                    //door.GetComponent<Door>().EnemysInSencer -= 2;
+                onDied();
             }
             else if (gameObject.tag == "Boss")
             {
@@ -183,9 +188,9 @@ public class hurt : MonoBehaviour
                 Time.timeScale = 0.5f;
                 
                 Wined = true;
-                //BossDeath(5);
+                BossDeath(5);
                 Destroy(gameObject, DeathTime);
-                
+                onDied();
             }
             else 
             {
@@ -198,9 +203,13 @@ public class hurt : MonoBehaviour
     {
         Time.timeScale = 1;
         Win.SetActive(false);
-        GetComponent<SceneLoad>().LoadScene(GetComponent<SceneLoad>().scenes);
+        Invoke("loadNextLevel",3);
     }
+    void loadNextLevel()
+    {
+        GetComponent<SceneLoad>().LoadScene(GetComponent<SceneLoad>().scenes);
 
+    }
     private void Restart()
     {
         SceneManager.LoadScene(RestartScene);

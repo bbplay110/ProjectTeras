@@ -18,22 +18,27 @@ public class shooter : MonoBehaviour  {
     public float timeBetweenBullet=0.15f;
     private float effectDisplay = 0.2f;
     float timer;
-    public Transform righthand;
+    //public Transform righthand;
     public GameObject thingtoAim;
+    public delegate void OnAim();
+    public static event OnAim onAim;
+
+    public delegate void UnAim();
+    public static event UnAim unAim;
     // Use this for initialization
     // Use this for initialization
     private void Awake()
     {
         mcamera = GameObject.Find("MainCamera");
 
-        gunLine =Gun.GetComponent<LineRenderer>();
+        gunLine =GetComponent<LineRenderer>();
     }
     public void shoot() {
         timer = 0;
         gunLine.enabled = true;
         gunLine.SetPosition(0,Gun.transform.position);
-        shootRay.origin = Gun.transform.position;
-        shootRay.direction = Gun.transform.forward;
+        //shootRay.origin = Gun.transform.position;
+        //shootRay.direction = Gun.transform.forward;
         if (Physics.Raycast(shootRay,out shootHit,range))
         {
             gunLine.SetPosition(1, shootHit.point);
@@ -60,6 +65,7 @@ public class shooter : MonoBehaviour  {
     
 
     void Start () {
+        Debug.Log("MainCameraIs" + Camera.main.gameObject.name);    
         thingtoAim = GameObject.Find("ThingToAim");
 
   	}
@@ -80,8 +86,6 @@ public class shooter : MonoBehaviour  {
 
         if (hInput.GetButtonDown("Aim"))
         {
-
-            
             tmpDistance = mcamera.GetComponent<Camera3rdControl>().distence;
             GetComponent<Attacker>().enabled = false;
             GetComponent<Player>().Player1.SetLayerWeight(handLayerIndex, 1);
@@ -89,16 +93,37 @@ public class shooter : MonoBehaviour  {
             GetComponent<Player>().SetAim(true);
             isAimed = true;
             mcamera.GetComponent<Camera3rdControl>().distence = 3;
+            if(onAim!=null)
+                onAim();
+
         }
         else if (hInput.GetButton("Aim"))
         {
-            shootRay.origin = Gun.transform.position;
-            shootRay.direction = Gun.transform.forward;
-            Physics.Raycast(shootRay, out AimHit, Mathf.Infinity);
-            thingtoAim.transform.position = Camera.main.WorldToScreenPoint(AimHit.point);
 
-            Debug.Log(AimHit.point);
+            shootRay.origin = Gun.transform.position;
+            Ray AimRay = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+
+            //Gun.transform.position = righthand.position;
+            if (Physics.Raycast(AimRay, out AimHit, Mathf.Infinity))
+            {
+
+                
+                shootRay.direction = AimHit.point - Gun.transform.position;
+                thingtoAim.transform.position = Camera.main.WorldToScreenPoint(AimHit.point);
+                Debug.DrawLine(AimRay.origin,AimHit.point,Color.blue);
+                //Debug.Log("AimThing!");
+            }
+            else
+            {
+                //Debug.Log("AimNoThing!");
+                shootRay.direction = Gun.transform.forward;
+            }
+            //Physics.Raycast(shootRay, out AimHit, Mathf.Infinity);
+            //thingtoAim.transform.position = Camera.main.WorldToScreenPoint(AimHit.point);
+
+            //Debug.Log(AimHit.point);
         }
+
         else if (hInput.GetButtonUp("Aim"))
         {
             GetComponent<Attacker>().enabled = true;
@@ -106,7 +131,10 @@ public class shooter : MonoBehaviour  {
             thingtoAim.SetActive(false);
             mcamera.GetComponent<Camera3rdControl>().distence = tmpDistance;
             isAimed = false;
+            
             GetComponent<Player>().SetAim(false);
+            if(unAim!=null)
+                unAim();
         }
 
     }
@@ -115,7 +143,6 @@ public class shooter : MonoBehaviour  {
         aim();
         timer += Time.deltaTime;
         Gun.transform.rotation = mcamera.transform.rotation;
-        Gun.transform.position = righthand.position;
         if (hInput.GetButtonDown("Fire1")&&isAimed)
         {
             gameObject.GetComponent<Player>().Player1.SetBool("Fire", true);

@@ -7,6 +7,7 @@ public class PlayerAnimatorEventController : MonoBehaviour {
     public GameObject parents;
     public Transform leftFoot, rightFoot;
     public AudioClip[] sfx;
+    public Vector3 rootMoveDirction;
     // Use this for initialization
     void Start() {
         animator = GetComponent<Animator>();
@@ -14,7 +15,7 @@ public class PlayerAnimatorEventController : MonoBehaviour {
     }
 
     public void setJetOn() {
-        if (parents.GetComponent<Player>().jet == 0)
+        if (parents.GetComponent<Player>().energy == 0)
         {
             parents.GetComponent<Player>().SetJet(false);
 
@@ -24,17 +25,10 @@ public class PlayerAnimatorEventController : MonoBehaviour {
             parents.GetComponent<Player>().SetJet(true);
         }
     }
-    public void fakeRootMotion(float Distance)
+    public void fakeRootMotion()
     {
-
-        float InputX = hInput.GetAxis("Horizontal");
-        float InputY = hInput.GetAxis("Vertical");
-        float rotate = Mathf.Atan2(InputY, -InputX) * Mathf.Rad2Deg;
-        if (InputX != 0 && InputY != 0)
-            iTween.RotateTo(gameObject, new Vector3(0, rotate - 90 + Camera.main.transform.eulerAngles.y, 0), 0.5f);
-        if (parents.GetComponent<CharacterController>().isGrounded)
-            iTween.MoveTo(parents, (transform.forward * Distance) + transform.position + new Vector3(0, 2.05f, 0), 0.5f);
-
+      parents.GetComponent<Player>().rootMove(rootMoveDirction);
+        Debug.Log("MoveDirctionIs" + rootMoveDirction);
     }
     public void attackTriggerOn()
     {
@@ -59,11 +53,14 @@ public class PlayerAnimatorEventController : MonoBehaviour {
     {
         parents.GetComponent<Player>().SetTurn(true);
         parents.GetComponent<Player>().setWalk(true);
+        
     }
     public void freezerue()
     {
         parents.GetComponent<Player>().SetTurn(false);
         parents.GetComponent<Player>().setWalk(false);
+
+        animator.SetInteger("AttackINT", 0);
 
     }
     public void PlaySfx(int sfxIndex)

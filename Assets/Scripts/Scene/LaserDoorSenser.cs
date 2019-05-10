@@ -14,10 +14,10 @@ public class LaserDoorSenser : MonoBehaviour {
     {
         triggered = true;
         
-        if (other.tag=="MiddleBoss"||(other.tag == "Enemy" && other.GetComponent<hurt>().needCleared))
+        /*if (other.tag=="MiddleBoss"||(other.tag == "Enemy" && other.GetComponent<hurt>().needCleared))
         {
             Door.GetComponent<Door>().EnemysInSencer++;
-        }
+        }*/
         
     }
     
