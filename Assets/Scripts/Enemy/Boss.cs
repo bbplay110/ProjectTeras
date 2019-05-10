@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Boss : MonoBehaviour {
     public GameObject HpSet;
     public bool turnWithPlayer;
+    public bool look=false;
     private Animator BossAnimator;
     private Transform Player;
     public GameObject oraoraLeftHand,oraoraRightHand;
@@ -34,7 +35,7 @@ public class Boss : MonoBehaviour {
                 break;
                 
             default:
-                Debug.Log("only_take_0_or_1_or2");
+                Debug.Log("only_take_0_or_1");
                 break;
 
         }
@@ -47,7 +48,7 @@ public class Boss : MonoBehaviour {
                      Player.position.z);
             this.transform.LookAt(targetPostition);
         }
-
+        
         CameraControll();
     }
     void CameraControll()
@@ -66,12 +67,21 @@ public class Boss : MonoBehaviour {
         FindObjectOfType<Camera3rdControl>().maxDistence = 300;
         
 
-        CanControllCamera = true;
+        //CanControllCamera = true;
 
         shooter.onAim += OnPlayerAim;
         shooter.unAim += OnPlayerNotAim;
     }
-
+    public void lookRobot()
+    {
+        CanControllCamera = true;
+    }
+    public void dontLookRobot()
+    {
+        CanControllCamera = false;
+        PlayerCamera.localPosition = tmpCameraPoint;
+        FindObjectOfType<Camera3rdControl>().distence = 8;
+    }
     void OnPlayerAim()
     {
         CanControllCamera = false;
