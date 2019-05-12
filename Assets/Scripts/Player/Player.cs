@@ -79,7 +79,8 @@ using UnityEngine.UI;
         {
             if (dodgeCounter <= 0.5f)
             {
-                controller.Move(new Vector3(moveDirection.x,0,moveDirection.z)*10*Time.deltaTime);
+
+                moveDirection+=new Vector3(moveDirection.x,0,moveDirection.z)*10*Time.deltaTime;
             }
             dodgeCounter = 0;
         }
@@ -99,19 +100,16 @@ using UnityEngine.UI;
     }
     public void rootMove(Vector3 moveVector)
     {
-            Vector2 input = new Vector2(hInput.GetAxis("Horizontal"), hInput.GetAxis("Vertical"));
-            iTween.LookTo(Body,iTween.Hash("axis","y", "looktarget",Body.transform.position+(cameraDir.rotation*Vector3.forward), "time",0.1));
-            moveDirection = cameraDir.TransformVector(moveVector * 2);
-            controller.Move(moveDirection * Time.deltaTime);
-        //moveDirection = transform.TransformDirection(moveDirection);
+        moveDirection += Body.transform.TransformDirection(moveVector);
+        //controller.Move(moveDirection * Time.deltaTime);
     }
     public void move(Vector2 input ) {
         if (controller.isGrounded&&Canwalk)
         {
 
             vSpeed = -0.01f;
-            moveDirection = cameraDir.TransformVector(input.x, 0, input.y);
-            moveDirection = transform.TransformDirection(moveDirection);
+            moveDirection += cameraDir.TransformVector(input.x, 0, input.y);
+            moveDirection += transform.TransformDirection(moveDirection);
             moveDirection *= forwardSpeed;
 
             if (Input.GetButton("Jump"))
@@ -129,10 +127,7 @@ using UnityEngine.UI;
             forwardSpeed = SpeedSlow;
         }
         vSpeed -= gravity * Time.deltaTime;
-        if (Canwalk)
-        {
             moveDirection.y = vSpeed;
-        }
         if (Canwalk == false)
         {
             moveDirection.x *= 0;
