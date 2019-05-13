@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.56189924, g: 0.5915806, b: 0.6509434, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 2.68
+  m_AmbientIntensity: 0.67
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: c80ca3aab2de33547a552919d385f9f0, type: 2}
@@ -38,13 +38,13 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.25281382, g: 0.32182506, b: 0.41159594, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 1
+  m_GIWorkflowMode: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -9679,6 +9679,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d29dd628aef29ab47bd9c84a6939483c, type: 3}
   - {fileID: 8300000, guid: bd4e1dbf55e35ca40ba38cfdd52d7c72, type: 3}
   - {fileID: 8300000, guid: af209fdd3bd67a148b11a2739a7302c1, type: 3}
+  rootMoveDirction: {x: 0, y: 0, z: 0}
 --- !u!4 &480940720
 Transform:
   m_ObjectHideFlags: 0
