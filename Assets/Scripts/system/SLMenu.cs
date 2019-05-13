@@ -173,13 +173,20 @@ public class SLMenu : MonoBehaviour {
         tmpSaveData.position = player.transform.position;
         tmpSaveData.saveDate = DateTime.Now.ToString();
         tmpSaveData.playerHealth = player.GetComponent<hurt>().HP1 / player.GetComponent<hurt>().TotalHP;
+        //找manager抓敵人跟事件列表
         Manager manager = GameObject.FindObjectOfType<Manager>();
+        //抓事件列表起來存
         List<GameObject> eventTrigger = new List<GameObject>();
         eventTrigger = manager.triggerList;
         foreach (var item in eventTrigger)
         {
             tmpSaveData.eventTrigger.Add(item.activeSelf);
         }
+        //檢查敵人列表
+        manager.checkEnemyList();
+        tmpSaveData.enemys = manager.EnemyListReal;
+        
+
         string saveString = JsonUtility.ToJson(tmpSaveData);
         StreamWriter file = new StreamWriter(Application.persistentDataPath+"/saves/"+name);
         file.Write(saveString);
@@ -318,11 +325,18 @@ public class SLMenu : MonoBehaviour {
         tmpPlayer.GetComponent<hurt>().HP1 = tmpPlayer.GetComponent<hurt>().TotalHP * loadData.playerHealth;
         //調整eventTrigger
         Manager manager = GameObject.FindObjectOfType<Manager>();
+        //敵人列表
         List<GameObject> eventTrigger = new List<GameObject>();
         eventTrigger = manager.triggerList;
         for (int i = 0; i < loadData.eventTrigger.Count; i++)
         {
             eventTrigger[i].SetActive(loadData.eventTrigger[i]);
+        }
+        List<GameObject> enemys = new List<GameObject>();
+        enemys = manager.enemyList;
+        for (int i = 0; i < loadData.enemys.Count; i++)
+        {
+            enemys[i].SetActive(loadData.enemys[i]);
         }
         Destroy(gameObject);
     }

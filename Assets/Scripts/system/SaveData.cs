@@ -9,4 +9,5 @@ public class SaveData {
     public string saveDate;
     public float playerHealth;
     public List<bool> eventTrigger = new List<bool>();
+    public List<bool> enemys = new List<bool>();
 }

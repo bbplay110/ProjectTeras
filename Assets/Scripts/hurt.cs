@@ -88,6 +88,7 @@ public class hurt : MonoBehaviour
     void Update()
     {
         //HpBar.transform.LookAt(Camera.main.transform.position);
+
     }
     public void SetHurton()
     {
@@ -95,6 +96,10 @@ public class hurt : MonoBehaviour
     }
     public void damage(float hurt,bool trap=false,Transform HurtPosition=null)
     {
+        if (gameObject.tag == "Player")
+        {
+            Debug.Log("canhurt=" + CanHurt);
+        }
         if (gameObject.tag == "Player" && Wined == true)
         {
             hurt = 0;
@@ -106,10 +111,10 @@ public class hurt : MonoBehaviour
             {
                 ExtraShiledBar.fillAmount = currentExtraShild / TotalExtraShild;
             }
-
         }
         else if (CanHurt&&currentExtraShild<=0)
         {
+
             HP1 -= hurt;
             Invoke("SetHurton", 0.3f);
             if (gameObject.tag == "Player"&&hurtArrow!=null&&HurtPosition!=null)
@@ -125,7 +130,7 @@ public class hurt : MonoBehaviour
             }
         }
 
-        if (!trap) { 
+        if (!trap&&hurt>60) { 
             CanHurt = false;
             
         }
@@ -187,7 +192,7 @@ public class hurt : MonoBehaviour
                 //Cursor.visible = true;
                 Time.timeScale = 0.5f;
                 
-                Wined = true;
+                //Wined = true;
                 BossDeath(5);
                 Destroy(gameObject, DeathTime);
                 onDied();

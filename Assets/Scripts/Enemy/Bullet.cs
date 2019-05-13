@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour {
 	public int DestoryTime;
 	public int speed;
     public float power=60f;
+    public LayerMask layer;
 	// Use this for initialization
 	void Start () {
 		Destroy (gameObject, DestoryTime);
@@ -28,7 +29,7 @@ public class Bullet : MonoBehaviour {
             Destroy(gameObject);
             GameObject playerBody = hit.GetComponent<Player>().Body;
             hit.GetComponent<hurt>().damage(power, false, gameObject.transform);
-            Debug.Log(hit.name);
+            Debug.Log("HitThePlayer");
             if (power > 100)
             {
                 playerBody.GetComponent<Animator>().SetTrigger("damage");
@@ -36,8 +37,9 @@ public class Bullet : MonoBehaviour {
             //iTween.ShakePosition(Camera.main.gameObject, new Vector3(0, 0,0), 1.0f);
             Destroy(gameObject);
         }
-        else if (hit.gameObject.layer == LayerMask.GetMask("SceneObject"))
+        else if (hit.gameObject.layer == LayerMask.NameToLayer("SceneObject"))
         {
+            Debug.Log("HitWall");
             Destroy(gameObject);
 
         }
@@ -57,7 +59,7 @@ public class Bullet : MonoBehaviour {
             //iTween.ShakePosition(Camera.main.gameObject, new Vector3(0, 0,0), 1.0f);
             Destroy(gameObject);
         }
-        else if (hit.gameObject.layer == LayerMask.GetMask("SceneObject"))
+        else if (hit.gameObject.layer == LayerMask.NameToLayer("SceneObject"))
         {
             Destroy(gameObject);
 

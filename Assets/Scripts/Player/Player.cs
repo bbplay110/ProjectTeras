@@ -108,8 +108,8 @@ using UnityEngine.UI;
         {
 
             vSpeed = -0.01f;
-            moveDirection += cameraDir.TransformVector(input.x, 0, input.y);
-            moveDirection += transform.TransformDirection(moveDirection);
+            moveDirection = cameraDir.TransformVector(input.x, 0, input.y);
+            moveDirection = transform.TransformDirection(moveDirection);
             moveDirection *= forwardSpeed;
 
             if (Input.GetButton("Jump"))
