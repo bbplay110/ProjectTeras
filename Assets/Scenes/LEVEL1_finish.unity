@@ -9150,6 +9150,21 @@ Prefab:
       propertyPath: Boss
       value: 
       objectReference: {fileID: 155941422}
+    - target: {fileID: 224974594560600360, guid: 6b45a4066dbc4444c95547bd804d2dc0,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -8.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 224974594560600360, guid: 6b45a4066dbc4444c95547bd804d2dc0,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -16.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 224974594560600360, guid: 6b45a4066dbc4444c95547bd804d2dc0,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.54
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b45a4066dbc4444c95547bd804d2dc0, type: 2}
   m_IsPrefabAsset: 0
@@ -18094,10 +18109,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4be6e2e36206641498468dae470330dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TraceTime: 3
   DestoryTime: 0
   speed: 0
   power: 0
-  TraceTime: 3
 --- !u!1001 &415006670
 Prefab:
   m_ObjectHideFlags: 0
@@ -50984,11 +50999,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4414884763716954, guid: b04ac3a88efa0c6418e8284a30b11336, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4031380517472638, guid: b04ac3a88efa0c6418e8284a30b11336, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114393289968957726, guid: b04ac3a88efa0c6418e8284a30b11336,
         type: 2}
