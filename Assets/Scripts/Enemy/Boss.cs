@@ -7,17 +7,19 @@ public class Boss : MonoBehaviour {
     public GameObject HpSet;
     public bool turnWithPlayer;
     public bool look=false;
+    private bool HandIKActive;
+
     private Animator BossAnimator;
+    public float rightHandIKWeight=0;
     private Transform Player;
+    public GameObject IKAim;
     public GameObject oraoraLeftHand,oraoraRightHand;
     private Transform PlayerCamera;
-    private bool CanControllCamera;
-    private Vector3 tmpCameraPoint;
-    private float tmpCameraDistance;
     // Use this for initialization
     private void Awake()
     {
         PlayerCamera = FindObjectOfType<Camera3rdControl>().target;
+
     }
     void Start () {
         BossAnimator = GetComponent<Animator>();
@@ -39,6 +41,7 @@ public class Boss : MonoBehaviour {
                 break;
 
         }
+        
     }   
 	// Update is called once per frame
 	void Update () {
@@ -48,25 +51,20 @@ public class Boss : MonoBehaviour {
                      Player.position.z);
             this.transform.LookAt(targetPostition);
         }
-        
-        CameraControll();
-    }
-    void CameraControll()
-    {
-        if (CanControllCamera)
+        if (turnWithPlayer)
         {
-            PlayerCamera.position = ((Player.position + new Vector3(0, 2, 0)) + (transform.position + new Vector3(0, 50, 0))) / 2;
-            FindObjectOfType<Camera3rdControl>().distence = Vector3.Distance(Player.position + new Vector3(0, 2, 0), transform.position + new Vector3(0, 50, 0)) + 8;
+            IKAim.transform.position = new Vector3(Player.transform.position.x,IKAim.transform.position.y, Player.transform.position.z);
         }
+    }
+
+    private void OnAnimatorIK(int layerIndex)
+    {
+        BossAnimator.SetIKPosition(AvatarIKGoal.RightHand,IKAim.transform.position);
+        BossAnimator.SetIKPositionWeight(AvatarIKGoal.RightHand, rightHandIKWeight);
     }
     private void OnEnable()
     {
         HpSet.SetActive(true);
-        tmpCameraPoint = PlayerCamera.localPosition;
-        tmpCameraDistance = FindObjectOfType<Camera3rdControl>().distence;
-        FindObjectOfType<Camera3rdControl>().maxDistence = 300;
-        
-
         //CanControllCamera = true;
 
         shooter.onAim += OnPlayerAim;
@@ -74,33 +72,22 @@ public class Boss : MonoBehaviour {
     }
     public void lookRobot()
     {
-        CanControllCamera = true;
+        //CanControllCamera = true;
     }
     public void dontLookRobot()
     {
-        CanControllCamera = false;
-        PlayerCamera.localPosition = tmpCameraPoint;
         FindObjectOfType<Camera3rdControl>().distence = 8;
     }
     void OnPlayerAim()
     {
-        CanControllCamera = false;
-        PlayerCamera.localPosition = tmpCameraPoint;
-        FindObjectOfType<Camera3rdControl>().distence = 8;
     }
     void OnPlayerNotAim()
     {
-        CanControllCamera = true;
-        PlayerCamera.position = ((Player.position + new Vector3(0, 2, 0)) + (transform.position + new Vector3(0, 50, 0))) / 2;
     }
 
     private void OnDisable()
     {
-        if (tmpCameraPoint != null)
-            PlayerCamera.localPosition = tmpCameraPoint;
-        FindObjectOfType<Camera3rdControl>().maxDistence = 8;
-        FindObjectOfType<Camera3rdControl>().distence = tmpCameraDistance;
-
+        
         shooter.onAim -= OnPlayerAim;
         shooter.unAim -= OnPlayerNotAim;
     }
@@ -112,10 +99,7 @@ public class Boss : MonoBehaviour {
         iTween.MoveTo(gameObject,iTween.Hash("position",gameObject.transform.position-new Vector3(0,65,0),"time",4,"delay",1));
 
 
-        if (tmpCameraPoint != null)
-            PlayerCamera.localPosition = tmpCameraPoint;
-        FindObjectOfType<Camera3rdControl>().maxDistence = 8;
-        FindObjectOfType<Camera3rdControl>().distence = tmpCameraDistance;
+       
 
         shooter.unAim -= OnPlayerNotAim;
     }
