@@ -289,6 +289,7 @@ public class SLMenu : MonoBehaviour {
         player = GameObject.Find("Player");
         saveAction("tmpSave");
     }
+    
 
     public void realLoad()
     {

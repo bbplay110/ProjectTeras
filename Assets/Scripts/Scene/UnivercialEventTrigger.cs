@@ -19,8 +19,7 @@ public class UnivercialEventTrigger : MonoBehaviour {
         {
             if (other.tag == item)
             {
-                enter.Invoke();
-                Debug.Log("TriggerEnter!");
+                enter.Invoke();    
             }
 
         }

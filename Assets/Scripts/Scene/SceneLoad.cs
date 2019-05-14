@@ -2,9 +2,11 @@
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class SceneLoad : MonoBehaviour {
     public string scenes;
+    
     // Use this for initialization
     void Start () {
 		
@@ -17,16 +19,16 @@ public class SceneLoad : MonoBehaviour {
 	public void nextScenes(){
         if (scenes != null)
         {
-            SceneManager.LoadScene(scenes);
+           SceneManager.LoadScene(scenes);
         }
         else
         {
             Debug.LogWarning("nullScene");
         }
     }
+    
     public void LoadScene(string Scene)
     {
-
         SceneManager.LoadScene(Scene);
     }
 	public void quit(){

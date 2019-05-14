@@ -149,7 +149,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1614714737367218
 GameObject:
   m_ObjectHideFlags: 1
@@ -487,13 +487,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevel: 
+  player: {fileID: 0}
   QuickSaveSlot: {fileID: 1191967065789196}
   SaveSlot: {fileID: 1191967065789196}
+  Boss_finish: {fileID: 0}
   Content: {fileID: 1771097579964890}
-  slu: {fileID: 0}
-  saveList: []
+  SaveToLoad: 
   SLstatus: 0
-  saveGames: []
 --- !u!114 &114294717697762482
 MonoBehaviour:
   m_ObjectHideFlags: 1
