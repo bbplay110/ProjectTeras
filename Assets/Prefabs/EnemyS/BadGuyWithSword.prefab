@@ -1671,8 +1671,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1849577214867454}
   m_LocalRotation: {x: -0, y: 0.36575198, z: -0, w: 0.93071234}
-  m_LocalPosition: {x: -30.830462, y: -0.54805624, z: -242.62947}
-  m_LocalScale: {x: 2.0005, y: 2.0005, z: 2.0005}
+  m_LocalPosition: {x: -798.8025, y: 45.813904, z: 163.78358}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 4168601355777286}
   - {fileID: 4961727782235242}
@@ -2328,7 +2328,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaitTime: 3
-  Points: []
+  Points:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   Eyeball: {fileID: 4816212852006696}
   CanBrandingBrothers: 0
   Brothers: []
@@ -2435,13 +2439,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DeathTime: 3
   TotalHP: 100
+  TotalExtraShild: 0
+  ExtraShildRecover: 1
+  ExtraShildRecoverTime: 3
+  ExtraShiledBar: {fileID: 0}
   HpBar: {fileID: 114321054451651422}
   Win: {fileID: 0}
   Lose: {fileID: 0}
   mcamera: {fileID: 0}
-  needCleared: 0
   UI: {fileID: 0}
-  door: {fileID: 0}
   HealthValue: {fileID: 0}
   DeadBody: {fileID: 0}
   hurtArrow: {fileID: 0}
