@@ -217,8 +217,9 @@ public class hurt : MonoBehaviour
     }
     private void Restart()
     {
-        SceneManager.LoadScene(RestartScene);
-
+        //SceneManager.LoadScene(RestartScene);
+        Manager manager = FindObjectOfType<Manager>();
+        manager.quickLoad();
     }
     private void OnGUI()
     {
