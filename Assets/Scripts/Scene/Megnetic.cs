@@ -5,11 +5,11 @@ using UnityEditor;
 public class Megnetic : MonoBehaviour {
     public magnetic Magnetic;
 
-    public Material MagmentN, MagmentS;
+    private Material MagmentN, MagmentS;
     // Use this for initialization
     void Start () {
-        //MagmentN = AssetDatabase.LoadAssetAtPath<Material>("Assets/Materials/MagmentN.mat");
-        //MagmentS = AssetDatabase.LoadAssetAtPath<Material>("Assets/Materials/MagmentS.mat");
+        MagmentN = AssetDatabase.LoadAssetAtPath<Material>("Assets/Materials/MagmentN.mat");
+        MagmentS = AssetDatabase.LoadAssetAtPath<Material>("Assets/Materials/MagmentS.mat");
         switch (Magnetic)
         {
             case magnetic.north:
