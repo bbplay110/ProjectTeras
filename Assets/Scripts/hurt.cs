@@ -218,7 +218,7 @@ public class hurt : MonoBehaviour
     private void Restart()
     {
         //SceneManager.LoadScene(RestartScene);
-        Manager manager = FindObjectOfType<Manager>();
+        SLMenu manager = FindObjectOfType<SLMenu>();
         manager.quickLoad();
     }
     private void OnGUI()
