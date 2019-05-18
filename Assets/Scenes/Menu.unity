@@ -3424,11 +3424,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de399cdfa0967b6439621d08629692d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slu: {fileID: 0}
-  showMenu: 1
-  showSave: 0
-  showLoad: 0
-  saveGames: []
 --- !u!114 &1082904233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3451,36 +3446,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3517c759096a2343b3c190e16b3db62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usePersistentDataPath: 1
-  saveGamePath: 
-  quickSaveName: QuickSave
-  debugController:
-    gameSaved: 1
-    gameLoaded: 1
-    loadPrefab: 0
-    oiIsSetToDontSave: 0
-    currentRefRec: 0
-    isPersistent: 0
-    destroyingGameObject: 0
-    packGameObject: 0
-    packComponent: 0
-    checkCompSaveMode: 0
-    notSavingComp: 0
-    getValuesType: 0
-    getValuesField: 0
-    checkPropertySelector: 0
-    fieldsLength: 0
-    writeFieldType: 0
-    writeSurrogateFound: 0
-    writeFieldInfo: 0
-    instantiate: 0
-    unpackComponent: 0
-    readFieldInfo: 0
-    addFieldToDict: 0
-    setValuesType: 0
-    setValuesField: 0
-    readFieldType: 0
-    readFromDict: 0
 --- !u!224 &1082904235
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4436,7 +4401,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.7085625, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1.5700073, y: 0.012542725}
+  m_AnchoredPosition: {x: 1.5700073, y: 0.012573242}
   m_SizeDelta: {x: -3.0300293, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1459933030
@@ -4584,7 +4549,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc1b7762a8ea956428cc807ecf1ff235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scenes: LEVEL1
+  scenes: LEVEL1_finish
 --- !u!114 &1497929107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4625,8 +4590,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1497929106}
-        m_MethodName: LoadScene
-        m_Mode: 5
+        m_MethodName: nextScenes
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

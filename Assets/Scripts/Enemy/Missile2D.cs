@@ -18,7 +18,6 @@ public class Missile2D :MonoBehaviour{
         Debug.Log(hit.name);
         if (hit.tag == "Player")
         {
-            Destroy(gameObject);
             GameObject playerBody = hit.GetComponent<Player>().Body;
             hit.GetComponent<hurt>().damage(power, false, gameObject.transform);
             Debug.Log(hit.name);
@@ -26,8 +25,8 @@ public class Missile2D :MonoBehaviour{
             {
                 playerBody.GetComponent<Animator>().SetTrigger("damage");
             }
-            //iTween.ShakePosition(Camera.main.gameObject, new Vector3(0, 0,0), 1.0f);
-            //Destroy(gameObject);
+
+            Destroy(gameObject);
         }
         else if (hit.gameObject.layer == LayerMask.GetMask("SceneObject"))
         {

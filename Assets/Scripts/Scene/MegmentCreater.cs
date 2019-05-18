@@ -5,16 +5,16 @@ using UnityEditor;
 
 public enum magnetic { north, south,none }
 public class MegmentCreater : MonoBehaviour {
-    private Material MagmentN, MagmentS, MagmentNone;
+    public Material MagmentN, MagmentS, MagmentNone;
     public GameObject orb;
     public magnetic magnetic;
        
     // Use this for initialization
     void Start () {
-        MagmentN = AssetDatabase.LoadAssetAtPath<Material>("Assets/Materials/MagmentN.mat");
-        MagmentS = AssetDatabase.LoadAssetAtPath<Material>("Assets/Materials/MagmentS.mat");
+        //MagmentN = AssetDatabase.LoadAssetAtPath<Material>("Assets/Materials/MagmentN.mat");
+        //MagmentS = AssetDatabase.LoadAssetAtPath<Material>("Assets/Materials/MagmentS.mat");
 
-        MagmentNone = AssetDatabase.LoadAssetAtPath<Material>("Assets/Materials/MagmentNone.mat");
+       // MagmentNone = AssetDatabase.LoadAssetAtPath<Material>("Assets/Materials/MagmentNone.mat");
         switch (magnetic)
         {
             case magnetic.north:

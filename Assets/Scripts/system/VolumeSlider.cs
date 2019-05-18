@@ -21,7 +21,7 @@ public class VolumeSlider : MonoBehaviour {
 	// Use this for initialization
     
 	void Start () {
-        mixer=(AudioMixer)AssetDatabase.LoadAssetAtPath("Assets/Audio/Mixers/MasterMixer.mixer", typeof(AudioMixer));
+        mixer=(AudioMixer)Resources.Load("MasterMixer.mixer",typeof(AudioMixer));
         switch (vvvolume)
         {
             case volumeMode.Main:

@@ -37,7 +37,7 @@ public class Camera3rdControl : MonoBehaviour
 
         x += hInput.GetAxis("Mouse X") * xSpeed * Time.deltaTime;
         
-        y += hInput.GetAxis("Mouse Y") * ySpeed * Time.deltaTime;
+        y -= hInput.GetAxis("Mouse Y") * ySpeed * Time.deltaTime;
         
         if (y > YRotate)
         {
