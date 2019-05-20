@@ -10,7 +10,7 @@ public class SpiderEgg : MonoBehaviour {
     public GameObject Spider;
 	// Use this for initialization
 	void Start () {
-        Player = GameObject.Find("Player_Body");
+        Player = GameObject.Find("Player");
 	}
 	
 	// Update is called once per frame

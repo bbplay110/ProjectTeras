@@ -27,7 +27,7 @@ public class Bullet : MonoBehaviour {
         if (hit.tag == "Player")
         {
             Destroy(gameObject);
-            GameObject playerBody = hit.GetComponent<Player>().Body;
+            GameObject playerBody = hit.gameObject;
             hit.GetComponent<hurt>().damage(power, false, gameObject.transform);
             Debug.Log("HitThePlayer");
             if (power > 100)
@@ -50,7 +50,7 @@ public class Bullet : MonoBehaviour {
         if (hit.gameObject.tag == "Player")
         {
             Destroy(gameObject);
-            GameObject playerBody = hit.gameObject.GetComponent<Player>().Body;
+            GameObject playerBody = hit.gameObject;
             hit.gameObject.GetComponent<hurt>().damage(power, false, gameObject.transform);
             if (power > 100)
             {

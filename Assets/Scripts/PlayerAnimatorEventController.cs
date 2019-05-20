@@ -11,54 +11,55 @@ public class PlayerAnimatorEventController : MonoBehaviour {
     // Use this for initialization
     void Start() {
         animator = GetComponent<Animator>();
-        parents = transform.parent.gameObject;
+        //parents = transform.parent.gameObject;
     }
 
     public void setJetOn() {
-        if (parents.GetComponent<Player>().energy == 0)
+        if (GetComponent<Player>().energy == 0)
         {
-            parents.GetComponent<Player>().SetJet(false);
+           GetComponent<Player>().SetJet(false);
 
         }
         else
         {
-            parents.GetComponent<Player>().SetJet(true);
+            GetComponent<Player>().SetJet(true);
         }
     }
     public void fakeRootMotion()
     {
-      parents.GetComponent<Player>().rootMove(rootMoveDirction);
+      GetComponent<Player>().rootMove(rootMoveDirction);
         Debug.Log("MoveDirctionIs" + rootMoveDirction);
     }
     public void attackTriggerOn()
     {
-        parents.GetComponent<Attacker>().triggeron();
+        GetComponent<Attacker>().triggeron();
+        animator.ResetTrigger("Jump");
     }
     public void AttackFX(int FX)
     {
-        parents.GetComponent<Attacker>().instantiateFX(FX);
+        GetComponent<Attacker>().instantiateFX(FX);
     }
     public void shoot() {
-        parents.GetComponent<shooter>().shoot();
+        GetComponent<shooter>().shoot();
     }
     public void setJetOff()
     {
-        parents.GetComponent<Player>().SetJet(false);
+        GetComponent<Player>().SetJet(false);
     }
     public void SetHurtOn()
     {
-        parents.GetComponent<hurt>().SetHurton();
+        GetComponent<hurt>().SetHurton();
     }
     public void freezefalse()
     {
-        parents.GetComponent<Player>().SetTurn(true);
-        parents.GetComponent<Player>().setWalk(true);
+        GetComponent<Player>().SetTurn(true);
+        GetComponent<Player>().setWalk(true);
         
     }
     public void freezerue()
     {
-        parents.GetComponent<Player>().SetTurn(false);
-        parents.GetComponent<Player>().setWalk(false);
+        GetComponent<Player>().SetTurn(false);
+        GetComponent<Player>().setWalk(false);
 
         animator.SetInteger("AttackINT", 0);
 
@@ -66,7 +67,7 @@ public class PlayerAnimatorEventController : MonoBehaviour {
     public void PlaySfx(int sfxIndex)
     {
         AudioSource sfxOuput = GetComponent<AudioSource>();
-        if (sfxIndex <= 2 && parents.GetComponent<CharacterController>().isGrounded)
+        if (sfxIndex <= 2 && GetComponent<CharacterController>().isGrounded)
         {
             sfxOuput.PlayOneShot(sfx[sfxIndex]);
         }

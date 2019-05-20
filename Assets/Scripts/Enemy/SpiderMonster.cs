@@ -21,7 +21,7 @@ public class SpiderMonster : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
-        Player = GameObject.Find("Player_Body");
+        Player = GameObject.Find("Player");
         //agent.autoBraking = false;
 
     }

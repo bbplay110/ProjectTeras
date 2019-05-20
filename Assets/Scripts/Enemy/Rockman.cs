@@ -19,7 +19,7 @@ public class Rockman : MonoBehaviour {
         InvokeRepeating("checkDis",6,1);
         Agent.isStopped=true;
         animatorLayer = animator.GetLayerIndex("Base Layer");
-        Player = GameObject.Find("Player_Body").transform;
+        Player = GameObject.Find("Player").transform;
 	}
 	
 	// Update is called once per frame

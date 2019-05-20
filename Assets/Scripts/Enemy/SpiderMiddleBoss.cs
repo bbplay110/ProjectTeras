@@ -23,7 +23,7 @@ public class SpiderMiddleBoss : MonoBehaviour
         //BirthPoint = transform.Find("BirthPoint");
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
-        PPlayer = GameObject.Find("Player_Body");
+        PPlayer = GameObject.Find("Player");
         attackDist = agent.stoppingDistance;
         viewDist = agent.stoppingDistance * 2;
         //agent.autoBraking = false;

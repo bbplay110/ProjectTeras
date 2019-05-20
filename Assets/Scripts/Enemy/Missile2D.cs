@@ -19,7 +19,7 @@ public class Missile2D :MonoBehaviour{
         if (hit.tag == "Player")
         {
             Destroy(gameObject);
-            GameObject playerBody = hit.GetComponent<Player>().Body;
+            GameObject playerBody = hit.gameObject;
             hit.GetComponent<hurt>().damage(power, false, gameObject.transform);
             Debug.Log(hit.name);
             if (power > 100)

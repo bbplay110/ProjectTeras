@@ -17,7 +17,7 @@ public class LEVEL1Turret :MonoBehaviour {
     protected bool Dead = false;
     void Start()
     {
-        PlayerBody = GameObject.Find("Player_Body").transform;
+        PlayerBody = GameObject.Find("Player").transform;
         Player = GameObject.Find("Player");
     }
 

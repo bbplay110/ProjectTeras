@@ -30,7 +30,7 @@ public class patrolMonster : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
-        Player = GameObject.Find("Player_Body");
+        Player = GameObject.Find("Player");
         attackDist = agent.stoppingDistance;
         viewDist = attackDist*10;
         //agent.autoBraking = false;

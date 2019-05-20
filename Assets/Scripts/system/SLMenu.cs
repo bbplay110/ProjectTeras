@@ -29,8 +29,13 @@ public class SLMenu : MonoBehaviour {
     // Use this for initialization
 
     private void Awake()
-    {
-
+    {   
+        if(QuickSaveSlot==null)
+            QuickSaveSlot = transform.Find("QuickSave").gameObject;
+        if(SaveSlot==null)
+            SaveSlot = transform.Find("QuickSave").gameObject;
+        if(Content==null)
+            Content = transform.Find("Content").gameObject;
         currentLevel = SceneManager.GetActiveScene().name;
         manager = GameObject.FindObjectOfType<Manager>();
         /*GameObject eventTriggerList = GameObject.FindGameObjectWithTag("FungusEventTrigger");

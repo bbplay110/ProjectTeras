@@ -19,7 +19,7 @@ public class shootingEnemy : MonoBehaviour {
         {
             GetComponent<LineRenderer>().useWorldSpace = true;
         }
-        PlayerBody = GameObject.Find("Player_Body").transform;
+        PlayerBody = GameObject.Find("Player").transform;
         Player = GameObject.Find("Player");
         attackDist = GetComponent<NavMeshAgent> ().stoppingDistance;
 		viewDist = attackDist * 2;
@@ -36,8 +36,15 @@ public class shootingEnemy : MonoBehaviour {
 	}
     private void FindPlayer()
     {
+        RaycastHit hit;
+        Vector3 LaserPoint=new Vector3();
+        if (Physics.Raycast(BulletPosition.transform.position, (PlayerBody.position+new Vector3(0,2,0)) - BulletPosition.transform.position,out hit,Mathf.Infinity))
+        {
+            LaserPoint = hit.point;
+        }
+
         GetComponent<LineRenderer>().SetPosition(0,BulletPosition.transform.position);
-        GetComponent<LineRenderer>().SetPosition(1,Player.transform.position);
+        GetComponent<LineRenderer>().SetPosition(1,LaserPoint);
         Dis = Vector3.Distance(Player.transform.position, transform.position);
         if (Dis <= attackDist)
         {

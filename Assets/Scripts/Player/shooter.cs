@@ -27,21 +27,23 @@ public class shooter : MonoBehaviour  {
     public static event UnAim unAim;
     // Use this for initialization
     // Use this for initialization
+    private Animator animator;
     private void Awake()
     {
         mcamera = GameObject.Find("MainCamera");
-
+        animator = gameObject.GetComponent<Animator>();
         gunLine =GetComponent<LineRenderer>();
+
     }
     public void shoot() {
         timer = 0;
         gunLine.enabled = true;
-        gunLine.SetPosition(0,Gun.transform.position);
+        gunLine.SetPosition(0,transform.InverseTransformPoint(Gun.transform.position));
         //shootRay.origin = Gun.transform.position;
         //shootRay.direction = Gun.transform.forward;
         if (Physics.Raycast(shootRay,out shootHit,range))
         {
-            gunLine.SetPosition(1, shootHit.point);
+            gunLine.SetPosition(1,transform.InverseTransformPoint(shootHit.point));
             if (shootHit.transform.gameObject.GetComponent<hurt>() != null)
                 shootHit.transform.gameObject.GetComponent<hurt>().damage(Damage, true);
             else if (shootHit.transform.GetComponent<DamageReciver>() != null)
@@ -59,7 +61,7 @@ public class shooter : MonoBehaviour  {
         }
         else
         {
-            gunLine.SetPosition(1, shootRay.origin + shootRay.direction * range);
+            gunLine.SetPosition(1, transform.InverseTransformPoint(shootRay.origin + shootRay.direction * range));
         }
     }
     
@@ -81,14 +83,14 @@ public class shooter : MonoBehaviour  {
     private void aim()
     {
         int handLayerIndex;
-        handLayerIndex = GetComponent<Player>().Player1.GetLayerIndex("Hand");
+        handLayerIndex = animator.GetLayerIndex("Hand");
 
 
         if (hInput.GetButtonDown("Aim"))
         {
             tmpDistance = mcamera.GetComponent<Camera3rdControl>().distence;
             GetComponent<Attacker>().enabled = false;
-            GetComponent<Player>().Player1.SetLayerWeight(handLayerIndex, 1);
+            animator.SetLayerWeight(handLayerIndex, 1);
             thingtoAim.SetActive(true);
             GetComponent<Player>().SetAim(true);
             isAimed = true;
@@ -127,7 +129,7 @@ public class shooter : MonoBehaviour  {
         else if (hInput.GetButtonUp("Aim"))
         {
             GetComponent<Attacker>().enabled = true;
-            GetComponent<Player>().Player1.SetLayerWeight(handLayerIndex,0);
+            animator.SetLayerWeight(handLayerIndex,0);
             thingtoAim.SetActive(false);
             mcamera.GetComponent<Camera3rdControl>().distence = tmpDistance;
             isAimed = false;
@@ -145,10 +147,10 @@ public class shooter : MonoBehaviour  {
         Gun.transform.rotation = mcamera.transform.rotation;
         if (hInput.GetButtonDown("Fire1")&&isAimed)
         {
-            gameObject.GetComponent<Player>().Player1.SetBool("Fire", true);
+            animator.SetBool("Fire", true);
         }
         else if (hInput.GetButtonUp("Fire1")||isAimed==false) {
-            gameObject.GetComponent<Player>().Player1.SetBool("Fire", false);
+           animator.SetBool("Fire", false);
         }
         if (timer >= timeBetweenBullet * effectDisplay) {
             DisableEffects();

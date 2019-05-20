@@ -94,7 +94,7 @@ public class LockOnEnemy : MonoBehaviour
 
     void DrawFov()
     {
-        Handles.color = Fov_color;
+       /* Handles.color = Fov_color;
         //绘制扇形视野范围，第一个参数圆的中心点，第二参数圆的法线方向，第三个参数扇形开始点，第四个参数扇形的弧度，第五个参数扇形半径
         Handles.DrawSolidArc(transform.position, transform.up, transform.forward, -leftAngle, maxRange);
         Handles.DrawSolidArc(transform.position, transform.up, transform.forward, rightAngle, maxRange);
@@ -119,7 +119,7 @@ public class LockOnEnemy : MonoBehaviour
         Handles.DrawWireArc(transform.position, transform.up, transform.forward, -leftAngle, minRange);
         Handles.DrawWireArc(transform.position, transform.up, transform.forward, rightAngle, minRange);
         Handles.DrawWireArc(transform.position, transform.right, transform.forward, -UpAngle, minRange);
-        Handles.DrawWireArc(transform.position, transform.right, transform.forward, DownAngle, minRange);
+        Handles.DrawWireArc(transform.position, transform.right, transform.forward, DownAngle, minRange);*/
 
 
     }

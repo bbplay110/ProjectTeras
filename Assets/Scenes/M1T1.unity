@@ -283,12 +283,12 @@ RectTransform:
   m_LocalScale: {x: 0.95615846, y: 1, z: 1}
   m_Children:
   - {fileID: 454379628}
-  m_Father: {fileID: 780635409}
+  m_Father: {fileID: 1702327525}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -62.5, y: 38.5}
+  m_AnchoredPosition: {x: -176, y: 32}
   m_SizeDelta: {x: 125, y: 77}
   m_Pivot: {x: 0.5000004, y: 0.5}
 --- !u!114 &212614033
@@ -787,7 +787,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1702327525}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -1107,14 +1107,13 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 212614032}
+  m_Children: []
   m_Father: {fileID: 1702327525}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -141, y: 124}
+  m_AnchoredPosition: {x: -116, y: 124}
   m_SizeDelta: {x: -282.1, y: 261}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &780635410
@@ -1717,8 +1716,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -116.261475, y: 600}
-  m_SizeDelta: {x: -232.52295, y: 1200}
+  m_AnchoredPosition: {x: 0, y: 600}
+  m_SizeDelta: {x: 0, y: 1200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &1662414947
 CanvasGroup:
@@ -1977,6 +1976,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 212614032}
   - {fileID: 534829208}
   - {fileID: 780635409}
   m_Father: {fileID: 1858369903}
@@ -1984,8 +1984,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 69.69995, y: 0}
-  m_SizeDelta: {x: -38.19995, y: 383}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -0.00024414, y: 383}
   m_Pivot: {x: 0, y: 0}
 --- !u!1 &1725133205
 GameObject:
@@ -2069,7 +2069,6 @@ MonoBehaviour:
   QuickSaveSlot: {fileID: 0}
   SaveSlot: {fileID: 0}
   Content: {fileID: 0}
-  SaveToLoad: 
   SLstatus: 1
 --- !u!4 &1797023772
 Transform:
@@ -2516,11 +2515,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 768.863, y: 57.440723}
+  scrollPos: {x: 546.0454, y: 17.137524}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 280
-  zoom: 0.5349999
+  zoom: 0.5424999
   scrollViewRect:
     serializedVersion: 2
     x: -343
@@ -2529,7 +2528,8 @@ MonoBehaviour:
     height: 859
   selectedBlocks:
   - {fileID: 1902635079}
-  selectedCommands: []
+  selectedCommands:
+  - {fileID: 1902635115}
   variables: []
   description: 
   stepPause: 0
@@ -3402,11 +3402,11 @@ MonoBehaviour:
   itemId: 37
   indentLevel: 0
   targetObject: {fileID: 1797023770}
-  methodName: dialogLoad
+  methodName: quickLoad
   delay: 0
 --- !u!114 &1902635116
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1902635077}

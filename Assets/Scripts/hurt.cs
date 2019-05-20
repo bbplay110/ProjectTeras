@@ -167,7 +167,8 @@ public class hurt : MonoBehaviour
                 }
                 //if(needCleared)
                     //door.GetComponent<Door>().EnemysInSencer -= 1;
-                onDied();
+                if(onDied!=null)
+                    onDied();
             }
             else if (gameObject.tag == "MiddleBoss")
             {

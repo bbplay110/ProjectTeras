@@ -8,7 +8,7 @@ public class Attacker : MonoBehaviour
     private bool root;
     public GameObject[] FX;
     private CharacterController player;
-    public Animator Player2;
+    private Animator Player2;
     private int stateLayer;
     //定义玩家连击次数  
     private int hit;
@@ -34,6 +34,7 @@ public class Attacker : MonoBehaviour
     private void Awake()
     {
         //Player=GetComponent
+        Player2 = GetComponent<Animator>();
         stateLayer = Player2.GetLayerIndex("Base Layer");
         mStateInfo = Player2.GetCurrentAnimatorStateInfo(stateLayer);
     }

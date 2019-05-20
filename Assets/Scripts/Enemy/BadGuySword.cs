@@ -8,7 +8,7 @@ public class BadGuySword : MonoBehaviour {
     public bool Hide = true;
 	// Use this for initialization
 	void Start () {
-        PlayerBody=GameObject.Find("Player_Body");
+        PlayerBody=GameObject.Find("Player");
         if (GetComponent<MeshRenderer>() != null && Hide) 
             GetComponent<MeshRenderer>().enabled = false;
 	}

@@ -19,7 +19,7 @@ public class Sentry : MonoBehaviour {
     protected bool Dead=false;
 	// Use this for initialization
 	void Start () {
-        PlayerBody = GameObject.Find("Player_Body").transform;
+        PlayerBody = GameObject.Find("Player").transform;
         Player = GameObject.Find("Player");
 	}
 	

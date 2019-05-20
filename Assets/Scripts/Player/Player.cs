@@ -21,7 +21,7 @@ using UnityEngine.UI;
     private bool CanTurn = true;
     private bool Aim = false;
     private float dodgeCounter = 0;
-    public GameObject Body;
+    private GameObject Body;
     private Vector3 moveDirection = Vector3.zero;
     public Animator Player1;
     public Image mpBar;
@@ -29,6 +29,7 @@ using UnityEngine.UI;
     // Use this for initialization
     void Start() {
         gameObject.GetComponent<CharacterController>().enabled = true;
+        Body = gameObject;
         mainCameraTran = Camera.main.transform;
         GameObject cameraDir_obj = new GameObject();
         cameraDir_obj.transform.parent = transform;
@@ -41,7 +42,7 @@ using UnityEngine.UI;
         controller = GetComponent<CharacterController>();
     }
     void Rotation(float iTarget) {
-        Body.transform.eulerAngles = new Vector3(0, Mathf.SmoothDampAngle(Body.transform.eulerAngles.y, iTarget + 90, ref rotate, rotateSpeed), 0);
+        Body.transform.eulerAngles = new Vector3(0, Mathf.SmoothDampAngle(Body.transform.eulerAngles.y, iTarget+90, ref rotate, rotateSpeed), 0);
     }
     // Update is called once per frame
     void Update() {
@@ -100,7 +101,7 @@ using UnityEngine.UI;
     }
     public void rootMove(Vector3 moveVector)
     {
-        moveDirection += Body.transform.TransformDirection(moveVector);
+        //moveDirection += Body.transform.TransformDirection(moveVector);
         //controller.Move(moveDirection * Time.deltaTime);
     }
     public void move(Vector2 input ) {
@@ -109,7 +110,7 @@ using UnityEngine.UI;
 
             vSpeed = -0.01f;
             moveDirection = cameraDir.TransformVector(input.x, 0, input.y);
-            moveDirection = transform.TransformDirection(moveDirection);
+            //moveDirection = transform.TransformDirection(moveDirection);
             moveDirection *= forwardSpeed;
 
             if (Input.GetButton("Jump"))
@@ -134,6 +135,7 @@ using UnityEngine.UI;
             moveDirection.z *= 0;
 
         }
+        Debug.Log(moveDirection);
         //Debug.Log("Vspeed="+vSpeed);
         vSpeed = Mathf.Clamp(vSpeed,-30,30);
         

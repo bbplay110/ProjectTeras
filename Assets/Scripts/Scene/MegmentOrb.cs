@@ -10,8 +10,9 @@ public class MegmentOrb : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        MagmentN = AssetDatabase.LoadAssetAtPath<Material>("Assets/Materials/MagmentN.mat");
-        MagmentS = AssetDatabase.LoadAssetAtPath<Material>("Assets/Materials/MagmentS.mat");
+        MagmentN = Resources.Load<Material>("MagmentN.mat");
+        
+        MagmentS = Resources.Load<Material>("MagmentS.mat");
         switch (Magnetic)
         {
             case magnetic.north:
