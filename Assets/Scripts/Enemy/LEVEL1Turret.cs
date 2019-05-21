@@ -5,6 +5,7 @@ using UnityEngine;
 public class LEVEL1Turret :MonoBehaviour {
     public  GameObject[] SentryBodys;
     public  GameObject[] BulletPositions;
+    public Transform eye;
     protected GameObject Player;
     public float viewDist;
     protected float Dis;
@@ -32,9 +33,9 @@ public class LEVEL1Turret :MonoBehaviour {
     protected  void ChackingSeePlayer()
     {
         RaycastHit hit;
-        eyeContect.origin = BulletPositions[0].transform.position;
-        eyeContect.direction = Player.transform.position - BulletPositions[0].transform.position;
-        //Debug.DrawLine(eyeContect.origin, eyeContect.GetPoint(viewDist),Color.red,viewDist,true);
+        eyeContect.origin = eye.transform.position;
+        eyeContect.direction = (Player.transform.position+new Vector3(0,2,0)) - eyeContect.origin;
+        Debug.DrawRay(eyeContect.origin, eyeContect.direction*viewDist, Color.blue, 0.1f);
         if (Physics.Raycast(eyeContect, out hit, viewDist))
         {
             if (hit.transform.gameObject.tag == "Player")
@@ -60,7 +61,7 @@ public class LEVEL1Turret :MonoBehaviour {
         if (Dis < viewDist && !Dead && See)
         {
             iTween.LookUpdate(SentryBodys[0],iTween.Hash("looktarget",Player.transform.position, "axis","y", "time",0.5f));
-            //iTween.LookUpdate(SentryBodys[1], iTween.Hash("looktarget", Player.transform.position, "axis", "z", "time", 0.5f));
+            iTween.LookUpdate(SentryBodys[1], iTween.Hash("looktarget", Player.transform.position, "axis", "z", "time", 0.5f));
             //iTween.LookUpdate(SentryBodys[2], iTween.Hash("looktarget", Player.transform.position, "axis", "z", "time", 0.5f));
             //SentryBodys[0].transform.LookAt(Player.transform.position, SentryBodys[0].transform.up);
             //SentryBodys[1].transform.LookAt(Player.transform.position, SentryBodys[1].transform.right);
