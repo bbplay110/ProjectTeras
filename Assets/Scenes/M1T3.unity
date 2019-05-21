@@ -866,7 +866,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 600, y: -220}
+  m_AnchoredPosition: {x: 600, y: -244}
   m_SizeDelta: {x: 1106, y: 67}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &534829209
@@ -1203,7 +1203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1464,7 +1464,7 @@ GameObject:
   - component: {fileID: 1134209806}
   - component: {fileID: 1134209805}
   m_Layer: 0
-  m_Name: duck
+  m_Name: "\u514B\u8389\u7D72"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1483,7 +1483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameText: "\u514B\u8389\u7D72"
-  nameColor: {r: 0.5849056, g: 0.21324772, b: 0.052420773, a: 1}
+  nameColor: {r: 0.7921569, g: 0.38039216, b: 1, a: 1}
   soundEffect: {fileID: 0}
   portraits:
   - {fileID: 0}
@@ -1793,7 +1793,7 @@ GameObject:
   - component: {fileID: 1597900938}
   - component: {fileID: 1597900937}
   m_Layer: 0
-  m_Name: ducktom
+  m_Name: "\u745E\u62C9"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1812,7 +1812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameText: "\u745E\u62C9"
-  nameColor: {r: 0.6886792, g: 0, b: 0.0709945, a: 1}
+  nameColor: {r: 1, g: 0.95686275, b: 0.078431375, a: 1}
   soundEffect: {fileID: 0}
   portraits:
   - {fileID: 0}
@@ -3267,7 +3267,7 @@ MonoBehaviour:
   sayDialog: {fileID: 1858369898}
 --- !u!114 &1902635093
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1902635077}
@@ -3476,7 +3476,7 @@ MonoBehaviour:
   waitUntilFinished: 0
 --- !u!114 &1902635102
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1902635077}

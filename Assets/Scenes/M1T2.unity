@@ -1101,7 +1101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1235,7 +1235,7 @@ GameObject:
   - component: {fileID: 1134209806}
   - component: {fileID: 1134209805}
   m_Layer: 0
-  m_Name: duck
+  m_Name: "\u514B\u8389\u7D72"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1254,11 +1254,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameText: "\u514B\u8389\u7D72"
-  nameColor: {r: 0.5849056, g: 0.21324772, b: 0.052420773, a: 1}
+  nameColor: {r: 0.7921569, g: 0.38039216, b: 1, a: 1}
   soundEffect: {fileID: 0}
   portraits:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 81c9a1fabcf0ed24db52f88471a362bc, type: 3}
+  - {fileID: 21300000, guid: 6c6d5b3479b5cd8439b1953fdf1395a7, type: 3}
   portraitsFace: 0
   setSayDialog: {fileID: 0}
   description: 
@@ -1564,7 +1564,7 @@ GameObject:
   - component: {fileID: 1597900938}
   - component: {fileID: 1597900937}
   m_Layer: 0
-  m_Name: ducktom
+  m_Name: "\u745E\u62C9"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1583,11 +1583,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameText: "\u745E\u62C9"
-  nameColor: {r: 0.6886792, g: 0, b: 0.0709945, a: 1}
+  nameColor: {r: 1, g: 0.95686275, b: 0.078431375, a: 1}
   soundEffect: {fileID: 0}
   portraits:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: ecf0ea3c55a5f464ebf748b946090bed, type: 3}
+  - {fileID: 21300000, guid: 23bd79b35657ff74e9cae9f40c065506, type: 3}
+  - {fileID: 21300000, guid: c5f9ddb1698bfed49b1d23d3967d38b8, type: 3}
+  - {fileID: 21300000, guid: 8cfdff8c1ee1db24e90a139606c5fe90, type: 3}
   portraitsFace: 0
   setSayDialog: {fileID: 0}
   description: 
@@ -2526,7 +2528,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 1902635079}
   selectedCommands:
-  - {fileID: 1902635084}
+  - {fileID: 1902635082}
   variables: []
   description: 
   stepPause: 0
@@ -2681,7 +2683,7 @@ MonoBehaviour:
   stage: {fileID: 0}
   character: {fileID: 1597900937}
   replacedCharacter: {fileID: 0}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: c5f9ddb1698bfed49b1d23d3967d38b8, type: 3}
   offset: 0
   fromPosition: {fileID: 0}
   toPosition: {fileID: 1465388745}
@@ -2986,7 +2988,7 @@ MonoBehaviour:
   stage: {fileID: 0}
   character: {fileID: 1134209805}
   replacedCharacter: {fileID: 0}
-  portrait: {fileID: 21300000, guid: 67cd2e9ef1e56e64b8012cd6c33e86ba, type: 3}
+  portrait: {fileID: 0}
   offset: 0
   fromPosition: {fileID: 0}
   toPosition: {fileID: 1941897462}
