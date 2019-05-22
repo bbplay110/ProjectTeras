@@ -28,7 +28,8 @@ public class Camera3rdControl : MonoBehaviour
         FollowPoint.transform.localPosition = Vector3.zero;
         FollowPoint.name = "CameraFollowPoint";
         followPoint = FollowPoint.transform;
-        gameObject.transform.position = followPoint.position;
+        followPoint.transform.position = target.position;
+        //gameObject.transform.position = followPoint.position;
         SceneObjectLayer = LayerMask.GetMask("SceneObject");
     }
 

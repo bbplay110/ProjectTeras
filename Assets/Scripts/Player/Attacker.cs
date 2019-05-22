@@ -21,6 +21,7 @@ public class Attacker : MonoBehaviour
     private const string AttackState2 = "Hit2";
     private const string AttackState3 = "Hit3";
     private const string SpinAttack = "Hurricane Kick";
+    public ParticleSystem particle;
     [SerializeField]
     // private bool waitForComboEnd=false; 
 
