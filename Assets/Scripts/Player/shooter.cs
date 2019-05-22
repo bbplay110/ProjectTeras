@@ -13,9 +13,11 @@ public class shooter : MonoBehaviour  {
     private Ray shootRay;
     private int shootableMask;
     private LineRenderer gunLine;
+    public ParticleSystem GunHitPartical;
+    
     [SerializeField]
     private GameObject mcamera;
-    public float timeBetweenBullet=0.15f;
+    public float timeBetweenBullet=0.1f;
     private float effectDisplay = 0.2f;
     float timer;
     //public Transform righthand;
@@ -25,6 +27,7 @@ public class shooter : MonoBehaviour  {
 
     public delegate void UnAim();
     public static event UnAim unAim;
+    private ParticleSystem gunFire;
     // Use this for initialization
     // Use this for initialization
     private Animator animator;
@@ -33,12 +36,15 @@ public class shooter : MonoBehaviour  {
         mcamera = GameObject.Find("MainCamera");
         animator = gameObject.GetComponent<Animator>();
         gunLine =GetComponent<LineRenderer>();
-
+        gunFire = Gun.GetComponent<ParticleSystem>();
+        //GunHitPartical = Gun.transform.GetChild(0).GetComponent<ParticleSystem>();
     }
     public void shoot() {
         timer = 0;
         gunLine.enabled = true;
         gunLine.SetPosition(0,transform.InverseTransformPoint(Gun.transform.position));
+        gunFire.Play();
+        
         //shootRay.origin = Gun.transform.position;
         //shootRay.direction = Gun.transform.forward;
         if (Physics.Raycast(shootRay,out shootHit,range))
@@ -50,13 +56,14 @@ public class shooter : MonoBehaviour  {
                 shootHit.transform.GetComponent<DamageReciver>().DoDamage(Damage);
 
             Debug.Log("shootThing");
-
+            GunHitPartical.transform.position = shootHit.point;
+            GunHitPartical.transform.localRotation =Quaternion.FromToRotation(shootRay.origin,shootHit.point);
             if (shootHit.collider.tag == "BreakableObject")
             {
                 GameObject Box = shootHit.transform.gameObject;
                 Box.GetComponent<Rigidbody>().AddForce(shootRay.direction*30,ForceMode.Force);
             }
-            
+            GunHitPartical.Play();
 
         }
         else
