@@ -29,14 +29,10 @@ public class SLMenu : MonoBehaviour {
     // Use this for initialization
 
     private void Awake()
-    {   
-        if(QuickSaveSlot==null)
-            QuickSaveSlot = transform.Find("QuickSave").gameObject;
-        if(SaveSlot==null)
-            SaveSlot = transform.Find("QuickSave").gameObject;
-        if(Content==null)
-            Content = transform.Find("Content").gameObject;
+    {
+
         currentLevel = SceneManager.GetActiveScene().name;
+        player = GameObject.Find("Player");
         manager = GameObject.FindObjectOfType<Manager>();
         /*GameObject eventTriggerList = GameObject.FindGameObjectWithTag("FungusEventTrigger");
         Debug.Log(eventTriggerList);
@@ -45,7 +41,7 @@ public class SLMenu : MonoBehaviour {
             eventTrigger.Add(eventTriggerList.transform.GetChild(i).gameObject);
         }*/
 
-        player = GameObject.Find("Player");
+
     }
     public void quickSave()
     {
@@ -183,6 +179,21 @@ public class SLMenu : MonoBehaviour {
     }
     void Start () {
         //Debug.Log(Application.persistentDataPath);
+        this.enabled = true;
+        /*if (QuickSaveSlot == null && transform.Find("QuickSave").gameObject != null)
+        {
+            QuickSaveSlot = transform.Find("QuickSave").gameObject;
+        }
+
+        if (SaveSlot == null && transform.Find("QuickSave").gameObject != null)
+        {
+            SaveSlot = transform.Find("QuickSave").gameObject;
+        }
+
+        if (Content == null && transform.Find("Content").gameObject != null)
+        {
+            Content = transform.Find("Content").gameObject;
+        }*/
         switch (SLstatus)
         {
             case saveOrLoad.save:
@@ -210,7 +221,7 @@ public class SLMenu : MonoBehaviour {
     }
     void Update()
     {
-        if (hInput.GetButton("Start"))
+        if (hInput.GetButton("Start")&&manager!=null)
         {
             gameObject.SetActive(false);
         }
