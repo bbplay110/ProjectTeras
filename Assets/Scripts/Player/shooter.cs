@@ -76,6 +76,7 @@ public class shooter : MonoBehaviour  {
     void Start () {
         Debug.Log("MainCameraIs" + Camera.main.gameObject.name);    
         thingtoAim = GameObject.Find("ThingToAim");
+        thingtoAim.SetActive(false);
 
   	}
     void DisableEffects()
