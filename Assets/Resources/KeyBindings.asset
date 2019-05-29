@@ -80,7 +80,7 @@ MonoBehaviour:
     targetController: 0
     Axis: 0
     Invert: 0
-    Sensitivity: 1
+    Sensitivity: 2
     val: 0
   - Name: Mouse Y
     UniqueName: 
@@ -94,7 +94,7 @@ MonoBehaviour:
     targetController: 0
     Axis: 1
     Invert: 1
-    Sensitivity: 1
+    Sensitivity: 2
     val: 0
   - Name: Mouse ScrollWheel
     UniqueName: 
@@ -167,4 +167,4 @@ MonoBehaviour:
     Sensitivity: 1
     val: 0
   rebindRemoveKey: 27
-  forceResetInEditor: 1
+  forceResetInEditor: 0
