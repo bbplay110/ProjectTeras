@@ -10,8 +10,10 @@ public class Camera3rdControl : MonoBehaviour
     protected float x;
     protected float y;
     public float followSpeed = 2.0f;
-    public float xSpeed = 1;
-    public float ySpeed = 1;
+    private float xSpeed = 1;
+    private float ySpeed = 1;
+    public bool inverb = false;
+    public float Sensitivity=2;
     public bool bOpenRay = true;
     private float HitDistance = 0f;
     private bool bHit = false;
@@ -23,6 +25,9 @@ public class Camera3rdControl : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Sensitivity = PlayerPrefs.GetFloat("MouseSensitivity", 100);
+        //string isInverb = PlayerPrefs.GetString("MouseInverb", "false");
+        //inverb = bool.Parse(isInverb);
         GameObject FollowPoint = new GameObject();
         
         FollowPoint.transform.localPosition = Vector3.zero;
@@ -37,11 +42,23 @@ public class Camera3rdControl : MonoBehaviour
     void LateUpdate()
     {
 
+        if(hInput.GetAxis("Mouse X")!=0|| hInput.GetAxis("Mouse Y") != 0) {
+            x += hInput.GetAxis("Mouse X") * xSpeed*Sensitivity * Time.deltaTime;
+            if (!inverb)
+            {
+                y -= hInput.GetAxis("Mouse Y") * ySpeed * Sensitivity * Time.deltaTime;
+            }
+            else
+            {
+                y += hInput.GetAxis("Mouse Y") * ySpeed * Sensitivity * Time.deltaTime;
+            }
+        }
+        if (hInput.GetAxis("Mouse X") ==0  || hInput.GetAxis("Mouse Y") == 0)
+        {
+            x += hInput.GetAxis("Mouse X") * xSpeed * Time.deltaTime;
+            y += hInput.GetAxis("Mouse Y") * ySpeed * Time.deltaTime;
+        }
 
-        x += hInput.GetAxis("Mouse X") * xSpeed * Time.deltaTime;
-        
-        y += hInput.GetAxis("Mouse Y") * ySpeed * Time.deltaTime;
-        
         if (y > YRotate)
         {
             y = YRotate;
