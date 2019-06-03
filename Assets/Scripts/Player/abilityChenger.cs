@@ -7,7 +7,7 @@ public class abilityChenger : MonoBehaviour {
     private GameObject Player;
 	// Use this for initialization
 	void Start () {
-        Player = GameObject.FindGameObjectWithTag("Player");
+        Player = GameObject.Find("Player");
 
 	}
 	
@@ -33,4 +33,17 @@ public class abilityChenger : MonoBehaviour {
             Time.timeScale = 1;
         }
 	}
+    public void ChangeWapon(float waponCode)
+    {
+        /*
+         * waponCode:
+         0:空手+手槍
+         1:三叉戟+弩
+         */
+        //Player.GetComponent<Attacker>().enabled = false;
+        Animator PlayerAnimator = Player.GetComponent<Animator>();
+        PlayerAnimator.SetFloat("wapon",waponCode);
+        //Player.GetComponent<Attacker>().enabled = true;
+
+    }
 }

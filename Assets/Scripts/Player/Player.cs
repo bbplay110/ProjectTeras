@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Cinemachine;
     [RequireComponent(typeof(CharacterController))]
     public class Player : MonoBehaviour {
 
@@ -26,8 +27,11 @@ using UnityEngine.UI;
     public Animator Player1;
     public Image mpBar;
     private CharacterController controller;
+    private CinemachineVirtualCameraBase RunCamera;
     // Use this for initialization
     void Start() {
+
+        RunCamera = transform.Find("RunCam").gameObject.GetComponent<CinemachineVirtualCamera>();
         gameObject.GetComponent<CharacterController>().enabled = true;
         Body = gameObject;
         mainCameraTran = Camera.main.transform;
@@ -75,6 +79,7 @@ using UnityEngine.UI;
         {
             dodgeCounter += 1 * Time.deltaTime;
             Debug.Log("dodgeCounter=" + dodgeCounter);
+
         }
         if (hInput.GetButtonUp("Run"))
         {
@@ -125,10 +130,13 @@ using UnityEngine.UI;
         }
         if (hInput.GetButtonDown("Run")&&controller.isGrounded)
         {
+
+            //RunCamera.m_Priority=11;
             forwardSpeed = SpeedFast;
         }
         else if (hInput.GetButtonUp("Run"))
         {
+            //RunCamera.m_Priority = 5;
             forwardSpeed = SpeedSlow;
         }
         vSpeed -= gravity * Time.deltaTime;
@@ -206,7 +214,7 @@ using UnityEngine.UI;
         Aim = aiim;
     }
     public void Animator() {
-        Player1.SetFloat("WalkArc",(controller.velocity.magnitude)/SpeedFast);
+        Player1.SetFloat("WalkArc",Mathf.Abs(controller.velocity.x+controller.velocity.z) /SpeedFast);
         if ((hInput.GetAxis("Horizontal") != 0 || hInput.GetAxis("Vertical") != 0)&&Canwalk)
         {
             Player1.SetBool("walkforward", true);

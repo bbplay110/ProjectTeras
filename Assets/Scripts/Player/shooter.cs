@@ -90,10 +90,9 @@ public class shooter : MonoBehaviour  {
     }
     private void aim()
     {
+
         int handLayerIndex;
         handLayerIndex = animator.GetLayerIndex("Hand");
-
-
         if (hInput.GetButtonDown("Aim"))
         {
             tmpDistance = mcamera.GetComponent<Camera3rdControl>().distence;
