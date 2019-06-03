@@ -80,10 +80,14 @@ using UnityEngine.UI;
         {
             if (dodgeCounter <= 0.5f)
             {
-
-                moveDirection+=new Vector3(moveDirection.x,0,moveDirection.z)*10*Time.deltaTime;
+                moveDirection=new Vector3(moveDirection.x,0,moveDirection.z)*30;
+                Debug.Log("DO Dodge");
             }
             dodgeCounter = 0;
+            if(dodgeCounter > 0.5f)
+            {
+                Debug.Log("NO Dodge");
+            }
         }
     }
     public void SetRotation()
@@ -135,7 +139,7 @@ using UnityEngine.UI;
             moveDirection.z *= 0;
 
         }
-        Debug.Log(moveDirection);
+        //Debug.Log(moveDirection);
         //Debug.Log("Vspeed="+vSpeed);
         vSpeed = Mathf.Clamp(vSpeed,-30,30);
         
@@ -191,7 +195,7 @@ using UnityEngine.UI;
     }
     public void SetJet(bool Jswitch) {
         canJet = Jswitch;
-        Debug.Log("Jet"+canJet);
+        //Debug.Log("Jet"+canJet);
     }
     public void SetTurn(bool turn)
     {
