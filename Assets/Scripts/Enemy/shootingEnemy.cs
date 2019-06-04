@@ -13,8 +13,10 @@ public class shootingEnemy : MonoBehaviour {
     private Ray eyeContect;
     private bool See=false;
     private bool Dead=false;
+    public bool LookWithPlayer=true;
     // Use this for initialization
     void Start () {
+
         if (GetComponent<LineRenderer>() != null)
         {
             GetComponent<LineRenderer>().useWorldSpace = true;
@@ -23,7 +25,7 @@ public class shootingEnemy : MonoBehaviour {
         Player = GameObject.Find("Player");
         attackDist = GetComponent<NavMeshAgent> ().stoppingDistance;
 		viewDist = attackDist * 2;
-		Ani = GetComponent<Animator>();
+        Ani = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -52,7 +54,8 @@ public class shootingEnemy : MonoBehaviour {
             Ani.SetBool("shooting", true);
             Ani.SetBool("walkforward", false);
             GetComponent<NavMeshAgent>().isStopped = true;
-            iTween.LookUpdate(gameObject,iTween.Hash("looktarget",PlayerBody.position, "axis","y", "time",0.4f));
+            if(LookWithPlayer)
+                iTween.LookUpdate(gameObject,iTween.Hash("looktarget",PlayerBody.position, "axis","y", "time",0.4f));
         }
         else if (Dis < viewDist && !Dead)
         {
@@ -100,10 +103,5 @@ public class shootingEnemy : MonoBehaviour {
         GameObject tmpBullet=Instantiate(Bullet,BulletPosition.transform.position,BulletPosition.transform.rotation);
         Physics.IgnoreCollision(tmpBullet.GetComponent<Collider>(),gameObject.GetComponent<Collider>());
 	}
-    void Rotation(float iTarget)
-    {
-        float roota = 0.0f;
-        float rootb = 0.05f;
-        transform.eulerAngles = new Vector3(0, Mathf.SmoothDampAngle(transform.eulerAngles.y, iTarget + 90,ref roota,rootb));
-    }
+    
 }

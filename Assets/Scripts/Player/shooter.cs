@@ -125,7 +125,7 @@ public class shooter : MonoBehaviour  {
             else
             {
                 //Debug.Log("AimNoThing!");
-                shootRay.direction = Gun.transform.forward;
+                shootRay.direction = transform.forward;
             }
             //Physics.Raycast(shootRay, out AimHit, Mathf.Infinity);
             //thingtoAim.transform.position = Camera.main.WorldToScreenPoint(AimHit.point);

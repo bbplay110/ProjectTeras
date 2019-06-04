@@ -32,11 +32,11 @@ public class hurt : MonoBehaviour
     public Text HealthValue;
     public GameObject DeadBody;
     public GameObject hurtArrow;
-
+    private int damageINT=0;
 
     public delegate void OnDiedEvent();
     public static OnDiedEvent onDied;
-
+    private Animator animator;
     public float HP1
     {
         get
@@ -70,6 +70,7 @@ public class hurt : MonoBehaviour
     }
     void Start()
     {
+        
         if (gameObject.tag == "Player")
         {
             Cursor.lockState = CursorLockMode.Locked;
@@ -82,12 +83,18 @@ public class hurt : MonoBehaviour
         }
         HP1 = TotalHP;
         CurrentExtraShild = TotalExtraShild;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
         //HpBar.transform.LookAt(Camera.main.transform.position);
+        if (damageINT >= 3)
+        {
+            damageINT = 0;
+            animator.SetInteger("damageINT", 0);
+        }
 
     }
     public void SetHurton()
@@ -96,9 +103,10 @@ public class hurt : MonoBehaviour
     }
     public void damage(float hurt,bool trap=false,Transform HurtPosition=null)
     {
+        
         if (gameObject.tag == "Player")
         {
-            Debug.Log("canhurt=" + CanHurt);
+            //Debug.Log("canhurt=" + CanHurt);
         }
         if (gameObject.tag == "Player" && Wined == true)
         {
@@ -117,6 +125,13 @@ public class hurt : MonoBehaviour
 
             HP1 -= hurt;
             Invoke("SetHurton", 0.3f);
+            if(animator!=null)
+                animator.SetTrigger("damage");
+            if (gameObject.tag == "Player")
+            {
+                damageINT += 1;
+                animator.SetInteger("damageINT",damageINT);
+            }
             if (gameObject.tag == "Player"&&hurtArrow!=null&&HurtPosition!=null)
             {
                 if (HealthValue != null)

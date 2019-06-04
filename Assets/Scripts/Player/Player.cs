@@ -104,7 +104,7 @@ using Cinemachine;
         }
         else if (Aim && CanTurn)
         {
-            Rotation(mainCameraTran.eulerAngles.y-90);
+            Rotation(mainCameraTran.eulerAngles.y-60);
 
         }
     }

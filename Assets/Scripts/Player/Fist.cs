@@ -21,9 +21,10 @@ public class Fist : MonoBehaviour {
         {
             if (collision.gameObject.tag == item)
             {
+                Debug.Log("Punch!");
                 collision.gameObject.GetComponent<hurt>().damage(Damage);
-                if(BadGuyBody.GetComponent<Animator>()!=null)
-                    BadGuyBody.GetComponent<Animator>().SetTrigger("damage");
+                //if(BadGuyBody.GetComponent<Animator>()!=null)
+                    //BadGuyBody.GetComponent<Animator>().SetTrigger("damage");
                 GameObject tempHitParticle = Instantiate(HitParticle,collision.transform.position, collision.transform.rotation, null);
                 Destroy(tempHitParticle, 0.6f);
 

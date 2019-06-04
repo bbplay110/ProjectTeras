@@ -28,7 +28,7 @@ public class PlayerAnimatorEventController : MonoBehaviour {
     public void fakeRootMotion()
     {
       GetComponent<Player>().rootMove(rootMoveDirction);
-        Debug.Log("MoveDirctionIs" + rootMoveDirction);
+       // Debug.Log("MoveDirctionIs" + rootMoveDirction);
     }
     public void attackTriggerOn()
     {

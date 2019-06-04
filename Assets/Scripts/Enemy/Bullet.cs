@@ -23,13 +23,13 @@ public class Bullet : MonoBehaviour {
     }
     private void OnTriggerEnter(Collider hit)
     {
-        Debug.Log(hit.name);
+        //Debug.Log(hit.name);
         if (hit.tag == "Player")
         {
             Destroy(gameObject);
             GameObject playerBody = hit.gameObject;
             hit.GetComponent<hurt>().damage(power, false, gameObject.transform);
-            Debug.Log("HitThePlayer");
+            //Debug.Log("HitThePlayer");
             if (power > 100)
             {
                 playerBody.GetComponent<Animator>().SetTrigger("damage");
