@@ -14,7 +14,7 @@ public class ringRoll : MonoBehaviour {
 	}
     private void OnTriggerEnter(Collider other)
     {
-        other.GetComponent<Player>().energy += 25;
+        other.GetComponent<Player>().Energy += 25;
         Destroy(gameObject,0);
         /*if (other.GetComponent<Player>().jet > 0)
         {

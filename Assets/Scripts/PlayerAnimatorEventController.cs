@@ -15,7 +15,7 @@ public class PlayerAnimatorEventController : MonoBehaviour {
     }
 
     public void setJetOn() {
-        if (GetComponent<Player>().energy == 0)
+        if (GetComponent<Player>().Energy == 0)
         {
            GetComponent<Player>().SetJet(false);
 

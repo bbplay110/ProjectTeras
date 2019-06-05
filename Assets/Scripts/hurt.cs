@@ -90,7 +90,7 @@ public class hurt : MonoBehaviour
     void Update()
     {
         //HpBar.transform.LookAt(Camera.main.transform.position);
-        if (damageINT >= 3)
+        if (damageINT >3)
         {
             damageINT = 0;
             animator.SetInteger("damageINT", 0);

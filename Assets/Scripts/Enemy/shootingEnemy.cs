@@ -14,9 +14,14 @@ public class shootingEnemy : MonoBehaviour {
     private bool See=false;
     private bool Dead=false;
     public bool LookWithPlayer=true;
-    // Use this for initialization
-    void Start () {
+    private bool isPause=false;
 
+    private Vector3 LaserPoint = new Vector3();
+    // Use this for initialization
+
+    void Start () {
+        bulletTime.OnPauseTime += onEnemyPause;
+        bulletTime.UnPauseTime += unEnemyPause;
         if (GetComponent<LineRenderer>() != null)
         {
             GetComponent<LineRenderer>().useWorldSpace = true;
@@ -27,7 +32,23 @@ public class shootingEnemy : MonoBehaviour {
 		viewDist = attackDist * 2;
         Ani = GetComponent<Animator>();
 	}
-	
+	void onEnemyPause()
+    {
+        isPause = true;
+        Ani.speed = 0;
+        GetComponent<NavMeshAgent>().isStopped=true;
+        viewDist = 0;
+        attackDist = 0;
+    }
+    void unEnemyPause()
+    {
+        isPause = false;
+        Ani.speed = 1;
+        GetComponent<NavMeshAgent>().isStopped = false;
+        attackDist = GetComponent<NavMeshAgent>().stoppingDistance;
+        viewDist =attackDist*2 ;
+    }
+
 	// Update is called once per frame
 	void Update () {
 
@@ -39,8 +60,7 @@ public class shootingEnemy : MonoBehaviour {
     private void FindPlayer()
     {
         RaycastHit hit;
-        Vector3 LaserPoint=new Vector3();
-        if (Physics.Raycast(BulletPosition.transform.position, (PlayerBody.position+new Vector3(0,2,0)) - BulletPosition.transform.position,out hit,Mathf.Infinity))
+        if (Physics.Raycast(BulletPosition.transform.position, (PlayerBody.position+new Vector3(0,2,0)) - BulletPosition.transform.position,out hit,Mathf.Infinity)&&!isPause)
         {
             LaserPoint = hit.point;
         }
@@ -103,5 +123,9 @@ public class shootingEnemy : MonoBehaviour {
         GameObject tmpBullet=Instantiate(Bullet,BulletPosition.transform.position,BulletPosition.transform.rotation);
         Physics.IgnoreCollision(tmpBullet.GetComponent<Collider>(),gameObject.GetComponent<Collider>());
 	}
-    
+    private void OnDestroy()
+    {
+        bulletTime.OnPauseTime -= onEnemyPause;
+        bulletTime.UnPauseTime -= unEnemyPause;
+    }
 }

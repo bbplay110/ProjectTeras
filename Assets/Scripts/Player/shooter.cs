@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class shooter : MonoBehaviour  {
+public class shooter : MonoBehaviour { 
 
     public GameObject Gun;
     private RaycastHit shootHit;

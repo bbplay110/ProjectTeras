@@ -7,9 +7,13 @@ public class Bullet : MonoBehaviour {
 	public int speed;
     public float power=60f;
     public LayerMask layer;
+    private float tempSpeed;
 	// Use this for initialization
 	void Start () {
-		Destroy (gameObject, DestoryTime);
+        bulletTime.OnPauseTime += onBulletPause;
+        bulletTime.UnPauseTime += unBulletPause;
+        Destroy (gameObject, DestoryTime);
+
 	}
 	
 	// Update is called once per frame
@@ -44,6 +48,23 @@ public class Bullet : MonoBehaviour {
 
         }
         
+    }
+    private void OnDestroy()
+    {
+
+        bulletTime.OnPauseTime -= onBulletPause;
+        bulletTime.UnPauseTime -= unBulletPause;
+    }
+    void onBulletPause()
+    {
+        tempSpeed = speed;
+        speed = 0;
+        GetComponent<Collider>().enabled = false;
+    }
+    void unBulletPause()
+    {
+        speed = Mathf.FloorToInt(tempSpeed);
+        GetComponent<Collider>().enabled = true;
     }
     private void OnCollisionEnter(Collision hit)
     {

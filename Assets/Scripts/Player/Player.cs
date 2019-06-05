@@ -5,8 +5,9 @@ using UnityEngine.UI;
 using Cinemachine;
     [RequireComponent(typeof(CharacterController))]
     public class Player : MonoBehaviour {
+    public float maxEnergy = 10;
+    private float energy;
 
-    public float energy = 100;
     private bool canJet = true;
     private Transform mainCameraTran;
     public Transform cameraDir;
@@ -28,9 +29,23 @@ using Cinemachine;
     public Image mpBar;
     private CharacterController controller;
     private CinemachineVirtualCameraBase RunCamera;
+
+    public float Energy
+    {
+        get
+        {
+            return energy;
+        }
+
+        set
+        {
+            energy = value;
+        }
+    }
+
     // Use this for initialization
     void Start() {
-
+        energy = maxEnergy;
         RunCamera = transform.Find("RunCam").gameObject.GetComponent<CinemachineVirtualCamera>();
         gameObject.GetComponent<CharacterController>().enabled = true;
         Body = gameObject;
@@ -55,15 +70,17 @@ using Cinemachine;
         Animator();
         SetRotation();
         dodge();
-       /* if (Aim == false&& (Input.GetAxis("Horizontal")!=0|| Input.GetAxis("Vertical")!=0))
-        {
-            SetRotation(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
-        }
-        else if (Aim&&(Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0))
-        {
-            SetRotation(new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y")));
-        }*/
-        
+        mpBar.fillAmount = Energy / maxEnergy;
+        Mathf.Clamp(Energy, 0, maxEnergy);
+        /* if (Aim == false&& (Input.GetAxis("Horizontal")!=0|| Input.GetAxis("Vertical")!=0))
+         {
+             SetRotation(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
+         }
+         else if (Aim&&(Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0))
+         {
+             SetRotation(new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y")));
+         }*/
+
         move(new Vector2(hInput.GetAxis("Horizontal"), hInput.GetAxis("Vertical")));
     }
     void LateUpdate() {
@@ -154,13 +171,13 @@ using Cinemachine;
 
     }
     public void jeta() {
-        energy = Mathf.Clamp(energy, 0, 100);
-        mpBar.fillAmount = energy / 100;
+        Energy = Mathf.Clamp(Energy, 0, 100);
+        mpBar.fillAmount = Energy / 100;
         //Debug.Log("canget="+canJet);
 
         if (controller.isGrounded) {
             canJet = true;
-            energy += 15 * Time.deltaTime;
+            Energy += 15 * Time.deltaTime;
         }
             if (controller.isGrounded == false&&Canwalk)
         {
@@ -176,8 +193,8 @@ using Cinemachine;
             {
                 gravity = 0;
                 vSpeed +=0.5f;
-                energy -= 2;
-                if (energy <= 0)
+                Energy -= 2;
+                if (Energy <= 0)
                 {
                     canJet = false;
                     gravity = 20;
@@ -195,7 +212,7 @@ using Cinemachine;
         {
             gravity = 20;
         }
-        if (energy <= 0)
+        if (Energy <= 0)
         {
             gravity = 20;
             canJet = false;
