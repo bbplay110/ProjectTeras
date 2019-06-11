@@ -1,9 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class shooter : MonoBehaviour { 
-
+public class shooter : MonoBehaviour {
+    //子彈射出的位置
+    private bool TimePaused;
     public GameObject Gun;
+    private enum ability
+    {
+        machineGun,
+        pistol,
+        nu
+    }
+    private ability Ability;
     private RaycastHit shootHit;
     private RaycastHit AimHit;
     public float Damage=10;
@@ -31,6 +39,7 @@ public class shooter : MonoBehaviour {
     // Use this for initialization
     // Use this for initialization
     private Animator animator;
+    
     private void Awake()
     {
         mcamera = GameObject.Find("MainCamera");
@@ -74,6 +83,8 @@ public class shooter : MonoBehaviour {
     
 
     void Start () {
+        bulletTime.OnPauseTime += onTimePause;
+        bulletTime.UnPauseTime += unTimePause;
         Debug.Log("MainCameraIs" + Camera.main.gameObject.name);    
         thingtoAim = GameObject.Find("ThingToAim");
         thingtoAim.SetActive(false);
@@ -146,6 +157,14 @@ public class shooter : MonoBehaviour {
                 unAim();
         }
 
+    }
+    void onTimePause()
+    {
+        TimePaused = true;
+    }
+    void unTimePause()
+    {
+        TimePaused = false;
     }
     // Update is called once per frame
     void Update () {
