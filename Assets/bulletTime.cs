@@ -4,11 +4,16 @@ using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
 public class bulletTime : MonoBehaviour {
+    //delegate Void 委派函數 https://docs.microsoft.com/zh-tw/dotnet/api/system.delegate?view=netframework-4.8
+    //還不能直接Call它
     public delegate void onPauseTime();
     public delegate void unPauseTime();
+    //判斷時間是否是暫停的Bool
     public bool isPaused=false;
+    //時間暫停跟解除時間暫停的Event,在其他腳本中向這事件註冊該腳本的函數
     public static event onPauseTime OnPauseTime;
     public static event onPauseTime UnPauseTime;
+    //玩家的Component,不是玩家的GameObject
     private Player player;
     private PostProcessVolume cameraVolume;
     // Use this for initialization
@@ -26,7 +31,7 @@ public class bulletTime : MonoBehaviour {
         if (isPaused&&player.Energy>0)
         {
             player.Energy -= 1 * Time.deltaTime;
-            Debug.Log("checkEnergy="+player.Energy);
+            //Debug.Log("checkEnergy="+player.Energy);
             if (player.Energy <= 0)
             {
                 pauseEnd();

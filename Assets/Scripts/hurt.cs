@@ -222,6 +222,9 @@ public class hurt : MonoBehaviour
     
     void CloseBar()
     {
+
+
+
         Time.timeScale = 1;
         Win.SetActive(false);
         Invoke("loadNextLevel",3);

@@ -64,10 +64,11 @@ public class PlayerAnimatorEventController : MonoBehaviour {
         animator.SetInteger("AttackINT", 0);
 
     }
+    //在Animation中發出聲音的事件
     public void PlaySfx(int sfxIndex)
     {
         AudioSource sfxOuput = GetComponent<AudioSource>();
-        if (sfxIndex <= 2 && GetComponent<CharacterController>().isGrounded)
+        if (sfxIndex <=sfx.Length && GetComponent<CharacterController>().isGrounded)
         {
             sfxOuput.PlayOneShot(sfx[sfxIndex]);
         }

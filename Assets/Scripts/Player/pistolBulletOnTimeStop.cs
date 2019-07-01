@@ -2,24 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class pistolBullet : MonoBehaviour {
+public class pistolBulletOnTimeStop : MonoBehaviour {
     private LineRenderer gunLine;
-    float range = 20;
+    float range = 50;
     private Ray shootRay;
     private RaycastHit shootHit;
-    private ParticleSystem GunHitPartical;
+    public ParticleSystem GunHitPartical;
+    public ParticleSystem ShootParticle;
+    public float Damage;
     // Use this for initialization
     void Start () {
-        gunLine = GetComponent<LineRenderer>();	
-        
+        Invoke("pauseShootParticle",0.4f);
+        gunLine = GetComponent<LineRenderer>();
+        bulletTime.UnPauseTime += unTimeStop;
 	}
-	void unTimeStop()
+    void pauseShootParticle()
+    {
+        ShootParticle.Pause(true);
+    }
+    void unTimeStop()
     {
         gunLine.enabled = true;
-        gunLine.SetPosition(0, transform.InverseTransformPoint(transform.position));
+        ShootParticle.Play(true);
+        gunLine.SetPosition(0, new Vector3(0,0,0));
 
-        //shootRay.origin = Gun.transform.position;
-        //shootRay.direction = Gun.transform.forward;
+        shootRay.origin = transform.position;
+        shootRay.direction =transform.forward;
         if (Physics.Raycast(shootRay, out shootHit, range))
         {
             gunLine.SetPosition(1, transform.InverseTransformPoint(shootHit.point));
@@ -36,16 +44,21 @@ public class pistolBullet : MonoBehaviour {
                 GameObject Box = shootHit.transform.gameObject;
                 Box.GetComponent<Rigidbody>().AddForce(shootRay.direction * 30, ForceMode.Force);
             }
-
+            GunHitPartical.Play();
         }
         else
         {
             gunLine.SetPosition(1, transform.InverseTransformPoint(shootRay.origin + shootRay.direction * range));
         }
         Destroy(gameObject, 0.1f);
+        Debug.Log(gameObject.name);
     }
-	// Update is called once per frame
-	void Update () {
+    private void OnDestroy()
+    {
+        bulletTime.UnPauseTime -= unTimeStop;
+    }
+    // Update is called once per frame
+    void Update () {
 		
 	}
 }
