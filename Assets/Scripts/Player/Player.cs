@@ -30,6 +30,7 @@ using Cinemachine;
     private CharacterController controller;
     private CinemachineVirtualCameraBase RunCamera;
 
+
     public float Energy
     {
         get
@@ -62,8 +63,13 @@ using Cinemachine;
     }
     void Rotation(float iTarget) {
         Body.transform.eulerAngles = new Vector3(0, Mathf.SmoothDampAngle(Body.transform.eulerAngles.y, iTarget+90, ref rotate, rotateSpeed), 0);
+        Debug.Log("旋轉變量:"+iTarget);
     }
     // Update is called once per frame
+    void checkYrotate()
+    {
+        
+    }
     void Update() {
         controller.Move(moveDirection * Time.deltaTime);
         //jeta();

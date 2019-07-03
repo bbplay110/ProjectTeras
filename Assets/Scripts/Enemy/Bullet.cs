@@ -43,7 +43,8 @@ public class Bullet : MonoBehaviour {
         }
         else if (hit.gameObject.layer == LayerMask.NameToLayer("SceneObject"))
         {
-            Debug.Log("HitWall");
+            //Debug.Log("HitWall");
+
             Destroy(gameObject);
 
         }
