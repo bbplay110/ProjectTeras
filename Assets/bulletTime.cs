@@ -9,13 +9,27 @@ public class bulletTime : MonoBehaviour {
     public delegate void onPauseTime();
     public delegate void unPauseTime();
     //判斷時間是否是暫停的Bool
-    public bool isPaused=false;
+    private bool isPaused = false;
     //時間暫停跟解除時間暫停的Event,在其他腳本中向這事件註冊該腳本的函數
     public static event onPauseTime OnPauseTime;
     public static event onPauseTime UnPauseTime;
     //玩家的Component,不是玩家的GameObject
     private Player player;
     private PostProcessVolume cameraVolume;
+
+    public bool IsPaused
+    {
+        get
+        {
+            return isPaused;
+        }
+
+        set
+        {
+            isPaused = value;
+        }
+    }
+
     // Use this for initialization
     void Start () {
         player = GetComponent<Player>();

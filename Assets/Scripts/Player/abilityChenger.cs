@@ -39,9 +39,13 @@ public class abilityChenger : MonoBehaviour {
          * waponCode:
          0:空手+手槍
          1:三叉戟+弩
+         2:katana+衝鋒槍
          */
         //Player.GetComponent<Attacker>().enabled = false;
         Animator PlayerAnimator = Player.GetComponent<Animator>();
+        Player.GetComponent<Attacker>().WaponNow = Mathf.CeilToInt(waponCode);
+        Player.GetComponent<Attacker>().showWapon();
+        Player.GetComponent<shooter>().WaponNow =Mathf.CeilToInt(waponCode);
         PlayerAnimator.SetFloat("wapon",waponCode);
         //Player.GetComponent<Attacker>().enabled = true;
 

@@ -13,7 +13,7 @@ public class Attacker : MonoBehaviour
     //定义玩家连击次数  
     private int hit;
     private bool canTrigger = true;
-    private int waponNow;
+    private int waponNow=0;
 
     //定义状态常量值，前面不要带层名啊，否则无法判断动画状态  
     public GameObject[] wapons;
@@ -46,6 +46,27 @@ public class Attacker : MonoBehaviour
     void Start()
     {
         player = GetComponent<CharacterController>();
+        shooter.onAim += hideWapon;
+        shooter.unAim += showWapon;
+    }
+    public void showWapon()
+    {
+        
+        foreach (var item in wapons)
+        {
+            item.SetActive(false);
+        }
+        if (waponNow > 0) {
+
+            wapons[WaponNow - 1].SetActive(true);
+        }
+    }
+    void hideWapon()
+    {
+        foreach (var item in wapons)
+        {
+            item.SetActive(false);
+        }
     }
     private void Awake()
     {
@@ -69,6 +90,11 @@ public class Attacker : MonoBehaviour
         }
         checkComboEnd();
     }
+    private void OnDestroy()
+    {
+        shooter.onAim -= hideWapon;
+        shooter.unAim -= showWapon;
+    }
     void checkComboEnd()
     {
         if (mStateInfo.normalizedTime >= 0.9f)
@@ -81,6 +107,7 @@ public class Attacker : MonoBehaviour
                 ComboEnd();
         }
     }
+
     public void instantiateFX(int ELEMENT)
     {
         Instantiate(FX[ELEMENT], fxPoint.position, fxPoint.rotation);

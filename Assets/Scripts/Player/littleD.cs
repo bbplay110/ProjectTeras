@@ -12,10 +12,10 @@ public class littleD : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        move();
 	}
     private void move()
     {
-       
+        iTween.MoveUpdate(gameObject, followPoint.position, 0.5f);
     }
 }

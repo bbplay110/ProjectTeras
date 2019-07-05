@@ -7,7 +7,7 @@ public class shooter : MonoBehaviour {
     private bool TimePaused;
     public GameObject Gun;
     public GameObject[] GunModel;
-    private int waponNow;
+    private int waponNow=0;
     private RaycastHit shootHit;
     private RaycastHit AimHit;
     public float Damage=10;
@@ -23,7 +23,6 @@ public class shooter : MonoBehaviour {
     private GameObject mcamera;
     public float timeBetweenBullet=0.1f;
     private float effectDisplay = 0.2f;
-    private int tempAttatkerWapon;
     float timer;
     //public Transform righthand;
     public GameObject thingtoAim;
@@ -104,16 +103,18 @@ public class shooter : MonoBehaviour {
         Debug.Log("MainCameraIs" + Camera.main.gameObject.name);    
         thingtoAim = GameObject.Find("ThingToAim");
         thingtoAim.SetActive(false);
-
+        onAim += showGun;
+        unAim += hideGun;
   	}
     void DisableEffects()
     {
         gunLine.enabled = false;
 
     }
-    private void OnEnable()
+    private void OnDestroy()
     {
-        
+        onAim -= showGun;
+        unAim -= hideGun;
     }
     private void aim()
     {
@@ -177,23 +178,18 @@ public class shooter : MonoBehaviour {
     }
     void showGun()
     {
-        tempAttatkerWapon = GetComponent<Attacker>().WaponNow;
-
-        switch (waponNow)
+        foreach (var item in GunModel)
         {
-            case 0:
-                break;
-            case 1:
-                break;
-            case 2:
-                break;
-            default:
-                break;
+            item.SetActive(false);
         }
+        GunModel[WaponNow].SetActive(true);
     }
     void hideGun()
     {
-
+        foreach (var item in GunModel)
+        {
+            item.SetActive(false);
+        }
     }
     void onTimePause()
     {
