@@ -7,15 +7,18 @@ public class Fist : MonoBehaviour {
     private GameObject BadGuyBody;
     public float Damage = 50;
     public string[] canAttack =new string[] {"Enemy", "Boss", "BreakableObject"};
+    
     public static GameObject HitParticle;
     // Use this for initialization
     void Start()
     {
+        
         //以玩家身上的attacker腳本中FX陣列的第0個物件
         HitParticle = GameObject.FindObjectOfType<Attacker>().FX[0];
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
+        //if(col)
         BadGuyBody = collision.gameObject;
         foreach (var item in canAttack)
         {
@@ -24,12 +27,15 @@ public class Fist : MonoBehaviour {
                 Debug.Log("Punch!");
                 collision.gameObject.GetComponent<hurt>().damage(Damage);
                 //if(BadGuyBody.GetComponent<Animator>()!=null)
-                    //BadGuyBody.GetComponent<Animator>().SetTrigger("damage");
-                GameObject tempHitParticle = Instantiate(HitParticle,collision.transform.position, collision.transform.rotation, null);
+                //BadGuyBody.GetComponent<Animator>().SetTrigger("damage");
+                GameObject tempHitParticle = Instantiate(HitParticle, collision.transform.position, collision.transform.rotation, null);
                 Destroy(tempHitParticle, 0.6f);
-
             }
         }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+       
     }
 
     // Update is called once per frame

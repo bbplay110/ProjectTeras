@@ -13,8 +13,10 @@ public class Attacker : MonoBehaviour
     //定义玩家连击次数  
     private int hit;
     private bool canTrigger = true;
-    
+    private int waponNow;
+
     //定义状态常量值，前面不要带层名啊，否则无法判断动画状态  
+    public GameObject[] wapons;
     private const string IdleState = "Hit0";
     //private const string WalkState = "Walking";
     private const string AttackState1 = "Hit1";
@@ -26,6 +28,20 @@ public class Attacker : MonoBehaviour
 
     //动画状态信息  
     private AnimatorStateInfo mStateInfo;
+
+    public int WaponNow
+    {
+        get
+        {
+            return waponNow;
+        }
+
+        set
+        {
+            waponNow = value;
+        }
+    }
+
     // Use this for initialization
     void Start()
     {

@@ -3,15 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 public class shooter : MonoBehaviour {
     //子彈射出的位置
+
     private bool TimePaused;
     public GameObject Gun;
-    private enum ability
-    {
-        machineGun,
-        pistol,
-        nu
-    }
-    private ability Ability;
+    public GameObject[] GunModel;
+    private int waponNow;
     private RaycastHit shootHit;
     private RaycastHit AimHit;
     public float Damage=10;
@@ -27,6 +23,7 @@ public class shooter : MonoBehaviour {
     private GameObject mcamera;
     public float timeBetweenBullet=0.1f;
     private float effectDisplay = 0.2f;
+    private int tempAttatkerWapon;
     float timer;
     //public Transform righthand;
     public GameObject thingtoAim;
@@ -39,7 +36,20 @@ public class shooter : MonoBehaviour {
     // Use this for initialization
     // Use this for initialization
     private Animator animator;
-    
+
+    public int WaponNow
+    {
+        get
+        {
+            return waponNow;
+        }
+
+        set
+        {
+            waponNow = value;
+        }
+    }
+
     private void Awake()
     {
         mcamera = GameObject.Find("MainCamera");
@@ -123,6 +133,7 @@ public class shooter : MonoBehaviour {
                 onAim();
 
         }
+
         else if (hInput.GetButton("Aim"))
         {
 
@@ -162,6 +173,26 @@ public class shooter : MonoBehaviour {
             if(unAim!=null)
                 unAim();
         }
+
+    }
+    void showGun()
+    {
+        tempAttatkerWapon = GetComponent<Attacker>().WaponNow;
+
+        switch (waponNow)
+        {
+            case 0:
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+            default:
+                break;
+        }
+    }
+    void hideGun()
+    {
 
     }
     void onTimePause()

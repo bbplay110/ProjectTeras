@@ -10,7 +10,7 @@ using Cinemachine;
 
     private bool canJet = true;
     private Transform mainCameraTran;
-    public Transform cameraDir;
+    private Transform CameraDir;
     private float forwardSpeed = 4.0f;
     private float vSpeed = 0;
     public float SpeedSlow = 2.0f;
@@ -44,6 +44,19 @@ using Cinemachine;
         }
     }
 
+    public Transform cameraDir
+    {
+        get
+        {
+            return CameraDir;
+        }
+
+        set
+        {
+            CameraDir = value;
+        }
+    }
+
     // Use this for initialization
     void Start() {
         energy = maxEnergy;
@@ -63,7 +76,7 @@ using Cinemachine;
     }
     void Rotation(float iTarget) {
         Body.transform.eulerAngles = new Vector3(0, Mathf.SmoothDampAngle(Body.transform.eulerAngles.y, iTarget+90, ref rotate, rotateSpeed), 0);
-        Debug.Log("旋轉變量:"+iTarget);
+        //Debug.Log("旋轉變量:"+iTarget);
     }
     // Update is called once per frame
     void checkYrotate()

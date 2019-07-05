@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class littleD : MonoBehaviour {
-	// Use this for initialization
+    // Use this for initialization
+    public Transform followPoint;
+    
 	void Start () {
 		
 	}
@@ -12,4 +14,8 @@ public class littleD : MonoBehaviour {
 	void Update () {
 		
 	}
+    private void move()
+    {
+       
+    }
 }
