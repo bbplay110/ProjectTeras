@@ -56,10 +56,7 @@ public class Attacker : MonoBehaviour
         {
             item.SetActive(false);
         }
-        if (waponNow > 0) {
-
-            wapons[WaponNow - 1].SetActive(true);
-        }
+         wapons[WaponNow].SetActive(true);
     }
     void hideWapon()
     {

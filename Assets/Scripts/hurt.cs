@@ -70,7 +70,7 @@ public class hurt : MonoBehaviour
     }
     void Start()
     {
-        
+
         if (gameObject.tag == "Player")
         {
             Cursor.lockState = CursorLockMode.Locked;

@@ -114,7 +114,7 @@ using Cinemachine;
         if (hInput.GetButton("Run"))
         {
             dodgeCounter += 1 * Time.deltaTime;
-            Debug.Log("dodgeCounter=" + dodgeCounter);
+            //Debug.Log("dodgeCounter=" + dodgeCounter);
 
         }
         if (hInput.GetButtonUp("Run"))

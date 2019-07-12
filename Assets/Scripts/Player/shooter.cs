@@ -21,7 +21,7 @@ public class shooter : MonoBehaviour {
     [SerializeField]
     public GameObject BulletOnPaused;
     private GameObject mcamera;
-    public float timeBetweenBullet=0.1f;
+    public float timeBetweenBullet=0.3f;
     private float effectDisplay = 0.2f;
     float timer;
     //public Transform righthand;
@@ -35,6 +35,7 @@ public class shooter : MonoBehaviour {
     // Use this for initialization
     // Use this for initialization
     private Animator animator;
+    public GameObject arrow;
 
     public int WaponNow
     {
@@ -58,42 +59,51 @@ public class shooter : MonoBehaviour {
         //GunHitPartical = Gun.transform.GetChild(0).GetComponent<ParticleSystem>();
     }
     public void shoot() {
-        timer = 0;
-        if (TimePaused)
-
+        if (waponNow == 0)
         {
-            GameObject tempBullet= Instantiate(BulletOnPaused,Gun.transform.position,Gun.transform.rotation,null);
-            tempBullet.GetComponent<pistolBulletOnTimeStop>().Damage = Damage;
-        }
-        //shootRay.direction = Gun.transform.forward;
-        else if (!TimePaused) {
-            gunLine.enabled = true;
-            gunLine.SetPosition(0, transform.InverseTransformPoint(Gun.transform.position));
-            gunFire.Play();
-            if (Physics.Raycast(shootRay,out shootHit,range))
-            {
-                gunLine.SetPosition(1,transform.InverseTransformPoint(shootHit.point));
-                if (shootHit.transform.gameObject.GetComponent<hurt>() != null)
-                    shootHit.transform.gameObject.GetComponent<hurt>().damage(Damage, true);
-                else if (shootHit.transform.GetComponent<DamageReciver>() != null)
-                    shootHit.transform.GetComponent<DamageReciver>().DoDamage(Damage);
+            timer = 0;
+            if (TimePaused)
 
-                Debug.Log("shootThing");
-                GunHitPartical.transform.position = shootHit.point;
-                GunHitPartical.transform.localRotation =Quaternion.FromToRotation(shootRay.origin,shootHit.point);
-                if (shootHit.collider.tag == "BreakableObject")
+            {
+                GameObject tempBullet = Instantiate(BulletOnPaused, Gun.transform.position, Gun.transform.rotation, null);
+                tempBullet.GetComponent<pistolBulletOnTimeStop>().Damage = Damage;
+            }
+            //shootRay.direction = Gun.transform.forward;
+            else if (!TimePaused)
+            {
+                gunLine.enabled = true;
+                gunLine.SetPosition(0, transform.InverseTransformPoint(Gun.transform.position));
+                gunFire.Play();
+                if (Physics.Raycast(shootRay, out shootHit, range))
                 {
-                    GameObject Box = shootHit.transform.gameObject;
-                    Box.GetComponent<Rigidbody>().AddForce(shootRay.direction*30,ForceMode.Force);
-                }
-                GunHitPartical.Play();
+                    gunLine.SetPosition(1, transform.InverseTransformPoint(shootHit.point));
+                    if (shootHit.transform.gameObject.GetComponent<hurt>() != null)
+                        shootHit.transform.gameObject.GetComponent<hurt>().damage(Damage, true);
+                    else if (shootHit.transform.GetComponent<DamageReciver>() != null)
+                        shootHit.transform.GetComponent<DamageReciver>().DoDamage(Damage);
 
-            }
-            else
-            {
-                gunLine.SetPosition(1, transform.InverseTransformPoint(shootRay.origin + shootRay.direction * range));
+                    Debug.Log("shootThing");
+                    GunHitPartical.transform.position = shootHit.point;
+                    GunHitPartical.transform.localRotation = Quaternion.FromToRotation(shootRay.origin, shootHit.point);
+                    if (shootHit.collider.tag == "BreakableObject")
+                    {
+                        GameObject Box = shootHit.transform.gameObject;
+                        Box.GetComponent<Rigidbody>().AddForce(shootRay.direction * 30, ForceMode.Force);
+                    }
+                    GunHitPartical.Play();
+                }
+                else
+                {
+                    gunLine.SetPosition(1, transform.InverseTransformPoint(shootRay.origin + shootRay.direction * range));
+                }
             }
         }
+        else if (waponNow == 1)
+        {
+            timer = 0;
+            Instantiate(arrow, Gun.transform.position,Gun.transform.rotation, null);
+        }
+       
     }
     
 
@@ -109,6 +119,7 @@ public class shooter : MonoBehaviour {
     void DisableEffects()
     {
         gunLine.enabled = false;
+        //animator.ResetTrigger("FireSingle");
 
     }
     private void OnDestroy()
@@ -178,14 +189,19 @@ public class shooter : MonoBehaviour {
     }
     void showGun()
     {
+        Debug.Log("ShowGun");
         foreach (var item in GunModel)
         {
+            
             item.SetActive(false);
         }
+
         GunModel[WaponNow].SetActive(true);
+        Debug.Log(GunModel[WaponNow].activeSelf);
     }
     void hideGun()
     {
+        Debug.Log("HideGun");
         foreach (var item in GunModel)
         {
             item.SetActive(false);
@@ -206,10 +222,19 @@ public class shooter : MonoBehaviour {
         Gun.transform.rotation = mcamera.transform.rotation;
         if (hInput.GetButtonDown("Fire1")&&isAimed)
         {
-            animator.SetBool("Fire", true);
+            if (waponNow==0) {
+                animator.SetBool("Fire", true);
+            }
+            else if (waponNow == 1/*&& !animator.GetCurrentAnimatorStateInfo(1).IsTag("Fire")*/)
+            {
+                animator.SetTrigger("FireSingle");
+            }
         }
         else if (hInput.GetButtonUp("Fire1")||isAimed==false) {
-           animator.SetBool("Fire", false);
+            if (waponNow != 1)
+            {
+                animator.SetBool("Fire", false);
+            }
         }
         if (timer >= timeBetweenBullet * effectDisplay) {
             DisableEffects();
