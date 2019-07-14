@@ -1030,7 +1030,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1455009676883216
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
@@ -1245,7 +1245,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1600716938361444
 GameObject:
   m_ObjectHideFlags: 1
@@ -1972,7 +1972,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1125384007659448}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.42101642, z: 0}
+  m_LocalPosition: {x: -0.496, y: -0.42101642, z: -0.366}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4925239049438910}
@@ -2638,7 +2638,7 @@ Transform:
   m_LocalScale: {x: 0.02945012, y: 0.02945012, z: 0.02945012}
   m_Children: []
   m_Father: {fileID: 4835142156965398}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4451944611750220
 Transform:
@@ -3074,8 +3074,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1455009676883216}
   m_LocalRotation: {x: -0, y: -0.0043804944, z: -0, w: 0.9999904}
-  m_LocalPosition: {x: 0.12962091, y: 1.2365081, z: 0.5613781}
-  m_LocalScale: {x: 1.5635442, y: 1.563545, z: 1.5635451}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.5635443, y: 1.563545, z: 1.5635452}
   m_Children:
   - {fileID: 4984982493934234}
   - {fileID: 4919771386085098}
@@ -3085,8 +3085,8 @@ Transform:
   - {fileID: 4724561256080778}
   - {fileID: 4909759287343420}
   - {fileID: 4439803490218440}
-  m_Father: {fileID: 4925239049438910}
-  m_RootOrder: 4
+  m_Father: {fileID: 4835142156965398}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4682437784241848
 Transform:
@@ -3423,12 +3423,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1393349440514794}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.282, z: 1.057}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4671073343504090}
   - {fileID: 4449282656531682}
   m_Father: {fileID: 4925239049438910}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4835207416823380
 Transform:
@@ -3597,14 +3598,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1582242211519702}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 323.9956, y: 62.9, z: -259.7}
+  m_LocalPosition: {x: 321.3, y: 61.6, z: -257.8}
   m_LocalScale: {x: 33.955715, y: 33.955715, z: 33.955715}
   m_Children:
   - {fileID: 4816774039986656}
   - {fileID: 4044518611919658}
   - {fileID: 4187469558865936}
   - {fileID: 4483559086876886}
-  - {fileID: 4671073343504090}
   - {fileID: 4835142156965398}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -3921,6 +3921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8b3978f139c0da45b5ec898eab5f65a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DamageWeight: 1
 --- !u!114 &114114042022331028
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3932,6 +3933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8b3978f139c0da45b5ec898eab5f65a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DamageWeight: 1
 --- !u!114 &114121984246843116
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3964,6 +3966,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8b3978f139c0da45b5ec898eab5f65a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DamageWeight: 1
 --- !u!114 &114163868891847120
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3975,6 +3978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8b3978f139c0da45b5ec898eab5f65a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DamageWeight: 1
 --- !u!114 &114169883320604640
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3986,6 +3990,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8b3978f139c0da45b5ec898eab5f65a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DamageWeight: 1
 --- !u!114 &114200052499018846
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3997,6 +4002,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8b3978f139c0da45b5ec898eab5f65a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DamageWeight: 1
 --- !u!114 &114327149966924202
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4008,6 +4014,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8b3978f139c0da45b5ec898eab5f65a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DamageWeight: 1
 --- !u!114 &114355550641874660
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4019,6 +4026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8b3978f139c0da45b5ec898eab5f65a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DamageWeight: 1
 --- !u!114 &114366664868392414
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4048,6 +4056,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8b3978f139c0da45b5ec898eab5f65a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DamageWeight: 1
 --- !u!114 &114397785068983872
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4059,6 +4068,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8b3978f139c0da45b5ec898eab5f65a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DamageWeight: 1
 --- !u!114 &114431911303457000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4070,6 +4080,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8b3978f139c0da45b5ec898eab5f65a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DamageWeight: 1
 --- !u!114 &114488403302036382
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4081,6 +4092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8b3978f139c0da45b5ec898eab5f65a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DamageWeight: 1
 --- !u!114 &114517883022003652
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4104,6 +4116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8b3978f139c0da45b5ec898eab5f65a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DamageWeight: 1
 --- !u!114 &114580503066804688
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4115,6 +4128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8b3978f139c0da45b5ec898eab5f65a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DamageWeight: 1
 --- !u!114 &114681298100529696
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4126,6 +4140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8b3978f139c0da45b5ec898eab5f65a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DamageWeight: 1
 --- !u!114 &114706921446516448
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4137,6 +4152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8b3978f139c0da45b5ec898eab5f65a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DamageWeight: 1
 --- !u!114 &114741966267071350
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4148,6 +4164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8b3978f139c0da45b5ec898eab5f65a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DamageWeight: 1
 --- !u!114 &114759004624694676
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4173,6 +4190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8b3978f139c0da45b5ec898eab5f65a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DamageWeight: 1
 --- !u!114 &114778613200651542
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4184,6 +4202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8b3978f139c0da45b5ec898eab5f65a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DamageWeight: 1
 --- !u!114 &114824424149986776
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4195,6 +4214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8b3978f139c0da45b5ec898eab5f65a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DamageWeight: 1
 --- !u!114 &114853896746076938
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4206,6 +4226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8b3978f139c0da45b5ec898eab5f65a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DamageWeight: 1
 --- !u!114 &114919775484230066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4217,6 +4238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8b3978f139c0da45b5ec898eab5f65a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DamageWeight: 1
 --- !u!114 &114963328083335530
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4538,7 +4560,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.00000018432911, y: 0.6037563, z: -0.0011621658}
+  m_ConnectedAnchor: {x: 0.0000001835142, y: 0.6037568, z: -0.0011621537}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -4582,7 +4604,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.54356503, y: 0.73186886, z: 0.08522948}
+  m_ConnectedAnchor: {x: 0.54356503, y: 0.7318684, z: 0.08522947}
   serializedVersion: 2
   m_SwingAxis: {x: -1, y: 0, z: 0}
   m_TwistLimitSpring:
@@ -4802,7 +4824,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.00000024680048, y: 0.5240277, z: -0.00000029057264}
+  m_ConnectedAnchor: {x: 0.0000002477318, y: 0.5240278, z: 0.00000015646219}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:

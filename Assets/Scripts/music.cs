@@ -14,6 +14,7 @@ public class music : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        /*
         Debug.Log("clip:"+clip + "Dis:" + Dis + "ViewDis:"+ViewDist);
         ViewDist = shootingEnemy.viewDist;
         Dis = shootingEnemy.Dis;
@@ -28,6 +29,6 @@ public class music : MonoBehaviour {
             this.GetComponent<AudioSource>().clip = audios[0];
             this.GetComponent<AudioSource>().Play();
             clip = 0;
-        }
+        }*/
     }
 }

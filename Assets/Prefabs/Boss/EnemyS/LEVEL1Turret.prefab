@@ -358,7 +358,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1336165486704152}
   m_LocalRotation: {x: 0, y: -0.3726962, z: 0, w: 0.9279534}
-  m_LocalPosition: {x: 7.46, y: 18.52, z: -200.46}
+  m_LocalPosition: {x: -2.2640686, y: 2.372837, z: -191.22003}
   m_LocalScale: {x: 2.7011976, y: 2.7011976, z: 2.7011976}
   m_Children:
   - {fileID: 4829897702989038}
@@ -930,7 +930,7 @@ MonoBehaviour:
   eye: {fileID: 4027339815706978}
   viewDist: 5000
   ShootRate: 1.5
-  Bullet: {fileID: 1258454268288080, guid: 8735cc6cd93e58a4ca4371ed3b6c20d9, type: 2}
+  Bullet: {fileID: 1782841132037936, guid: b0b8bd24e59260f45a9ae93ed9833e79, type: 2}
   PlayerBody: {fileID: 0}
 --- !u!114 &114825372946846664
 MonoBehaviour:

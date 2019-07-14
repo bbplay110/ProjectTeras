@@ -258,7 +258,7 @@ public class SLMenu : MonoBehaviour {
         Debug.Log(tmpSaveSlot.GetComponent<Button>().onClick);
         tmpSaveSlot.transform.Find("Number").GetComponentInChildren<Text>().text = "save"+(Content.transform.childCount-2).ToString();
         tmpSaveSlot.transform.Find("Date").GetComponent<Text>().text = saveGames[Content.transform.childCount - 1].saveDate;
-        tmpSaveSlot.transform.Find("Plus").GetComponent<Text>().text ="";
+        //tmpSaveSlot.transform.Find("Plus").GetComponent<Text>().text ="";
 
         //tmpSaveSlot.transform.Find("Date").GetComponent<Text>().text =saveGames[Content.transform.childCount - 1].saveDate;
         tmpSaveSlot.name = "save" + (Content.transform.childCount - 1).ToString();

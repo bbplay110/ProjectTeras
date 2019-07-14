@@ -26,6 +26,7 @@ using Cinemachine;
     private GameObject Body;
     private Vector3 moveDirection = Vector3.zero;
     public Animator Player1;
+    public Text MpText;
     public Image mpBar;
     private CharacterController controller;
     private CinemachineVirtualCameraBase RunCamera;
@@ -89,7 +90,11 @@ using Cinemachine;
         Animator();
         SetRotation();
         dodge();
-        mpBar.fillAmount = Energy / maxEnergy;
+        if (mpBar != null && MpText != null) {
+
+            mpBar.fillAmount = Energy / maxEnergy;
+            MpText.text = Mathf.RoundToInt((Energy / maxEnergy) * 100).ToString()+"%";
+        }
         Mathf.Clamp(Energy, 0, maxEnergy);
         /* if (Aim == false&& (Input.GetAxis("Horizontal")!=0|| Input.GetAxis("Vertical")!=0))
          {
@@ -190,7 +195,7 @@ using Cinemachine;
 
     }
     public void jeta() {
-        Energy = Mathf.Clamp(Energy, 0, 100);
+        Energy = Mathf.Clamp(Energy, 0,maxEnergy);
         mpBar.fillAmount = Energy / 100;
         //Debug.Log("canget="+canJet);
 

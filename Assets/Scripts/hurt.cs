@@ -64,10 +64,6 @@ public class hurt : MonoBehaviour
     }
 
     // Use this for initialization
-    private void Awake()
-    {
-        
-    }
     void Start()
     {
 
@@ -97,6 +93,7 @@ public class hurt : MonoBehaviour
         }
 
     }
+    
     public void SetHurton()
     {
         CanHurt = true;
@@ -219,7 +216,7 @@ public class hurt : MonoBehaviour
             }           
         }
     }
-    
+
     void CloseBar()
     {
 

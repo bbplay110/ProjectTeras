@@ -38,7 +38,10 @@ public class bulletTime : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        
+        if (hInput.GetButtonDown("Tab")&&PauseMenu.GamePause==false)
+        {
+            PauseStart();
+        }
         checkEnergy();
 	}
     void checkEnergy() {
@@ -51,7 +54,7 @@ public class bulletTime : MonoBehaviour {
                 pauseEnd();
             }
         }
-        if (!isPaused)
+        if (!isPaused&& player.Energy<= player.maxEnergy)
         {
             player.Energy += 1 * Time.deltaTime;
         }

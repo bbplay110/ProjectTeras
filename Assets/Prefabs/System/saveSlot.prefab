@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114444338107781776}
   - component: {fileID: 114338206965199760}
   m_Layer: 5
-  m_Name: saveSlot
+  m_Name: QuickSave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95,7 +95,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: 7/15/2019 12:14:09 AM
 --- !u!114 &114145505539289240
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -128,9 +128,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'New Data
-
-'
+  m_Text: QuickSave
 --- !u!114 &114338206965199760
 MonoBehaviour:
   m_ObjectHideFlags: 1

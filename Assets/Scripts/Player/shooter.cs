@@ -77,9 +77,9 @@ public class shooter : MonoBehaviour {
                 if (Physics.Raycast(shootRay, out shootHit, range))
                 {
                     gunLine.SetPosition(1, transform.InverseTransformPoint(shootHit.point));
-                    if (shootHit.transform.gameObject.GetComponent<hurt>() != null)
+                    if (shootHit.transform.gameObject.GetComponent<hurt>() != null&&shootHit.collider.tag!="Player")
                         shootHit.transform.gameObject.GetComponent<hurt>().damage(Damage, true);
-                    else if (shootHit.transform.GetComponent<DamageReciver>() != null)
+                    else if (shootHit.transform.GetComponent<DamageReciver>() != null&&shootHit.collider.tag!="Player")
                         shootHit.transform.GetComponent<DamageReciver>().DoDamage(Damage);
 
                     Debug.Log("shootThing");

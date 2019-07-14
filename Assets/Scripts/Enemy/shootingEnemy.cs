@@ -24,8 +24,12 @@ public class shootingEnemy : MonoBehaviour
 
     void Start()
     {
+        //--時停初始化
+        bulletTime.OnPauseTime += onEnemyPause;
+        bulletTime.UnPauseTime += unEnemyPause;
+        Ani = GetComponent<Animator>();
+        //--
 
-        
         //this.GetComponent<AudioSource>().Play();
         bulletTime.OnPauseTime += onEnemyPause;
         bulletTime.UnPauseTime += unEnemyPause;
@@ -39,6 +43,7 @@ public class shootingEnemy : MonoBehaviour
         viewDist = attackDist * 2;
         Ani = GetComponent<Animator>();
     }
+
     void onEnemyPause()
     {
         isPause = true;

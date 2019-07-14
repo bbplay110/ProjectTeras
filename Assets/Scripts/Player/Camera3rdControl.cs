@@ -9,7 +9,7 @@ public class Camera3rdControl : MonoBehaviour
     public float distence, disSpeed, minDistence, maxDistence;
     protected float x;
     protected float y;
-    public float followSpeed = 2.0f;
+    public float followSpeed = 1f;
     private float xSpeed = 1;
     private float ySpeed = 1;
     public bool inverb = false;
@@ -17,7 +17,7 @@ public class Camera3rdControl : MonoBehaviour
     public bool bOpenRay = true;
     private float HitDistance = 0f;
     private bool bHit = false;
-    private float AdjuGap = 0.1f;
+    private float AdjuGap = 4f;
     private Vector3 cameraPosition;
     private Quaternion rotationEuler;
     private int SceneObjectLayer;

@@ -15,6 +15,11 @@ public class Boss : MonoBehaviour {
     public GameObject IKAim;
     public GameObject oraoraLeftHand,oraoraRightHand;
     private Transform PlayerCamera;
+    //--時停變數
+    private bool isPause = false;
+    private Animator Ani;
+
+    //--
     // Use this for initialization
     private void Awake()
     {
@@ -24,7 +29,24 @@ public class Boss : MonoBehaviour {
     void Start () {
         BossAnimator = GetComponent<Animator>();
         Player = GameObject.Find("Player").transform;
-	}
+        //--時停初始化
+        bulletTime.OnPauseTime += onEnemyPause;
+        bulletTime.UnPauseTime += unEnemyPause;
+        //--
+    }
+    void onEnemyPause()
+    {
+        isPause = true;
+        BossAnimator.speed = 0;
+        turnWithPlayer = false;
+
+    }
+    void unEnemyPause()
+    {
+        isPause = false;
+        BossAnimator.speed = 1;
+        turnWithPlayer = true;
+    }
     public void oraorashoot(int point) {
         switch (point) {
             case 0:
@@ -90,6 +112,11 @@ public class Boss : MonoBehaviour {
         
         shooter.onAim -= OnPlayerAim;
         shooter.unAim -= OnPlayerNotAim;
+    }
+    private void OnDestroy()
+    {
+        bulletTime.OnPauseTime -= onEnemyPause;
+        bulletTime.UnPauseTime -= unEnemyPause;
     }
     public void StartShake()
     {

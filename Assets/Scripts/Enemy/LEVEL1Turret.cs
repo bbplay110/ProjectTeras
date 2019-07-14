@@ -16,18 +16,30 @@ public class LEVEL1Turret :MonoBehaviour {
     protected Ray eyeContect;
     protected bool See = false;
     protected bool Dead = false;
+    private bool isPaused = false;
     void Start()
     {
+        bulletTime.OnPauseTime += onPause;
+        bulletTime.UnPauseTime += unPause;
         PlayerBody = GameObject.Find("Player").transform;
         Player = GameObject.Find("Player");
     }
-
+    void onPause()
+    {
+        isPaused = true;
+    }
+    void unPause()
+    {
+        isPaused = false;
+    }
     // Update is called once per frame
     void Update()
     {
-
-        FindPlayer();
-        ChackingSeePlayer();
+        if (!isPaused)
+        {
+            FindPlayer();
+            ChackingSeePlayer();
+        }
     }
     // Use this for initialization
     protected  void ChackingSeePlayer()
@@ -91,5 +103,10 @@ public class LEVEL1Turret :MonoBehaviour {
     public void isDeath()
     {
         Dead = true;
+    }
+    private void OnDestroy()
+    {
+        bulletTime.OnPauseTime -= onPause;
+        bulletTime.UnPauseTime -= unPause;
     }
 }

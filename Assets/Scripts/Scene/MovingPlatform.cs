@@ -15,6 +15,7 @@ public class MovingPlatform : MonoBehaviour {
     private bool isPaused=false;
 	// Use this for initialization
 	void Start () {
+        Invoke(tempVoid, 0);
         if(HitArea!=null)
             HitArea.GetComponent<MeshRenderer>().enabled=false;
         bulletTime.OnPauseTime += OnPauseAction;
@@ -33,8 +34,10 @@ public class MovingPlatform : MonoBehaviour {
             tempWaitTime -= 1 * Time.deltaTime;
         }
 
-        if (WaitTime <= 0)
+        else if (tempWaitTime <= 0&& tempMoveTime <= 0&&!isPaused)
         {
+            tempMoveTime = MoveTime;
+            tempWaitTime = WaitTime;
             if(tempVoid== "MoveToPoint1")
             {
                 tempVoid = "MoveToPoint2";
@@ -44,19 +47,18 @@ public class MovingPlatform : MonoBehaviour {
                 tempVoid = "MoveToPoint1";
             }
             Invoke(tempVoid, 0);
-            tempMoveTime = MoveTime;
-            tempWaitTime = WaitTime;
         }
+
     }
     void OnPauseAction()
     {
         isPaused = true;
-        iTween.Pause(gameObject);
+        iTween.Pause(Platform);
     }
     void UnPauseAction()
     {
         isPaused = false;
-        iTween.Resume(gameObject);
+        iTween.Resume(Platform);
     }
     private void MoveToPoint1()
     {

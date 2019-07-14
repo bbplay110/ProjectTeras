@@ -3,25 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 public class PauseMenu : MonoBehaviour {
-    private bool GamePause = false;
+    public static bool GamePause = false;
 
     public GameObject PauseMenuUI;
     // Use this for initialization
 
     public AudioMixerSnapshot paused, unpaused;
     void Start () {
-		
-	}
+        if (paused != null && unpaused != null)
+        {
+            unpaused.TransitionTo(1f);
+        }
+    }
     void Lowpass()
     {
         if(paused!=null&& unpaused != null) {
             if (Time.timeScale == 0)
             {
-                paused.TransitionTo(0.1f);
+                paused.TransitionTo(1f);
             }
             else
             {
-                unpaused.TransitionTo(0.1f);
+                unpaused.TransitionTo(1f);
             }
         }
         else
