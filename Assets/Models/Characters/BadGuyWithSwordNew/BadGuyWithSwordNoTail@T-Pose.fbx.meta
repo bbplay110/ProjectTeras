@@ -338,7 +338,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -380,8 +380,1109 @@ ModelImporter:
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
-    human: []
-    skeleton: []
+    human:
+    - boneName: mixamorig:badGuyWithSwordBody:Hips
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:LeftUpLeg
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:RightUpLeg
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:LeftLeg
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:RightLeg
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:LeftFoot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:RightFoot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:Spine
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:Spine1
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:Neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:LeftShoulder
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:RightShoulder
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:LeftArm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:RightArm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:LeftForeArm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:RightForeArm
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:LeftHand
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:RightHand
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:LeftToeBase
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:RightToeBase
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:LeftHandThumb1
+      humanName: Left Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:LeftHandThumb2
+      humanName: Left Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:LeftHandThumb3
+      humanName: Left Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:LeftHandIndex1
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:LeftHandIndex2
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:LeftHandIndex3
+      humanName: Left Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:LeftHandMiddle1
+      humanName: Left Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:LeftHandMiddle2
+      humanName: Left Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:LeftHandMiddle3
+      humanName: Left Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:LeftHandRing1
+      humanName: Left Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:LeftHandRing2
+      humanName: Left Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:LeftHandRing3
+      humanName: Left Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:LeftHandPinky1
+      humanName: Left Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:LeftHandPinky2
+      humanName: Left Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:LeftHandPinky3
+      humanName: Left Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:RightHandThumb1
+      humanName: Right Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:RightHandThumb2
+      humanName: Right Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:RightHandThumb3
+      humanName: Right Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:RightHandIndex1
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:RightHandIndex2
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:RightHandIndex3
+      humanName: Right Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:RightHandMiddle1
+      humanName: Right Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:RightHandMiddle2
+      humanName: Right Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:RightHandMiddle3
+      humanName: Right Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:RightHandRing1
+      humanName: Right Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:RightHandRing2
+      humanName: Right Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:RightHandRing3
+      humanName: Right Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:RightHandPinky1
+      humanName: Right Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:RightHandPinky2
+      humanName: Right Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:RightHandPinky3
+      humanName: Right Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:badGuyWithSwordBody:Spine2
+      humanName: UpperChest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: BadGuyWithSwordNoTail@T-Pose(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: badGuyWithSwordBody:bottom
+      parentName: BadGuyWithSwordNoTail@T-Pose(Clone)
+      position: {x: -0, y: -10.001, z: 0}
+      rotation: {x: 0, y: -0.7071068, z: -0.7071068, w: 0}
+      scale: {x: 0.01, y: 0.01, z: 0.01}
+    - name: badGuyWithSwordBody:g polySurface3
+      parentName: BadGuyWithSwordNoTail@T-Pose(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: badGuyWithSwordBody:polySurface3
+      parentName: badGuyWithSwordBody:g polySurface3
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: badGuyWithSwordBody:polySurface8
+      parentName: badGuyWithSwordBody:polySurface3
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: badGuyWithSwordBody:polySurface78
+      parentName: badGuyWithSwordBody:polySurface8
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: badGuyWithSwordBody:polySurface147
+      parentName: badGuyWithSwordBody:polySurface78
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: badGuyWithSwordBody:g pSphere2
+      parentName: BadGuyWithSwordNoTail@T-Pose(Clone)
+      position: {x: -0.04434783, y: 1.7437292, z: -0.6087893}
+      rotation: {x: 0, y: -0.11086702, z: -0, w: 0.9938353}
+      scale: {x: 0.008982517, y: 0.008982517, z: 0.009268695}
+    - name: badGuyWithSwordBody:polySurface236
+      parentName: badGuyWithSwordBody:g pSphere2
+      position: {x: 0.10459995, y: -85.36735, z: -19.2763}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: badGuyWithSwordBody:polySurface238
+      parentName: badGuyWithSwordBody:polySurface236
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: badGuyWithSwordBody:polySurface9
+      parentName: BadGuyWithSwordNoTail@T-Pose(Clone)
+      position: {x: 0.36686006, y: 0.97122604, z: -0.75432634}
+      rotation: {x: -0.018991277, y: -0.3173053, z: -0.056646064, w: 0.9464396}
+      scale: {x: 0.0077881487, y: 0.0077881487, z: 0.0077881487}
+    - name: badGuyWithSwordBody:polySurface79
+      parentName: BadGuyWithSwordNoTail@T-Pose(Clone)
+      position: {x: -0.38769594, y: 1.0150614, z: -0.8581346}
+      rotation: {x: 0.007180799, y: -0.11604216, z: 0.111474425, w: 0.9869428}
+      scale: {x: 0.007390719, y: 0.007390719, z: 0.007390719}
+    - name: badGuyWithSwordBody:polySurface2341
+      parentName: BadGuyWithSwordNoTail@T-Pose(Clone)
+      position: {x: 2.9019246, y: -47.765755, z: 64.20275}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.24722761, y: 0.24722761, z: 0.24722761}
+    - name: group1
+      parentName: BadGuyWithSwordNoTail@T-Pose(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.01, y: 0.01, z: 0.01}
+    - name: badGuyWithSwordBody:Hazard_Unit:polySurface1
+      parentName: group1
+      position: {x: -0, y: 0, z: -80.23775}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: badGuyWithSwordBody:transform20
+      parentName: badGuyWithSwordBody:Hazard_Unit:polySurface1
+      position: {x: -0, y: 0, z: 80.23775}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: badGuyWithSwordBody:polySurface148
+      parentName: group1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 100, y: 100, z: 100}
+    - name: badGuyWithSwordBody:transform19
+      parentName: badGuyWithSwordBody:polySurface148
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: badGuyWithSwordBody:polySurface176
+      parentName: group1
+      position: {x: 17.100481, y: 5.2055907, z: -57.01212}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: badGuyWithSwordBody:transform17
+      parentName: badGuyWithSwordBody:polySurface176
+      position: {x: -17.100481, y: -5.2055907, z: 57.01212}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: badGuyWithSwordBody:polySurface180
+      parentName: group1
+      position: {x: -21.776676, y: 5.1831903, z: -83.39583}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: badGuyWithSwordBody:transform18
+      parentName: badGuyWithSwordBody:polySurface180
+      position: {x: 21.776676, y: -5.1831903, z: 83.39583}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: badGuyWithSwordBody:polySurface214
+      parentName: group1
+      position: {x: -4.011793, y: 35.328293, z: -19.03316}
+      rotation: {x: 0.007180799, y: -0.11604216, z: 0.111474425, w: 0.9869428}
+      scale: {x: 0.7390719, y: 0.7390719, z: 0.7390719}
+    - name: badGuyWithSwordBody:transform9
+      parentName: badGuyWithSwordBody:polySurface214
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: badGuyWithSwordBody:polySurface215
+      parentName: group1
+      position: {x: -4.011793, y: 35.328293, z: -19.03316}
+      rotation: {x: 0.007180799, y: -0.11604216, z: 0.111474425, w: 0.9869428}
+      scale: {x: 0.7390719, y: 0.7390719, z: 0.7390719}
+    - name: badGuyWithSwordBody:transform10
+      parentName: badGuyWithSwordBody:polySurface215
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: badGuyWithSwordBody:polySurface216
+      parentName: group1
+      position: {x: -4.011793, y: 35.328293, z: -19.03316}
+      rotation: {x: 0.007180799, y: -0.11604216, z: 0.111474425, w: 0.9869428}
+      scale: {x: 0.7390719, y: 0.7390719, z: 0.7390719}
+    - name: badGuyWithSwordBody:transform13
+      parentName: badGuyWithSwordBody:polySurface216
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: badGuyWithSwordBody:polySurface217
+      parentName: group1
+      position: {x: -4.011793, y: 35.328293, z: -19.03316}
+      rotation: {x: 0.007180799, y: -0.11604216, z: 0.111474425, w: 0.9869428}
+      scale: {x: 0.7390719, y: 0.7390719, z: 0.7390719}
+    - name: badGuyWithSwordBody:transform14
+      parentName: badGuyWithSwordBody:polySurface217
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: badGuyWithSwordBody:polySurface218
+      parentName: group1
+      position: {x: -4.011793, y: 35.328293, z: -19.03316}
+      rotation: {x: 0.007180799, y: -0.11604216, z: 0.111474425, w: 0.9869428}
+      scale: {x: 0.7390719, y: 0.7390719, z: 0.7390719}
+    - name: badGuyWithSwordBody:transform5
+      parentName: badGuyWithSwordBody:polySurface218
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: badGuyWithSwordBody:polySurface219
+      parentName: group1
+      position: {x: -4.011793, y: 35.328293, z: -19.03316}
+      rotation: {x: 0.007180799, y: -0.11604216, z: 0.111474425, w: 0.9869428}
+      scale: {x: 0.7390719, y: 0.7390719, z: 0.7390719}
+    - name: badGuyWithSwordBody:transform6
+      parentName: badGuyWithSwordBody:polySurface219
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: badGuyWithSwordBody:polySurface220
+      parentName: group1
+      position: {x: -4.011793, y: 35.328293, z: -19.03316}
+      rotation: {x: 0.007180799, y: -0.11604216, z: 0.111474425, w: 0.9869428}
+      scale: {x: 0.7390719, y: 0.7390719, z: 0.7390719}
+    - name: badGuyWithSwordBody:transform11
+      parentName: badGuyWithSwordBody:polySurface220
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: badGuyWithSwordBody:polySurface221
+      parentName: group1
+      position: {x: -4.011793, y: 35.328293, z: -19.03316}
+      rotation: {x: 0.007180799, y: -0.11604216, z: 0.111474425, w: 0.9869428}
+      scale: {x: 0.7390719, y: 0.7390719, z: 0.7390719}
+    - name: badGuyWithSwordBody:transform12
+      parentName: badGuyWithSwordBody:polySurface221
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: badGuyWithSwordBody:polySurface222
+      parentName: group1
+      position: {x: -4.011793, y: 35.328293, z: -19.03316}
+      rotation: {x: 0.007180799, y: -0.11604216, z: 0.111474425, w: 0.9869428}
+      scale: {x: 0.7390719, y: 0.7390719, z: 0.7390719}
+    - name: badGuyWithSwordBody:transform16
+      parentName: badGuyWithSwordBody:polySurface222
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: badGuyWithSwordBody:polySurface223
+      parentName: group1
+      position: {x: -4.011793, y: 35.328293, z: -19.03316}
+      rotation: {x: 0.007180799, y: -0.11604216, z: 0.111474425, w: 0.9869428}
+      scale: {x: 0.7390719, y: 0.7390719, z: 0.7390719}
+    - name: badGuyWithSwordBody:transform15
+      parentName: badGuyWithSwordBody:polySurface223
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: badGuyWithSwordBody:polySurface224
+      parentName: group1
+      position: {x: -4.011793, y: 35.328293, z: -19.03316}
+      rotation: {x: 0.007180799, y: -0.11604216, z: 0.111474425, w: 0.9869428}
+      scale: {x: 0.7390719, y: 0.7390719, z: 0.7390719}
+    - name: badGuyWithSwordBody:transform21
+      parentName: badGuyWithSwordBody:polySurface224
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: badGuyWithSwordBody:polySurface225
+      parentName: group1
+      position: {x: -4.011793, y: 35.328293, z: -19.03316}
+      rotation: {x: 0.007180799, y: -0.11604216, z: 0.111474425, w: 0.9869428}
+      scale: {x: 0.7390719, y: 0.7390719, z: 0.7390719}
+    - name: badGuyWithSwordBody:transform22
+      parentName: badGuyWithSwordBody:polySurface225
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: badGuyWithSwordBody:polySurface226
+      parentName: group1
+      position: {x: -4.011793, y: 35.328293, z: -19.03316}
+      rotation: {x: 0.007180799, y: -0.11604216, z: 0.111474425, w: 0.9869428}
+      scale: {x: 0.7390719, y: 0.7390719, z: 0.7390719}
+    - name: badGuyWithSwordBody:transform7
+      parentName: badGuyWithSwordBody:polySurface226
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: badGuyWithSwordBody:polySurface227
+      parentName: group1
+      position: {x: -4.011793, y: 35.328293, z: -19.03316}
+      rotation: {x: 0.007180799, y: -0.11604216, z: 0.111474425, w: 0.9869428}
+      scale: {x: 0.7390719, y: 0.7390719, z: 0.7390719}
+    - name: badGuyWithSwordBody:transform25
+      parentName: badGuyWithSwordBody:polySurface227
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: badGuyWithSwordBody:polySurface228
+      parentName: group1
+      position: {x: -4.011793, y: 35.328293, z: -19.03316}
+      rotation: {x: 0.007180799, y: -0.11604216, z: 0.111474425, w: 0.9869428}
+      scale: {x: 0.7390719, y: 0.7390719, z: 0.7390719}
+    - name: badGuyWithSwordBody:transform24
+      parentName: badGuyWithSwordBody:polySurface228
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: badGuyWithSwordBody:polySurface229
+      parentName: group1
+      position: {x: -18.347563, y: -28.466545, z: -73.751686}
+      rotation: {x: -0.018991277, y: -0.3173053, z: -0.056646064, w: 0.9464396}
+      scale: {x: 0.77881485, y: 0.77881485, z: 0.77881485}
+    - name: badGuyWithSwordBody:transform23
+      parentName: badGuyWithSwordBody:polySurface229
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: badGuyWithSwordBody:polySurface230
+      parentName: group1
+      position: {x: -18.347563, y: -28.466545, z: -73.751686}
+      rotation: {x: -0.018991277, y: -0.3173053, z: -0.056646064, w: 0.9464396}
+      scale: {x: 0.77881485, y: 0.77881485, z: 0.77881485}
+    - name: badGuyWithSwordBody:transform8
+      parentName: badGuyWithSwordBody:polySurface230
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: badGuyWithSwordBody:polySurface231
+      parentName: group1
+      position: {x: -18.347563, y: -28.466545, z: -73.751686}
+      rotation: {x: -0.018991277, y: -0.3173053, z: -0.056646064, w: 0.9464396}
+      scale: {x: 0.77881485, y: 0.77881485, z: 0.77881485}
+    - name: badGuyWithSwordBody:transform28
+      parentName: badGuyWithSwordBody:polySurface231
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: badGuyWithSwordBody:polySurface232
+      parentName: group1
+      position: {x: -18.347563, y: -28.466545, z: -73.751686}
+      rotation: {x: -0.018991277, y: -0.3173053, z: -0.056646064, w: 0.9464396}
+      scale: {x: 0.77881485, y: 0.77881485, z: 0.77881485}
+    - name: badGuyWithSwordBody:transform27
+      parentName: badGuyWithSwordBody:polySurface232
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: badGuyWithSwordBody:polySurface233
+      parentName: group1
+      position: {x: -18.347563, y: -28.466545, z: -73.751686}
+      rotation: {x: -0.018991277, y: -0.3173053, z: -0.056646064, w: 0.9464396}
+      scale: {x: 0.77881485, y: 0.77881485, z: 0.77881485}
+    - name: badGuyWithSwordBody:transform26
+      parentName: badGuyWithSwordBody:polySurface233
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: badGuyWithSwordBody:polySurface234
+      parentName: group1
+      position: {x: -18.347563, y: -28.466545, z: -73.751686}
+      rotation: {x: -0.018991277, y: -0.3173053, z: -0.056646064, w: 0.9464396}
+      scale: {x: 0.77881485, y: 0.77881485, z: 0.77881485}
+    - name: badGuyWithSwordBody:transform29
+      parentName: badGuyWithSwordBody:polySurface234
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: badGuyWithSwordBody:polySurface235
+      parentName: group1
+      position: {x: -0.40592176, y: 97.69155, z: -78.28562}
+      rotation: {x: 0, y: -0.11086702, z: -0, w: 0.9938353}
+      scale: {x: 0.8982517, y: 0.8982517, z: 0.92686945}
+    - name: badGuyWithSwordBody:transform1
+      parentName: badGuyWithSwordBody:polySurface235
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: badGuyWithSwordBody:polySurface237
+      parentName: group1
+      position: {x: -0.40592176, y: 97.69155, z: -78.28562}
+      rotation: {x: 0, y: -0.11086702, z: -0, w: 0.9938353}
+      scale: {x: 0.8982517, y: 0.8982517, z: 0.92686945}
+    - name: badGuyWithSwordBody:transform2
+      parentName: badGuyWithSwordBody:polySurface237
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: badGuyWithSwordBody:polySurface239
+      parentName: group1
+      position: {x: -0.40592176, y: 97.69155, z: -78.28562}
+      rotation: {x: 0, y: -0.11086702, z: -0, w: 0.9938353}
+      scale: {x: 0.8982517, y: 0.8982517, z: 0.92686945}
+    - name: badGuyWithSwordBody:transform3
+      parentName: badGuyWithSwordBody:polySurface239
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: badGuyWithSwordBody:polySurface240
+      parentName: group1
+      position: {x: -0.40592176, y: 97.69155, z: -78.28562}
+      rotation: {x: 0, y: -0.11086702, z: -0, w: 0.9938353}
+      scale: {x: 0.8982517, y: 0.8982517, z: 0.92686945}
+    - name: badGuyWithSwordBody:transform4
+      parentName: badGuyWithSwordBody:polySurface240
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:Hips
+      parentName: BadGuyWithSwordNoTail@T-Pose(Clone)
+      position: {x: 0.004763107, y: 26.729565, z: 0.21256837}
+      rotation: {x: 0.09088478, y: 0.13326621, z: -0.013326666, w: 0.9868143}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:RightUpLeg
+      parentName: mixamorig:badGuyWithSwordBody:Hips
+      position: {x: 2.436153, y: -1.383791, z: 0.78716415}
+      rotation: {x: 0.0042788326, y: -0.008362986, z: 0.99909294, w: -0.04153436}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:RightLeg
+      parentName: mixamorig:badGuyWithSwordBody:RightUpLeg
+      position: {x: -0.000000010198598, y: 10.638707, z: -0.00000006114035}
+      rotation: {x: -0.057119798, y: 0.009769901, z: -0.06777665, w: 0.9960162}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:RightFoot
+      parentName: mixamorig:badGuyWithSwordBody:RightLeg
+      position: {x: -0.0000000025929685, y: 11.436641, z: -0.0000000054404174}
+      rotation: {x: 0.5607707, y: -0.017597387, z: 0.05442092, w: 0.82599336}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:RightToeBase
+      parentName: mixamorig:badGuyWithSwordBody:RightFoot
+      position: {x: -0.000000050914107, y: 5.126697, z: -0.00000008812917}
+      rotation: {x: 0.22918393, y: 0.037696574, z: -0.00888272, w: 0.9726124}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:RightToe_End
+      parentName: mixamorig:badGuyWithSwordBody:RightToeBase
+      position: {x: 0.000000013992978, y: 1.8673005, z: 0.0000000061924488}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:LeftUpLeg
+      parentName: mixamorig:badGuyWithSwordBody:Hips
+      position: {x: -2.436153, y: -1.383791, z: -1.278347}
+      rotation: {x: -0.0015686966, y: 0.06095423, z: 0.99738795, w: 0.038723256}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:LeftLeg
+      parentName: mixamorig:badGuyWithSwordBody:LeftUpLeg
+      position: {x: -0.00000007505389, y: 10.519877, z: 0.000000004256936}
+      rotation: {x: -0.09921114, y: -0.002971153, z: 0.06772314, w: 0.9927547}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:LeftFoot
+      parentName: mixamorig:badGuyWithSwordBody:LeftLeg
+      position: {x: 0.0000000021371176, y: 11.602689, z: 0.000000038343728}
+      rotation: {x: 0.50480485, y: 0.09942538, z: -0.1014627, w: 0.8514646}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:LeftToeBase
+      parentName: mixamorig:badGuyWithSwordBody:LeftFoot
+      position: {x: -0.000000015684819, y: 4.625496, z: -0.000000026643455}
+      rotation: {x: 0.2544797, y: -0.0021143118, z: 0.00055637653, w: 0.96707565}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:LeftToe_End
+      parentName: mixamorig:badGuyWithSwordBody:LeftToeBase
+      position: {x: -0.000000005661224, y: 1.5646855, z: 0.0000000059557532}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:Spine
+      parentName: mixamorig:badGuyWithSwordBody:Hips
+      position: {x: -0, y: 2.4332886, z: -0.5041858}
+      rotation: {x: -0.10263327, y: -0.00024250757, z: 0.001536218, w: 0.9947181}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:Spine1
+      parentName: mixamorig:badGuyWithSwordBody:Spine
+      position: {x: -0, y: 2.8991365, z: 0.000000034609048}
+      rotation: {x: 1.1876573e-25, y: -1.801436e-13, z: 6.592836e-13, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:Spine2
+      parentName: mixamorig:badGuyWithSwordBody:Spine1
+      position: {x: -0, y: 3.313299, z: 0.0000000044478625}
+      rotation: {x: 0, y: -4.038968e-28, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:Neck
+      parentName: mixamorig:badGuyWithSwordBody:Spine2
+      position: {x: -0, y: 3.727461, z: 0.00000042085384}
+      rotation: {x: -0.17451096, y: 0.00024551043, z: -0.00017672576, w: 0.98465526}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:Head
+      parentName: mixamorig:badGuyWithSwordBody:Neck
+      position: {x: -0, y: 3.9650688, z: 4.4657702}
+      rotation: {x: 0, y: -0, z: -2.4124717e-35, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:HeadTop_End
+      parentName: mixamorig:badGuyWithSwordBody:Head
+      position: {x: -0, y: 5.036049, z: 5.671991}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:LeftShoulder
+      parentName: mixamorig:badGuyWithSwordBody:Spine2
+      position: {x: -1.7893512, y: 3.0713456, z: -0.41868135}
+      rotation: {x: 0.46614102, y: -0.50032395, z: 0.57767874, w: 0.44573066}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:LeftArm
+      parentName: mixamorig:badGuyWithSwordBody:LeftShoulder
+      position: {x: -0.000000010614325, y: 3.9998493, z: 0.000000045374016}
+      rotation: {x: -0.05314705, y: -0.0693005, z: 0.01611128, w: 0.9960488}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:LeftForeArm
+      parentName: mixamorig:badGuyWithSwordBody:LeftArm
+      position: {x: 0.000000016219538, y: 6.028142, z: 0.00000013313303}
+      rotation: {x: 0.00000019305888, y: -0.16734745, z: -0.0000002422174, w: 0.985898}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:LeftHand
+      parentName: mixamorig:badGuyWithSwordBody:LeftForeArm
+      position: {x: 0.000000025158815, y: 5.1320047, z: -0.000000054655914}
+      rotation: {x: 0.09628662, y: 0.12569956, z: 0.05512314, w: 0.9858448}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:LeftHandRing1
+      parentName: mixamorig:badGuyWithSwordBody:LeftHand
+      position: {x: -0.43348715, y: 3.2472043, z: -0.15461099}
+      rotation: {x: -0.08605757, y: 0.04205957, z: -0.08220835, w: 0.9920015}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:LeftHandRing2
+      parentName: mixamorig:badGuyWithSwordBody:LeftHandRing1
+      position: {x: -0.015000068, y: 0.64291465, z: 2.645102e-10}
+      rotation: {x: 0.000000015716523, y: -0.00017562357, z: 0.022550486, w: 0.9997457}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:LeftHandRing3
+      parentName: mixamorig:badGuyWithSwordBody:LeftHandRing2
+      position: {x: 0.013580618, y: 0.62435323, z: -0.000000024817487}
+      rotation: {x: -0.000014811052, y: -0.0012200531, z: -0.009591716, w: 0.99995327}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:LeftHandRing4
+      parentName: mixamorig:badGuyWithSwordBody:LeftHandRing3
+      position: {x: 0.0014194569, y: 0.5397502, z: 0.0000000036246774}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:LeftHandPinky1
+      parentName: mixamorig:badGuyWithSwordBody:LeftHand
+      position: {x: -0.98013985, y: 2.4477165, z: -0.084577635}
+      rotation: {x: -0.08531453, y: 0.047463894, z: -0.07264303, w: 0.9925682}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:LeftHandPinky2
+      parentName: mixamorig:badGuyWithSwordBody:LeftHandPinky1
+      position: {x: -0.0024861977, y: 0.7659946, z: -0.0000000040216594}
+      rotation: {x: 0.00000011182546, y: -0.00006572641, z: 0.002810255, w: 0.99999607}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:LeftHandPinky3
+      parentName: mixamorig:badGuyWithSwordBody:LeftHandPinky2
+      position: {x: 0.0015054896, y: 0.6364375, z: -0.000000012343217}
+      rotation: {x: 0.00000023174185, y: -0.00006395018, z: -0.00021548624, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:LeftHandPinky4
+      parentName: mixamorig:badGuyWithSwordBody:LeftHandPinky3
+      position: {x: 0.0009807091, y: 0.51920587, z: 0.0000000035755017}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:LeftHandMiddle1
+      parentName: mixamorig:badGuyWithSwordBody:LeftHand
+      position: {x: 0.3912954, y: 2.8719895, z: -0.5181783}
+      rotation: {x: -0.0873354, y: 0.020228425, z: -0.08044593, w: 0.9927194}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:LeftHandMiddle2
+      parentName: mixamorig:badGuyWithSwordBody:LeftHandMiddle1
+      position: {x: -0.019603344, y: 0.831142, z: -0.0000000033472531}
+      rotation: {x: 0.0000020459738, y: -0.00045925728, z: 0.019949893, w: 0.99980086}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:LeftHandMiddle3
+      parentName: mixamorig:badGuyWithSwordBody:LeftHandMiddle2
+      position: {x: 0.013327746, y: 0.81474996, z: -0.0000000030403076}
+      rotation: {x: -0.0000042377783, y: -0.0003412457, z: -0.004010519, w: 0.9999919}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:LeftHandMiddle4
+      parentName: mixamorig:badGuyWithSwordBody:LeftHandMiddle3
+      position: {x: 0.006275583, y: 0.7587919, z: 0.0000000013867627}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:LeftHandIndex1
+      parentName: mixamorig:badGuyWithSwordBody:LeftHand
+      position: {x: 1.0223317, y: 3.404343, z: 0.074999996}
+      rotation: {x: -0.086151846, y: 0.03737387, z: -0.07607641, w: 0.9926699}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:LeftHandIndex2
+      parentName: mixamorig:badGuyWithSwordBody:LeftHandIndex1
+      position: {x: -0.0059837205, y: 0.5056295, z: 8.395542e-10}
+      rotation: {x: 0.0000025716524, y: 0.00043640824, z: 0.017185573, w: 0.99985224}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:LeftHandIndex3
+      parentName: mixamorig:badGuyWithSwordBody:LeftHandIndex2
+      position: {x: 0.0099008875, y: 0.4398284, z: 6.9800077e-10}
+      rotation: {x: -0.0000030283022, y: -0.0004995222, z: -0.0160143, w: 0.9998717}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:LeftHandIndex4
+      parentName: mixamorig:badGuyWithSwordBody:LeftHandIndex3
+      position: {x: -0.0039171525, y: 0.4094955, z: -0.0000000020779893}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:LeftHandThumb1
+      parentName: mixamorig:badGuyWithSwordBody:LeftHand
+      position: {x: 0.7130209, y: 0.96479654, z: 0.35091215}
+      rotation: {x: -0.023722718, y: 0.05984178, z: -0.3272118, w: 0.9427558}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:LeftHandThumb2
+      parentName: mixamorig:badGuyWithSwordBody:LeftHandThumb1
+      position: {x: 0.19739182, y: 0.9802802, z: -0.0000000117039285}
+      rotation: {x: 0.000011831074, y: 0.00045970496, z: -0.17205968, w: 0.98508644}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:LeftHandThumb3
+      parentName: mixamorig:badGuyWithSwordBody:LeftHandThumb2
+      position: {x: -0.12155994, y: 0.8204592, z: -0.0000000030239669}
+      rotation: {x: 0.00088747055, y: -0.0071146367, z: 0.023013294, w: 0.9997095}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:LeftHandThumb4
+      parentName: mixamorig:badGuyWithSwordBody:LeftHandThumb3
+      position: {x: -0.07583199, y: 0.7472342, z: -2.0191493e-10}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:RightShoulder
+      parentName: mixamorig:badGuyWithSwordBody:Spine2
+      position: {x: 1.7893513, y: 2.9590025, z: 0.1235051}
+      rotation: {x: 0.57210153, y: 0.43773794, z: -0.50178766, w: 0.47884718}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:RightArm
+      parentName: mixamorig:badGuyWithSwordBody:RightShoulder
+      position: {x: 0.0000000136756535, y: 3.9998493, z: 0.00000002346922}
+      rotation: {x: -0.08466739, y: 0.22366709, z: 0.02201202, w: 0.9707316}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:RightForeArm
+      parentName: mixamorig:badGuyWithSwordBody:RightArm
+      position: {x: 0.00000003632785, y: 6.014694, z: -0.00000014350982}
+      rotation: {x: -0.00000016804171, y: -0.030781826, z: 0.00000023258184, w: 0.99952614}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:RightHand
+      parentName: mixamorig:badGuyWithSwordBody:RightForeArm
+      position: {x: 0.00000003602616, y: 5.264658, z: -0.000000010479702}
+      rotation: {x: 0.03544422, y: -0.11033086, z: -0.035179872, w: 0.99263954}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:RightHandIndex1
+      parentName: mixamorig:badGuyWithSwordBody:RightHand
+      position: {x: -1.0564797, y: 4.4891844, z: 0.016098838}
+      rotation: {x: -0.030089997, y: -0.031582084, z: 0.03965347, w: 0.99826086}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:RightHandIndex2
+      parentName: mixamorig:badGuyWithSwordBody:RightHandIndex1
+      position: {x: -0.00025277655, y: 0.7565447, z: -0.0000000019714008}
+      rotation: {x: -0.00000032962535, y: -0.000006397635, z: 0.0003402978, w: 0.99999994}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:RightHandIndex3
+      parentName: mixamorig:badGuyWithSwordBody:RightHandIndex2
+      position: {x: 0.00020674971, y: 0.704179, z: -0.000000051675766}
+      rotation: {x: -0.00000036005972, y: 0.0000047741546, z: -0.00014202297, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:RightHandIndex4
+      parentName: mixamorig:badGuyWithSwordBody:RightHandIndex3
+      position: {x: 0.000046067064, y: 0.67987806, z: -0.000000044046896}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:RightHandMiddle1
+      parentName: mixamorig:badGuyWithSwordBody:RightHand
+      position: {x: -0.36406785, y: 4.6648045, z: -0.29351193}
+      rotation: {x: -0.029685622, y: -0.04087419, z: 0.039167505, w: 0.9979549}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:RightHandMiddle2
+      parentName: mixamorig:badGuyWithSwordBody:RightHandMiddle1
+      position: {x: -0.0017309955, y: 0.8821003, z: 0.000000011529265}
+      rotation: {x: 0.00000048150645, y: 0.000039703016, z: 0.0025242572, w: 0.99999684}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:RightHandMiddle3
+      parentName: mixamorig:badGuyWithSwordBody:RightHandMiddle2
+      position: {x: 0.002419603, y: 0.76888245, z: -0.000000049482235}
+      rotation: {x: 0.000000054620934, y: -0.000057260386, z: -0.0020519954, w: 0.9999979}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:RightHandMiddle4
+      parentName: mixamorig:badGuyWithSwordBody:RightHandMiddle3
+      position: {x: -0.00068858726, y: 0.7122962, z: -0.000000010676556}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:RightHandThumb1
+      parentName: mixamorig:badGuyWithSwordBody:RightHand
+      position: {x: -0.7293317, y: 1.7949021, z: 0.53255624}
+      rotation: {x: 0.019365545, y: -0.070783496, z: 0.33242688, w: 0.94026965}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:RightHandThumb2
+      parentName: mixamorig:badGuyWithSwordBody:RightHandThumb1
+      position: {x: -0.19896688, y: 1.5950636, z: -0.000000012675296}
+      rotation: {x: 0.0000050033, y: -0.00032964293, z: 0.1084013, w: 0.9941072}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:RightHandThumb3
+      parentName: mixamorig:badGuyWithSwordBody:RightHandThumb2
+      position: {x: 0.098818414, y: 1.0579755, z: -0.000000007599592}
+      rotation: {x: 0.00024764874, y: 0.0023629821, z: 0.0112865055, w: 0.9999335}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:RightHandThumb4
+      parentName: mixamorig:badGuyWithSwordBody:RightHandThumb3
+      position: {x: 0.10014822, y: 0.86143965, z: -0.000000009654185}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:RightHandPinky1
+      parentName: mixamorig:badGuyWithSwordBody:RightHand
+      position: {x: 0.95207775, y: 4.0931, z: -0.00043677553}
+      rotation: {x: -0.027301934, y: -0.0707599, z: 0.023667201, w: 0.99683875}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:RightHandPinky2
+      parentName: mixamorig:badGuyWithSwordBody:RightHandPinky1
+      position: {x: -0.027387952, y: 0.7878682, z: -0.0000000034113055}
+      rotation: {x: 0.0000076689785, y: -0.0010225556, z: 0.027134418, w: 0.9996313}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:RightHandPinky3
+      parentName: mixamorig:badGuyWithSwordBody:RightHandPinky2
+      position: {x: 0.012117102, y: 0.6199997, z: -0.0000000018590245}
+      rotation: {x: 0.000008361691, y: 0.00037101802, z: 0.0027857025, w: 0.99999607}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:RightHandPinky4
+      parentName: mixamorig:badGuyWithSwordBody:RightHandPinky3
+      position: {x: 0.015270871, y: 0.60982484, z: 0.000000012105822}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:RightHandRing1
+      parentName: mixamorig:badGuyWithSwordBody:RightHand
+      position: {x: 0.46847016, y: 4.7746997, z: -0.2619502}
+      rotation: {x: -0.02776631, y: -0.07698919, z: 0.03479811, w: 0.99603754}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:RightHandRing2
+      parentName: mixamorig:badGuyWithSwordBody:RightHandRing1
+      position: {x: -0.009537955, y: 0.7417929, z: 0.000000061091086}
+      rotation: {x: 0.000000008074575, y: 0.000030904357, z: 0.013024242, w: 0.9999152}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:RightHandRing3
+      parentName: mixamorig:badGuyWithSwordBody:RightHandRing2
+      position: {x: 0.008854737, y: 0.67197806, z: -0.0000000012251817}
+      rotation: {x: -0.0000029225914, y: -0.00046565963, z: -0.006039553, w: 0.99998164}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:badGuyWithSwordBody:RightHandRing4
+      parentName: mixamorig:badGuyWithSwordBody:RightHandRing3
+      position: {x: 0.0006832338, y: 0.6013676, z: 0.00000003097442}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -392,10 +1493,10 @@ ModelImporter:
     rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 3
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
