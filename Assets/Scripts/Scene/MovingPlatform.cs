@@ -24,7 +24,8 @@ public class MovingPlatform : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        Debug.Log("tempWaitTime="+tempWaitTime+"TempMoveTime="+tempMoveTime);
+        //Debug.Log("tempWaitTime="+tempWaitTime+"TempMoveTime="+tempMoveTime);
+        //Debug.Log("tempWaitTime="+tempWaitTime+"TempMoveTime="+tempMoveTime);
         if (!isPaused&& tempMoveTime>0)
         {
             tempMoveTime -= 1 * Time.deltaTime;
@@ -62,13 +63,13 @@ public class MovingPlatform : MonoBehaviour {
     }
     private void MoveToPoint1()
     {
-        Debug.Log(tempVoid);
+        //Debug.Log(tempVoid);
         iTween.MoveTo(Platform, iTween.Hash("position",point1.position,"time",MoveTime, "easeType",easeType));
         
     }
     private void MoveToPoint2()
     {
-        Debug.Log(tempVoid);
+        //Debug.Log(tempVoid);
         iTween.MoveTo(Platform, iTween.Hash("position", point2.position, "time", MoveTime, "easeType", easeType));
     }
     private void OnDestroy()

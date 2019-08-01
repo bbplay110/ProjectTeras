@@ -38,10 +38,10 @@ public class bulletTime : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (hInput.GetButtonDown("Tab")&&PauseMenu.GamePause==false)
+        /*if (hInput.GetButtonDown("Tab")&&PauseMenu.GamePause==false)
         {
             PauseStart();
-        }
+        }*/
         checkEnergy();
 	}
     void checkEnergy() {

@@ -12,7 +12,7 @@ public class abilityChenger : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {/*
+	void Update () {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             Menu.SetActive(true);
@@ -31,7 +31,7 @@ public class abilityChenger : MonoBehaviour {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             Time.timeScale = 1;
-        }*/
+        }
 	}
     public void ChangeWapon(float waponCode)
     {

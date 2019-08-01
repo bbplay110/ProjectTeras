@@ -14,6 +14,7 @@ public class shooter : MonoBehaviour {
     public float range = 20;
     private float tmpDistance;
     private bool isAimed = false;
+    private bool canFire = true;
     private Ray shootRay;
     private int shootableMask;
     private LineRenderer gunLine;
@@ -100,8 +101,10 @@ public class shooter : MonoBehaviour {
         }
         else if (waponNow == 1)
         {
-            timer = 0;
+            
             Instantiate(arrow, Gun.transform.position,Gun.transform.rotation, null);
+            timer = 0;
+            canFire = true;
         }
        
     }
@@ -219,14 +222,16 @@ public class shooter : MonoBehaviour {
     void Update () {
         aim();
         timer += Time.deltaTime;
+        Debug.Log(timer);
         Gun.transform.rotation = mcamera.transform.rotation;
         if (hInput.GetButtonDown("Fire1")&&isAimed)
         {
             if (waponNow==0) {
                 animator.SetBool("Fire", true);
             }
-            else if (waponNow == 1/*&& !animator.GetCurrentAnimatorStateInfo(1).IsTag("Fire")*/)
+            else if (waponNow == 1&& canFire)
             {
+                canFire = false;
                 animator.SetTrigger("FireSingle");
             }
         }

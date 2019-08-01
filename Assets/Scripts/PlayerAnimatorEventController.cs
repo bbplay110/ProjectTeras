@@ -39,9 +39,9 @@ public class PlayerAnimatorEventController : MonoBehaviour {
     {
         GetComponent<Attacker>().instantiateFX(FX);
     }
-    public void shoot() {
-        GetComponent<shooter>().shoot();
-    }
+    /*public void AniShoot() {
+        //GetComponent<shooter>().shoot();
+    }*/
     public void setJetOff()
     {
         GetComponent<Player>().SetJet(false);

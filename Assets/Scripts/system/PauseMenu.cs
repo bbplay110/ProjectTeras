@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 public class PauseMenu : MonoBehaviour {
     public static bool GamePause = false;
-
+    public bool pauseEditor = false;
     public GameObject PauseMenuUI;
     // Use this for initialization
 
@@ -54,6 +54,10 @@ public class PauseMenu : MonoBehaviour {
         PauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GamePause = true;
+        if (pauseEditor)
+        {
+            Debug.Break();
+        }
     }
     public void Resume()
     {
