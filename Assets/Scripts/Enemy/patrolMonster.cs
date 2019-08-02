@@ -65,7 +65,7 @@ public class patrolMonster : MonoBehaviour
         {
             //BulletPosition.transform.LookAt(PlayerBody.position);
             animator.SetBool("shooting", true);
-            animator.SetBool("walk", false);
+            animator.SetBool("Walk", false);
             GetComponent<NavMeshAgent>().isStopped = true;
         }
         else if (Dis < viewDist && !Dead && See)
@@ -92,7 +92,7 @@ public class patrolMonster : MonoBehaviour
     }
     private void Patrol()
     {
-        if (agent.remainingDistance <= 0.5f && See==false)
+        if (agent.remainingDistance <= 0.5f && See==false&&Points!=null)
         {
             agent.isStopped = true;
             animator.SetBool("Walk", false);
@@ -131,7 +131,8 @@ public class patrolMonster : MonoBehaviour
     }
     public void Rotation()
     {
-        iTween.RotateTo(gameObject, Player.transform.position, 0.4f);
+        iTween.LookTo(gameObject, iTween.Hash("looktarget", Player.transform.position, "axis", "y", "time", 0.4f));
+        //iTween.RotateTo(gameObject, Player.transform.position, 0.4f);
     }
 
 }
