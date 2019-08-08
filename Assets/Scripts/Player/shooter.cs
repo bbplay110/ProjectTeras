@@ -222,7 +222,7 @@ public class shooter : MonoBehaviour {
     void Update () {
         aim();
         timer += Time.deltaTime;
-        Debug.Log(timer);
+        //Debug.Log(timer);
         Gun.transform.rotation = mcamera.transform.rotation;
         if (hInput.GetButtonDown("Fire1")&&isAimed)
         {

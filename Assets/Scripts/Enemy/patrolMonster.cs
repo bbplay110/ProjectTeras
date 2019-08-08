@@ -7,7 +7,7 @@ public class patrolMonster : MonoBehaviour
     public float WaitTime = 3;
     public Transform[] Points;
 
-    
+    public Vector3 IkLookOffect=new Vector3(0,4,0);
     private int destpoint = 0;
     private NavMeshAgent agent;
     private Animator animator;
@@ -16,7 +16,7 @@ public class patrolMonster : MonoBehaviour
     public bool CanBrandingBrothers=false;
     public GameObject[] Brothers;
     
-
+    private float LookWeight=0;
     [SerializeField]
     private GameObject Player;
 
@@ -51,15 +51,23 @@ public class patrolMonster : MonoBehaviour
     void Update()
     {
         Patrol();
-        FindPlayer();
-        Debug.DrawRay(Eyeball.position, Player.transform.position - Eyeball.position+new Vector3(0,2,0), Color.red,viewDist);
+        if (!float.IsNaN(Dis))
+        {
+            FindPlayer();
+        }
+        if (float.IsNaN(Dis))
+        {
+            Debug.Log("DisIsNan");
+        }
+        Debug.DrawRay(Eyeball.position, Player.transform.position - Eyeball.position+new Vector3(0,2,0), Color.red,0.1f );
         //Debug.DrawLine(Eyeball.position, Player.transform.position - Eyeball.position, Color.red, viewDist);
         ChackingSeePlayer();
+
+        Debug.Log("LookWeight" + LookWeight);
 
     }
     private void FindPlayer()
     {
-
         Dis = Vector3.Distance(Player.transform.position, Eyeball.position);
         if (Dis <= attackDist)
         {
@@ -67,8 +75,23 @@ public class patrolMonster : MonoBehaviour
             animator.SetBool("shooting", true);
             animator.SetBool("Walk", false);
             GetComponent<NavMeshAgent>().isStopped = true;
+
         }
-        else if (Dis < viewDist && !Dead && See)
+        else if(Dis <= attackDist * 2&&Dis>attackDist)
+        {
+            if (CanBrandingBrothers && Brothers != null)
+            {
+                for (int i = 0; i < Brothers.Length; i++)
+                {
+                    Brothers[i].GetComponent<EnemySpawn>().Spawn();
+                }
+            }
+            See = true;
+            GetComponent<NavMeshAgent>().destination = Player.transform.position;
+            GetComponent<NavMeshAgent>().isStopped = false;
+            animator.SetBool("Walk", true);
+        }
+        else if (Dis < viewDist && Dis > attackDist * 2 && See)
         {
             if (CanBrandingBrothers&&Brothers!=null)
             {
@@ -133,6 +156,31 @@ public class patrolMonster : MonoBehaviour
     {
         iTween.LookTo(gameObject, iTween.Hash("looktarget", Player.transform.position, "axis", "y", "time", 0.4f));
         //iTween.RotateTo(gameObject, Player.transform.position, 0.4f);
+    }
+    private void OnAnimatorIK(int layerIndex)
+    {
+
+        animator.SetLookAtWeight(LookWeight);
+        if (Dis <= attackDist) {
+            LookWeight = 1;
+            animator.SetLookAtPosition(Player.transform.position+IkLookOffect);
+        }
+        else if (Dis <= attackDist * 2 && Dis > attackDist)
+        {
+            LookWeight = 1;
+            animator.SetLookAtPosition(Player.transform.position+IkLookOffect);
+        }
+
+        else if (Dis < viewDist &&Dis> attackDist * 2 && See)
+        {
+            LookWeight = 1;
+            animator.SetLookAtPosition(Player.transform.position+IkLookOffect);
+        }
+
+        else if(Dis>=viewDist)
+        {
+            LookWeight = 0;
+        }
     }
 
 }

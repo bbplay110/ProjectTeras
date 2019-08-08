@@ -18,8 +18,11 @@ public class shootingEnemy : MonoBehaviour
     private bool Dead = false;
     public bool LookWithPlayer = true;
     private bool isPause = false;
-
+    public Vector3 lookIkOffset = new Vector3(0, 4, 0);
+    public Vector3 ChestOffect = new Vector3(0,-40,0);
     private Vector3 LaserPoint = new Vector3();
+    private Vector3 Pos;
+    private Transform Chest;
     // Use this for initialization
 
     void Start()
@@ -42,6 +45,10 @@ public class shootingEnemy : MonoBehaviour
         attackDist = GetComponent<NavMeshAgent>().stoppingDistance;
         viewDist = attackDist * 2;
         Ani = GetComponent<Animator>();
+
+        Chest = Ani.GetBoneTransform(HumanBodyBones.Chest);
+
+        Debug.Log(Chest.name);
     }
 
     void onEnemyPause()
@@ -64,7 +71,7 @@ public class shootingEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        Pos = ((PlayerBody.position + new Vector3(0, 2, 0))- (transform.position + transform.TransformDirection(0, 1.484f, 0))).normalized;
         ChackingSeePlayer();
         BulletPosition.transform.LookAt(PlayerBody.position + new Vector3(0, 2, 0));
         FindPlayer();
@@ -95,7 +102,7 @@ public class shootingEnemy : MonoBehaviour
             GetComponent<NavMeshAgent>().destination = PlayerBody.position;
             GetComponent<NavMeshAgent>().isStopped = false;
             Ani.SetBool("walkforward", true);
-            
+
         }
         else if (Dis > viewDist)
         {
@@ -104,6 +111,27 @@ public class shootingEnemy : MonoBehaviour
             
             Ani.SetBool("walkforward", false);
             Ani.SetBool("shooting", false);
+        }
+    }
+    private void LateUpdate()
+    {
+        if (LookWithPlayer) { 
+            if (Dis <= attackDist)
+            {
+                Chest.LookAt(PlayerBody.position + new Vector3(0, 2, 0));
+
+                Chest.rotation = Chest.rotation * Quaternion.Euler(ChestOffect);
+            }
+            else if (Dis < viewDist && !Dead)
+            {
+                Chest.LookAt(PlayerBody.position + new Vector3(0, 2, 0));
+
+                Chest.rotation = Chest.rotation * Quaternion.Euler(ChestOffect);
+
+            }
+            else if (Dis > viewDist)
+            {
+            }
         }
     }
     private void ChackingSeePlayer()
@@ -144,5 +172,52 @@ public class shootingEnemy : MonoBehaviour
     {
         bulletTime.OnPauseTime -= onEnemyPause;
         bulletTime.UnPauseTime -= unEnemyPause;
+    }
+    private void OnAnimatorIK(int layerIndex)
+    {
+        
+        
+        if (Dis <= attackDist)
+        {
+            Ani.SetLookAtWeight(1);
+            Ani.SetLookAtPosition(PlayerBody.position+lookIkOffset);
+            /*
+            Ani.SetIKPositionWeight(AvatarIKGoal.LeftHand, 1);
+            Ani.SetIKPosition(AvatarIKGoal.LeftHand, Pos );
+
+            Ani.SetIKPositionWeight(AvatarIKGoal.RightHand, 1);
+            Ani.SetIKPosition(AvatarIKGoal.RightHand, Pos + transform.TransformDirection(0.087f, -0.058f, -0.338f));
+            /*Ani.SetIKHintPositionWeight(AvatarIKHint.RightElbow,1);
+            Ani.SetIKHintPosition(AvatarIKHint.RightElbow,PosR*5);
+
+            Ani.SetIKHintPositionWeight(AvatarIKHint.LeftElbow, 1);
+            Ani.SetIKHintPosition(AvatarIKHint.LeftElbow, PosL * 2);*/
+        }
+        else if (Dis < viewDist && !Dead)
+        {
+            Ani.SetLookAtWeight(1);
+            Ani.SetLookAtPosition(PlayerBody.position+lookIkOffset);
+            /*
+            Ani.SetIKPositionWeight(AvatarIKGoal.LeftHand, 1);
+            Ani.SetIKPosition(AvatarIKGoal.LeftHand, Pos);
+
+            Ani.SetIKPositionWeight(AvatarIKGoal.RightHand, 1);
+            Ani.SetIKPosition(AvatarIKGoal.RightHand, Pos+transform.TransformDirection(0.087f,-0.058f,-0.338f));
+            /* Ani.SetIKHintPositionWeight(AvatarIKHint.RightElbow, 1);
+             Ani.SetIKHintPosition(AvatarIKHint.RightElbow, PosR * 5);
+
+             Ani.SetIKHintPositionWeight(AvatarIKHint.LeftElbow, 1);
+             Ani.SetIKHintPosition(AvatarIKHint.LeftElbow, PosL * 2);*/
+        }
+        else if (Dis > viewDist)
+        {
+            Ani.SetLookAtWeight(0);
+            /*
+            Ani.SetIKPositionWeight(AvatarIKGoal.LeftHand, 0);
+            Ani.SetIKPositionWeight(AvatarIKGoal.RightHand, 0); 
+            /*Ani.SetIKHintPositionWeight(AvatarIKHint.RightElbow, 0);
+
+            Ani.SetIKHintPositionWeight(AvatarIKHint.LeftElbow, 0);*/
+        }
     }
 }

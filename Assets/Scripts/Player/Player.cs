@@ -75,21 +75,38 @@ using Cinemachine;
 
         controller = GetComponent<CharacterController>();
     }
+    private void FixedUpdate()
+    {
+        controller.Move(moveDirection * Time.deltaTime);
+    }
     void Rotation(float iTarget) {
         Body.transform.eulerAngles = new Vector3(0, Mathf.SmoothDampAngle(Body.transform.eulerAngles.y, iTarget+90, ref rotate, rotateSpeed), 0);
         //Debug.Log("旋轉變量:"+iTarget);
     }
     // Update is called once per frame
-    void checkYrotate()
-    {
-        
-    }
     void Update() {
-        controller.Move(moveDirection * Time.deltaTime);
+        if(!float.IsNaN(moveDirection.x)&& !float.IsNaN(moveDirection.y)&& !float.IsNaN(moveDirection.z)) {
+        }
+       // Debug.Log("moveX:" + moveDirection.x + ",moveY:" + moveDirection.y + ",moveZ:" + moveDirection.z);
+        if(float.IsNaN(moveDirection.x) || float.IsNaN(moveDirection.y) || float.IsNaN(moveDirection.z))
+        {
+            if (float.IsNaN(moveDirection.x))
+                Debug.Log("moveXIsNan");
+            if (float.IsNaN(moveDirection.y))
+                Debug.Log("moveYIsNan");
+            if (float.IsNaN(moveDirection.z))
+                Debug.Log("moveZIsNan");
+        }
+        if (float.IsNaN(hInput.GetAxis("Horizontal")) || float.IsNaN(hInput.GetAxis("Vertical")))
+        {
+            if (float.IsNaN(hInput.GetAxis("Horizontal")))
+                Debug.Log("HorizontalIsNan");
+            if (float.IsNaN(hInput.GetAxis("Vertical")))
+                Debug.Log("VerticalIsNan");
+        }
         //jeta();
         Animator();
         SetRotation();
-        dodge();
         if (mpBar != null && MpText != null) {
 
             mpBar.fillAmount = Energy / maxEnergy;
@@ -106,6 +123,8 @@ using Cinemachine;
          }*/
 
         move(new Vector2(hInput.GetAxis("Horizontal"), hInput.GetAxis("Vertical")));
+        dodge();
+
     }
     void LateUpdate() {
         cameraDir.eulerAngles = new Vector3(0, mainCameraTran.eulerAngles.y, 0);
@@ -119,21 +138,20 @@ using Cinemachine;
         if (hInput.GetButton("Run"))
         {
             dodgeCounter += 1 * Time.deltaTime;
-            //Debug.Log("dodgeCounter=" + dodgeCounter);
 
         }
         if (hInput.GetButtonUp("Run"))
         {
             if (dodgeCounter <= 0.5f)
             {
-                moveDirection=new Vector3(moveDirection.x,0,moveDirection.z)*30;
+                moveDirection = new Vector3(moveDirection.x, 0, moveDirection.z).normalized * 50;
                 Debug.Log("DO Dodge");
             }
-            dodgeCounter = 0;
             if(dodgeCounter > 0.5f)
             {
                 Debug.Log("NO Dodge");
             }
+            dodgeCounter = 0;
         }
     }
     public void SetRotation()
@@ -158,7 +176,7 @@ using Cinemachine;
         if (controller.isGrounded&&Canwalk)
         {
 
-            vSpeed = -0.01f;
+            vSpeed = 0;
             moveDirection = cameraDir.TransformVector(input.x, 0, input.y);
             //moveDirection = transform.TransformDirection(moveDirection);
             moveDirection *= forwardSpeed;
@@ -180,6 +198,7 @@ using Cinemachine;
             //RunCamera.m_Priority = 5;
             forwardSpeed = SpeedSlow;
         }
+
         vSpeed -= gravity * Time.deltaTime;
             moveDirection.y = vSpeed;
         if (Canwalk == false)
@@ -275,14 +294,19 @@ using Cinemachine;
         if (hInput.GetButtonDown("Jump")) {
             Player1.SetTrigger("Jump");
         }
+        /*
         if (hInput.GetButtonDown("Run")&&Canwalk&&controller.isGrounded)
         {
             Player1.SetBool("Running", true);
         }
         else if (hInput.GetButtonUp("Run")) {
             Player1.SetBool("Running",false);
-        }
+        }*/
 
+    }
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        
     }
 }
 
