@@ -13,7 +13,7 @@ using Cinemachine;
     private Transform CameraDir;
     private float forwardSpeed = 4.0f;
     private float vSpeed = 0;
-    public float SpeedSlow = 2.0f;
+    public float SpeedSlow = 4.0f;
     public float SpeedFast = 6.0f;
     public float gravity = 20.0f;
     public float JumpHeight = 5;
@@ -30,6 +30,7 @@ using Cinemachine;
     public Image mpBar;
     private CharacterController controller;
     private CinemachineVirtualCameraBase RunCamera;
+    public float DashRange=20;
 
 
     public float Energy
@@ -75,10 +76,7 @@ using Cinemachine;
 
         controller = GetComponent<CharacterController>();
     }
-    private void FixedUpdate()
-    {
-        controller.Move(moveDirection * Time.deltaTime);
-    }
+
     void Rotation(float iTarget) {
         Body.transform.eulerAngles = new Vector3(0, Mathf.SmoothDampAngle(Body.transform.eulerAngles.y, iTarget+90, ref rotate, rotateSpeed), 0);
         //Debug.Log("旋轉變量:"+iTarget);
@@ -121,13 +119,15 @@ using Cinemachine;
          {
              SetRotation(new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y")));
          }*/
-
-        move(new Vector2(hInput.GetAxis("Horizontal"), hInput.GetAxis("Vertical")));
         dodge();
+        move(new Vector2(hInput.GetAxis("Horizontal"), hInput.GetAxis("Vertical")));
+        
 
     }
     void LateUpdate() {
         cameraDir.eulerAngles = new Vector3(0, mainCameraTran.eulerAngles.y, 0);
+
+        controller.Move(moveDirection * Time.deltaTime);
     }
     public void setWalk(bool walk)
     {
@@ -138,14 +138,20 @@ using Cinemachine;
         if (hInput.GetButton("Run"))
         {
             dodgeCounter += 1 * Time.deltaTime;
-
         }
         if (hInput.GetButtonUp("Run"))
         {
             if (dodgeCounter <= 0.5f)
             {
-                moveDirection = new Vector3(moveDirection.x, 0, moveDirection.z).normalized * 50;
+                //moveDirection = new Vector3(moveDirection.x, 0, moveDirection.z).normalized * 10;
+                //float tempForwaedSpeed = forwardSpeed;
+                // move(new Vector2(hInput.GetAxis("Horizontal"), hInput.GetAxis("Vertical"))*10);
+
+                
+                //iTween.MoveTo(gameObject, moveDirection*DashRange,0.2f);
+                Player1.SetTrigger("Dash");
                 Debug.Log("DO Dodge");
+                
             }
             if(dodgeCounter > 0.5f)
             {
@@ -153,6 +159,10 @@ using Cinemachine;
             }
             dodgeCounter = 0;
         }
+    }
+    public void Dash()
+    {
+        controller.Move(moveDirection * DashRange);
     }
     public void SetRotation()
     {
@@ -271,7 +281,7 @@ using Cinemachine;
     }
     public void SetAim(bool aiim)
     {
-        Aim = aiim;
+        Aim = aiim; 
     }
     public void Animator() {
         Player1.SetFloat("WalkArc",Mathf.Abs(controller.velocity.x+controller.velocity.z) /SpeedFast);

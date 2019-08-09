@@ -195,6 +195,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DestoryTime: 10
   speed: 100
+  power: 60
+  layer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!135 &135313480208524654
 SphereCollider:
   m_ObjectHideFlags: 1

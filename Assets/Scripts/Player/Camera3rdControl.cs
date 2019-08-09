@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class Camera3rdControl : MonoBehaviour
 {
     public Transform target;
@@ -9,7 +8,7 @@ public class Camera3rdControl : MonoBehaviour
     public float distence, disSpeed, minDistence, maxDistence;
     protected float x;
     protected float y;
-    public float followSpeed = 1f;
+    public float followTime = 1f;
     private float xSpeed = 1;
     private float ySpeed = 1;
     public bool inverb = false;
@@ -76,7 +75,7 @@ public class Camera3rdControl : MonoBehaviour
         }
         transform.rotation = rotationEuler;
         transform.position = cameraPosition;
-        Fungus.iTween.MoveUpdate(followPoint.gameObject, target.position, followSpeed);
+        iTween.MoveUpdate(followPoint.gameObject, target.position, followTime);
         if (bOpenRay)
         {
             AutoRegulationPos();
