@@ -18,9 +18,15 @@ public class hurt : MonoBehaviour
     float HP;
     private bool Wined=false;
     private bool CanHurt = true;
+    [HideInInspector]//https://dotblogs.com.tw/coolgamedevnote/2018/03/04/230939  <-關於[]內的東西是什麼的說明
+    public bool HasExtraShild=false;
+    [HideInInspector]
     public float TotalExtraShild = 0;
+    [HideInInspector]
     public float ExtraShildRecover=1;
+    [HideInInspector]
     public float ExtraShildRecoverTime = 3;
+    [HideInInspector]
     private float CurrentShildRecoverTime;
     private float currentExtraShild;
     public Image ExtraShiledBar;
@@ -31,6 +37,7 @@ public class hurt : MonoBehaviour
     //public GameObject door;
     public Text HealthValue;
     public GameObject DeadBody;
+    [HideInInspector]
     public GameObject hurtArrow;
     private int damageINT=0;
 

@@ -3145,8 +3145,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1288731926210620}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5, y: 1.5, z: 14.1}
+  m_LocalRotation: {x: -0, y: 0.85294914, z: -0, w: 0.521994}
+  m_LocalPosition: {x: 65.34453, y: 31.541306, z: 90.85898}
   m_LocalScale: {x: 2.69654, y: 2.69654, z: 2.69654}
   m_Children:
   - {fileID: 4064933763401928}
@@ -3157,7 +3157,7 @@ Transform:
   - {fileID: 224497795214108924}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 159.501, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 117.06801, z: 0}
 --- !u!4 &4169327686971174
 Transform:
   m_ObjectHideFlags: 1
@@ -5401,13 +5401,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44ce7ee6536380449b2367768bb3cf67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audios:
-  - {fileID: 8300000, guid: 951e16da0bf8b5f45a35f0240d2818dc, type: 3}
-  - {fileID: 8300000, guid: d98b7d91df6c7a94ea0146e3860c6a8e, type: 3}
   Bullet: {fileID: 1782841132037936, guid: b0b8bd24e59260f45a9ae93ed9833e79, type: 2}
   BulletPosition: {fileID: 1347070880767836}
   PlayerBody: {fileID: 0}
   LookWithPlayer: 1
+  lookIkOffset: {x: 0, y: 4, z: 0}
+  ChestOffect: {x: 0, y: 40, z: 0}
 --- !u!114 &114453736643930208
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5421,6 +5420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DeathTime: 3
   TotalHP: 70
+  HasExtraShild: 0
   TotalExtraShild: 0
   ExtraShildRecover: 1
   ExtraShildRecoverTime: 3

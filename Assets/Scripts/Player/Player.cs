@@ -23,6 +23,8 @@ using Cinemachine;
     private bool CanTurn = true;
     private bool Aim = false;
     private float dodgeCounter = 0;
+    public float OnAirSwitch = 0.5f;
+    private float OnAirTimer = 0;
     private GameObject Body;
     private Vector3 moveDirection = Vector3.zero;
     public Animator Player1;
@@ -31,7 +33,8 @@ using Cinemachine;
     private CharacterController controller;
     private CinemachineVirtualCameraBase RunCamera;
     public float DashRange=20;
-
+    public AnimationCurve JumpCurve;
+    
 
     public float Energy
     {
@@ -295,11 +298,17 @@ using Cinemachine;
         if (controller.isGrounded) {
             Player1.SetBool("isGround", true);
             Player1.SetBool("onAir", false);
+            OnAirTimer = 0;
         }
         else if (controller.isGrounded==false)
         {
+
             Player1.SetBool("isGround", false);
-            Player1.SetBool("onAir",true);
+            OnAirTimer += 1 * Time.deltaTime;
+            if (OnAirTimer > OnAirSwitch)
+            {
+                Player1.SetBool("onAir", true);
+            }
         }
         if (hInput.GetButtonDown("Jump")) {
             Player1.SetTrigger("Jump");
@@ -312,7 +321,7 @@ using Cinemachine;
         else if (hInput.GetButtonUp("Run")) {
             Player1.SetBool("Running",false);
         }*/
-
+        //Debug.Log(OnAirTimer);
     }
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
