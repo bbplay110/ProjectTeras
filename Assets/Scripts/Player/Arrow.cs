@@ -9,10 +9,12 @@ public class Arrow : MonoBehaviour {
     public float ExitTime = 3;
     public string[] SticOn = new string[] {"Enemy","Boss","BreakableObject" };
     public GameObject Explotion;
-	// Use this for initialization
-	void Start () {
+    private hurt EnemyHurt;
+    // Use this for initialization
+    void Start () {
         rigi = GetComponent<Rigidbody>();
         rigi.AddForce(transform.forward*20,ForceMode.Impulse);
+
        
 	}
 	
@@ -38,24 +40,14 @@ public class Arrow : MonoBehaviour {
             transform.SetParent(collision.transform);
             rigi.useGravity = false;
             rigi.isKinematic = true;
+            EnemyHurt = collision.gameObject.GetComponent<hurt>();
+            InvokeRepeating("hurtEnemy",0,0.2f);
+
         }
     }
-    private void OnTriggerEnter(Collider other)
+
+    void hurtEnemy()
     {
-        foreach (var item in SticOn)
-        {
-            if (other.tag == item)
-            {
-                transform.parent =other.transform;
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
-        }
-    }
-    private void OnTriggerStay(Collider other)
-    {
-        
+        EnemyHurt.damage(damage/ExitTime,true);
     }
 }
