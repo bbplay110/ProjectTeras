@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Camera3rdControl : MonoBehaviour
 {
-    public Transform target;
-    private Transform followPoint;
-    public float distence, disSpeed, minDistence, maxDistence;
-    protected float x;
+    public Transform target; //跟隨目標
+    private Transform followPoint; //插植,實際上camera會待的位置
+    public float distence, disSpeed, minDistence, maxDistence; //現在攝影機離玩家的距離,變換距離的時間,離玩家的最大跟最小距離
+    protected float x; 
     protected float y;
     public float followTime = 1f;
     private float xSpeed = 1;
