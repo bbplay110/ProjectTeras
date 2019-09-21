@@ -23,7 +23,8 @@ public class Door : MonoBehaviour {
             gameObject.transform.position -= new Vector3(0, 0, 15);
             InvokeRepeating("check", 1, 1);
         }*/
-        Tip.SetActive(false);
+        if(Tip!=null)
+            Tip.SetActive(false);
         Controller = GetComponent<Animator>();
 
         if (openInStart)

@@ -17,7 +17,7 @@ public class bulletTime : MonoBehaviour {
     private Player player;
     private PostProcessVolume cameraVolume;
 
-    public bool IsPaused
+    public  bool IsPaused
     {
         get
         {

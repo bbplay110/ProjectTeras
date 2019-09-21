@@ -17,7 +17,7 @@ public class Sword : MonoBehaviour {
 	void OnTriggerEnter(Collider Enemya){
 		if (Enemya.tag==DamageTag)
         {
-			Enemya.GetComponent<Player> ().Player1.SetTrigger ("damage");
+			Enemya.GetComponent<Player> ().animator.SetTrigger ("damage");
 			Enemya.GetComponent<hurt>().damage(50);
 		}
 	}

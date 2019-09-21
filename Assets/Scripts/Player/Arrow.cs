@@ -7,20 +7,60 @@ public class Arrow : MonoBehaviour {
     private bool startDamage;
     public float damage = 20;
     public float ExitTime = 3;
+    private float currentExitTime;
+    private Vector3 tempVelocity;
+    private bool isPaused;
+    private bool pauseOnStart = false;
     public string[] SticOn = new string[] {"Enemy","Boss","BreakableObject" };
     public GameObject Explotion;
     private hurt EnemyHurt;
     // Use this for initialization
     void Start () {
-        rigi = GetComponent<Rigidbody>();
-        rigi.AddForce(transform.forward*20,ForceMode.Impulse);
+        isPaused = GameObject.Find("Player").GetComponent<bulletTime>().IsPaused;
 
-       
-	}
-	
+        
+        rigi = GetComponent<Rigidbody>();
+        rigi.AddForce(transform.forward*3,ForceMode.Impulse);
+
+        bulletTime.OnPauseTime += onPauseEvent;
+        bulletTime.UnPauseTime += unPauseEvent;
+        if (isPaused)
+        {
+
+            this.onPauseEvent();
+            pauseOnStart = true;
+        }
+    }
+	void onPauseEvent()
+    {
+        isPaused = true;
+        GetComponent<Collider>().enabled = false;
+        tempVelocity = rigi.velocity;
+        rigi.Sleep();
+    }
+    void unPauseEvent()
+    {
+        isPaused = false;
+        GetComponent<Collider>().enabled = true;
+        rigi.WakeUp();
+        if (pauseOnStart)
+        {
+            rigi.AddForce(transform.forward * 3, ForceMode.Impulse);
+            pauseOnStart = false;
+        }
+        else
+        {
+            rigi.AddForce(tempVelocity);
+        }
+
+        
+    }
 	// Update is called once per frame
 	void Update () {
-        ExitTime -= 1 * Time.deltaTime;
+        if (!isPaused)
+        {
+            ExitTime -= 1 * Time.deltaTime;
+        }
         if (ExitTime <= 0)
         {
             Destroy(gameObject);
@@ -49,5 +89,10 @@ public class Arrow : MonoBehaviour {
     void hurtEnemy()
     {
         EnemyHurt.damage(damage/ExitTime,true);
+    }
+    private void OnDestroy()
+    {
+        bulletTime.OnPauseTime -= onPauseEvent;
+        bulletTime.UnPauseTime -= unPauseEvent;
     }
 }

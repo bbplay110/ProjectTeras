@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class DotUwsDoorCloser : StateMachineBehaviour {
-	
+	/*
 	private const float _shiftY = 3.48f;
 	
 	private Transform _slider = null;
@@ -16,5 +16,5 @@ public class DotUwsDoorCloser : StateMachineBehaviour {
 			_slider.localPosition = _pos;
 		}
 	}
-	
+	*/
 }

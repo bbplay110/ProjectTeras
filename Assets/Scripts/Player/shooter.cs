@@ -63,6 +63,7 @@ public class shooter : MonoBehaviour {
         if (waponNow == 0)
         {
             timer = 0;
+            timeBetweenBullet = 0.3f;
             if (TimePaused)
 
             {
@@ -102,9 +103,15 @@ public class shooter : MonoBehaviour {
         else if (waponNow == 1)
         {
             
-            Instantiate(arrow, Gun.transform.position,Gun.transform.rotation, null);
+            GameObject tempArrow= Instantiate(arrow, Gun.transform.position,Gun.transform.rotation, null);
+            GunModel[1].GetComponent<Animator>().SetTrigger("Shoot");
             timer = 0;
+            timeBetweenBullet =0.7f;
             canFire = true;
+            if (TimePaused)
+            {
+                tempArrow.GetComponent<Rigidbody>().Sleep();
+            }
         }
        
     }
@@ -204,6 +211,7 @@ public class shooter : MonoBehaviour {
     }
     void hideGun()
     {
+        timer = 0;
         Debug.Log("HideGun");
         foreach (var item in GunModel)
         {

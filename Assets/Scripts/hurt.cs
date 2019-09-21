@@ -31,9 +31,10 @@ public class hurt : MonoBehaviour
     private float currentExtraShild;
     public Image ExtraShiledBar;
     public Image HpBar;
+    [HideInInspector]
     public GameObject Win, Lose, mcamera=null;
     //public bool needCleared;
-    public Transform UI;
+    private Transform UI;
     //public GameObject door;
     public Text HealthValue;
     public GameObject DeadBody;

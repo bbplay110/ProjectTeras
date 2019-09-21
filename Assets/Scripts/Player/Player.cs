@@ -27,7 +27,7 @@ using Cinemachine;
     private float OnAirTimer = 0;
     private GameObject Body;
     private Vector3 moveDirection = Vector3.zero;
-    public Animator Player1;
+    public Animator animator;
     public Text MpText;
     public Image mpBar;
     private CharacterController controller;
@@ -65,7 +65,7 @@ using Cinemachine;
     // Use this for initialization
     void Start() {
         energy = maxEnergy;
-        RunCamera = transform.Find("RunCam").gameObject.GetComponent<CinemachineVirtualCamera>();
+        //RunCamera = transform.Find("RunCam").gameObject.GetComponent<CinemachineVirtualCamera>();
         gameObject.GetComponent<CharacterController>().enabled = true;
         Body = gameObject;
         mainCameraTran = Camera.main.transform;
@@ -75,8 +75,8 @@ using Cinemachine;
         cameraDir_obj.name = "CameraDir";
         cameraDir = cameraDir_obj.transform;
         forwardSpeed = SpeedSlow;
-        Player1 = Body.GetComponent<Animator>();
-
+        animator = Body.GetComponent<Animator>();
+        Debug.Log("cameraTran Is"+mainCameraTran.name);
         controller = GetComponent<CharacterController>();
     }
 
@@ -129,7 +129,6 @@ using Cinemachine;
     }
     void LateUpdate() {
         cameraDir.eulerAngles = new Vector3(0, mainCameraTran.eulerAngles.y, 0);
-
         controller.Move(moveDirection * Time.deltaTime);
     }
     public void setWalk(bool walk)
@@ -152,7 +151,7 @@ using Cinemachine;
 
                 
                 //iTween.MoveTo(gameObject, moveDirection*DashRange,0.2f);
-                Player1.SetTrigger("Dash");
+                animator.SetTrigger("Dash");
                 Debug.Log("DO Dodge");
                 
             }
@@ -287,39 +286,39 @@ using Cinemachine;
         Aim = aiim; 
     }
     public void Animator() {
-        Player1.SetFloat("WalkArc",Mathf.Abs(controller.velocity.x+controller.velocity.z) /SpeedFast);
+        animator.SetFloat("WalkArc",Mathf.Abs(controller.velocity.x+controller.velocity.z) /SpeedFast);
         if ((hInput.GetAxis("Horizontal") != 0 || hInput.GetAxis("Vertical") != 0)&&Canwalk)
         {
-            Player1.SetBool("walkforward", true);
+            animator.SetBool("walkforward", true);
         }
         else {
-            Player1.SetBool("walkforward", false);
+            animator.SetBool("walkforward", false);
         }
         if (controller.isGrounded) {
-            Player1.SetBool("isGround", true);
-            Player1.SetBool("onAir", false);
+            animator.SetBool("isGround", true);
+            animator.SetBool("onAir", false);
             OnAirTimer = 0;
         }
         else if (controller.isGrounded==false)
         {
 
-            Player1.SetBool("isGround", false);
+            animator.SetBool("isGround", false);
             OnAirTimer += 1 * Time.deltaTime;
             if (OnAirTimer > OnAirSwitch)
             {
-                Player1.SetBool("onAir", true);
+                animator.SetBool("onAir", true);
             }
         }
         if (hInput.GetButtonDown("Jump")) {
-            Player1.SetTrigger("Jump");
+            animator.SetTrigger("Jump");
         }
         /*
         if (hInput.GetButtonDown("Run")&&Canwalk&&controller.isGrounded)
         {
-            Player1.SetBool("Running", true);
+            animator.SetBool("Running", true);
         }
         else if (hInput.GetButtonUp("Run")) {
-            Player1.SetBool("Running",false);
+            animator.SetBool("Running",false);
         }*/
         //Debug.Log(OnAirTimer);
     }

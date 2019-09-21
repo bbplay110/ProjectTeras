@@ -55,7 +55,7 @@ public class AfterImage : MonoBehaviour
                 myAnimator.SetFloat(param.name, targetAnimator.GetFloat(param.name));
             }
             if (param.type == AnimatorControllerParameterType.Int)
-            {
+            {   
                 myAnimator.SetInteger(param.name, targetAnimator.GetInteger(param.name));
             }
         }
