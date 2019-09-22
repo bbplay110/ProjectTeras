@@ -4129,7 +4129,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1755374581060626}
   m_LocalRotation: {x: -0, y: 0.7853574, z: -0, w: 0.61904263}
-  m_LocalPosition: {x: 61.783146, y: 34.45, z: 87.71178}
+  m_LocalPosition: {x: -261.8271, y: -129.1869, z: -229.45132}
   m_LocalScale: {x: 0.12341865, y: 0.12341865, z: 0.12341865}
   m_Children:
   - {fileID: 4989610296029354}
@@ -4268,7 +4268,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 84e041dfdb2a0f349a386d422ebb5278, type: 2}
+  - {fileID: 2100000, guid: d969e7df0ab53fe4893ab5866e21f620, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4484,7 +4484,6 @@ MonoBehaviour:
   Win: {fileID: 0}
   Lose: {fileID: 0}
   mcamera: {fileID: 0}
-  UI: {fileID: 0}
   HealthValue: {fileID: 0}
   DeadBody: {fileID: 0}
   hurtArrow: {fileID: 0}
@@ -4733,10 +4732,10 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 84e041dfdb2a0f349a386d422ebb5278, type: 2}
+  - {fileID: 2100000, guid: d969e7df0ab53fe4893ab5866e21f620, type: 2}
   - {fileID: 2100000, guid: 4ab540465a57c424c9b1a09c0b454ef3, type: 2}
   - {fileID: 2100002, guid: 3ae2a2e5922750e42ba5a1e2150b5594, type: 3}
-  - {fileID: 2100000, guid: 914d50da5313ec447af24a53efee602f, type: 2}
+  - {fileID: 2100000, guid: 51bc02d3543cd2e4982c2489e6d1d004, type: 2}
   - {fileID: 2100002, guid: 3ae2a2e5922750e42ba5a1e2150b5594, type: 3}
   - {fileID: 2100000, guid: aa75aba2ed1a34643bc4dbaef0f4e399, type: 2}
   m_StaticBatchInfo:
