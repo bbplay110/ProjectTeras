@@ -5853,7 +5853,7 @@ MonoBehaviour:
   JumpHeight: 13
   rotateSpeed: 0.05
   OnAirSwitch: 0.83
-  Player1: {fileID: 95124130473198354}
+  animator: {fileID: 0}
   MpText: {fileID: 0}
   mpBar: {fileID: 0}
   DashRange: 2
@@ -6079,7 +6079,6 @@ MonoBehaviour:
   Win: {fileID: 0}
   Lose: {fileID: 0}
   mcamera: {fileID: 0}
-  UI: {fileID: 0}
   HealthValue: {fileID: 0}
   DeadBody: {fileID: 0}
   hurtArrow: {fileID: 1245819185688962, guid: 866d7038853473849ad672ecdc00cbc7, type: 2}
