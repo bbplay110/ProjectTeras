@@ -17,10 +17,10 @@ public class patrolMonster : MonoBehaviour
     public GameObject[] Brothers;
     
     private float LookWeight=0;
-    [SerializeField]
+    
     private GameObject Player;
 
-    [SerializeField]
+    
     private bool See, Dead = false;
     private float attackDist, viewDist;
     private float Dis;
@@ -50,7 +50,10 @@ public class patrolMonster : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Patrol();
+        if (Points.Length != 0)
+        {
+            Patrol();
+        }
         if (!float.IsNaN(Dis))
         {
             FindPlayer();
