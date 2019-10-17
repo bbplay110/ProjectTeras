@@ -6,7 +6,7 @@ public class LazerTrap : MonoBehaviour {
     private Ray Lazer;
     public Transform eye;
     public float tmpRange = 999;
-    public int Layer;
+    private int Layer;
     private LineRenderer LINE;
     private hurt player;
 	// Use this for initialization
@@ -41,7 +41,7 @@ public class LazerTrap : MonoBehaviour {
                 
 
         }
-        Debug.DrawLine(eye.position, eye.position - Hit.transform.position, Color.blue, 0.1f);
+        //Debug.DrawLine(eye.position, eye.position - Hit.transform.position, Color.blue, 0.1f);
 
     }
 }

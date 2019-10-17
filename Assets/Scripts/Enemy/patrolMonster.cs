@@ -34,17 +34,18 @@ public class patrolMonster : MonoBehaviour
         attackDist = agent.stoppingDistance;
         viewDist = attackDist*10;
         //agent.autoBraking = false;
-        if(!See)
+        if(!See&& Points.Length != 0)
             GoToNextPoint();
     }
     void GoToNextPoint()
     {
-        if (Points.Length == 0)
-            return;
+        if (Points.Length != 0)
+        { 
         agent.destination = Points[destpoint].position;
         animator.SetBool("Walk", true);
         agent.isStopped = false;
         destpoint = (destpoint + 1) % Points.Length;
+        }
 
     }
     // Update is called once per frame
@@ -118,7 +119,7 @@ public class patrolMonster : MonoBehaviour
     }
     private void Patrol()
     {
-        if (agent.remainingDistance <= 0.5f && See==false&&Points!=null)
+        if (agent.remainingDistance <= 0.5f && See==false&& Points.Length != 0)
         {
             agent.isStopped = true;
             animator.SetBool("Walk", false);
@@ -130,7 +131,7 @@ public class patrolMonster : MonoBehaviour
         
         RaycastHit hit;
         Eye.origin = Eyeball.position;
-        Eye.direction = Player.transform.position - Eyeball.position+new Vector3(0,2,0);
+        Eye.direction = (Player.transform.position + IkLookOffect) - Eyeball.position;
         //Debug.DrawLine(eyeContect.origin, eyeContect.GetPoint(viewDist),Color.red,viewDist,true);
         if (Physics.Raycast(Eye, out hit, viewDist))
         {

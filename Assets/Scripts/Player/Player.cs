@@ -6,6 +6,7 @@ using Cinemachine;
     [RequireComponent(typeof(CharacterController))]
     public class Player : MonoBehaviour {
     public float maxEnergy = 10;
+    
     private float energy;
 
     private bool canJet = true;

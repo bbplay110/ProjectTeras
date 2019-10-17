@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class Boss2IronBal : MonoBehaviour {
     public Transform followPoint;
+    private Transform self;
     //public Transform IronFlyPoint;
     private bool followHand=true;
+    private LineRenderer Line;
 	// Use this for initialization
 	void Start () {
-		
+        self = transform;
+        Line = GetComponent<LineRenderer>();
 	}
 	
 	// Update is called once per frame
@@ -16,6 +19,8 @@ public class Boss2IronBal : MonoBehaviour {
         if (followHand) { 
         iTween.MoveUpdate(gameObject,followPoint.position, 0.3f);
         }
+        Line.SetPosition(0,self.position);
+        Line.SetPosition(1, followPoint.position);
     }
     private void OnTriggerEnter(Collider other)
     {
