@@ -4,6 +4,8 @@ using UnityEngine;
 public class Camera3rdControl : MonoBehaviour
 {
     public Transform target; //跟隨目標
+    public Transform OnAimTarget;
+    private Transform currentTarget;
     private Transform followPoint; //插植,實際上camera會待的位置
     public float distence, disSpeed, minDistence, maxDistence; //現在攝影機離玩家的距離,變換距離的時間,離玩家的最大跟最小距離
     protected float x; 
@@ -24,6 +26,9 @@ public class Camera3rdControl : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        currentTarget = target;
+        shooter.onAim += startAim;
+        shooter.unAim += AimEnd;
         Sensitivity = PlayerPrefs.GetFloat("MouseSensitivity", 100);
         //string isInverb = PlayerPrefs.GetString("MouseInverb", "false");
         //inverb = bool.Parse(isInverb);
@@ -32,11 +37,20 @@ public class Camera3rdControl : MonoBehaviour
         FollowPoint.transform.localPosition = Vector3.zero;
         FollowPoint.name = "CameraFollowPoint";
         followPoint = FollowPoint.transform;
-        followPoint.transform.position = target.position;
+        followPoint.transform.position = currentTarget.position;
         //gameObject.transform.position = followPoint.position;
         SceneObjectLayer = LayerMask.GetMask("SceneObject");
     }
-
+    void startAim()
+    {
+        distence = minDistence;
+        currentTarget = OnAimTarget;
+    }
+    void AimEnd()
+    {
+        distence = maxDistence;
+        currentTarget = target;
+    }
     // Update is called once per frame
     void LateUpdate()
     {
@@ -75,7 +89,7 @@ public class Camera3rdControl : MonoBehaviour
         }
         transform.rotation = rotationEuler;
         transform.position = cameraPosition;
-        iTween.MoveUpdate(followPoint.gameObject, target.position, followTime);
+        iTween.MoveUpdate(followPoint.gameObject, currentTarget.position, followTime);
         if (bOpenRay)
         {
             AutoRegulationPos();
@@ -104,5 +118,10 @@ public class Camera3rdControl : MonoBehaviour
             HitDistance = 0.0f;
         }
 
+    }
+    private void OnDestroy()
+    {
+        shooter.onAim -= startAim;
+        shooter.unAim -= AimEnd;
     }
 }

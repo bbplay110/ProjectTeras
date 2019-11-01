@@ -50,4 +50,6 @@ public class abilityChenger : MonoBehaviour {
         //Player.GetComponent<Attacker>().enabled = true;
 
     }
-}
+
+
+    }

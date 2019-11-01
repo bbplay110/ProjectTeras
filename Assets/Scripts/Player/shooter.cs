@@ -25,6 +25,8 @@ public class shooter : MonoBehaviour {
     public float timeBetweenBullet=0.3f;
     private float effectDisplay = 0.2f;
     float timer;
+    private Transform LeftHandIK, RightHandIK;
+    private bool setIK = false;
     //public Transform righthand;
     public GameObject thingtoAim;
     public delegate void OnAim();
@@ -208,6 +210,12 @@ public class shooter : MonoBehaviour {
 
         GunModel[WaponNow].SetActive(true);
         Debug.Log(GunModel[WaponNow].activeSelf);
+        if(GunModel[WaponNow].transform.Find("LeftHandIK")!=null&& GunModel[WaponNow].transform.Find("RightHandIK")!=null)
+        {
+            LeftHandIK = GunModel[WaponNow].transform.Find("LeftHandIK");
+            RightHandIK = GunModel[WaponNow].transform.Find("RightHandIK");
+            setIK = true;
+        }
     }
     void hideGun()
     {
@@ -217,6 +225,7 @@ public class shooter : MonoBehaviour {
         {
             item.SetActive(false);
         }
+        setIK = false;
     }
     void onTimePause()
     {
@@ -253,7 +262,25 @@ public class shooter : MonoBehaviour {
             DisableEffects();
         }
 	}
-    void save()
+    private void OnAnimatorIK(int layerIndex)
     {
+        if (setIK)
+        {
+
+            animator.SetIKPositionWeight(AvatarIKGoal.LeftHand, 1);
+            
+            animator.SetIKPosition(AvatarIKGoal.LeftHand, LeftHandIK.position);
+
+            animator.SetIKPositionWeight(AvatarIKGoal.RightHand, 1);
+            animator.SetIKPosition(AvatarIKGoal.RightHand, RightHandIK.position);
+
+        }
+        else
+        {
+
+            animator.SetIKPositionWeight(AvatarIKGoal.LeftHand, 0);
+
+            animator.SetIKPositionWeight(AvatarIKGoal.RightHand, 0);
+        }
     }
 }
