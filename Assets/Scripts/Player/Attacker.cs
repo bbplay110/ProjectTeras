@@ -48,6 +48,7 @@ public class Attacker : MonoBehaviour
         player = GetComponent<CharacterController>();
         shooter.onAim += hideWapon;
         shooter.unAim += showWapon;
+        showWapon();
     }
     public void showWapon()
     {

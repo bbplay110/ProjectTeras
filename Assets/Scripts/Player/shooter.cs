@@ -19,13 +19,16 @@ public class shooter : MonoBehaviour {
     private int shootableMask;
     private LineRenderer gunLine;
     public ParticleSystem GunHitPartical;
+    //public Transform spine;
+    //public Vector3 spineOffset;
+    private Vector3 lookPoint;
     [SerializeField]
     public GameObject BulletOnPaused;
     private GameObject mcamera;
     public float timeBetweenBullet=0.3f;
     private float effectDisplay = 0.2f;
     float timer;
-    private Transform LeftHandIK, RightHandIK;
+    private Transform LeftHandIK, RightHandIK,RightHandHint,LeftHandHint;
     private bool setIK = false;
     //public Transform righthand;
     public GameObject thingtoAim;
@@ -76,7 +79,7 @@ public class shooter : MonoBehaviour {
             else if (!TimePaused)
             {
                 gunLine.enabled = true;
-                gunLine.SetPosition(0, transform.InverseTransformPoint(Gun.transform.position));
+                gunLine.SetPosition(0,transform.InverseTransformPoint(Gun.transform.position));
                 gunFire.Play();
                 if (Physics.Raycast(shootRay, out shootHit, range))
                 {
@@ -92,7 +95,7 @@ public class shooter : MonoBehaviour {
                     if (shootHit.collider.tag == "BreakableObject")
                     {
                         GameObject Box = shootHit.transform.gameObject;
-                        Box.GetComponent<Rigidbody>().AddForce(shootRay.direction * 30, ForceMode.Force);
+                        Box.GetComponent<Rigidbody>().AddForce(shootRay.direction * 30, ForceMode.Impulse);
                     }
                     GunHitPartical.Play();
                 }
@@ -172,16 +175,27 @@ public class shooter : MonoBehaviour {
                 shootRay.direction = AimHit.point - Gun.transform.position;
                 thingtoAim.transform.position = Camera.main.WorldToScreenPoint(AimHit.point);
                 Debug.DrawLine(AimRay.origin,AimHit.point,Color.blue);
+                /*float spineX = AimHit.point.x - spine.position.x + spineOffset.x;
+                float spineY = -(AimHit.point.y - spine.position.y + spineOffset.y);
+                float spineZ = AimHit.point.z - spine.position.z + spineOffset.z;
+                spine.rotation =Quaternion.Euler(spineX,spineY,spineZ);*/
                 //Debug.Log("AimThing!");
+                if(AimHit.collider.tag!="Player")
+                    lookPoint = AimHit.point;
             }
             else
             {
                 //Debug.Log("AimNoThing!");
-                shootRay.direction = transform.forward;
+                shootRay.direction = AimRay.GetPoint(100)-shootRay.origin;
+                lookPoint = AimRay.GetPoint(100);
+                /*float spineX = AimHit.point.x - spine.position.x + spineOffset.x;
+                float spineY = -(AimHit.point.y - spine.position.y + spineOffset.y);
+                float spineZ = AimHit.point.z - spine.position.z + spineOffset.z;
+                spine.rotation = Quaternion.Euler(spineX,spineY,spineZ);*/
             }
             //Physics.Raycast(shootRay, out AimHit, Mathf.Infinity);
             //thingtoAim.transform.position = Camera.main.WorldToScreenPoint(AimHit.point);
-
+            Debug.DrawRay(shootRay.origin,shootRay.direction*1000, Color.green);
             //Debug.Log(AimHit.point);
         }
 
@@ -214,6 +228,9 @@ public class shooter : MonoBehaviour {
         {
             LeftHandIK = GunModel[WaponNow].transform.Find("LeftHandIK");
             RightHandIK = GunModel[WaponNow].transform.Find("RightHandIK");
+            Gun = GunModel[waponNow].transform.Find("GunPoint").gameObject;
+           /* RightHandHint= GunModel[WaponNow].transform.Find("RightHandHint");
+            LeftHandHint = GunModel[WaponNow].transform.Find("LeftHandHint");*/
             setIK = true;
         }
     }
@@ -236,7 +253,9 @@ public class shooter : MonoBehaviour {
         TimePaused = false;
     }
     // Update is called once per frame
+
     void Update () {
+
         aim();
         timer += Time.deltaTime;
         //Debug.Log(timer);
@@ -264,20 +283,36 @@ public class shooter : MonoBehaviour {
 	}
     private void OnAnimatorIK(int layerIndex)
     {
+
         if (setIK)
         {
-
+            animator.SetLookAtWeight(1,1,1,1);
+            animator.SetLookAtPosition(lookPoint);
             animator.SetIKPositionWeight(AvatarIKGoal.LeftHand, 1);
-            
             animator.SetIKPosition(AvatarIKGoal.LeftHand, LeftHandIK.position);
-
+            //animator.SetIKHintPositionWeight(AvatarIKHint.LeftElbow, 1);
+            //animator.SetIKHintPosition(AvatarIKHint.LeftElbow, LeftHandHint.position);
+            //animator.SetIKHintPositionWeight(AvatarIKHint.RightElbow, 1);
+            //animator.SetIKHintPosition(AvatarIKHint.RightElbow, RightHandHint.position);
             animator.SetIKPositionWeight(AvatarIKGoal.RightHand, 1);
             animator.SetIKPosition(AvatarIKGoal.RightHand, RightHandIK.position);
+
+            animator.SetIKRotationWeight(AvatarIKGoal.RightHand, 1);
+            animator.SetIKRotation(AvatarIKGoal.RightHand, RightHandIK.rotation);
+
+            animator.SetIKRotationWeight(AvatarIKGoal.LeftHand, 1);
+            animator.SetIKRotation(AvatarIKGoal.LeftHand, LeftHandIK.rotation);
 
         }
         else
         {
+            animator.SetLookAtWeight(0,0,0,0);
 
+            animator.SetIKPositionWeight(AvatarIKGoal.RightHand, 0);
+
+            animator.SetIKRotationWeight(AvatarIKGoal.RightHand, 0);
+            animator.SetIKRotationWeight(AvatarIKGoal.LeftHand, 0);
+            animator.SetIKHintPositionWeight(AvatarIKHint.LeftElbow, 0);
             animator.SetIKPositionWeight(AvatarIKGoal.LeftHand, 0);
 
             animator.SetIKPositionWeight(AvatarIKGoal.RightHand, 0);
