@@ -16,31 +16,33 @@ public class Fist : MonoBehaviour {
         //以玩家身上的attacker腳本中FX陣列的第0個物件
         HitParticle = GameObject.FindObjectOfType<Attacker>().FX[0];
     }
+    private void OnTriggerExit(Collider other)
+    {
+        
+    }
     private void OnTriggerEnter(Collider collision)
     {
+        Debug.Log("Pow!,Tag is"+collision.tag);
         //if(col)
         BadGuyBody = collision.gameObject;
-        foreach (var item in canAttack)
+        for (int i = 0; i < canAttack.Length; i++)
         {
-            if (collision.gameObject.tag == item)
+            if (collision.gameObject.tag == canAttack[i])
             {
                 Debug.Log("Punch!");
-                collision.gameObject.GetComponent<hurt>().damage(Damage);
+                if (collision.GetComponent<hurt>() != null)
+                {
+                    collision.GetComponent<hurt>().damage(Damage, false);
+                }
+                collision.GetComponent<hurt>().damage(Damage);
                 //if(BadGuyBody.GetComponent<Animator>()!=null)
                 //BadGuyBody.GetComponent<Animator>().SetTrigger("damage");
-                GameObject tempHitParticle = Instantiate(HitParticle, collision.transform.position, collision.transform.rotation, null);
-                Destroy(tempHitParticle, 0.6f);
+                //GameObject tempHitParticle = Instantiate(HitParticle, collision.transform.position, collision.transform.rotation, null);
+                //Destroy(tempHitParticle, 0.6f);
             }
         }
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
-       
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
 
+            
     }
 }

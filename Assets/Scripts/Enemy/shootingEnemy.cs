@@ -8,7 +8,7 @@ public class shootingEnemy : MonoBehaviour
     
     
     private GameObject Player;
-    public static float attackDist, viewDist, Dis;
+    public  float attackDist, viewDist, Dis;
     private Animator Ani;
     public GameObject Bullet;
     public GameObject BulletPosition;
@@ -48,7 +48,7 @@ public class shootingEnemy : MonoBehaviour
 
         Chest = Ani.GetBoneTransform(HumanBodyBones.Chest);
 
-        Debug.Log(Chest.name);
+        //Debug.Log(Chest.name);
     }
 
     void onEnemyPause()

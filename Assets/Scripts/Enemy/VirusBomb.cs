@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class VirusBomb : MonoBehaviour {
     public GameObject corrosionGround;
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public bool isShininh;
+    public float shiningRate;
+    public GameObject shiningObject;
+    private bool tmpShining=false;
+    private void Start()
+    {
+        if (isShininh)
+        {
+            InvokeRepeating("Shining", 0, shiningRate);
+        }
+    }
+    void Shining()
+    {
+        tmpShining = !tmpShining;
+        shiningObject.SetActive(tmpShining);
+    }
     public VirusBomb(float Explodesize,GameObject ThingToExplode)
     {
         ThingToExplode.transform.localScale *= Explodesize;

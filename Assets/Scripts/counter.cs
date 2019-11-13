@@ -26,7 +26,7 @@ public class counter : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        //GetComponent<MeshRenderer>().enabled = false;
+        GetComponent<MeshRenderer>().enabled = false;
         if (count == 0)
         {
             Debug.LogWarning("Counter Is 0!");

@@ -14,7 +14,7 @@ public class hurt : MonoBehaviour
     public float DeathTime=3;
     private string RestartScene;
     public float TotalHP = 100;
-    private static float PlayerCurrentHealth;
+    //  private static float PlayerCurrentHealth;
     float HP;
     private bool Wined=false;
     private bool CanHurt = true;
@@ -108,11 +108,6 @@ public class hurt : MonoBehaviour
     }
     public void damage(float hurt,bool trap=false,Transform HurtPosition=null)
     {
-        
-        if (gameObject.tag == "Player")
-        {
-            //Debug.Log("canhurt=" + CanHurt);
-        }
         if (gameObject.tag == "Player" && Wined == true)
         {
             hurt = 0;
@@ -129,18 +124,19 @@ public class hurt : MonoBehaviour
         {
 
             HP1 -= hurt;
-            Invoke("SetHurton", 0.3f);
-            if(animator!=null)
+            if(!trap)
+                Invoke("SetHurton", 0.3f);
+            if(animator!=null&&gameObject.tag!="Player")
                 animator.SetTrigger("damage");
             if (gameObject.tag == "Player")
             {
                 damageINT += 1;
-                animator.SetInteger("damageINT",damageINT);
+                if(hurt>70)
+                    animator.SetInteger("damageINT",damageINT);
             }
             if (gameObject.tag == "Player"&&hurtArrow!=null&&HurtPosition!=null)
             {
                 if (HealthValue != null)
-                    
                     HealthValue.text = Mathf.RoundToInt((HP1 / TotalHP)*100)+"%" ;
                  GameObject tmpHurtArrow= Instantiate(hurtArrow,UI);
                 float worldDeg = Vector2.SignedAngle(new Vector2(gameObject.GetComponent<Player>().cameraDir.forward.x, gameObject.GetComponent<Player>().cameraDir.forward.z),new Vector2( HurtPosition.position.x- gameObject.transform.position.x, HurtPosition.position.z - gameObject.transform.position.z));
@@ -151,7 +147,7 @@ public class hurt : MonoBehaviour
         }
 
         if (!trap&&hurt>60) { 
-            CanHurt = false;
+            //CanHurt = false;
             
         }
         if(HpBar!=null)
