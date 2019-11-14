@@ -7,8 +7,9 @@ public class counter : MonoBehaviour {
     public UnityEvent onCount0;
     public UnityEvent onStart;
     public int count;
+    private int tempCount;
     public Text countText;
-    private bool isStart;
+    private bool isStart=false;
 
 
     public bool IsStart
@@ -31,7 +32,7 @@ public class counter : MonoBehaviour {
         {
             Debug.LogWarning("Counter Is 0!");
         }
-
+        tempCount = count;
     }
 
     protected virtual void OnTriggerEnter(Collider other)
@@ -68,14 +69,14 @@ public class counter : MonoBehaviour {
 	}
     protected virtual void check()
     {
-        if (count == 0)
+        if (count <= 0)
         {
             onCount0.Invoke();
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            hurt.onDied -= countMinus;
         }
     }
     private void OnDisable()
     {
-        hurt.onDied -= countMinus;
     }
 }

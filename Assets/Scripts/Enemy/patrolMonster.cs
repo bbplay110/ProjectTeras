@@ -24,10 +24,11 @@ public class patrolMonster : MonoBehaviour
     private bool See, Dead = false;
     private float attackDist, viewDist;
     private float Dis;
-    
+    private bool isPause = false;
     // Use this for initialization
     void Start()
     {
+
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         Player = GameObject.Find("Player");
@@ -36,6 +37,24 @@ public class patrolMonster : MonoBehaviour
         //agent.autoBraking = false;
         if(!See&& Points.Length != 0)
             GoToNextPoint();
+        bulletTime.OnPauseTime += onEnemyPause;
+        bulletTime.UnPauseTime += unEnemyPause;
+    }
+    void onEnemyPause()
+    {
+        isPause = true;
+        animator.speed = 0;
+        GetComponent<NavMeshAgent>().isStopped = true;
+        viewDist = 0;
+        attackDist = 0;
+    }
+    void unEnemyPause()
+    {
+        isPause = false;
+        animator.speed = 1;
+        GetComponent<NavMeshAgent>().isStopped = false;
+        attackDist = GetComponent<NavMeshAgent>().stoppingDistance;
+        viewDist = attackDist * 2;
     }
     void GoToNextPoint()
     {
@@ -146,6 +165,11 @@ public class patrolMonster : MonoBehaviour
 
         }
 
+    }
+    private void OnDestroy()
+    {
+        bulletTime.OnPauseTime -= onEnemyPause;
+        bulletTime.UnPauseTime -= unEnemyPause;
     }
     public void isDeath()
     {
