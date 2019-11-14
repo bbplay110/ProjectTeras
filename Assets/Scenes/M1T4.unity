@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -334,6 +334,7 @@ GameObject:
   m_Component:
   - component: {fileID: 346944693}
   - component: {fileID: 346944692}
+  - component: {fileID: 346944694}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -371,6 +372,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &346944694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 346944691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1b7762a8ea956428cc807ecf1ff235, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scenes: LEVEL2_1_finish
 --- !u!1 &431813657
 GameObject:
   m_ObjectHideFlags: 0
@@ -2490,10 +2503,10 @@ GameObject:
   - component: {fileID: 1902635096}
   - component: {fileID: 1902635095}
   - component: {fileID: 1902635088}
-  - component: {fileID: 1902635161}
   - component: {fileID: 1902635163}
   - component: {fileID: 1902635162}
   - component: {fileID: 1902635164}
+  - component: {fileID: 1902635161}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -2514,11 +2527,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 342.84967, y: -23.777306}
+  scrollPos: {x: 527.08203, y: -16.20525}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 394
-  zoom: 0.6250001
+  zoom: 0.5200002
   scrollViewRect:
     serializedVersion: 2
     x: -343
@@ -2527,7 +2540,8 @@ MonoBehaviour:
     height: 859
   selectedBlocks:
   - {fileID: 1902635079}
-  selectedCommands: []
+  selectedCommands:
+  - {fileID: 1902635163}
   variables: []
   description: 
   stepPause: 0
@@ -2554,8 +2568,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 62.600014
-    y: 149.59999
+    x: 62.600037
+    y: 149.59996
     width: 120
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -4442,27 +4456,23 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1902635161
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1902635077}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbd8c931f22994b9d90e2037fffaa770, type: 3}
+  m_Script: {fileID: 11500000, guid: 17a200dbd67304446a3019434503338a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 93
+  itemId: 97
   indentLevel: 0
-  _targetGameObject:
-    gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 904658391}
-  activeState:
-    booleanRef: {fileID: 0}
-    booleanVal: 1
-  targetGameObjectOLD: {fileID: 0}
+  targetObject: {fileID: 346944691}
+  methodName: nextScenes
+  delay: 0
 --- !u!114 &1902635162
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1902635077}
@@ -4491,7 +4501,7 @@ MonoBehaviour:
   waitUntilFinished: 0
 --- !u!114 &1902635163
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1902635077}
@@ -4520,7 +4530,7 @@ MonoBehaviour:
   waitUntilFinished: 0
 --- !u!114 &1902635164
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1902635077}
