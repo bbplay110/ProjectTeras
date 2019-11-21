@@ -11,10 +11,10 @@ public class Boss2 : MonoBehaviour {
     private Animator BossAnimator;
     private NavMeshAgent Agent;
     private Transform Player;
+
     // Use this for initialization
     void Start()
     {
-
         InvokeRepeating("CallBrother",0,3);
         BossAnimator = GetComponent<Animator>();
         Player = GameObject.Find("Player").transform;
@@ -47,7 +47,9 @@ public class Boss2 : MonoBehaviour {
     private void OnDestroy()
     {
         Destroy(IronBall, 0);
+
         HpSet.SetActive(false);
+        
 
     }
     private void OnEnable()

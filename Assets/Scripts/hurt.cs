@@ -31,7 +31,7 @@ public class hurt : MonoBehaviour
     private float currentExtraShild;
     public Image ExtraShiledBar;
     public Image HpBar;
-    [HideInInspector]
+    //[HideInInspector]
     public GameObject Win, Lose, mcamera=null;
     //public bool needCleared;
     private Transform UI;
@@ -43,7 +43,7 @@ public class hurt : MonoBehaviour
     private int damageINT=0;
 
     public delegate void OnDiedEvent();
-    public static OnDiedEvent onDied;
+    public static  OnDiedEvent onDied;
     private Animator animator;
     public float HP1
     {
@@ -223,16 +223,13 @@ public class hurt : MonoBehaviour
 
     void CloseBar()
     {
-
-
-
         Time.timeScale = 1;
         Win.SetActive(false);
         Invoke("loadNextLevel",3);
     }
     void loadNextLevel()
     {
-        GetComponent<SceneLoad>().LoadScene(GetComponent<SceneLoad>().scenes);
+        GetComponent<SceneLoad>().nextScenes();
 
     }
     private void Restart()
