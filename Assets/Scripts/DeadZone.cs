@@ -18,6 +18,7 @@ public class DeadZone : MonoBehaviour {
 	}
     private void OnTriggerEnter(Collider Player)
     {
-        Player.gameObject.transform.position = SpawnPoint.position;
+        if(Player.tag=="Player")
+             Player.gameObject.transform.position = SpawnPoint.position;
     }
 }

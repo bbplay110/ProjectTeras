@@ -5,6 +5,7 @@ using UnityEngine;
 public class Remoter : MonoBehaviour {
     public GameObject RemoteObject;
     public GameObject Tip;
+    public GameObject Tip2;
     public int RemoterToOpen=5;
     public bool Main = false;
     private bool IsOpen=false;
@@ -13,7 +14,8 @@ public class Remoter : MonoBehaviour {
 	void Start () {
         effect = transform.Find("Particle System").gameObject.GetComponent<ParticleSystem>();
         Tip.SetActive(false);
-        if(Main)
+        Tip2.SetActive(false);
+        if (Main)
             RemoteObject.SetActive(false);
 	}
 	
@@ -44,13 +46,18 @@ public class Remoter : MonoBehaviour {
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player"&&RemoterToOpen<=0)
             Tip.SetActive(true);
+
+        if (other.tag == "Player" && RemoterToOpen > 0 && Main)
+            Tip2.SetActive(true);
     }
     private void OnTriggerExit(Collider other)
     {
         if(other.tag=="Player")
             Tip.SetActive(false);
+        if (other.tag == "Player" && RemoterToOpen > 0 && Main)
+            Tip2.SetActive(false);
     }
 
 }

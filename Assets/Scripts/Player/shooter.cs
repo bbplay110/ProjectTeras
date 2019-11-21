@@ -137,6 +137,10 @@ public class shooter : MonoBehaviour {
         //animator.ResetTrigger("FireSingle");
 
     }
+    private void Reset()
+    {
+        thingtoAim = GameObject.Find("ThingToAim");
+    }
     private void OnDestroy()
     {
         onAim -= showGun;
