@@ -32,7 +32,7 @@ public class hurt : MonoBehaviour
     public Image ExtraShiledBar;
     public Image HpBar;
     //[HideInInspector]
-    public GameObject Win, Lose, mcamera=null;
+    public GameObject Win, Lose, mcamera;
     //public bool needCleared;
     private Transform UI;
     //public GameObject door;
@@ -210,9 +210,9 @@ public class hurt : MonoBehaviour
                 Time.timeScale = 0.5f;
                 
                 //Wined = true;
-                BossDeath(5);
+                //BossDeath(5);
                 Destroy(gameObject, DeathTime);
-                onDied();
+                //onDied();
             }
             else 
             {

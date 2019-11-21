@@ -8,13 +8,15 @@ public class Boss : MonoBehaviour {
     public bool turnWithPlayer;
     public bool look=false;
     private bool HandIKActive;
-
+    
     private Animator BossAnimator;
     public float rightHandIKWeight=0;
     private Transform Player;
     public GameObject IKAim;
     public GameObject oraoraLeftHand,oraoraRightHand;
     private Transform PlayerCamera;
+    public AudioClip BGM;
+
     //--時停變數
     private bool isPause = false;
     private Animator Ani;
@@ -91,6 +93,8 @@ public class Boss : MonoBehaviour {
 
         shooter.onAim += OnPlayerAim;
         shooter.unAim += OnPlayerNotAim;
+        PlayerCamera.gameObject.GetComponent<AudioSource>().clip = BGM;
+        PlayerCamera.gameObject.GetComponent<AudioSource>().Play();
     }
     public void lookRobot()
     {
