@@ -30,29 +30,36 @@ public class Boss3 : MonoBehaviour {
         AttackDis = GetComponent<NavMeshAgent>().stoppingDistance;
         ViewDis = AttackDis * 3;
         Agent = GetComponent<NavMeshAgent>();
-        InvokeRepeating("checkDis", 6, 1);
+        InvokeRepeating("checkDis", 10, 1);
         Agent.isStopped = true;
         animatorLayer = animator.GetLayerIndex("Base Layer");
-        Player = GameObject.Find("Player").transform;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        JanQiPosition.LookAt(Player.position,new Vector3(0,0, 38).normalized);
-        Dis = Vector3.Distance(Player.position, transform.position);
+       
         Vector2 dirA = new Vector2(transform.forward.x, transform.forward.z);
+        if (Player != null) { 
         Vector2 dirB = new Vector2(Player.position.x - transform.position.x, Player.position.z - transform.position.z);
         angle = Vector2.SignedAngle(dirA, dirB);
         animator.SetFloat("Angle", angle / 180);
+        JanQiPosition.LookAt(Player.position, new Vector3(0, 0, 38).normalized);
+        Dis = Vector3.Distance(Player.position, transform.position);
+        Agent.destination = Player.position;
+        }
         //Debug.Log("Angle" + angle);
 
-        Agent.destination = Player.position;
+    }
+    public void KillerMode()
+    {
+        Player = GameObject.Find("Player").transform;
     }
     public void DrinkingHulu()
     {
         animator.SetTrigger("Drinking");
-        GameObject tmpHuLu = Instantiate(Hulu,leftHand)as GameObject;
+        GameObject tmpHuLu = Instantiate(Hulu,leftHand.position,Quaternion.Euler(0,0,90),leftHand)as GameObject;
     }
     void checkDis()
     {

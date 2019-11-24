@@ -34,7 +34,11 @@ public class Fist : MonoBehaviour {
                 {
                     collision.GetComponent<hurt>().damage(Damage, false);
                 }
-                collision.GetComponent<hurt>().damage(Damage);
+                if (collision.GetComponent<DamageReciver>() != null)
+                {
+                    collision.GetComponent<DamageReciver>().DoDamage(Damage);
+                }
+                //collision.GetComponent<hurt>().damage(Damage);
                 //if(BadGuyBody.GetComponent<Animator>()!=null)
                 //BadGuyBody.GetComponent<Animator>().SetTrigger("damage");
                 //GameObject tempHitParticle = Instantiate(HitParticle, collision.transform.position, collision.transform.rotation, null);

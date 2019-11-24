@@ -32,6 +32,7 @@ public class hurtEditor : Editor {
 
         EditorGUI.BeginDisabledGroup(Tag != "Player");
         m_Target.hurtArrow = EditorGUILayout.ObjectField("HurtArrow", m_Target.hurtArrow, typeof(GameObject), true) as GameObject;
+       // m_Target.Lose=EditorGUILayout.Fie
         m_Target.Lose = EditorGUILayout.ObjectField("死亡畫面", m_Target.Lose, typeof(GameObject), true) as GameObject;
         EditorGUI.EndDisabledGroup();
     }

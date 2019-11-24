@@ -82,6 +82,7 @@ public class hurt : MonoBehaviour
             RestartScene = mscene.name;
             Cursor.visible = false;
             Time.timeScale =1;
+            
             Wined = false;
             UI = GameObject.Find("Main-UI").transform;
         }
@@ -164,7 +165,7 @@ public class hurt : MonoBehaviour
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
                 Time.timeScale = 0.5f;
-                Lose.SetActive(true);
+                Lose.SetActive(false);
                 if (mcamera!= null)
                 {
                     mcamera.GetComponent<Grayscale>().enabled = true;

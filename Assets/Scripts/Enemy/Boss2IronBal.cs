@@ -17,7 +17,8 @@ public class Boss2IronBal : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (followHand) { 
-        iTween.MoveUpdate(gameObject,followPoint.position, 0.3f);
+            iTween.MoveUpdate(gameObject,followPoint.position, 0.3f);
+            iTween.RotateUpdate(gameObject,followPoint.rotation.eulerAngles,0.3f);
         }
         Line.SetPosition(0,self.position);
         Line.SetPosition(1, followPoint.position);
@@ -33,6 +34,9 @@ public class Boss2IronBal : MonoBehaviour {
     {
         followHand = false;
         iTween.MoveTo(gameObject,PlayerPos,1);
+        transform.LookAt(PlayerPos,transform.right);
+        transform.Rotate(90, 0, 0);
+        //iTween.LookTo(gameObject, iTween.Hash("looktarget", PlayerPos, "axis", "up", "time", 0.3f));
         Invoke("ballBack", 2);
     }
     void ballBack()

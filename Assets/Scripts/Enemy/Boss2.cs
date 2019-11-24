@@ -15,6 +15,7 @@ public class Boss2 : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        //GetComponent<hurt>().Win = GameObject.Find("Wining");
         InvokeRepeating("CallBrother",0,3);
         BossAnimator = GetComponent<Animator>();
         Player = GameObject.Find("Player").transform;
@@ -54,7 +55,7 @@ public class Boss2 : MonoBehaviour {
     }
     private void OnEnable()
     {
-        if (Brother.active == true)
+        if (Brother.activeSelf==true)
         {
             Brother.SetActive(false);
         }
