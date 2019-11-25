@@ -42,7 +42,8 @@ public class pistolBulletOnTimeStop : MonoBehaviour {
             if (shootHit.collider.tag == "BreakableObject")
             {
                 GameObject Box = shootHit.transform.gameObject;
-                Box.GetComponent<Rigidbody>().AddForce(shootRay.direction * 30, ForceMode.Force);
+                if(Box.GetComponent<Rigidbody>()!=null)
+                    Box.GetComponent<Rigidbody>().AddForce(shootRay.direction * 30, ForceMode.Force);
             }
             GunHitPartical.Play();
         }

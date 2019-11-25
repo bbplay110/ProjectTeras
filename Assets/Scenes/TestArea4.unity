@@ -929,6 +929,16 @@ Prefab:
       propertyPath: m_Text
       value: "\u745E\u5FB7\u59C6\u7F85"
       objectReference: {fileID: 0}
+    - target: {fileID: 114892720792567408, guid: 87e295429dbfb064ba0ac6804b2a9026,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 809717493}
+    - target: {fileID: 114892720792567408, guid: 87e295429dbfb064ba0ac6804b2a9026,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PauseStart
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87e295429dbfb064ba0ac6804b2a9026, type: 2}
   m_IsPrefabAsset: 0
@@ -1726,7 +1736,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 439422130}
-  m_LocalRotation: {x: 0.043077733, y: -0.008582836, z: -0.0003430561, w: -0.9990348}
+  m_LocalRotation: {x: 0.043078776, y: -0.008582269, z: -0.0003429952, w: -0.9990348}
   m_LocalPosition: {x: 118.118866, y: 53.602848, z: -195.61353}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4686,6 +4696,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1508517644966706, guid: f20de06ff502e014e83196e782cb1374,
     type: 2}
   m_PrefabInternal: {fileID: 1088148825}
+--- !u!114 &809717493 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114378749997738870, guid: f20de06ff502e014e83196e782cb1374,
+    type: 2}
+  m_PrefabInternal: {fileID: 1088148825}
+  m_Script: {fileID: 11500000, guid: 3175dc0790b691542a2ec4f6bad1adff, type: 3}
 --- !u!1001 &848573945
 Prefab:
   m_ObjectHideFlags: 0
@@ -8814,7 +8830,7 @@ MeshCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1660799645}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 3
   m_Convex: 1
@@ -8879,7 +8895,7 @@ GameObject:
   - component: {fileID: 1698777414}
   - component: {fileID: 1698777413}
   - component: {fileID: 1698777412}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Object03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10406,7 +10422,7 @@ MeshCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1900382781}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 3
   m_Convex: 1

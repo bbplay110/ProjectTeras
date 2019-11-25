@@ -31,7 +31,7 @@ public class patrolMonster : MonoBehaviour
 
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
-        Player = GameObject.Find("Player");
+        Player = GameObject.Find("Player"); 
         attackDist = agent.stoppingDistance;
         viewDist = attackDist*10;
         //agent.autoBraking = false;
@@ -98,6 +98,7 @@ public class patrolMonster : MonoBehaviour
             animator.SetBool("shooting", true);
             animator.SetBool("Walk", false);
             GetComponent<NavMeshAgent>().isStopped = true;
+            See = true;
 
         }
         else if(Dis <= attackDist * 2&&Dis>attackDist)
@@ -113,6 +114,7 @@ public class patrolMonster : MonoBehaviour
             GetComponent<NavMeshAgent>().destination = Player.transform.position;
             GetComponent<NavMeshAgent>().isStopped = false;
             animator.SetBool("Walk", true);
+            animator.SetBool("shooting", false);
         }
         else if (Dis < viewDist && Dis > attackDist * 2 && See)
         {

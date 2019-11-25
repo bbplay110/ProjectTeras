@@ -3578,7 +3578,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1513242170071518}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.13, y: 37.13, z: 7.9}
+  m_LocalPosition: {x: -2.13, y: 37.13, z: 12.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4839313275356252}
@@ -3923,7 +3923,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1851979413245922}
   m_LocalRotation: {x: -0, y: 0.7853574, z: -0, w: 0.61904263}
-  m_LocalPosition: {x: 65.931206, y: 30.999998, z: 87.84426}
+  m_LocalPosition: {x: 5.15361, y: 1.5, z: -191.64326}
   m_LocalScale: {x: 0.12341865, y: 0.12341865, z: 0.12341865}
   m_Children:
   - {fileID: 4757073183647172}
@@ -4367,9 +4367,6 @@ MonoBehaviour:
   Eyeball: {fileID: 4666238395700606}
   CanBrandingBrothers: 0
   Brothers: []
-  Player: {fileID: 0}
-  See: 0
-  Dead: 0
 --- !u!114 &114474972939118046
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4400,11 +4397,10 @@ MonoBehaviour:
   ExtraShildRecover: 1
   ExtraShildRecoverTime: 3
   ExtraShiledBar: {fileID: 0}
-  HpBar: {fileID: 0}
+  HpBar: {fileID: 114932319139205972}
   Win: {fileID: 0}
   Lose: {fileID: 0}
   mcamera: {fileID: 0}
-  UI: {fileID: 0}
   HealthValue: {fileID: 0}
   DeadBody: {fileID: 0}
   hurtArrow: {fileID: 0}
@@ -4629,7 +4625,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 15
+  m_StoppingDistance: 10
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1

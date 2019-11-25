@@ -8,12 +8,57 @@ public class VirusBomb : MonoBehaviour {
     public float shiningRate;
     public GameObject shiningObject;
     private bool tmpShining=false;
+    private bool isPaused;
+    private bool pauseOnStart = false;
+    private Rigidbody rigi;
+    private Vector3 tempVelocity;
     private void Start()
     {
+        isPaused = GameObject.Find("Player").GetComponent<bulletTime>().IsPaused;
+        rigi = GetComponent<Rigidbody>();
+        bulletTime.OnPauseTime += onPauseEvent;
+        bulletTime.UnPauseTime += unPauseEvent;
+        if (isPaused)
+        {
+
+            this.onPauseEvent();
+            pauseOnStart = true;
+        }
         if (isShininh)
         {
             InvokeRepeating("Shining", 0, shiningRate);
         }
+        bulletTime.OnPauseTime += onPauseEvent;
+        bulletTime.UnPauseTime += unPauseEvent;
+    }
+    private void OnDestroy()
+    {
+        bulletTime.OnPauseTime -= onPauseEvent;
+        bulletTime.UnPauseTime -= unPauseEvent;
+    }
+    void onPauseEvent()
+    {
+        isPaused = true;
+        GetComponent<Collider>().enabled = false;
+        tempVelocity = rigi.velocity;
+        rigi.Sleep();
+    }
+    void unPauseEvent()
+    {
+        isPaused = false;
+        GetComponent<Collider>().enabled = true;
+        rigi.WakeUp();
+        if (pauseOnStart)
+        {
+            rigi.AddForce(transform.forward * 3, ForceMode.Impulse);
+            pauseOnStart = false;
+        }
+        else
+        {
+            rigi.AddForce(tempVelocity);
+        }
+
+
     }
     void Shining()
     {

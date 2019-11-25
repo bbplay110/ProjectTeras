@@ -89,6 +89,7 @@ public class hurt : MonoBehaviour
         HP1 = TotalHP;
         CurrentExtraShild = TotalExtraShild;
         animator = GetComponent<Animator>();
+        mcamera = GameObject.Find("CameraCore");
     }
 
     // Update is called once per frame
@@ -165,7 +166,7 @@ public class hurt : MonoBehaviour
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
                 Time.timeScale = 0.5f;
-                Lose.SetActive(false);
+                Lose.SetActive(true);
                 if (mcamera!= null)
                 {
                     mcamera.GetComponent<Grayscale>().enabled = true;
@@ -225,8 +226,8 @@ public class hurt : MonoBehaviour
     void CloseBar()
     {
         Time.timeScale = 1;
+        Invoke("loadNextLevel", 3);
         Win.SetActive(false);
-        Invoke("loadNextLevel",3);
     }
     void loadNextLevel()
     {

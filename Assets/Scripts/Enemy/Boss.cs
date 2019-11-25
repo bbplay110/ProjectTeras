@@ -25,7 +25,7 @@ public class Boss : MonoBehaviour {
     // Use this for initialization
     private void Awake()
     {
-        PlayerCamera = FindObjectOfType<Camera3rdControl>().target;
+        PlayerCamera = FindObjectOfType<Camera3rdControl>().transform;
 
     }
     void Start () {

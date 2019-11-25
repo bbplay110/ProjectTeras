@@ -8,6 +8,8 @@ public class Boss2IronBal : MonoBehaviour {
     //public Transform IronFlyPoint;
     private bool followHand=true;
     private LineRenderer Line;
+    public float Hurt;
+
 	// Use this for initialization
 	void Start () {
         self = transform;
@@ -27,7 +29,7 @@ public class Boss2IronBal : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
-            other.GetComponent<hurt>().damage(100);
+            //other.GetComponent<hurt>().damage(Hurt,false);
         }
     }
     public void ballfly(Vector3 PlayerPos)

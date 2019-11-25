@@ -178,6 +178,7 @@ public class SLMenu : MonoBehaviour {
 
     }
     void Start () {
+        getSaves();
         //Debug.Log(Application.persistentDataPath);
         this.enabled = true;
         /*if (QuickSaveSlot == null && transform.Find("QuickSave").gameObject != null)
@@ -194,6 +195,10 @@ public class SLMenu : MonoBehaviour {
         {
             Content = transform.Find("Content").gameObject;
         }*/
+        if (player == null)
+        {
+            player = GameObject.Find("Player");
+        }
         switch (SLstatus)
         {
             case saveOrLoad.save:
@@ -201,7 +206,7 @@ public class SLMenu : MonoBehaviour {
                 if (saveGames != null && saveGames[0].saveName == "QuickSave") { 
                     QuickSaveSlot.GetComponent<Button>().onClick.RemoveAllListeners();
                     QuickSaveSlot.GetComponent<Button>().onClick.AddListener(delegate() { replaceSave(); });
-                    QuickSaveSlot.transform.Find("Number").GetComponent<Text>().text = saveGames[0].saveName;
+                    QuickSaveSlot.transform.Find("Number").GetComponentInChildren<Text>().text = saveGames[0].saveName;
                     QuickSaveSlot.transform.Find("Date").GetComponent<Text>().text = saveGames[0].saveDate;
                     QuickSaveSlot.name = saveGames[0].saveName;
                 }
@@ -210,7 +215,7 @@ public class SLMenu : MonoBehaviour {
                 if (saveGames != null&&saveGames[0].saveName=="QuickSave") { 
                 QuickSaveSlot.GetComponent<Button>().onClick.RemoveAllListeners();
                 QuickSaveSlot.GetComponent<Button>().onClick.AddListener(delegate() { realLoad(); });
-                QuickSaveSlot.transform.Find("Number").GetComponent<Text>().text = saveGames[0].saveName;
+                QuickSaveSlot.transform.Find("Number").GetComponentInChildren<Text>().text = saveGames[0].saveName;
                 QuickSaveSlot.transform.Find("Date").GetComponent<Text>().text = saveGames[0].saveDate;
                 QuickSaveSlot.name = saveGames[0].saveName;
                 }
@@ -313,7 +318,7 @@ public class SLMenu : MonoBehaviour {
                     {
                         QuickSaveSlot.GetComponent<Button>().onClick.RemoveAllListeners();
                         QuickSaveSlot.GetComponent<Button>().onClick.AddListener(delegate() { realLoad(); });
-                        QuickSaveSlot.transform.Find("Number").GetComponent<Text>().text =saveGames[0].saveName;
+                        QuickSaveSlot.transform.Find("Number").GetComponentInChildren<Text>().text =saveGames[0].saveName;
                         QuickSaveSlot.transform.Find("Date").GetComponent<Text>().text =saveGames[0].saveDate;
                         QuickSaveSlot.name =saveGames[0].saveName;
                     }
@@ -324,7 +329,7 @@ public class SLMenu : MonoBehaviour {
                         tmpSaveSlot.GetComponent<Button>().onClick.RemoveAllListeners();
                         tmpSaveSlot.GetComponent<Button>().onClick.AddListener(delegate() { realLoad(); });
                         Debug.Log(tmpSaveSlot.GetComponent<Button>().onClick);
-                        tmpSaveSlot.transform.Find("Number").GetComponent<Text>().text =saveGames[i].saveName;
+                        tmpSaveSlot.transform.Find("Number").GetComponentInChildren<Text>().text =saveGames[i].saveName;
                         tmpSaveSlot.transform.Find("Date").GetComponent<Text>().text =saveGames[i].saveDate;
                         tmpSaveSlot.name = "save" + (Content.transform.childCount).ToString();
 

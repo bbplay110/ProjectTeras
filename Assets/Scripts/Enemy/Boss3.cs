@@ -21,8 +21,9 @@ public class Boss3 : MonoBehaviour {
     private AnimationState ThrowBomb;
     private bool drinking1, drinking2, drinking3,spin = false;
     public GameObject Hulu;
+    private bool isPause = false;
     // Use this for initialization
-    
+
     void Start()
     {
         InvokeRepeating("LifeCheck",12,1);
@@ -33,9 +34,26 @@ public class Boss3 : MonoBehaviour {
         InvokeRepeating("checkDis", 10, 1);
         Agent.isStopped = true;
         animatorLayer = animator.GetLayerIndex("Base Layer");
+        bulletTime.OnPauseTime += onEnemyPause;
+        bulletTime.UnPauseTime += unEnemyPause;
 
     }
-
+    void onEnemyPause()
+    {
+        isPause = true;
+        animator.speed = 0;
+        GetComponent<NavMeshAgent>().isStopped = true;
+        AttackDis = 0;
+        ViewDis = 0;
+    }
+    void unEnemyPause()
+    {
+        isPause = false;
+        animator.speed = 1;
+        GetComponent<NavMeshAgent>().isStopped = false;
+        AttackDis = GetComponent<NavMeshAgent>().stoppingDistance;
+        ViewDis = AttackDis * 3;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -169,6 +187,11 @@ public class Boss3 : MonoBehaviour {
         Debug.Log("checkLife!");
 
         Debug.Log("nextCheckIs"+GetComponent<hurt>().TotalHP * 0.7f);
+    }
+    private void OnDestroy()
+    {
+        bulletTime.OnPauseTime -= onEnemyPause;
+        bulletTime.UnPauseTime -= unEnemyPause;
     }
     public void DoSwordSlash(int count)
     {
