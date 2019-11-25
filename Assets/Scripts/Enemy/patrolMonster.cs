@@ -173,6 +173,11 @@ public class patrolMonster : MonoBehaviour
         bulletTime.OnPauseTime -= onEnemyPause;
         bulletTime.UnPauseTime -= unEnemyPause;
     }
+    private void OnDisable()
+    {
+        bulletTime.OnPauseTime -= onEnemyPause;
+        bulletTime.UnPauseTime -= unEnemyPause;
+    }
     public void isDeath()
     {
         Dead = true;

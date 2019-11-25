@@ -119,6 +119,7 @@ public class Boss : MonoBehaviour {
     }
     private void OnDestroy()
     {
+        GetComponent<SceneLoad>().nextScenes();
         bulletTime.OnPauseTime -= onEnemyPause;
         bulletTime.UnPauseTime -= unEnemyPause;
     }

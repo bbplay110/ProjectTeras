@@ -113,6 +113,11 @@ public class shootingEnemy : MonoBehaviour
             Ani.SetBool("shooting", false);
         }
     }
+    private void OnDisable()
+    {
+        bulletTime.OnPauseTime -= onEnemyPause;
+        bulletTime.UnPauseTime -= unEnemyPause;
+    }
     private void LateUpdate()
     {
         if (LookWithPlayer) { 
