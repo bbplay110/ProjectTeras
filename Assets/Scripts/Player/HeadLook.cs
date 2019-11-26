@@ -5,6 +5,7 @@ using UnityEngine;
 public class HeadLook : MonoBehaviour {
     private Animator animator;
     public Transform LookTransform;
+    public Vector3 lookOffset;
     public bool Look;
     private void Start()
     {
@@ -22,6 +23,6 @@ public class HeadLook : MonoBehaviour {
 
             animator.SetLookAtWeight(0,0,0,0,0);
         }
-        animator.SetLookAtPosition(LookTransform.position);
+        animator.SetLookAtPosition(LookTransform.position+lookOffset    );
     }
 }
