@@ -66,5 +66,9 @@ namespace Cinemachine
                 transform.rotation = m_Path.EvaluateOrientationAtUnit(m_Position, m_PositionUnits);
             }
         }
+        public void setSpeed(int Sspeed)
+        {
+            m_Speed = Sspeed;
+        }
     }
 }
