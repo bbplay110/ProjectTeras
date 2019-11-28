@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour {
 	public int DestoryTime;
 	public int speed;
     public float power=60f;
-    public LayerMask layer;
+    //public LayerMask layer;
     private float tempSpeed;
 	// Use this for initialization
 	void Start () {

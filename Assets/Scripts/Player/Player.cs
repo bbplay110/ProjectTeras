@@ -138,11 +138,13 @@ using Cinemachine;
     }
     void dodge()
     {
-        if (hInput.GetButton("Run"))
+        if (hInput.GetButtonDown("dodge"))
         {
             dodgeCounter += 1 * Time.deltaTime;
+
+            animator.SetTrigger("Dash");
         }
-        if (hInput.GetButtonUp("Run"))
+        /*if (hInput.GetButtonUp("Run"))
         {
             if (dodgeCounter <= 0.5f)
             {
@@ -161,7 +163,7 @@ using Cinemachine;
                 Debug.Log("NO Dodge");
             }
             dodgeCounter = 0;
-        }
+        }*/
     }
     public void Dash()
     {
