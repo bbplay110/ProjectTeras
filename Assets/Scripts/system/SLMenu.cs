@@ -211,7 +211,7 @@ public class SLMenu : MonoBehaviour {
                 }
                 break;
             case saveOrLoad.load:
-                if (saveGames != null&&saveGames[0].saveName=="QuickSave") { 
+                if (saveGames != null&&saveGames[0].saveName=="QuickSave" && QuickSaveSlot != null) { 
                 QuickSaveSlot.GetComponent<Button>().onClick.RemoveAllListeners();
                 QuickSaveSlot.GetComponent<Button>().onClick.AddListener(delegate() { realLoad(); });
                 QuickSaveSlot.transform.Find("Number").GetComponentInChildren<Text>().text = saveGames[0].saveName;
@@ -282,7 +282,7 @@ public class SLMenu : MonoBehaviour {
     {
         getSaves();
         // saveGames = SaveLoad.GetSaveGames(slu.saveGamePath, slu.usePersistentDataPath);
-        if (saveGames != null&&QuickSaveSlot!=null) {
+        if (saveGames != null&&QuickSaveSlot!=null&& SaveSlot!=null) {
             switch (SLstatus)
             {
                 case saveOrLoad.save:
@@ -378,7 +378,7 @@ public class SLMenu : MonoBehaviour {
     }
     private void OnDisable()
     {
-        if (saveGames != null&&QuickSaveSlot!=null) { 
+        if (saveGames != null&&QuickSaveSlot!=null&&SaveSlot!=null) { 
            
             switch (SLstatus)
             {
@@ -409,7 +409,11 @@ public class SLMenu : MonoBehaviour {
                     break;
             }
         }
-        SceneManager.sceneLoaded -= LoadAction;
 
+    }
+    private void OnDestroy()
+    {
+
+        SceneManager.sceneLoaded -= LoadAction;
     }
 }

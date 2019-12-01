@@ -29,7 +29,7 @@ public class Explosion : MonoBehaviour  {
         if (Enemya.tag != "Player")
         {
             if(Enemya.GetComponent<hurt>()!=null)
-                Enemya.GetComponent<hurt>().damage(Hurt,true);
+                Enemya.GetComponent<hurt>().damage(Hurt,true,transform);
             else if(Enemya.GetComponent<DamageReciver>() != null)
                 {
                     Enemya.GetComponent<DamageReciver>().DoDamage(Hurt);

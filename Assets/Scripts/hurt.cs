@@ -138,9 +138,12 @@ public class hurt : MonoBehaviour
             }
             if (gameObject.tag == "Player"&&hurtArrow!=null&&HurtPosition!=null)
             {
+
                 if (HealthValue != null)
-                    HealthValue.text = Mathf.RoundToInt((HP1 / TotalHP)*100)+"%" ;
-                 GameObject tmpHurtArrow= Instantiate(hurtArrow,UI);
+                {
+                    HealthValue.text = Mathf.RoundToInt((HP1 / TotalHP) * 100) + "%";
+                }
+                GameObject tmpHurtArrow= Instantiate(hurtArrow,UI);
                 float worldDeg = Vector2.SignedAngle(new Vector2(gameObject.GetComponent<Player>().cameraDir.forward.x, gameObject.GetComponent<Player>().cameraDir.forward.z),new Vector2( HurtPosition.position.x- gameObject.transform.position.x, HurtPosition.position.z - gameObject.transform.position.z));
                 //tmpHurtArrow.GetComponent<RectTransform>().position = new Vector3(0,0,0);
                 tmpHurtArrow.GetComponent<RectTransform>().rotation = Quaternion.Euler(0,0,worldDeg);
@@ -196,6 +199,15 @@ public class hurt : MonoBehaviour
             }
             else if (gameObject.tag == "Boss")
             {
+
+                if (DeathTime <= 1)
+                {
+                    Invoke("CloseBar",0.5f);
+                }
+                else
+                {
+                    Invoke("CloseBar",DeathTime-1);
+                }
                 //whateverSaeaegeageadzgszhsxdyj
                 if (GetComponent<Animator>() != null)
                 {
@@ -207,10 +219,8 @@ public class hurt : MonoBehaviour
                     GetComponent<Collider>().enabled = false;
                 if(Win!=null)
                     Win.SetActive(true);
-                Invoke("CloseBar", 1);
                 //Cursor.visible = true;
                 Time.timeScale = 0.5f;
-                
                 //Wined = true;
                 //BossDeath(5);
                 Destroy(gameObject, DeathTime);
@@ -225,14 +235,14 @@ public class hurt : MonoBehaviour
 
     void CloseBar()
     {
+        Invoke("loadNextLevel",0.9f);
         Time.timeScale = 1;
-        Invoke("loadNextLevel", 3);
+        if(Win!=null)
         Win.SetActive(false);
     }
     void loadNextLevel()
     {
         GetComponent<SceneLoad>().nextScenes();
-
     }
     private void Restart()
     {

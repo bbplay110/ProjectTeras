@@ -14,7 +14,8 @@ public class Remoter : MonoBehaviour {
 	void Start () {
         effect = transform.Find("Particle System").gameObject.GetComponent<ParticleSystem>();
         Tip.SetActive(false);
-        Tip2.SetActive(false);
+        if(Tip2!=null)
+            Tip2.SetActive(false);
         if (Main)
             RemoteObject.SetActive(false);
 	}

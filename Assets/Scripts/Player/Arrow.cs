@@ -88,7 +88,8 @@ public class Arrow : MonoBehaviour {
 
     void hurtEnemy()
     {
-        EnemyHurt.damage(damage/ExitTime,true);
+        if(EnemyHurt!=null)
+            EnemyHurt.damage(damage/ExitTime,true);
     }
     private void OnDestroy()
     {

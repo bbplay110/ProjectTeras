@@ -13,7 +13,7 @@ public class AID : MonoBehaviour {
         Debug.Log("AAAAAAAAA");
         if (other.tag == "Player")
         {
-            other.GetComponent<hurt>().damage(-healthPlus);
+            other.GetComponent<hurt>().damage(-healthPlus,true,transform);
             Destroy(gameObject);
             
         }

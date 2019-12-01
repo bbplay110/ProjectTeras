@@ -83,8 +83,8 @@ public class Boss : MonoBehaviour {
 
     private void OnAnimatorIK(int layerIndex)
     {
-        BossAnimator.SetIKPosition(AvatarIKGoal.RightHand,IKAim.transform.position);
         BossAnimator.SetIKPositionWeight(AvatarIKGoal.RightHand, rightHandIKWeight);
+        BossAnimator.SetIKPosition(AvatarIKGoal.RightHand, IKAim.transform.position);
     }
     private void OnEnable()
     {
@@ -119,7 +119,6 @@ public class Boss : MonoBehaviour {
     }
     private void OnDestroy()
     {
-        GetComponent<SceneLoad>().nextScenes();
         bulletTime.OnPauseTime -= onEnemyPause;
         bulletTime.UnPauseTime -= unEnemyPause;
     }

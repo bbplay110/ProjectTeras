@@ -944,6 +944,8 @@ GameObject:
   - component: {fileID: 114264072981566870}
   - component: {fileID: 114585673391993626}
   - component: {fileID: 95049897932190138}
+  - component: {fileID: 114294735966172366}
+  - component: {fileID: 114255204049533218}
   m_Layer: 5
   m_Name: Main-UI
   m_TagString: Untagged
@@ -1298,6 +1300,7 @@ GameObject:
   - component: {fileID: 224361269278619802}
   - component: {fileID: 222603286110419832}
   - component: {fileID: 114394098046868462}
+  - component: {fileID: 114719020548275800}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -2644,6 +2647,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mixer: {fileID: 0}
   vvvolume: 2
+--- !u!114 &114255204049533218
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1550083092813090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1b7762a8ea956428cc807ecf1ff235, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scenes: Level2_3finish
 --- !u!114 &114256279299983172
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2786,6 +2801,33 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 100%
+--- !u!114 &114294735966172366
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1550083092813090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78cfb436379a07e459032975a2f961b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  events:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1550083092813090}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114307567976576738
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4635,6 +4677,17 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.ScrollRect+ScrollRectEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114719020548275800
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1720858041564446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87efc5ca66ecf45826972e287038a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114758686768666002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6231,8 +6284,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 0, y: 0.48619}
+  m_SizeDelta: {x: 68, y: 105.57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224010282474329162
 RectTransform:

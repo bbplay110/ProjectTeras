@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.051359087, g: 0.08331202, b: 0.13900636, a: 1}
+  m_IndirectSpecularColor: {r: 0.05135925, g: 0.08331202, b: 0.13900606, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10075,6 +10075,33 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1550083092813090, guid: 87e295429dbfb064ba0ac6804b2a9026,
     type: 2}
   m_PrefabInternal: {fileID: 997209254}
+--- !u!114 &606443351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 606443350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78cfb436379a07e459032975a2f961b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  events:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 997209260}
+        m_MethodName: nextScenes
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!95 &606443355 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 95049897932190138, guid: 87e295429dbfb064ba0ac6804b2a9026,
@@ -20939,9 +20966,20 @@ Prefab:
     - target: {fileID: 224828871158511684, guid: 87e295429dbfb064ba0ac6804b2a9026,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 12.706039
+      value: 12.706055
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114892720792567408, guid: 87e295429dbfb064ba0ac6804b2a9026,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2069166179}
+    - target: {fileID: 114892720792567408, guid: 87e295429dbfb064ba0ac6804b2a9026,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PauseStart
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114294735966172366, guid: 87e295429dbfb064ba0ac6804b2a9026, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 87e295429dbfb064ba0ac6804b2a9026, type: 2}
   m_IsPrefabAsset: 0
 --- !u!114 &997209255 stripped
@@ -20973,6 +21011,12 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 997209254}
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &997209260 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114255204049533218, guid: 87e295429dbfb064ba0ac6804b2a9026,
+    type: 2}
+  m_PrefabInternal: {fileID: 997209254}
+  m_Script: {fileID: 11500000, guid: fc1b7762a8ea956428cc807ecf1ff235, type: 3}
 --- !u!1001 &999706800
 Prefab:
   m_ObjectHideFlags: 0
@@ -45411,6 +45455,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1508517644966706, guid: f20de06ff502e014e83196e782cb1374,
     type: 2}
   m_PrefabInternal: {fileID: 2069166174}
+--- !u!114 &2069166179 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114378749997738870, guid: f20de06ff502e014e83196e782cb1374,
+    type: 2}
+  m_PrefabInternal: {fileID: 2069166174}
+  m_Script: {fileID: 11500000, guid: 3175dc0790b691542a2ec4f6bad1adff, type: 3}
 --- !u!1 &2070249298
 GameObject:
   m_ObjectHideFlags: 0

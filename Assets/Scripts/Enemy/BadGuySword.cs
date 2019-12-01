@@ -17,7 +17,7 @@ public class BadGuySword : MonoBehaviour {
         if (other.tag == "Player")
         {
 
-            other.GetComponent<hurt>().damage(Damage);
+            other.GetComponent<hurt>().damage(Damage,false,transform);
             //PlayerBody.GetComponent<Animator>().SetTrigger("damage");
         }
     }
