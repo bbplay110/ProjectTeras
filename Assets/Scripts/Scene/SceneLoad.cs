@@ -19,7 +19,8 @@ public class SceneLoad : MonoBehaviour {
 	public void nextScenes(){
         if (scenes != null)
         {
-           SceneManager.LoadScene(scenes);
+            Time.timeScale = 1;
+            SceneManager.LoadScene(scenes);
         }
         else
         {
@@ -29,6 +30,8 @@ public class SceneLoad : MonoBehaviour {
     
     public void LoadScene(string Scene)
     {
+
+        Time.timeScale = 1;
         SceneManager.LoadScene(Scene);
     }
 	public void quit(){

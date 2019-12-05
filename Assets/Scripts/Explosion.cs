@@ -34,6 +34,7 @@ public class Explosion : MonoBehaviour  {
                 {
                     Enemya.GetComponent<DamageReciver>().DoDamage(Hurt);
                 }
+
         }
         }
         else
@@ -43,7 +44,7 @@ public class Explosion : MonoBehaviour  {
                 {
                     Debug.Log("hitThing!");
                     
-                    Enemya.GetComponent<hurt>().damage(Hurt,true);
+                    Enemya.GetComponent<hurt>().damage(Hurt,true,transform);
                     
                     Enemya.GetComponent<Animator>().SetTrigger("damage");
 

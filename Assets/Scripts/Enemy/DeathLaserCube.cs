@@ -31,7 +31,7 @@ public class DeathLaserCube : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
-            other.GetComponent<hurt>().damage(99999);
+            other.GetComponent<hurt>().damage(99999,true,transform);
         }
     }
 }

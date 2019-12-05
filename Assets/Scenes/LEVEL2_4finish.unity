@@ -113,7 +113,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 775838a233b7dfc4aa624b7e30424781, type: 2}
 --- !u!1001 &360127
 Prefab:
   m_ObjectHideFlags: 0
@@ -483,21 +483,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 114187216975523558, guid: f20de06ff502e014e83196e782cb1374,
-        type: 2}
-      propertyPath: thingtoAim
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114689194611877446, guid: f20de06ff502e014e83196e782cb1374,
-        type: 2}
-      propertyPath: HealthValue
-      value: 
-      objectReference: {fileID: 1197491408}
-    - target: {fileID: 114689194611877446, guid: f20de06ff502e014e83196e782cb1374,
-        type: 2}
-      propertyPath: HpBar
-      value: 
-      objectReference: {fileID: 673476277}
     - target: {fileID: 114040767381784064, guid: f20de06ff502e014e83196e782cb1374,
         type: 2}
       propertyPath: MpText
@@ -510,11 +495,35 @@ Prefab:
       objectReference: {fileID: 252061803}
     - target: {fileID: 114689194611877446, guid: f20de06ff502e014e83196e782cb1374,
         type: 2}
-      propertyPath: TotalHP
-      value: 1000
+      propertyPath: HpBar
+      value: 
+      objectReference: {fileID: 673476277}
+    - target: {fileID: 114689194611877446, guid: f20de06ff502e014e83196e782cb1374,
+        type: 2}
+      propertyPath: HealthValue
+      value: 
+      objectReference: {fileID: 1197491408}
+    - target: {fileID: 4252080669943030, guid: f20de06ff502e014e83196e782cb1374, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0.0145326415
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114410839351580528, guid: f20de06ff502e014e83196e782cb1374, type: 2}
+    - target: {fileID: 4252080669943030, guid: f20de06ff502e014e83196e782cb1374, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0.08302485
+      objectReference: {fileID: 0}
+    - target: {fileID: 4252080669943030, guid: f20de06ff502e014e83196e782cb1374, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.10400835
+      objectReference: {fileID: 0}
+    - target: {fileID: 4252080669943030, guid: f20de06ff502e014e83196e782cb1374, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 5.2169914
+      objectReference: {fileID: 0}
+    - target: {fileID: 4252080669943030, guid: f20de06ff502e014e83196e782cb1374, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.109317146
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f20de06ff502e014e83196e782cb1374, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &24185664
@@ -4197,6 +4206,7 @@ GameObject:
   - component: {fileID: 259745834}
   - component: {fileID: 259745833}
   - component: {fileID: 259745832}
+  - component: {fileID: 259745835}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -4260,6 +4270,17 @@ RectTransform:
   m_AnchoredPosition: {x: -1.454834, y: 0.77941895}
   m_SizeDelta: {x: -997.63947, y: -559.63477}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &259745835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 259745831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87efc5ca66ecf45826972e287038a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &262291800
 GameObject:
   m_ObjectHideFlags: 0
@@ -21517,6 +21538,11 @@ Prefab:
         type: 2}
       propertyPath: DeathTime
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114452418152136450, guid: caff3a5b7fb7b654984da400c3029d85,
+        type: 2}
+      propertyPath: TotalHP
+      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caff3a5b7fb7b654984da400c3029d85, type: 2}

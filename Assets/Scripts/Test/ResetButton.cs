@@ -11,10 +11,14 @@ public class ResetButton : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         if (Input.GetKeyDown(KeyCode.F12)){
+
+            Time.timeScale = 1;
             SceneManager.LoadScene(currentScene);
         }
         if (Input.GetKeyDown(KeyCode.F11))
         {
+
+            Time.timeScale = 1;
             SceneManager.LoadScene("TestArea4");
         }
         if(Input.GetKeyDown(KeyCode.F10))
@@ -26,7 +30,7 @@ public class ResetButton : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.F8))
             SceneManager.LoadScene("LEVEL2_2-2");
 
-        if (Input.GetKeyDown(KeyCode.F8))
+        if (Input.GetKeyDown(KeyCode.F7))
             SceneManager.LoadScene("LEVEL2_2-1_finish");
 
         if (Input.GetKeyDown(KeyCode.F6))

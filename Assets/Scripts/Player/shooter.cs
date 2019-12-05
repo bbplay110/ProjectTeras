@@ -241,12 +241,15 @@ public class shooter : MonoBehaviour {
     void hideGun()
     {
         timer = 0;
+
+        canFire = true;
         Debug.Log("HideGun");
         foreach (var item in GunModel)
         {
             item.SetActive(false);
         }
         setIK = false;
+
     }
     void onTimePause()
     {
